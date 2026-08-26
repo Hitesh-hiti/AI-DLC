@@ -1,0 +1,750 @@
+{
+  "info": {
+    "_postman_id": "northstar-ecommerce-api",
+    "name": "Northstar E-commerce API",
+    "description": "Complete API collection for Northstar E-commerce platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response has status OK\", function () {",
+              "    pm.expect(pm.response.json().status).to.equal(\"OK\");",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "health"
+          ]
+        },
+        "description": "Check if the server is running and healthy"
+      }
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Get All Products",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response is successful\", function () {",
+                  "    pm.expect(pm.response.json().success).to.equal(true);",
+                  "});",
+                  "pm.test(\"Response has pagination\", function () {",
+                  "    pm.expect(pm.response.json().pagination).to.exist;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/products?collection=all-products&sort=newest&page=1&limit=20",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "collection",
+                  "value": "all-products",
+                  "disabled": false
+                },
+                {
+                  "key": "sort",
+                  "value": "newest",
+                  "disabled": false
+                },
+                {
+                  "key": "price_min",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "price_max",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "availability",
+                  "value": "all",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": false
+                },
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "List all products with optional filtering, sorting, and pagination"
+          }
+        },
+        {
+          "name": "Get Products by Collection - Tech",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/products?collection=tech-gadget&sort=price-asc&page=1&limit=10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "collection",
+                  "value": "tech-gadget"
+                },
+                {
+                  "key": "sort",
+                  "value": "price-asc"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Get Tech & Gadget products sorted by price ascending"
+          }
+        },
+        {
+          "name": "Get Products with Price Filter",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/products?price_min=50&price_max=200&availability=in-stock",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "price_min",
+                  "value": "50"
+                },
+                {
+                  "key": "price_max",
+                  "value": "200"
+                },
+                {
+                  "key": "availability",
+                  "value": "in-stock"
+                }
+              ]
+            },
+            "description": "Get in-stock products with price range between $50-$200"
+          }
+        },
+        {
+          "name": "Get Product by ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Product has images\", function () {",
+                  "    pm.expect(pm.response.json().data.images).to.be.an('array');",
+                  "});",
+                  "pm.test(\"Product has specifications\", function () {",
+                  "    pm.expect(pm.response.json().data.specifications).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/products/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "products",
+                "1"
+              ]
+            },
+            "description": "Get detailed information about a specific product including images and specifications"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Search Products",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response is successful\", function () {",
+                  "    pm.expect(pm.response.json().success).to.equal(true);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/search?q=headphones&page=1&limit=20",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "headphones"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            },
+            "description": "Search products using full-text search"
+          }
+        },
+        {
+          "name": "Search - Wireless",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/search?q=wireless&page=1&limit=10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "wireless"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Search - Tech",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/search?q=tech&page=1&limit=50",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "tech"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Collections",
+      "item": [
+        {
+          "name": "Get All Collections",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response has 6 collections\", function () {",
+                  "    pm.expect(pm.response.json().data.length).to.equal(6);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/collections",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "collections"
+              ]
+            },
+            "description": "Get all available product collections"
+          }
+        },
+        {
+          "name": "Get Collection Products - Tech",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/collections/tech-gadget/products",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "collections",
+                "tech-gadget",
+                "products"
+              ]
+            },
+            "description": "Get all products in the Tech & Gadget collection"
+          }
+        },
+        {
+          "name": "Get Collection Products - Fashion",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/collections/fashion/products?sort=price-desc",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "collections",
+                "fashion",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "price-desc"
+                }
+              ]
+            },
+            "description": "Get Fashion products sorted by price (descending)"
+          }
+        },
+        {
+          "name": "Get Collection Products - Lifestyle",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/collections/lifestyle/products",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "collections",
+                "lifestyle",
+                "products"
+              ]
+            },
+            "description": "Get Lifestyle products"
+          }
+        },
+        {
+          "name": "Get Collection Products - Home & Living",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/collections/home-living/products",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "collections",
+                "home-living",
+                "products"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Collection Products - Games & Play",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/collections/games-play/products",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "collections",
+                "games-play",
+                "products"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "New Arrivals",
+      "item": [
+        {
+          "name": "Get New Arrivals",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/new-arrivals?sort=newest&page=1&limit=20",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "new-arrivals"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "newest"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            },
+            "description": "Get newly added products (manually curated)"
+          }
+        },
+        {
+          "name": "Get New Arrivals - Sorted by Price",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/new-arrivals?sort=price-asc",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "new-arrivals"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "price-asc"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "item": [
+        {
+          "name": "Submit Contact Form",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Response is successful\", function () {",
+                  "    pm.expect(pm.response.json().success).to.equal(true);",
+                  "});",
+                  "pm.test(\"Submission ID received\", function () {",
+                  "    pm.expect(pm.response.json().data.submission_id).to.exist;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"subject\": \"Product Inquiry\",\n  \"message\": \"I am interested in your wireless headphones. Can you provide more information about the battery life and warranty?\",\n  \"consent_given\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/contact",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "contact"
+              ]
+            },
+            "description": "Submit a contact form with name, email, subject, message, and GDPR consent. Rate limited to 5 submissions per IP per 24 hours."
+          }
+        },
+        {
+          "name": "Submit Contact Form - Another Example",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Smith\",\n  \"email\": \"jane.smith@company.com\",\n  \"subject\": \"Question about Fashion Collection\",\n  \"message\": \"I would like to know if you have size XL available in the denim jeans. Also, what is the return policy?\",\n  \"consent_given\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/contact",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "contact"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Submit Contact Form - Invalid (Missing Consent)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"subject\": \"Test\",\n  \"message\": \"This is a test message for testing purposes.\",\n  \"consent_given\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/contact",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "contact"
+              ]
+            },
+            "description": "This request should fail because consent_given is false"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Static Content",
+      "item": [
+        {
+          "name": "Get Our Story",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/content/our_story",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "content",
+                "our_story"
+              ]
+            },
+            "description": "Get the 'Our Story' static content page"
+          }
+        },
+        {
+          "name": "Get Contact Information",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/content/contact_information",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "content",
+                "contact_information"
+              ]
+            },
+            "description": "Get the 'Contact Information' static content page"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}

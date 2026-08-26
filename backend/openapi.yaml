@@ -1,0 +1,650 @@
+openapi: 3.0.0
+info:
+  title: Northstar E-commerce API
+  description: Complete REST API for Northstar E-commerce platform with product discovery, search, and contact capabilities
+  version: 1.0.0
+  contact:
+    name: Northstar Support
+    email: support@northstar.com
+  license:
+    name: MIT
+
+servers:
+  - url: http://localhost:3000
+    description: Development server
+  - url: https://api.northstar.com
+    description: Production server
+
+tags:
+  - name: Health
+    description: Server health check
+  - name: Products
+    description: Product browsing and details
+  - name: Search
+    description: Product search functionality
+  - name: Collections
+    description: Product collection management
+  - name: Contact
+    description: Contact form submission
+  - name: Content
+    description: Static content pages
+
+paths:
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Check server health
+      description: Returns the health status of the server
+      operationId: getHealth
+      responses:
+        '200':
+          description: Server is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: OK
+                  timestamp:
+                    type: string
+                    format: date-time
+                    example: '2026-08-26T18:30:00.000Z'
+
+  /api/v1/products:
+    get:
+      tags:
+        - Products
+      summary: Get all products
+      description: List all products with optional filtering, sorting, and pagination
+      operationId: getProducts
+      parameters:
+        - name: collection
+          in: query
+          description: Product collection to filter by
+          schema:
+            type: string
+            enum:
+              - all-products
+              - tech-gadget
+              - fashion
+              - lifestyle
+              - home-living
+              - games-play
+            default: all-products
+        - name: sort
+          in: query
+          description: Sort order for products
+          schema:
+            type: string
+            enum:
+              - newest
+              - price-asc
+              - price-desc
+              - popular
+            default: newest
+        - name: price_min
+          in: query
+          description: Minimum price filter
+          schema:
+            type: number
+            format: double
+        - name: price_max
+          in: query
+          description: Maximum price filter
+          schema:
+            type: number
+            format: double
+        - name: availability
+          in: query
+          description: Filter by product availability
+          schema:
+            type: string
+            enum:
+              - in-stock
+              - out-of-stock
+              - all
+            default: all
+        - name: page
+          in: query
+          description: Page number for pagination
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: limit
+          in: query
+          description: Number of items per page
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: Successful product list retrieval
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductListResponse'
+        '400':
+          description: Invalid query parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/products/{id}:
+    get:
+      tags:
+        - Products
+      summary: Get product details
+      description: Get detailed information about a specific product including images and specifications
+      operationId: getProductById
+      parameters:
+        - name: id
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful product retrieval
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDetailResponse'
+        '404':
+          description: Product not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/search:
+    get:
+      tags:
+        - Search
+      summary: Search products
+      description: Search products using full-text search on name, description, and keywords
+      operationId: searchProducts
+      parameters:
+        - name: q
+          in: query
+          description: Search query string
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 100
+        - name: page
+          in: query
+          description: Page number for pagination
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: limit
+          in: query
+          description: Number of items per page
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: Successful search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResultsResponse'
+        '400':
+          description: Invalid search parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/new-arrivals:
+    get:
+      tags:
+        - Products
+      summary: Get new arrivals
+      description: Get newly added products (manually curated)
+      operationId: getNewArrivals
+      parameters:
+        - name: sort
+          in: query
+          description: Sort order for new products
+          schema:
+            type: string
+            enum:
+              - newest
+              - price-asc
+              - price-desc
+              - popular
+            default: newest
+        - name: page
+          in: query
+          description: Page number for pagination
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: limit
+          in: query
+          description: Number of items per page
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: Successful new arrivals retrieval
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductListResponse'
+
+  /api/v1/collections:
+    get:
+      tags:
+        - Collections
+      summary: Get all collections
+      description: Get all available product collections
+      operationId: getCollections
+      responses:
+        '200':
+          description: Successful collections retrieval
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionsResponse'
+
+  /api/v1/collections/{slug}/products:
+    get:
+      tags:
+        - Collections
+      summary: Get collection products
+      description: Get all products in a specific collection with filtering and sorting
+      operationId: getCollectionProducts
+      parameters:
+        - name: slug
+          in: path
+          description: Collection slug
+          required: true
+          schema:
+            type: string
+            enum:
+              - all-products
+              - tech-gadget
+              - fashion
+              - lifestyle
+              - home-living
+              - games-play
+        - name: sort
+          in: query
+          description: Sort order for products
+          schema:
+            type: string
+            enum:
+              - newest
+              - price-asc
+              - price-desc
+              - popular
+            default: newest
+        - name: price_min
+          in: query
+          description: Minimum price filter
+          schema:
+            type: number
+            format: double
+        - name: price_max
+          in: query
+          description: Maximum price filter
+          schema:
+            type: number
+            format: double
+        - name: availability
+          in: query
+          description: Filter by product availability
+          schema:
+            type: string
+            enum:
+              - in-stock
+              - out-of-stock
+              - all
+            default: all
+        - name: page
+          in: query
+          description: Page number for pagination
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: limit
+          in: query
+          description: Number of items per page
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: Successful collection products retrieval
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductListResponse'
+        '404':
+          description: Collection not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/contact:
+    post:
+      tags:
+        - Contact
+      summary: Submit contact form
+      description: Submit a contact form with name, email, subject, message, and GDPR consent. Rate limited to 5 submissions per IP per 24 hours.
+      operationId: submitContact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactFormRequest'
+      responses:
+        '201':
+          description: Contact form successfully submitted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactFormResponse'
+        '400':
+          description: Invalid contact form data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded (5 submissions per IP per 24 hours)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/content/{page}:
+    get:
+      tags:
+        - Content
+      summary: Get static content
+      description: Get static content pages like 'Our Story' or 'Contact Information'
+      operationId: getContent
+      parameters:
+        - name: page
+          in: path
+          description: Content page name
+          required: true
+          schema:
+            type: string
+            enum:
+              - our_story
+              - contact_information
+      responses:
+        '200':
+          description: Successful content retrieval
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentResponse'
+        '404':
+          description: Content page not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: double
+        category:
+          type: string
+          enum:
+            - tech
+            - fashion
+            - lifestyle
+            - home_living
+            - games_play
+        sku:
+          type: string
+        inventory_count:
+          type: integer
+        is_new_arrival:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        is_active:
+          type: boolean
+
+    ProductImage:
+      type: object
+      properties:
+        id:
+          type: integer
+        image_path:
+          type: string
+        alt_text:
+          type: string
+        image_order:
+          type: integer
+
+    ProductDetail:
+      allOf:
+        - $ref: '#/components/schemas/Product'
+        - type: object
+          properties:
+            images:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProductImage'
+            specifications:
+              type: object
+              additionalProperties: true
+
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+        total_pages:
+          type: integer
+
+    ProductListResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    ProductDetailResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/ProductDetail'
+
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: double
+        category:
+          type: string
+        inventory_count:
+          type: integer
+        rank:
+          type: number
+          format: double
+
+    SearchResultsResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    Collection:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        description:
+          type: string
+        display_order:
+          type: integer
+
+    CollectionsResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Collection'
+
+    ContactFormRequest:
+      type: object
+      required:
+        - name
+        - email
+        - subject
+        - message
+        - consent_given
+      properties:
+        name:
+          type: string
+          maxLength: 255
+        email:
+          type: string
+          format: email
+        subject:
+          type: string
+          maxLength: 255
+        message:
+          type: string
+          minLength: 10
+          maxLength: 5000
+        consent_given:
+          type: boolean
+          enum:
+            - true
+
+    ContactFormResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            submission_id:
+              type: integer
+            email:
+              type: string
+              format: email
+            confirmation_email_sent:
+              type: boolean
+
+    ContentResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            page:
+              type: string
+            sections:
+              type: object
+              additionalProperties: true
+
+    ErrorDetail:
+      type: object
+      properties:
+        field:
+          type: string
+        message:
+          type: string
+
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
