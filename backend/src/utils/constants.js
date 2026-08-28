@@ -46,7 +46,7 @@ const RATE_LIMIT_MAX = parseInt(process.env.RATE_LIMIT_MAX) || 5;
 
 const CONTACT_RETENTION_DAYS = 365;
 const MAX_IMAGE_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
-const MAX_IMAGES_PER_PRODUCT = 5;
+const MAX_IMAGES_PER_PRODUCT = 15;
 const ALLOWED_IMAGE_TYPES = ['jpg', 'jpeg', 'png', 'webp'];
 
 module.exports = {

@@ -36,7 +36,8 @@ const contactFormSchema = Joi.object({
 
 const validateRequest = (schema) => {
   return (req, res, next) => {
-    const { error, value } = schema.validate(req.query || req.body, { abortEarly: false });
+    const data = req.method === 'GET' ? req.query : req.body;
+    const { error, value } = schema.validate(data, { abortEarly: false });
     
     if (error) {
       const messages = error.details.map(detail => detail.message).join(', ');

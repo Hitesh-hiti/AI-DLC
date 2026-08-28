@@ -9,6 +9,7 @@ class ContactController {
    */
   static async submitContactForm(req, res, next) {
     try {
+      
       const { name, email, subject, message, consent_given } = req.body;
 
       // Verify consent is given

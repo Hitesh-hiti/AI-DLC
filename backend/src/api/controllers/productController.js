@@ -29,7 +29,7 @@ class ProductController {
       if (!product) {
         return sendError(res, null, 404, 'Product not found');
       }
-
+      
       return sendSuccess(res, product, 200, 'Product retrieved successfully');
     } catch (error) {
       logger.error('Error in getProductById:', error);
