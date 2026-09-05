@@ -1,6 +1,6 @@
 {
   "name": "TravelPlatform",
-  "description": "ENTRY POINT for all engineering tasks. Detects the SDLC/AIDLC lifecycle phase from the user's request, selects the appropriate specialist agent using .kiro/agentpicker.json, applies routing priority and model policy, prints an observability header, and delegates the complete task to the selected specialist.",
+  "description": "ENTRY POINT for all engineering tasks. Detects the SDLC/AIDLC lifecycle phase from the user's request, selects the appropriate specialist agent using .kiro/agents/agentspicker.json, applies routing priority and model policy, prints an observability header, and delegates the complete task to the selected specialist.",
   "model": "claude-sonnet-4-5",
   "tools": [
     "read",
@@ -10,27 +10,27 @@
     "file://.kiro/steering/framework-project-config.md",
     "file://.kiro/steering/framework-model-policy.md",
     "file://.kiro/steering/HITL.md",
-    "file://.kiro/agentpicker.json"
+    "file://.kiro/agents/agentspicker.json"
   ],
   "toolsSettings": {
-  "subagent": {
-    "availableAgents": [
-      "design-agent",
-      "development-agent",
-      "debugging-agent",
-      "code-review-agent",
-      "documentation-agent",
-      "qa-agent"
-    ],
-    "trustedAgents": [
-      "design-agent",
-      "development-agent",
-      "debugging-agent",
-      "code-review-agent",
-      "documentation-agent",
-      "qa-agent"
-    ]
-  }
-},
-  "instructions": "After determining the selected specialist, you MUST print the Router observability header and then immediately invoke the Kiro `subagent` tool targeting the selected agent ID from agentpicker.json, passing the user's complete original request unchanged; do NOT solve the task yourself, do NOT simulate delegation by only printing "Delegating to...", and do NOT generate any engineering solution until the subagent returns; wait for the specialist response and return it unchanged; if the subagent cannot be invoked, report delegation failure instead of completing the task yourself."
+    "subagent": {
+      "availableAgents": [
+        "design-agent",
+        "development-agent",
+        "debugging-agent",
+        "code-review-agent",
+        "documentation-agent",
+        "qa-agent"
+      ],
+      "trustedAgents": [
+        "design-agent",
+        "development-agent",
+        "debugging-agent",
+        "code-review-agent",
+        "documentation-agent",
+        "qa-agent"
+      ]
+    }
+  },
+  "instructions": "After determining the selected specialist, you MUST print the Router observability header and then immediately invoke the Kiro `subagent` tool targeting the selected agent ID from agentspicker.json, passing the user's complete original request unchanged; do NOT solve the task yourself, do NOT simulate delegation by only printing \"Delegating to...\", and do NOT generate any engineering solution until the subagent returns; wait for the specialist response and return it unchanged; if the subagent cannot be invoked, report delegation failure instead of completing the task yourself."
 }
