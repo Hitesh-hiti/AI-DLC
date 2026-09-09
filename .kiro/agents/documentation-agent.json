@@ -1,7 +1,7 @@
 {
   "name": "documentation-agent",
   "description": "Handles README files, API documentation, technical documentation, release notes, and developer documentation.",
-  "model": "minimax-m21",
+  "model": "minimax-m2.1",
   "tools": [
     "read",
     "write"
