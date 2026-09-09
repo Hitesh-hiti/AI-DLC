@@ -1,0 +1,596 @@
+{
+  "generated_at": "2026-09-03T23:57:26+05:30",
+  "kiro_root": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro",
+  "aggregate_usage": {
+    "current_usage": 0.15,
+    "usage_limit": 50,
+    "percentage_used": 0.3,
+    "reset_date": "2026-10-01T00:00:00.000Z",
+    "currency": "USD",
+    "unit": "INVOCATIONS",
+    "type": "CREDIT"
+  },
+  "session_count": 0,
+  "execution_record_count": 69,
+  "sessions": {},
+  "executions": [
+    {
+      "timestamp": "2026-09-03 19:09:30.116",
+      "session_id": "sess_e3fadbf0-3fc7-4972-9655-dba7241fc503",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260903T110141\\window4\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-09-03 19:09:30.117",
+      "session_id": "sess_e3fadbf0-3fc7-4972-9655-dba7241fc503",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260903T110141\\window4\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-09-03 19:09:30.128",
+      "session_id": "sess_e3fadbf0-3fc7-4972-9655-dba7241fc503",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260903T110141\\window4\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-09-03 19:09:29.681",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260903T110141\\window3\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-09-03 19:09:29.682",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260903T110141\\window3\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-09-03 15:55:12.635",
+      "session_id": "sess_e3fadbf0-3fc7-4972-9655-dba7241fc503",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260903T110141\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-09-03 19:09:30.103",
+      "session_id": "sess_f60f2db2-297e-4438-afd2-a4214f48ed43",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260903T110141\\window1\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-09-03 19:09:30.123",
+      "session_id": "sess_f60f2db2-297e-4438-afd2-a4214f48ed43",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260903T110141\\window1\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-09-03 19:09:30.125",
+      "session_id": "sess_f60f2db2-297e-4438-afd2-a4214f48ed43",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260903T110141\\window1\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-31 16:14:21.570",
+      "session_id": "sess_f60f2db2-297e-4438-afd2-a4214f48ed43",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260831T125207\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-31 16:14:22.012",
+      "session_id": "sess_f60f2db2-297e-4438-afd2-a4214f48ed43",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260831T125207\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-31 16:14:22.012",
+      "session_id": "sess_f60f2db2-297e-4438-afd2-a4214f48ed43",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260831T125207\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-31 19:16:45.054",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260831T125207\\window1\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-31 19:16:45.055",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260831T125207\\window1\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 19:00:58.384",
+      "session_id": "sess_e9c3e8c2-0fe4-4fcd-b350-eaaf139051fd",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260828T153026\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 19:00:58.385",
+      "session_id": "sess_e9c3e8c2-0fe4-4fcd-b350-eaaf139051fd",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260828T153026\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 19:00:58.386",
+      "session_id": "sess_e9c3e8c2-0fe4-4fcd-b350-eaaf139051fd",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260828T153026\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 19:00:58.351",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260828T153026\\window1\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 19:00:58.351",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260828T153026\\window1\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-27 16:59:12.385",
+      "session_id": "sess_e9c3e8c2-0fe4-4fcd-b350-eaaf139051fd",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window4\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.573",
+      "session_id": "sess_e9c3e8c2-0fe4-4fcd-b350-eaaf139051fd",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window4\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.573",
+      "session_id": "sess_e9c3e8c2-0fe4-4fcd-b350-eaaf139051fd",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window4\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.573",
+      "session_id": "sess_e9c3e8c2-0fe4-4fcd-b350-eaaf139051fd",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window4\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.812",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.813",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.813",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.815",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.819",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.819",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.820",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.823",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.826",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.830",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.831",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.831",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.833",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.837",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.840",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.841",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.843",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-26 19:55:24.845",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.588",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.595",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.597",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.603",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.608",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.615",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.618",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.623",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.635",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.641",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.648",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.650",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.668",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.672",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.674",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.676",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.677",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.686",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.687",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.687",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.689",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.690",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.696",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.708",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.715",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-28 12:10:53.745",
+      "session_id": "sess_f318f5ba-4534-4655-82a9-91f3da804ebf",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window2\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-25 19:01:42.321",
+      "session_id": "sess_20cf2ed3-d125-42de-b8d4-3c5aa9d17099",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window1\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    },
+    {
+      "timestamp": "2026-08-25 19:01:42.322",
+      "session_id": "sess_20cf2ed3-d125-42de-b8d4-3c5aa9d17099",
+      "execution_id": "",
+      "model": "",
+      "status": "",
+      "log_file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\logs\\20260825T124231\\window1\\exthost\\kiro.kiroAgent\\Kiro Logs.log"
+    }
+  ],
+  "possible_usage_metadata_files": [
+    {
+      "file": "C:\\Users\\Hitesh_C\\AppData\\Roaming\\Kiro\\User\\globalStorage\\state.vscdb",
+      "size": 229376,
+      "contains_usage_keywords": true
+    }
+  ],
+  "capabilities": {
+    "timestamp": true,
+    "session_id": true,
+    "workspace": true,
+    "execution_id": true,
+    "model": true,
+    "aggregate_credits": true,
+    "input_tokens": false,
+    "output_tokens": false,
+    "total_tokens": false,
+    "per_request_credits": false
+  },
+  "notes": [
+    "Aggregate credit usage is read from Kiro state.vscdb.",
+    "Session/workspace mapping is read from workspace state.vscdb.",
+    "Execution and model information is read from Kiro agent logs.",
+    "Token and per-request credit fields are only populated if Kiro stores them locally in discoverable metadata.",
+    "No token or credit values are guessed."
+  ]
+}

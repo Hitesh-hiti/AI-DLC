@@ -1,0 +1,161 @@
+{
+  "generatedAt": "2026-09-03T21:31:57.943015+00:00",
+  "billingPeriod": {
+    "start": "2026-09-01T00:00:00+00:00",
+    "end": "2026-10-01T00:00:00+00:00"
+  },
+  "account": {
+    "creditLimit": 50.0,
+    "creditsUsed": 0.729922656451078,
+    "creditsRemaining": 49.27007734354892,
+    "usagePercent": 1.459845312902156
+  },
+  "summary": {
+    "executionCount": 11,
+    "totalExecutionTimeSeconds": 285.32,
+    "averageExecutionTimeSeconds": 25.938181818181818,
+    "creditsByModel": {
+      "claude-haiku-4.5": 0.6766500395356551,
+      "qwen3-coder-next": 0.053272616915422885
+    }
+  },
+  "executions": [
+    {
+      "timestamp": "2026-09-03T05:33:13.446000+00:00",
+      "executionId": "6831dd57-5360-4b4f-b65b-7dda46088afb",
+      "credits": 0.05017372663349918,
+      "elapsedSeconds": 5.979,
+      "status": "success",
+      "unit": "credit",
+      "usedTools": [],
+      "sessionFile": "C:\\Users\\Hitesh_C\\.kiro\\sessions\\c2288c998a017b20\\sess_f60f2db2-297e-4438-afd2-a4214f48ed43\\messages.jsonl",
+      "model": "claude-haiku-4.5",
+      "estCredits": 0.05
+    },
+    {
+      "timestamp": "2026-09-03T11:37:16.154000+00:00",
+      "executionId": "473b7ec7-c50d-4f84-9338-7cc1ffe25b23",
+      "credits": 0.10045769419568823,
+      "elapsedSeconds": 15.347,
+      "status": "success",
+      "unit": "credit",
+      "usedTools": [
+        "read_file"
+      ],
+      "sessionFile": "C:\\Users\\Hitesh_C\\.kiro\\sessions\\74de4596c7eaaa1c\\sess_e3fadbf0-3fc7-4972-9655-dba7241fc503\\messages.jsonl",
+      "model": "claude-haiku-4.5",
+      "estCredits": 0.1
+    },
+    {
+      "timestamp": "2026-09-03T17:41:12.915000+00:00",
+      "executionId": "308e2d6c-a6ed-4114-a8b7-f9bbb26ea7cb",
+      "credits": 0.11818347044776122,
+      "elapsedSeconds": 187.642,
+      "status": "success",
+      "unit": "credit",
+      "usedTools": [
+        "read_file",
+        "str_replace"
+      ],
+      "sessionFile": "C:\\Users\\Hitesh_C\\.kiro\\sessions\\74de4596c7eaaa1c\\sess_e3fadbf0-3fc7-4972-9655-dba7241fc503\\messages.jsonl",
+      "model": "claude-haiku-4.5",
+      "estCredits": 0.12
+    },
+    {
+      "timestamp": "2026-09-03T18:07:04.311000+00:00",
+      "executionId": "273b3342-b3c5-4742-bcff-977ad4c49852",
+      "credits": 0.048494363582089556,
+      "elapsedSeconds": 7.128,
+      "status": "success",
+      "unit": "credit",
+      "usedTools": [],
+      "sessionFile": "C:\\Users\\Hitesh_C\\.kiro\\sessions\\74de4596c7eaaa1c\\sess_e3fadbf0-3fc7-4972-9655-dba7241fc503\\messages.jsonl",
+      "model": "claude-haiku-4.5",
+      "estCredits": 0.05
+    },
+    {
+      "timestamp": "2026-09-03T18:40:32.086000+00:00",
+      "executionId": "1372efe6-d79a-4d80-920e-736737104aca",
+      "credits": 0.0491280888888889,
+      "elapsedSeconds": 4.449,
+      "status": "success",
+      "unit": "credit",
+      "usedTools": [],
+      "sessionFile": "C:\\Users\\Hitesh_C\\.kiro\\sessions\\74de4596c7eaaa1c\\sess_e3fadbf0-3fc7-4972-9655-dba7241fc503\\messages.jsonl",
+      "model": "claude-haiku-4.5",
+      "estCredits": 0.05
+    },
+    {
+      "timestamp": "2026-09-03T19:03:38.770000+00:00",
+      "executionId": "053ea486-5a9e-41da-9fd6-de6dbfc81a4c",
+      "credits": 0.049193617777777775,
+      "elapsedSeconds": 5.442,
+      "status": "success",
+      "unit": "credit",
+      "usedTools": [],
+      "sessionFile": "C:\\Users\\Hitesh_C\\.kiro\\sessions\\74de4596c7eaaa1c\\sess_e3fadbf0-3fc7-4972-9655-dba7241fc503\\messages.jsonl",
+      "model": "claude-haiku-4.5",
+      "estCredits": 0.05
+    },
+    {
+      "timestamp": "2026-09-03T19:06:37.724000+00:00",
+      "executionId": "4a16a0d0-6c8a-4912-8ff9-71e433c8945d",
+      "credits": 0.029953219767827534,
+      "elapsedSeconds": 4.603,
+      "status": "success",
+      "unit": "credit",
+      "usedTools": [],
+      "sessionFile": "C:\\Users\\Hitesh_C\\.kiro\\sessions\\74de4596c7eaaa1c\\sess_e3fadbf0-3fc7-4972-9655-dba7241fc503\\messages.jsonl",
+      "model": "claude-haiku-4.5",
+      "estCredits": 0.03
+    },
+    {
+      "timestamp": "2026-09-03T19:23:59.377000+00:00",
+      "executionId": "c4edd5cb-b3fd-433c-a76f-f0af26086446",
+      "credits": 0.05069849339966832,
+      "elapsedSeconds": 6.972,
+      "status": "success",
+      "unit": "credit",
+      "usedTools": [],
+      "sessionFile": "C:\\Users\\Hitesh_C\\.kiro\\sessions\\74de4596c7eaaa1c\\sess_e3fadbf0-3fc7-4972-9655-dba7241fc503\\messages.jsonl",
+      "model": "claude-haiku-4.5",
+      "estCredits": 0.05
+    },
+    {
+      "timestamp": "2026-09-03T19:24:44.947000+00:00",
+      "executionId": "a4f32a00-8469-4c5b-bddb-514f467407d0",
+      "credits": 0.13354980013266998,
+      "elapsedSeconds": 31.998,
+      "status": "success",
+      "unit": "credit",
+      "usedTools": [],
+      "sessionFile": "C:\\Users\\Hitesh_C\\.kiro\\sessions\\74de4596c7eaaa1c\\sess_e3fadbf0-3fc7-4972-9655-dba7241fc503\\messages.jsonl",
+      "model": "claude-haiku-4.5",
+      "estCredits": 0.13
+    },
+    {
+      "timestamp": "2026-09-03T19:27:13.149000+00:00",
+      "executionId": "2ac23e25-2687-46ad-a30c-914fb8a8deaf",
+      "credits": 0.04681756470978441,
+      "elapsedSeconds": 8.071,
+      "status": "success",
+      "unit": "credit",
+      "usedTools": [],
+      "sessionFile": "C:\\Users\\Hitesh_C\\.kiro\\sessions\\74de4596c7eaaa1c\\sess_e3fadbf0-3fc7-4972-9655-dba7241fc503\\messages.jsonl",
+      "model": "claude-haiku-4.5",
+      "estCredits": 0.05
+    },
+    {
+      "timestamp": "2026-09-03T20:11:34.736000+00:00",
+      "executionId": "7426911c-942a-4d79-8f9d-2c8856f13347",
+      "credits": 0.053272616915422885,
+      "elapsedSeconds": 7.689,
+      "status": "success",
+      "unit": "credit",
+      "usedTools": [],
+      "sessionFile": "C:\\Users\\Hitesh_C\\.kiro\\sessions\\74de4596c7eaaa1c\\sess_e3fadbf0-3fc7-4972-9655-dba7241fc503\\messages.jsonl",
+      "model": "qwen3-coder-next",
+      "estCredits": 0.05
+    }
+  ]
+}

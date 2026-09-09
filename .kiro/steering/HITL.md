@@ -1,5 +1,3 @@
-# AGENT.md
-
 # Expertise Guardrails — Human-in-the-Loop Agent
 
 ## 1. Purpose
@@ -811,7 +809,7 @@ Confidence alone must never determine autonomy.
 | L1        | Medium |       >=90 | Sufficient        | AI_PLUS_VALIDATION        |
 | L1        | High   |        Any | Any               | HUMAN_REVIEW              |
 | L2        | Low    |       >=90 | Sufficient        | AI_PLUS_VALIDATION        |
-| L2        | Medium |        Any | Any               | HUMAN_REVIEW / VALIDATION |
+| L2        | Medium |        Any | Any               | AI_PLUS_VALIDATION or HUMAN_REVIEW. |
 | L2        | High   |        Any | Any               | HUMAN_REVIEW              |
 | L3        | Any    |        Any | Any               | HUMAN_REVIEW              |
 | Any       | Any    |        <70 | Any               | HUMAN_REVIEW              |

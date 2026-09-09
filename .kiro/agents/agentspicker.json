@@ -8,7 +8,7 @@
       "TESTING",
       "DESIGN",
       "REQUIREMENT",
-      "DOCUMENTATION"     
+      "DOCUMENTATION"
     ],
     "ambiguityStrategy": "priority",
     "confidenceLevels": {
@@ -193,7 +193,7 @@
       "name": "documentation-agent",
       "category": "DOCUMENTATION",
       "priority": 7,
-      "model": "minimax-m2.1",
+      "model": "minimax-m21",
       "keywords": [
         "documentation",
         "README",
