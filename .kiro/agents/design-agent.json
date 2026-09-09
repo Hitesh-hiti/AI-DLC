@@ -1,7 +1,7 @@
 {
   "name": "design-agent",
   "description": "Handles requirement analysis, architecture, system design, technical design, API design, database design, and acceptance criteria.",
-  "model": "claude-sonnet-4-5",
+  "model": "claude-sonnet 4.5",
   "tools": [
     "read",
     "write",
