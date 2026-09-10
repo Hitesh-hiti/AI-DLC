@@ -1,0 +1,173 @@
+/* Search Form Component Styles */
+/* Implements design-document.md section 2.1 */
+
+.search-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.search-form-title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.75rem;
+  color: #333;
+  text-align: center;
+}
+
+/* 3-Row Layout per design */
+.search-form-row {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Row 1: Origin & Destination (2 columns) */
+.search-form-row:nth-child(2) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Row 2: Departure, Return, Cabin (3 columns) */
+.search-form-row:nth-child(3) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Row 3: Passengers (1 column or auto-width) */
+.search-form-row:nth-child(4) {
+  grid-template-columns: 1fr;
+  max-width: 150px;
+}
+
+.search-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-form-label {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: #333;
+}
+
+.search-form-select {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: white;
+  min-height: 40px;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-form-select:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+}
+
+/* Passenger controls */
+.search-form-passengers {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: white;
+}
+
+.search-form-button-control {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  color: #0066cc;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.search-form-button-control:hover:not(:disabled) {
+  color: #0052a3;
+}
+
+.search-form-button-control:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: #999;
+}
+
+.search-form-passenger-count {
+  min-width: 2rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.search-form-error {
+  font-size: 0.875rem;
+  color: #dc3545;
+  font-weight: 500;
+}
+
+/* Action buttons */
+.search-form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.search-form-actions button {
+  min-width: 200px;
+}
+
+/* Responsive Design per section 8 */
+
+/* Tablet (600–1024px) */
+@media (max-width: 1024px) {
+  .search-form {
+    padding: 1.5rem;
+  }
+
+  .search-form-row:nth-child(2) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .search-form-row:nth-child(3) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Mobile (< 600px) */
+@media (max-width: 600px) {
+  .search-form {
+    padding: 1rem;
+    border-radius: 4px;
+  }
+
+  .search-form-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  /* All rows stack vertically on mobile */
+  .search-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .search-form-actions button {
+    width: 100%;
+  }
+}

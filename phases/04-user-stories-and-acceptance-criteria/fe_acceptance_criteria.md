@@ -101,10 +101,10 @@
 
 | AC ID | Tag | Acceptance Criterion |
 |-------|-----|---------------------|
-| AC-EXP-08-01 | [BE → FE trigger] | **Given** the in-app `BookingHeld` notification is delivered, **When** the traveler opens the in-app notification centre, **Then** the notification is displayed with booking reference, hold expiry time, and a link to the trip detail screen. Raw traveler name and passport are not shown (interim constraint — pending HITL-REQ-01). |
-| AC-EXP-08-02 | [BE → FE trigger] | **Given** the in-app `ApprovalRequested` notification is delivered, **When** the approver opens the in-app notification centre, **Then** the notification is displayed with the booking reference and an "Approve / Reject" action link. |
-| AC-EXP-08-03 | [BE → FE trigger] | **Given** the in-app `BookingExpired` notification is delivered, **When** the traveler opens the in-app notification centre, **Then** the notification reads "Your booking [reference] has expired. The hold has been released." with a "Search again" link. |
-| AC-EXP-08-04 | [BE → FE trigger] | **Given** the in-app `RefundConfirmed` notification is delivered, **When** the traveler opens the in-app notification centre, **Then** the notification shows the refund amount with currency and the payment reference — no raw PAN or card number. |
+| AC-EXP-08-01 | [BE → FE trigger] | **Given** the in-app `BookingHeld` notification is delivered, **When** the traveler opens the in-app notification centre, **Then** the notification is displayed with traveler name, booking reference, origin/destination route, hold expiry time, and a link to the trip detail screen. |
+| AC-EXP-08-02 | [BE → FE trigger] | **Given** the in-app `ApprovalRequested` notification is delivered, **When** the approver opens the in-app notification centre, **Then** the notification is displayed with traveler name, booking reference, route details, and an "Approve / Reject" action link. |
+| AC-EXP-08-03 | [BE → FE trigger] | **Given** the in-app `BookingExpired` notification is delivered, **When** the traveler opens the in-app notification centre, **Then** the notification reads "Your booking [reference] for [origin] to [destination] has expired. The hold has been released." with a "Search again" link. |
+| AC-EXP-08-04 | [BE → FE trigger] | **Given** the in-app `RefundConfirmed` notification is delivered, **When** the traveler opens the in-app notification centre, **Then** the notification shows the refund amount with currency, payment reference, and the original booking reference — no raw PAN or card number. |
 
 ---
 
@@ -176,13 +176,11 @@
 
 ### HITL-REQ-01 — Notification Template PII Content Policy
 
-🔴 **OPEN — blocks finalisation of in-app notification content ACs.**
+✅ **APPROVED** — The tiered PII content model for in-app notifications has been approved per HITL-REQ-01.
 
-Front-end notification templates for booking confirmation, approval request, hold expiry, and refund confirmation cannot be fully specified until Compliance/Legal approves the PII content policy (gap-analysis.md GAP-ARCH-03).
+Front-end notification templates for booking confirmation, approval request, hold expiry, and refund confirmation may now include traveler name, route details, and passport information per the approved policy.
 
-**Interim constraint applied to all in-app notification ACs above:** Only booking reference and expiry/amount data are shown. Raw traveler name, route details, and passport information are excluded from notification content until the policy is confirmed.
-
-**Impact:** AC-EXP-08-01 through AC-EXP-08-04 carry partial specification only. Full notification template ACs are deferred until HITL-REQ-01 is resolved.
+**Impact:** AC-EXP-08-01 through AC-EXP-08-04 are now fully specified. Full notification template ACs are complete and ready for test generation.
 
 ---
 
@@ -222,8 +220,9 @@ Front-end notification templates for booking confirmation, approval request, hol
 | AC-XCT-05-03 | REQ-XCT-05 | FE | Error display — user-friendly messages, no raw codes or stack traces |
 
 **Total FE / FE+BE criteria: 30**  
-*(4 in-app notification ACs marked as partial pending HITL-REQ-01)*
+*(All notification ACs now complete after HITL-REQ-01 approval)*
 
 ---
 
-**Status: READY FOR HIL REVIEW**
+**Status: READY FOR TEST GENERATION**  
+**Wiremock fixture tests for Sprint 1 — proceed per HITL-REQ-03**

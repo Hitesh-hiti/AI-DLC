@@ -1,0 +1,378 @@
+/* App Styles */
+
+:root {
+  --color-primary: #0066cc;
+  --color-primary-dark: #004d99;
+  --color-primary-light: #4d94ff;
+  --color-secondary: #f0f0f0;
+  --color-accent: #ff6b6b;
+  --color-accent-light: #ff8e8e;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-error: #dc3545;
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-border: #d0d0d0;
+  --color-bg-gradient-start: #e6f7ff;
+  --color-bg-gradient-end: #ffffff;
+  --color-sky-blue: #87ceeb;
+  --color-cloud-white: #ffffff;
+  --color-sun-yellow: #ffd700;
+  --color-earth-green: #2e8b57;
+  --color-ocean-blue: #1e90ff;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  --border-radius: 6px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, var(--color-bg-gradient-start) 0%, var(--color-bg-gradient-end) 100%);
+  color: var(--color-text);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Sky background elements */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* Clouds */
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.8) 0px, transparent 150px),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.7) 0px, transparent 120px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.6) 0px, transparent 100px),
+    radial-gradient(circle at 60% 90%, rgba(255, 255, 255, 0.5) 0px, transparent 80px),
+    /* Sun */
+    radial-gradient(circle at 90% 5%, var(--color-sun-yellow) 0px, rgba(255, 215, 0, 0.1) 60px),
+    /* Sky gradient */
+    radial-gradient(ellipse at 50% 0%, var(--color-sky-blue) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Airplane flying animation */
+body::after {
+  content: '✈';
+  position: fixed;
+  top: 15%;
+  right: -50px;
+  font-size: 2rem;
+  color: var(--color-primary);
+  animation: flyAcross 20s linear infinite;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes flyAcross {
+  0% {
+    transform: translateX(0) translateY(0) rotate(15deg);
+  }
+  25% {
+    transform: translateX(-25vw) translateY(20px) rotate(10deg);
+  }
+  50% {
+    transform: translateX(-50vw) translateY(-10px) rotate(5deg);
+  }
+  75% {
+    transform: translateX(-75vw) translateY(15px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(-100vw) translateY(0) rotate(-10deg);
+  }
+}
+
+/* Skip link for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Main app container */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 102, 204, 0.3);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.app-header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-md);
+}
+
+.app-header-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-sun-yellow);
+  text-shadow: 0 2px 8px rgba(255, 215, 0, 0.5);
+}
+
+.hotel-details-section {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: var(--spacing-xl) 0;
+}
+
+.hotel-details-section h2 {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+/* Decorative travel pins */
+.travel-pin {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.6;
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+.travel-pin::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background-color: var(--color-accent-light);
+  transform: translateX(-50%);
+  opacity: 0.4;
+}
+
+.travel-pin:nth-child(1) { top: 20%; left: 15%; }
+.travel-pin:nth-child(2) { top: 40%; left: 80%; }
+.travel-pin:nth-child(3) { top: 70%; left: 10%; }
+.travel-pin:nth-child(4) { top: 10%; left: 60%; }
+.travel-pin:nth-child(5) { top: 85%; left: 90%; }
+
+/* Form card enhancements */
+.form-card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 102, 204, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.form-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 102, 204, 0.2);
+}
+
+/* Button styling */
+.btn-primary {
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Search form special styling */
+.search-form {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.search-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+}
+
+/* Flight card enhancements */
+.flight-card {
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--color-primary);
+}
+
+.flight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 102, 204, 0.15);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: var(--spacing-sm);
+  }
+
+  .app-header {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+  }
+
+  .app-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .app-header p {
+    font-size: 1rem;
+  }
+
+  .app-header-icon {
+    font-size: 2.5rem;
+  }
+
+  .search-form {
+    padding: var(--spacing-lg);
+  }
+
+  body::after {
+    font-size: 1.5rem;
+    animation-duration: 15s;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-container {
+    padding: var(--spacing-sm);
+  }
+
+  .app-header {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .app-header p {
+    font-size: 0.9375rem;
+  }
+
+  .app-header-icon {
+    font-size: 2rem;
+  }
+
+  .search-form {
+    padding: var(--spacing-md);
+    border-radius: calc(var(--border-radius) / 2);
+  }
+
+  body::after {
+    font-size: 1.2rem;
+    animation-duration: 12s;
+  }
+}
+
+/* Print styles */
+@media print {
+  body::before,
+  body::after,
+  .travel-pin {
+    display: none;
+  }
+
+  .app-header {
+    background: white !important;
+    color: var(--color-text) !important;
+    box-shadow: none !important;
+  }
+
+  .app-header h1 {
+    color: var(--color-text) !important;
+  }
+
+  .app-header p {
+    color: var(--color-text-light) !important;
+  }
+
+  .app-header-icon {
+    color: var(--color-text-light) !important;
+  }
+}
