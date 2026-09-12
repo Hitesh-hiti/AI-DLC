@@ -68,14 +68,15 @@ export interface OrganizationRef {
  * Booking status values and type
  */
 export const BookingStatusValues = {
+  DRAFT: 'DRAFT',
   HELD: 'HELD',
+  PENDING_APPROVAL: 'PENDING_APPROVAL',
   PENDING_ISSUE: 'PENDING_ISSUE',
   CONFIRMED: 'CONFIRMED',
+  COMPLETED: 'COMPLETED',
   CANCELLED: 'CANCELLED',
-  VOIDED: 'VOIDED',
-  REFUNDING: 'REFUNDING',
-  REFUNDED: 'REFUNDED',
-  FAILED: 'FAILED',
+  EXPIRED: 'EXPIRED',
+  CONFIRM_EXCEPTION: 'CONFIRM_EXCEPTION',
 } as const;
 export type BookingStatus = (typeof BookingStatusValues)[keyof typeof BookingStatusValues];
 

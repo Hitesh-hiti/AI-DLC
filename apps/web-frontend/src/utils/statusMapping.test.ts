@@ -33,19 +33,24 @@ describe('getBookingStatusDisplay', () => {
     expect(d.label).toBe('Cancelled')
     expect(d.color).toBe('error')
   })
-  it('PENDING_ISSUE → label "Pending Resolution", color warning', () => {
+  it('PENDING_ISSUE → label contains "Ticketing", color warning', () => {
     const d = getBookingStatusDisplay(BookingStatusValues.PENDING_ISSUE)
-    expect(d.label).toBe('Pending Resolution')
+    expect(d.label).toMatch(/ticketing/i)
     expect(d.color).toBe('warning')
   })
-  it('REFUNDED → label "Refunded", color success', () => {
-    const d = getBookingStatusDisplay(BookingStatusValues.REFUNDED)
-    expect(d.label).toBe('Refunded')
-    expect(d.color).toBe('success')
+  it('PENDING_APPROVAL → label "Pending Approval", color warning', () => {
+    const d = getBookingStatusDisplay(BookingStatusValues.PENDING_APPROVAL)
+    expect(d.label).toBe('Pending Approval')
+    expect(d.color).toBe('warning')
   })
-  it('FAILED → label "Failed", color error', () => {
-    const d = getBookingStatusDisplay(BookingStatusValues.FAILED)
-    expect(d.label).toBe('Failed')
+  it('CONFIRM_EXCEPTION → label "Action Required", color error', () => {
+    const d = getBookingStatusDisplay(BookingStatusValues.CONFIRM_EXCEPTION)
+    expect(d.label).toBe('Action Required')
+    expect(d.color).toBe('error')
+  })
+  it('EXPIRED → label "Hold Expired", color error', () => {
+    const d = getBookingStatusDisplay(BookingStatusValues.EXPIRED)
+    expect(d.label).toBe('Hold Expired')
     expect(d.color).toBe('error')
   })
   it('all statuses return a non-empty description', () => {
@@ -83,9 +88,10 @@ describe('canCancelBooking', () => {
   it('HELD can be cancelled', () => expect(canCancelBooking(BookingStatusValues.HELD)).toBe(true))
   it('CONFIRMED can be cancelled', () => expect(canCancelBooking(BookingStatusValues.CONFIRMED)).toBe(true))
   it('PENDING_ISSUE can be cancelled', () => expect(canCancelBooking(BookingStatusValues.PENDING_ISSUE)).toBe(true))
+  it('PENDING_APPROVAL can be cancelled', () => expect(canCancelBooking(BookingStatusValues.PENDING_APPROVAL)).toBe(true))
   it('CANCELLED cannot be cancelled again', () => expect(canCancelBooking(BookingStatusValues.CANCELLED)).toBe(false))
-  it('REFUNDED cannot be cancelled', () => expect(canCancelBooking(BookingStatusValues.REFUNDED)).toBe(false))
-  it('FAILED cannot be cancelled', () => expect(canCancelBooking(BookingStatusValues.FAILED)).toBe(false))
+  it('COMPLETED cannot be cancelled', () => expect(canCancelBooking(BookingStatusValues.COMPLETED)).toBe(false))
+  it('EXPIRED cannot be cancelled', () => expect(canCancelBooking(BookingStatusValues.EXPIRED)).toBe(false))
 })
 
 // ─── canModifyBooking ────────────────────────────────────────────────────────
@@ -93,7 +99,7 @@ describe('canModifyBooking', () => {
   it('HELD can be modified', () => expect(canModifyBooking(BookingStatusValues.HELD)).toBe(true))
   it('CONFIRMED can be modified', () => expect(canModifyBooking(BookingStatusValues.CONFIRMED)).toBe(true))
   it('CANCELLED cannot be modified', () => expect(canModifyBooking(BookingStatusValues.CANCELLED)).toBe(false))
-  it('VOIDED cannot be modified', () => expect(canModifyBooking(BookingStatusValues.VOIDED)).toBe(false))
+  it('EXPIRED cannot be modified', () => expect(canModifyBooking(BookingStatusValues.EXPIRED)).toBe(false))
 })
 
 // ─── getNextActionsForBooking ─────────────────────────────────────────────────
@@ -106,11 +112,14 @@ describe('getNextActionsForBooking', () => {
   it('CONFIRMED returns Cancel action', () => {
     expect(getNextActionsForBooking(BookingStatusValues.CONFIRMED)).toContain('Cancel')
   })
-  it('CANCELLED returns Rebook action', () => {
+  it('CANCELLED returns Book Again action', () => {
     expect(getNextActionsForBooking(BookingStatusValues.CANCELLED)).toContain('Book Again')
   })
-  it('FAILED returns Retry action', () => {
-    expect(getNextActionsForBooking(BookingStatusValues.FAILED)).toContain('Retry')
+  it('CONFIRM_EXCEPTION returns Contact Support', () => {
+    expect(getNextActionsForBooking(BookingStatusValues.CONFIRM_EXCEPTION)).toContain('Contact Support')
+  })
+  it('EXPIRED returns Search Again', () => {
+    expect(getNextActionsForBooking(BookingStatusValues.EXPIRED)).toContain('Search Again')
   })
 })
 
@@ -124,6 +133,9 @@ describe('getBookingStatusClass', () => {
   })
   it('CANCELLED returns class containing status-error', () => {
     expect(getBookingStatusClass(BookingStatusValues.CANCELLED)).toContain('status-error')
+  })
+  it('CONFIRM_EXCEPTION returns class containing status-error', () => {
+    expect(getBookingStatusClass(BookingStatusValues.CONFIRM_EXCEPTION)).toContain('status-error')
   })
   it('all statuses return a non-empty string', () => {
     Object.values(BookingStatusValues).forEach((status) => {

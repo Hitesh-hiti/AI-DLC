@@ -1,63 +1,81 @@
 /**
  * Policy API Types
- * Covers policy evaluation and compliance (AC-POL)
+ * Covers flight policy evaluation and compliance (AC-POL-01-05, AC-POL-01-06, AC-POL-03-05, AC-POL-04-03)
  */
 
 import type { PolicyOutcome, Money, AuditContext } from './common';
 
+// ─── Evaluation request ───────────────────────────────────────────────────────
+
 /**
- * Policy evaluation request (AC-POL-01-05, AC-POL-01-06)
- * Sent during booking hold to evaluate organizational policies
+ * Policy evaluation request
+ * Sent during flight booking hold to check organisational travel policy
  */
 export interface PolicyEvaluationRequest {
   organizationId: string;
-  propertyId: string;
-  destination: {
-    city: string;
-    country: string;
-  };
-  checkIn: string; // ISO 8601
-  checkOut: string; // ISO 8601
-  totalPrice: Money;
   travelerId: string;
   travelerDepartment?: string;
+
+  /** The flight offer being evaluated */
+  offerId: string;
+
+  flight: {
+    origin: string;        // IATA code e.g. "LHR"
+    destination: string;   // IATA code e.g. "JFK"
+    departureDate: string; // ISO 8601
+    returnDate?: string;   // ISO 8601 (round-trip)
+    cabinClass: 'ECONOMY' | 'PREMIUM_ECONOMY' | 'BUSINESS' | 'FIRST';
+    airline: string;
+    nonStop: boolean;
+    advanceBookingDays: number; // days between booking date and departure
+  };
+
+  totalFare: Money;
+
   purpose?: 'BUSINESS' | 'PERSONAL' | 'BLENDED';
+
   audit: AuditContext;
 }
 
+// ─── Evaluation response ──────────────────────────────────────────────────────
+
 /**
- * Policy evaluation response
+ * Policy evaluation response (AC-POL-01-05, AC-POL-01-06)
  */
 export interface PolicyEvaluationResponse {
   evaluationId: string;
   outcome: PolicyOutcome;
   timestamp: string;
+
   policies: PolicyResult[];
+
   requiresApproval: boolean;
   approvalDetails?: {
     approverIds: string[];
-    deadline: string;
+    deadline: string; // ISO 8601
     reason: string;
   };
+
   warnings?: PolicyWarning[];
   messages?: string[];
 }
 
 /**
- * Individual policy evaluation result
+ * Result for one evaluated policy rule
  */
 export interface PolicyResult {
   policyId: string;
   policyName: string;
   outcome: PolicyOutcome;
   details: string;
+
   threshold?: Money;
   actualValue?: Money | string;
   isBreached?: boolean;
 }
 
 /**
- * Policy warning message
+ * Policy warning message (shown in UI per AC-POL-01-06)
  */
 export interface PolicyWarning {
   code: string;
@@ -66,34 +84,44 @@ export interface PolicyWarning {
   field?: string;
 }
 
+// ─── Approval ─────────────────────────────────────────────────────────────────
+
 /**
- * Approval request (AC-POL-04-03)
- * Created when policy evaluation requires approval
+ * Approval request — created when outcome is REQUIRE_APPROVAL (AC-POL-04-03)
  */
 export interface ApprovalRequest {
   approvalId: string;
   bookingId?: string;
+
   organizationId: string;
   travelerId: string;
+
   requestReason: string;
-  details: {
-    propertyName: string;
+
+  flightSummary: {
+    origin: string;
     destination: string;
-    checkIn: string;
-    checkOut: string;
-    totalPrice: Money;
-    policyViolations: PolicyResult[];
+    departureDate: string;
+    returnDate?: string;
+    airline: string;
+    cabinClass: string;
+    totalFare: Money;
   };
-  assignedTo: string[];
-  deadline: string; // ISO 8601
+
+  policyViolations: PolicyResult[];
+
+  assignedTo: string[]; // approver user IDs
+  deadline: string;     // ISO 8601
+
   status: 'PENDING' | 'APPROVED' | 'REJECTED' | 'EXPIRED';
+
   createdAt: string;
   respondedAt?: string;
   responseComments?: string;
 }
 
 /**
- * Approval decision request
+ * Approval decision request (approver submits this)
  */
 export interface ApprovalDecisionRequest {
   approvalId: string;
@@ -115,9 +143,11 @@ export interface ApprovalDecisionResponse {
   nextSteps?: string[];
 }
 
+// ─── UI display ───────────────────────────────────────────────────────────────
+
 /**
- * Policy for display to user (AC-POL-01-06)
- * Shown in UI to explain policy outcomes
+ * Policy outcome rendered in the UI (AC-POL-01-06)
+ * Maps from PolicyEvaluationResponse to human-readable panel content
  */
 export interface DisplayPolicy {
   name: string;
@@ -132,8 +162,10 @@ export interface DisplayPolicy {
   };
 }
 
+// ─── History / audit ──────────────────────────────────────────────────────────
+
 /**
- * Policy history (for audit trail)
+ * Policy evaluation audit record
  */
 export interface PolicyEvaluationHistory {
   evaluationId: string;
@@ -145,17 +177,29 @@ export interface PolicyEvaluationHistory {
   policySetVersion: string;
 }
 
+// ─── Organisation policy configuration ───────────────────────────────────────
+
 /**
- * Organization policy configuration (backend reference only)
+ * Organisation flight policy rules (backend reference — not used directly in FE UI)
  */
 export interface OrganizationPolicies {
   organizationId: string;
   policies: {
-    maxDailyRate?: Money;
+    /** Maximum permitted one-way fare */
+    maxFare?: Money;
+    /** Maximum total trip cost (all segments) */
     maxTotalTripCost?: Money;
+    /** Fares above this amount require manager approval */
     approvalRequiredAbove?: Money;
+    /** IATA country codes that are blocked for travel */
     blockedDestinations?: string[];
-    requiresBusinessJustification?: boolean;
+    /** Minimum days in advance a booking must be made */
     advanceBookingDays?: number;
+    /** Permitted cabin classes */
+    allowedCabinClasses?: Array<'ECONOMY' | 'PREMIUM_ECONOMY' | 'BUSINESS' | 'FIRST'>;
+    /** Whether non-stop flights are required where available */
+    nonStopRequired?: boolean;
+    /** Whether a business justification is mandatory */
+    requiresBusinessJustification?: boolean;
   };
 }

@@ -1,0 +1,117 @@
+/* PolicyOutcomePanel — AC-POL-01-05, AC-POL-01-06, AC-POL-04-03 */
+
+.policy-panel {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-lg) 0;
+  border-left: 5px solid transparent;
+  align-items: flex-start;
+}
+
+.policy-panel-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.policy-panel-body { flex: 1; }
+.policy-panel-body strong {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+.policy-rule-message {
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+  line-height: 1.5;
+}
+.policy-rule-name { font-weight: 600; }
+
+/* ALLOW */
+.policy-panel-allow {
+  background: #f0fdf4;
+  border-left-color: var(--color-success);
+  color: #166534;
+}
+.policy-panel-allow .policy-panel-icon { color: var(--color-success); }
+
+/* WARN */
+.policy-panel-warn {
+  background: #fffbeb;
+  border-left-color: var(--color-warning);
+  color: #92400e;
+}
+.policy-panel-warn .policy-panel-icon { color: #d97706; }
+.policy-warning-message {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #b45309;
+  margin-top: 4px;
+}
+.policy-panel-warn-ack { opacity: 0.75; }
+.policy-ack-confirmed {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #15803d;
+  margin-top: var(--spacing-sm);
+}
+
+/* BLOCK — AC-POL-01-06, AC-POL-04-03: non-dismissible */
+.policy-panel-block {
+  background: #fef2f2;
+  border-left-color: var(--color-error);
+  color: #991b1b;
+}
+.policy-panel-block .policy-panel-icon { color: var(--color-error); }
+
+/* REQUIRE_APPROVAL */
+.policy-panel-approval {
+  background: #eff6ff;
+  border-left-color: var(--color-ocean-blue);
+  color: #1e40af;
+}
+.policy-panel-approval .policy-panel-icon { color: var(--color-ocean-blue); }
+.policy-approval-note {
+  font-size: 0.875rem;
+  margin-top: var(--spacing-sm);
+  color: #1e40af;
+}
+
+/* Action buttons */
+.policy-panel-actions { margin-top: var(--spacing-md); }
+
+.policy-return-btn {
+  background: var(--color-error);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.policy-return-btn:hover { background: #b91c1c; transform: translateY(-1px); }
+.policy-return-btn:focus {
+  outline: 2px solid var(--color-error);
+  outline-offset: 2px;
+}
+
+.policy-ack-btn {
+  background: transparent;
+  color: #92400e;
+  border: 1px solid #d97706;
+  padding: 0.4rem 1rem;
+  border-radius: var(--border-radius);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.policy-ack-btn:hover { background: #fef3c7; }
+.policy-ack-btn:focus {
+  outline: 2px solid var(--color-warning);
+  outline-offset: 2px;
+}

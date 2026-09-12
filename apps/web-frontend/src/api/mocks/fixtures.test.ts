@@ -132,14 +132,19 @@ describe('createMockBookingHoldResponse', () => {
     expect(resp.confirmationNumber).toContain('CONF')
     expect(resp.holdExpiresAt).toBeTruthy()
   })
-  it('sets totalPrice higher than basePrice (includes tax + fees)', () => {
+  it('totalFare is higher than baseFare (includes taxes + fees)', () => {
     const resp = createMockBookingHoldResponse('booking-002', 'flight-001')
-    expect(resp.rateDetails.totalPrice.amount).toBeGreaterThan(resp.rateDetails.basePrice.amount)
+    expect(resp.fareBreakdown.totalFare.amount).toBeGreaterThan(resp.fareBreakdown.baseFare.amount)
+  })
+  it('flightSummary carries origin and destination', () => {
+    const resp = createMockBookingHoldResponse('booking-002', 'flight-001')
+    expect(resp.flightSummary.origin).toBeTruthy()
+    expect(resp.flightSummary.destination).toBeTruthy()
   })
   it('falls back to first mock flight when offerId not found', () => {
     const resp = createMockBookingHoldResponse('booking-003', 'nonexistent-id')
     expect(resp.bookingStatus).toBe('HELD')
-    expect(resp.rateDetails.basePrice.amount).toBeGreaterThan(0)
+    expect(resp.fareBreakdown.baseFare.amount).toBeGreaterThan(0)
   })
 })
 
@@ -188,13 +193,19 @@ describe('createMockBookingDetailResponse', () => {
     expect(r.confirmationNumber).toContain('CONF')
     expect(r.bookingStatus).toBe('HELD')
   })
-  it('has a non-zero total price', () => {
+  it('has a non-zero total fare', () => {
     const r = createMockBookingDetailResponse('detail-002')
-    expect(r.rateDetails.totalPrice.amount).toBeGreaterThan(0)
+    expect(r.fareBreakdown.totalFare.amount).toBeGreaterThan(0)
   })
-  it('has primary guest info', () => {
+  it('has at least one passenger', () => {
     const r = createMockBookingDetailResponse('detail-003')
-    expect(r.guestInfo.primary.firstName).toBeTruthy()
-    expect(r.guestInfo.primary.email).toBeTruthy()
+    expect(r.passengers.length).toBeGreaterThan(0)
+    expect(r.passengers[0].firstName).toBeTruthy()
+  })
+  it('has flight details with origin and destination', () => {
+    const r = createMockBookingDetailResponse('detail-004')
+    expect(r.flightDetails.origin).toBeTruthy()
+    expect(r.flightDetails.destination).toBeTruthy()
+    expect(r.flightDetails.airline).toBeTruthy()
   })
 })

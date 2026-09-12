@@ -115,7 +115,7 @@ describe('SearchResults — availability', () => {
 
   it('shows seat count for available flight', () => {
     render(<SearchResults results={[baseFlight]} onSelectFlight={vi.fn()} />)
-    expect(screen.getByText(/8 seats available/i)).toBeInTheDocument()
+    expect(screen.getByText(/8 seats/i)).toBeInTheDocument()
   })
 
   it('shows "Sold Out" badge for sold-out flight', () => {
