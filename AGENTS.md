@@ -47,4 +47,4 @@ When a user asks for an enhancement:
 
 ## Output discipline
 Do not invent Jira, Zephyr, Git, PR, or CI identifiers. Use placeholders such as REQ-001,
-STORY-001, TC-001, PR-001 until real identifiers are available.
+TC-001, PR-001 until real identifiers are available.

@@ -24,8 +24,9 @@ Kiro-recognized standard.
 6. Development with architecture guardrails/framework structure
 7. Git push + PR
 8. CI/CD YAML for PR, quality and security checks
-9. Playwright/Selenium automation per user story
-10. Traceability matrix
+9. Test case drafting
+10. Playwright/Selenium automation per user story
+11. Traceability matrix
 
 ## Continuous feedback / enhancement behavior
 An enhancement must never be treated as an isolated code change. The agents must:
@@ -44,6 +45,7 @@ Historical traceability is retained; changed behavior is versioned.
     traceability.md
     architecture-guardrails.md
     testing.md
+    qa.md
 
 phases/
   01-requirement-analysis/agent.md + AGENTS.md
@@ -54,7 +56,8 @@ phases/
   06-development/agent.md + AGENTS.md
   07-git-push-and-pr/agent.md + AGENTS.md
   08-ci-cd-pr-validation/agent.md + AGENTS.md
-  09-test-automation/agent.md + AGENTS.md
+  09-test-testcase_drafting/agent.md + AGENTS.md
+  10-test-automation/agent.md + AGENTS.md
 
 traceability/
   traceability-matrix.md
