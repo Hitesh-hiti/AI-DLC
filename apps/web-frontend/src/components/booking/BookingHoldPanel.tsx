@@ -73,7 +73,7 @@ export const BookingHoldPanel: React.FC<BookingHoldPanelProps> = ({
   const totalFare = holdResponse?.fareBreakdown.totalFare ?? { amount: baseFare.amount + taxes.amount + fees.amount, currency: flight.price.currency };
 
   return (
-    <div className="hold-panel">
+    <div className="hold-panel" data-testid="hold-panel">
       {/* ── Step indicator ─────────────────────────────────── */}
       <h2 className="hold-panel-title">
         <span className="step-badge">3</span>
@@ -216,6 +216,7 @@ export const BookingHoldPanel: React.FC<BookingHoldPanelProps> = ({
             loading={isLoading}
             disabled={isLoading}
             onClick={onHold}
+            data-testid="btn-confirm-booking"
           >
             {isLoading ? 'Confirming...' : 'Confirm Booking'}
           </Button>

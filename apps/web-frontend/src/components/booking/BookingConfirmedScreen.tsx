@@ -59,7 +59,7 @@ export const BookingConfirmedScreen: React.FC<BookingConfirmedScreenProps> = ({
   ).toISOString();
 
   return (
-    <div className="confirmed-screen" aria-label="Booking confirmed">
+    <div className="confirmed-screen" aria-label="Booking confirmed" data-testid="confirmed-screen">
       {/* ── Success header ──────────────────────────────── */}
       <div className="confirmed-header">
         <div className="confirmed-icon" aria-hidden="true">✓</div>
@@ -73,7 +73,7 @@ export const BookingConfirmedScreen: React.FC<BookingConfirmedScreenProps> = ({
       <section className="confirmed-ref-card" aria-label="Ticket reference">
         <div className="confirmed-ref-row">
           <span className="confirmed-label">Booking Reference</span>
-          <span className="confirmed-value confirmed-booking-ref">
+          <span className="confirmed-value confirmed-booking-ref" data-testid="confirmed-booking-ref">
             {confirmResponse.confirmationNumber}
           </span>
         </div>
@@ -81,14 +81,14 @@ export const BookingConfirmedScreen: React.FC<BookingConfirmedScreenProps> = ({
         {pnrRecord && (
           <div className="confirmed-ref-row">
             <span className="confirmed-label">PNR</span>
-            <span className="confirmed-value confirmed-pnr">{pnrRecord.pnr}</span>
+            <span className="confirmed-value confirmed-pnr" data-testid="confirmed-pnr">{pnrRecord.pnr}</span>
           </div>
         )}
 
         {confirmResponse.ticketNumbers?.map((tn, i) => (
           <div key={i} className="confirmed-ref-row">
             <span className="confirmed-label">Ticket Number {i + 1}</span>
-            <span className="confirmed-value confirmed-ticket">{tn}</span>
+            <span className="confirmed-value confirmed-ticket" data-testid={`confirmed-ticket-${i}`}>{tn}</span>
           </div>
         ))}
 
@@ -149,7 +149,7 @@ export const BookingConfirmedScreen: React.FC<BookingConfirmedScreenProps> = ({
       {/* ── Void window (AC-EXP-03-08) ──────────────────── */}
       <section className="confirmed-void-window" aria-label="Void window">
         <h3 className="confirmed-section-title">Void Window</h3>
-        <p className="confirmed-void-text">
+        <p className="confirmed-void-text" data-testid="void-window-expiry">
           Free cancellation (void) available until:{' '}
           <strong className="confirmed-void-expiry">{formatDateTime(voidWindowExpiry)}</strong>
         </p>
@@ -203,7 +203,7 @@ export const BookingConfirmedScreen: React.FC<BookingConfirmedScreenProps> = ({
             View My Trips
           </Button>
         )}
-        <Button type="button" variant="secondary" size="lg" onClick={onReturnToSearch}>
+        <Button type="button" variant="secondary" size="lg" onClick={onReturnToSearch} data-testid="btn-search-another">
           Search Another Flight
         </Button>
       </div>

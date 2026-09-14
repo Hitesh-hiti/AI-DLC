@@ -93,6 +93,7 @@ export const PassengerForm: React.FC<PassengerFormProps> = ({
       onSubmit={handleSubmit}
       aria-label="Passenger details form"
       noValidate
+      data-testid="passenger-form"
     >
       <h2 className="passenger-form-title">
         <span className="step-badge">2</span>
@@ -136,6 +137,7 @@ export const PassengerForm: React.FC<PassengerFormProps> = ({
               error={errors[i]?.firstName}
               required
               autoComplete="given-name"
+              data-testid={`pax-${i}-first-name`}
             />
             <Input
               label="Last Name"
@@ -146,6 +148,7 @@ export const PassengerForm: React.FC<PassengerFormProps> = ({
               error={errors[i]?.lastName}
               required
               autoComplete="family-name"
+              data-testid={`pax-${i}-last-name`}
             />
           </div>
 
@@ -169,10 +172,10 @@ export const PassengerForm: React.FC<PassengerFormProps> = ({
       ))}
 
       <div className="passenger-form-actions">
-        <Button type="button" variant="secondary" size="lg" onClick={onBack} disabled={isLoading}>
+        <Button type="button" variant="secondary" size="lg" onClick={onBack} disabled={isLoading} data-testid="btn-back-to-results">
           ← Back to Results
         </Button>
-        <Button type="submit" variant="primary" size="lg" loading={isLoading} disabled={isLoading}>
+        <Button type="submit" variant="primary" size="lg" loading={isLoading} disabled={isLoading} data-testid="btn-review-booking">
           Review Booking
         </Button>
       </div>

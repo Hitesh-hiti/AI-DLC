@@ -25,7 +25,7 @@ export const PolicyOutcomePanel: React.FC<PolicyOutcomePanelProps> = ({
 
   if (outcome === 'ALLOW') {
     return (
-      <div className="policy-panel policy-panel-allow" role="status" aria-label="Policy check passed">
+      <div className="policy-panel policy-panel-allow" role="status" aria-label="Policy check passed" data-testid="policy-panel-allow">
         <span className="policy-panel-icon">✓</span>
         <div>
           <strong>Policy Check Passed</strong>
@@ -37,12 +37,12 @@ export const PolicyOutcomePanel: React.FC<PolicyOutcomePanelProps> = ({
 
   if (outcome === 'BLOCK') {
     return (
-      <div className="policy-panel policy-panel-block" role="alert" aria-label="Booking blocked by policy" aria-live="assertive">
+      <div className="policy-panel policy-panel-block" role="alert" aria-label="Booking blocked by policy" aria-live="assertive" data-testid="policy-panel-block">
         <span className="policy-panel-icon">✕</span>
         <div className="policy-panel-body">
           <strong>Booking Blocked by Policy</strong>
           {policies.filter(p => p.isBreached).map((p, i) => (
-            <p key={i} className="policy-rule-message">
+            <p key={i} className="policy-rule-message" data-testid="policy-block-reason">
               <span className="policy-rule-name">{p.policyName}:</span> {p.details}
             </p>
           ))}
@@ -52,6 +52,7 @@ export const PolicyOutcomePanel: React.FC<PolicyOutcomePanelProps> = ({
               className="policy-return-btn"
               onClick={onReturnToSearch}
               aria-label="Return to search"
+              data-testid="btn-return-to-search"
             >
               ← Return to Search
             </button>
@@ -63,12 +64,12 @@ export const PolicyOutcomePanel: React.FC<PolicyOutcomePanelProps> = ({
 
   if (outcome === 'WARN') {
     return (
-      <div className={`policy-panel policy-panel-warn ${warnAcknowledged ? 'policy-panel-warn-ack' : ''}`} role="note" aria-label="Policy warning">
+      <div className={`policy-panel policy-panel-warn ${warnAcknowledged ? 'policy-panel-warn-ack' : ''}`} role="note" aria-label="Policy warning" data-testid="policy-panel-warn">
         <span className="policy-panel-icon">⚠</span>
         <div className="policy-panel-body">
           <strong>Policy Warning</strong>
           {policies.map((p, i) => (
-            <p key={i} className="policy-rule-message">
+            <p key={i} className="policy-rule-message" data-testid="policy-warn-reason">
               <span className="policy-rule-name">{p.policyName}:</span> {p.details}
             </p>
           ))}
@@ -82,13 +83,14 @@ export const PolicyOutcomePanel: React.FC<PolicyOutcomePanelProps> = ({
                 className="policy-ack-btn"
                 onClick={() => setWarnAcknowledged(true)}
                 aria-label="Acknowledge policy warning and continue"
+                data-testid="btn-acknowledge-warning"
               >
                 I understand — continue anyway
               </button>
             </div>
           )}
           {warnAcknowledged && (
-            <p className="policy-ack-confirmed" aria-live="polite">
+            <p className="policy-ack-confirmed" aria-live="polite" data-testid="policy-warn-acknowledged">
               ✓ Warning acknowledged — you may proceed to hold.
             </p>
           )}

@@ -44,7 +44,7 @@ export const ApprovalPendingScreen: React.FC<ApprovalPendingScreenProps> = ({
   const approval = holdResponse.approvalDetails!;
 
   return (
-    <div className="approval-pending" aria-label="Booking submitted for approval">
+    <div className="approval-pending" aria-label="Booking submitted for approval" data-testid="approval-pending-screen">
       {/* ── Status header ─────────────────────────────────── */}
       <div className="approval-status-header">
         <div className="approval-icon" aria-hidden="true">✉</div>
@@ -58,7 +58,7 @@ export const ApprovalPendingScreen: React.FC<ApprovalPendingScreenProps> = ({
       <section className="approval-card" aria-label="Booking reference">
         <div className="approval-detail-row approval-detail-row-highlight">
           <span className="approval-label">Booking Reference</span>
-          <span className="approval-value approval-ref">{holdResponse.confirmationNumber}</span>
+          <span className="approval-value approval-ref" data-testid="approval-booking-ref">{holdResponse.confirmationNumber}</span>
         </div>
 
         <div className="approval-detail-row">
@@ -95,12 +95,12 @@ export const ApprovalPendingScreen: React.FC<ApprovalPendingScreenProps> = ({
 
         <div className="approval-detail-row">
           <span className="approval-label">Status</span>
-          <span className="approval-status-badge">⏳ Pending Approval</span>
+          <span className="approval-status-badge" data-testid="approval-status-badge">⏳ Pending Approval</span>
         </div>
 
         <div className="approval-detail-row">
           <span className="approval-label">Approval Requested from</span>
-          <span className="approval-value">{approval.approverName}</span>
+          <span className="approval-value" data-testid="approval-approver-name">{approval.approverName}</span>
         </div>
 
         <div className="approval-detail-row">
@@ -123,7 +123,7 @@ export const ApprovalPendingScreen: React.FC<ApprovalPendingScreenProps> = ({
         </div>
 
         {/* AC-EXP-02-05: cannot confirm until approved — no confirm button shown */}
-        <div className="approval-blocked-notice" role="status" aria-live="polite">
+        <div className="approval-blocked-notice" role="status" aria-live="polite" data-testid="approval-blocked-notice">
           <span className="approval-blocked-icon">🔒</span>
           <span>
             Confirmation is blocked until your manager approves this booking.
@@ -139,7 +139,7 @@ export const ApprovalPendingScreen: React.FC<ApprovalPendingScreenProps> = ({
             View Trip Details
           </Button>
         )}
-        <Button type="button" variant="secondary" size="lg" onClick={onReturnToSearch}>
+        <Button type="button" variant="secondary" size="lg" onClick={onReturnToSearch} data-testid="btn-back-to-search-approval">
           ← Back to Search
         </Button>
       </div>

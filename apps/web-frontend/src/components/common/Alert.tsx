@@ -13,6 +13,7 @@ export interface AlertProps {
   dismissible?: boolean;
   onDismiss?: () => void;
   className?: string;
+  'data-testid'?: string;
 }
 
 export const Alert: React.FC<AlertProps> = ({
@@ -22,6 +23,7 @@ export const Alert: React.FC<AlertProps> = ({
   dismissible = false,
   onDismiss,
   className = '',
+  'data-testid': testId,
 }) => {
   const [visible, setVisible] = React.useState(true);
 
@@ -42,7 +44,7 @@ export const Alert: React.FC<AlertProps> = ({
   };
 
   return (
-    <div className={`alert alert-${variant} ${className}`} role="alert">
+    <div className={`alert alert-${variant} ${className}`} role="alert" data-testid={testId}>
       <div className="alert-content">
         <span className="alert-icon" aria-hidden="true">
           {iconMap[variant]}

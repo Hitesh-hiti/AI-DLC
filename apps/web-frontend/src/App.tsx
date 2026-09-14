@@ -192,7 +192,7 @@ const BookingPage: React.FC = () => {
         {/* ── Global error ───────────────────────────────── */}
         {error && (
           <Alert variant="error" title="Error" message={error}
-            dismissible onDismiss={clearError} />
+            dismissible onDismiss={clearError} data-testid="app-error-alert" />
         )}
 
         {/* ── Step: search + results ──────────────────────── */}

@@ -77,12 +77,12 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
   }
 
   return (
-    <div className="search-results">
+    <div className="search-results" data-testid="search-results">
       <h2 className="search-results-title">
         {results.length} Flight{results.length !== 1 ? 's' : ''} Found
       </h2>
 
-      <div className="search-results-list">
+      <div className="search-results-list" data-testid="flight-list">
         {results.map((flight) => {
           const fare = estimateFare(flight.price);
           const fareOpen = expandedFare === flight.offerId;
@@ -207,6 +207,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
                   size="md"
                   disabled={flight.isSoldOut}
                   aria-label={`Select ${flight.airline} ${flight.flightNumber} from ${flight.origin} to ${flight.destination}`}
+                  data-testid={`btn-select-flight-${flight.offerId}`}
                 >
                   Select
                 </Button>

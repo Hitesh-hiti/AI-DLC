@@ -98,7 +98,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
   };
 
   return (
-    <form className="search-form" onSubmit={handleSubmit}>
+    <form className="search-form" onSubmit={handleSubmit} data-testid="search-form">
       <h1 className="search-form-title">Search Flights</h1>
 
       {/* Row 1: Origin & Destination */}
@@ -111,6 +111,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           error={errors.origin}
           required
           maxLength={3}
+          data-testid="input-origin"
         />
 
         <Input
@@ -121,6 +122,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           error={errors.destination}
           required
           maxLength={3}
+          data-testid="input-destination"
         />
       </div>
 
@@ -134,6 +136,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           min={minDepartureDate}
           error={errors.departureDate}
           required
+          data-testid="input-departure"
         />
 
         <Input
@@ -143,6 +146,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           onChange={(e) => setReturnDate(e.target.value)}
           min={minReturnDate}
           error={errors.returnDate}
+          data-testid="input-return"
         />
 
         <div className="search-form-field">
@@ -154,6 +158,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
             value={cabinClass}
             onChange={(e) => setCabinClass(e.target.value as typeof cabinClass)}
             className="search-form-select"
+            data-testid="select-cabin"
           >
             {CABIN_CLASSES.map((cabin) => (
               <option key={cabin.value} value={cabin.value}>
@@ -168,23 +173,25 @@ export const SearchForm: React.FC<SearchFormProps> = ({
       <div className="search-form-row">
         <div className="search-form-field">
           <label className="search-form-label">Passengers</label>
-          <div className="search-form-passengers">
+          <div className="search-form-passengers" data-testid="passengers-control">
             <button
               type="button"
               onClick={handleRemovePassenger}
               disabled={passengers <= 1}
               className="search-form-button-control"
               aria-label="Remove passenger"
+              data-testid="btn-remove-passenger"
             >
               −
             </button>
-            <span className="search-form-passenger-count">{passengers}</span>
+            <span className="search-form-passenger-count" data-testid="passenger-count">{passengers}</span>
             <button
               type="button"
               onClick={handleAddPassenger}
               disabled={passengers >= 9}
               className="search-form-button-control"
               aria-label="Add passenger"
+              data-testid="btn-add-passenger"
             >
               +
             </button>
@@ -209,6 +216,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           size="lg"
           loading={isLoading}
           disabled={isLoading}
+          data-testid="btn-search"
         >
           {isLoading ? 'Searching...' : 'Search Flights'}
         </Button>
@@ -219,6 +227,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({
           size="lg"
           onClick={handleClearForm}
           disabled={isLoading}
+          data-testid="btn-clear-form"
         >
           Clear Form
         </Button>
