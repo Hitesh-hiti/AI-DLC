@@ -10,7 +10,10 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "api": "cd backend && npm start",
+    "api:dev": "cd backend && npm run dev",
+    "dev:all": "node scripts/dev-all.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",

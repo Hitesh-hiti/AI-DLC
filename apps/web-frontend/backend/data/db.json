@@ -1,0 +1,661 @@
+{
+  "flights": [
+    {
+      "offerId": "flight-001",
+      "airline": "British Airways",
+      "flightNumber": "BA 112",
+      "aircraft": "Boeing 777-200ER",
+      "origin": "LHR",
+      "destination": "JFK",
+      "departureTime": "2026-09-22T18:44:59.587Z",
+      "arrivalTime": "2026-09-23T02:14:59.587Z",
+      "duration": "PT7.5H",
+      "stops": 0,
+      "cabinClass": "ECONOMY",
+      "price": {
+        "amount": 450,
+        "currency": "USD"
+      },
+      "availability": 12,
+      "isSoldOut": false,
+      "fareRules": [
+        {
+          "ruleType": "CANCELLATION",
+          "description": "Free cancellation up to 2 hours before departure",
+          "terms": "Cancellations within 2 hours of departure are non-refundable"
+        },
+        {
+          "ruleType": "CHANGE",
+          "description": "Changes allowed with applicable fees",
+          "terms": "Flight changes carry a $50 change fee"
+        },
+        {
+          "ruleType": "BAGGAGE",
+          "description": "1 carry-on + 1 personal item included",
+          "terms": "First checked bag: $35 · Second: $50"
+        }
+      ],
+      "metadata": {
+        "gdsSupplierId": "demo-gds",
+        "lastUpdated": "2026-09-15T18:44:59.587Z"
+      }
+    },
+    {
+      "offerId": "flight-002",
+      "airline": "United Airlines",
+      "flightNumber": "UA 908",
+      "aircraft": "Boeing 787-10",
+      "origin": "LHR",
+      "destination": "JFK",
+      "departureTime": "2026-09-22T18:44:59.587Z",
+      "arrivalTime": "2026-09-23T02:44:59.587Z",
+      "duration": "PT8H",
+      "stops": 0,
+      "cabinClass": "ECONOMY",
+      "price": {
+        "amount": 380,
+        "currency": "USD"
+      },
+      "availability": 8,
+      "isSoldOut": false,
+      "fareRules": [
+        {
+          "ruleType": "CANCELLATION",
+          "description": "Free cancellation up to 2 hours before departure",
+          "terms": "Cancellations within 2 hours of departure are non-refundable"
+        },
+        {
+          "ruleType": "CHANGE",
+          "description": "Changes allowed with applicable fees",
+          "terms": "Flight changes carry a $50 change fee"
+        },
+        {
+          "ruleType": "BAGGAGE",
+          "description": "1 carry-on + 1 personal item included",
+          "terms": "First checked bag: $35 · Second: $50"
+        }
+      ],
+      "metadata": {
+        "gdsSupplierId": "demo-gds",
+        "lastUpdated": "2026-09-15T18:44:59.587Z"
+      }
+    },
+    {
+      "offerId": "flight-003",
+      "airline": "Virgin Atlantic",
+      "flightNumber": "VS 004",
+      "aircraft": "Airbus A330-300",
+      "origin": "LHR",
+      "destination": "JFK",
+      "departureTime": "2026-09-22T18:44:59.587Z",
+      "arrivalTime": "2026-09-23T02:29:59.587Z",
+      "duration": "PT7.75H",
+      "stops": 1,
+      "cabinClass": "PREMIUM_ECONOMY",
+      "price": {
+        "amount": 680,
+        "currency": "USD"
+      },
+      "availability": 5,
+      "isSoldOut": false,
+      "fareRules": [
+        {
+          "ruleType": "CANCELLATION",
+          "description": "Free cancellation up to 2 hours before departure",
+          "terms": "Cancellations within 2 hours of departure are non-refundable"
+        },
+        {
+          "ruleType": "CHANGE",
+          "description": "Changes allowed with applicable fees",
+          "terms": "Flight changes carry a $50 change fee"
+        },
+        {
+          "ruleType": "BAGGAGE",
+          "description": "1 carry-on + 1 personal item included",
+          "terms": "First checked bag: $35 · Second: $50"
+        }
+      ],
+      "metadata": {
+        "gdsSupplierId": "demo-gds",
+        "lastUpdated": "2026-09-15T18:44:59.587Z"
+      }
+    },
+    {
+      "offerId": "flight-004",
+      "airline": "British Airways",
+      "flightNumber": "BA 286",
+      "aircraft": "Boeing 777-300ER",
+      "origin": "LHR",
+      "destination": "JFK",
+      "departureTime": "2026-09-23T18:44:59.587Z",
+      "arrivalTime": "2026-09-24T02:14:59.587Z",
+      "duration": "PT7.5H",
+      "stops": 0,
+      "cabinClass": "BUSINESS",
+      "price": {
+        "amount": 1800,
+        "currency": "USD"
+      },
+      "availability": 3,
+      "isSoldOut": false,
+      "fareRules": [
+        {
+          "ruleType": "CANCELLATION",
+          "description": "Free cancellation up to 2 hours before departure",
+          "terms": "Cancellations within 2 hours of departure are non-refundable"
+        },
+        {
+          "ruleType": "CHANGE",
+          "description": "Changes allowed with applicable fees",
+          "terms": "Flight changes carry a $50 change fee"
+        },
+        {
+          "ruleType": "BAGGAGE",
+          "description": "1 carry-on + 1 personal item included",
+          "terms": "First checked bag: $35 · Second: $50"
+        }
+      ],
+      "metadata": {
+        "gdsSupplierId": "demo-gds",
+        "lastUpdated": "2026-09-15T18:44:59.587Z"
+      }
+    },
+    {
+      "offerId": "flight-005",
+      "airline": "Lufthansa",
+      "flightNumber": "LH 401",
+      "aircraft": "Airbus A340-600",
+      "origin": "LHR",
+      "destination": "JFK",
+      "departureTime": "2026-09-24T18:44:59.587Z",
+      "arrivalTime": "2026-09-25T03:14:59.587Z",
+      "duration": "PT8.5H",
+      "stops": 2,
+      "cabinClass": "ECONOMY",
+      "price": {
+        "amount": 320,
+        "currency": "USD"
+      },
+      "availability": 0,
+      "isSoldOut": true,
+      "fareRules": [
+        {
+          "ruleType": "CANCELLATION",
+          "description": "Free cancellation up to 2 hours before departure",
+          "terms": "Cancellations within 2 hours of departure are non-refundable"
+        },
+        {
+          "ruleType": "CHANGE",
+          "description": "Changes allowed with applicable fees",
+          "terms": "Flight changes carry a $50 change fee"
+        },
+        {
+          "ruleType": "BAGGAGE",
+          "description": "1 carry-on + 1 personal item included",
+          "terms": "First checked bag: $35 · Second: $50"
+        }
+      ],
+      "metadata": {
+        "gdsSupplierId": "demo-gds",
+        "lastUpdated": "2026-09-15T18:44:59.587Z"
+      }
+    },
+    {
+      "offerId": "flight-006",
+      "airline": "Emirates",
+      "flightNumber": "EK 201",
+      "aircraft": "Airbus A380",
+      "origin": "DXB",
+      "destination": "JFK",
+      "departureTime": "2026-09-25T18:44:59.587Z",
+      "arrivalTime": "2026-09-26T08:44:59.587Z",
+      "duration": "PT14H",
+      "stops": 0,
+      "cabinClass": "ECONOMY",
+      "price": {
+        "amount": 920,
+        "currency": "USD"
+      },
+      "availability": 14,
+      "isSoldOut": false,
+      "fareRules": [
+        {
+          "ruleType": "CANCELLATION",
+          "description": "Free cancellation up to 2 hours before departure",
+          "terms": "Cancellations within 2 hours of departure are non-refundable"
+        },
+        {
+          "ruleType": "CHANGE",
+          "description": "Changes allowed with applicable fees",
+          "terms": "Flight changes carry a $50 change fee"
+        },
+        {
+          "ruleType": "BAGGAGE",
+          "description": "1 carry-on + 1 personal item included",
+          "terms": "First checked bag: $35 · Second: $50"
+        }
+      ],
+      "metadata": {
+        "gdsSupplierId": "demo-gds",
+        "lastUpdated": "2026-09-15T18:44:59.587Z"
+      }
+    },
+    {
+      "offerId": "flight-007",
+      "airline": "Singapore Airlines",
+      "flightNumber": "SQ 12",
+      "aircraft": "Airbus A350",
+      "origin": "SIN",
+      "destination": "JFK",
+      "departureTime": "2026-09-27T18:44:59.587Z",
+      "arrivalTime": "2026-09-28T12:44:59.587Z",
+      "duration": "PT18H",
+      "stops": 0,
+      "cabinClass": "PREMIUM_ECONOMY",
+      "price": {
+        "amount": 1250,
+        "currency": "USD"
+      },
+      "availability": 7,
+      "isSoldOut": false,
+      "fareRules": [
+        {
+          "ruleType": "CANCELLATION",
+          "description": "Free cancellation up to 2 hours before departure",
+          "terms": "Cancellations within 2 hours of departure are non-refundable"
+        },
+        {
+          "ruleType": "CHANGE",
+          "description": "Changes allowed with applicable fees",
+          "terms": "Flight changes carry a $50 change fee"
+        },
+        {
+          "ruleType": "BAGGAGE",
+          "description": "1 carry-on + 1 personal item included",
+          "terms": "First checked bag: $35 · Second: $50"
+        }
+      ],
+      "metadata": {
+        "gdsSupplierId": "demo-gds",
+        "lastUpdated": "2026-09-15T18:44:59.587Z"
+      }
+    }
+  ],
+  "bookings": [
+    {
+      "bookingId": "3b15a2fb-0dab-4648-b4bd-d2e14bc1c8cd",
+      "offerId": "flight-004",
+      "organizationId": "org-001",
+      "travelerId": "traveler-001",
+      "passengerInfo": [
+        {
+          "passengerType": "ADT",
+          "firstName": "JYOE",
+          "lastName": "DEO"
+        }
+      ],
+      "flightDetails": {
+        "origin": "LHR",
+        "destination": "JFK",
+        "departureDate": "2026-09-23",
+        "cabinClass": "BUSINESS",
+        "passengers": 1
+      },
+      "bookingStatus": "CONFIRMED",
+      "confirmationNumber": "CONF-3B15A2FB",
+      "holdExpiresAt": "2026-09-15T19:17:55.515Z",
+      "fareBreakdown": {
+        "baseFare": {
+          "amount": 1800,
+          "currency": "USD"
+        },
+        "taxes": {
+          "amount": 270,
+          "currency": "USD"
+        },
+        "fees": {
+          "amount": 25,
+          "currency": "USD"
+        },
+        "totalFare": {
+          "amount": 2095,
+          "currency": "USD"
+        }
+      },
+      "cancellationPolicy": {
+        "refundable": true,
+        "cancellationDeadline": "2026-09-17T18:47:55.515Z",
+        "penaltyAmount": {
+          "amount": 50,
+          "currency": "USD"
+        }
+      },
+      "createdAt": "2026-09-15T18:47:55.515Z",
+      "modifiedAt": "2026-09-15T18:47:55.579Z",
+      "ticketNumbers": [
+        "TKT-0ADB63A4"
+      ],
+      "pnr": "3B15A2",
+      "confirmedAt": "2026-09-15T18:47:55.579Z"
+    },
+    {
+      "bookingId": "c222cf70-6015-4f8e-b9ca-bc8d74033981",
+      "offerId": "flight-004",
+      "organizationId": "org-001",
+      "travelerId": "traveler-001",
+      "passengerInfo": [
+        {
+          "passengerType": "ADT",
+          "firstName": "JYOE",
+          "lastName": "DEO"
+        }
+      ],
+      "flightDetails": {
+        "origin": "LHR",
+        "destination": "JFK",
+        "departureDate": "2026-09-23",
+        "cabinClass": "BUSINESS",
+        "passengers": 1
+      },
+      "bookingStatus": "PENDING_APPROVAL",
+      "confirmationNumber": "CONF-C222CF70",
+      "holdExpiresAt": "2026-09-15T19:28:15.250Z",
+      "fareBreakdown": {
+        "baseFare": {
+          "amount": 1800,
+          "currency": "USD"
+        },
+        "taxes": {
+          "amount": 270,
+          "currency": "USD"
+        },
+        "fees": {
+          "amount": 25,
+          "currency": "USD"
+        },
+        "totalFare": {
+          "amount": 2095,
+          "currency": "USD"
+        }
+      },
+      "cancellationPolicy": {
+        "refundable": true,
+        "cancellationDeadline": "2026-09-17T18:58:15.251Z",
+        "penaltyAmount": {
+          "amount": 50,
+          "currency": "USD"
+        }
+      },
+      "createdAt": "2026-09-15T18:58:15.251Z",
+      "modifiedAt": "2026-09-15T18:58:15.267Z",
+      "approvalId": "APPR-C222CF70",
+      "ticketNumbers": [],
+      "pnr": "C222CF"
+    },
+    {
+      "bookingId": "4f25ea50-5882-4714-8a9b-0b7e4bc4bcb5",
+      "offerId": "flight-007",
+      "organizationId": "org-001",
+      "travelerId": "traveler-001",
+      "passengerInfo": [
+        {
+          "passengerType": "ADT",
+          "firstName": "JYOE",
+          "lastName": "DEO"
+        }
+      ],
+      "flightDetails": {
+        "origin": "SIN",
+        "destination": "JFK",
+        "departureDate": "2026-09-27",
+        "cabinClass": "BUSINESS",
+        "passengers": 1
+      },
+      "bookingStatus": "PENDING_APPROVAL",
+      "confirmationNumber": "CONF-4F25EA50",
+      "holdExpiresAt": "2026-09-15T19:31:21.167Z",
+      "fareBreakdown": {
+        "baseFare": {
+          "amount": 1250,
+          "currency": "USD"
+        },
+        "taxes": {
+          "amount": 187.5,
+          "currency": "USD"
+        },
+        "fees": {
+          "amount": 25,
+          "currency": "USD"
+        },
+        "totalFare": {
+          "amount": 1462.5,
+          "currency": "USD"
+        }
+      },
+      "cancellationPolicy": {
+        "refundable": true,
+        "cancellationDeadline": "2026-09-17T19:01:21.167Z",
+        "penaltyAmount": {
+          "amount": 50,
+          "currency": "USD"
+        }
+      },
+      "createdAt": "2026-09-15T19:01:21.167Z",
+      "modifiedAt": "2026-09-15T19:01:21.191Z",
+      "approvalId": "APPR-4F25EA50",
+      "ticketNumbers": [],
+      "pnr": "4F25EA"
+    }
+  ],
+  "approvals": [
+    {
+      "approvalId": "APPR-C222CF70",
+      "bookingId": "c222cf70-6015-4f8e-b9ca-bc8d74033981",
+      "organizationId": "org-001",
+      "travelerId": "traveler-001",
+      "requestReason": "Fare exceeds the manager approval threshold of USD 1000",
+      "flightSummary": {
+        "origin": "LHR",
+        "destination": "JFK",
+        "departureDate": "2026-09-23",
+        "airline": "British Airways",
+        "cabinClass": "BUSINESS",
+        "totalFare": {
+          "amount": 2095,
+          "currency": "USD"
+        }
+      },
+      "policyViolations": [
+        {
+          "policyId": "pol-fare",
+          "policyName": "High-Fare Approval",
+          "outcome": "REQUIRE_APPROVAL",
+          "details": "Fare exceeds the approval threshold",
+          "threshold": {
+            "amount": 1000,
+            "currency": "USD"
+          },
+          "actualValue": {
+            "amount": 2095,
+            "currency": "USD"
+          },
+          "isBreached": true
+        }
+      ],
+      "assignedTo": [
+        "manager-001"
+      ],
+      "deadline": "2026-09-16T18:58:15.250Z",
+      "status": "PENDING",
+      "createdAt": "2026-09-15T18:58:15.251Z"
+    },
+    {
+      "approvalId": "APPR-4F25EA50",
+      "bookingId": "4f25ea50-5882-4714-8a9b-0b7e4bc4bcb5",
+      "organizationId": "org-001",
+      "travelerId": "traveler-001",
+      "requestReason": "Fare exceeds the manager approval threshold of USD 1000",
+      "flightSummary": {
+        "origin": "SIN",
+        "destination": "JFK",
+        "departureDate": "2026-09-27",
+        "airline": "Singapore Airlines",
+        "cabinClass": "PREMIUM_ECONOMY",
+        "totalFare": {
+          "amount": 1462.5,
+          "currency": "USD"
+        }
+      },
+      "policyViolations": [
+        {
+          "policyId": "pol-fare",
+          "policyName": "High-Fare Approval",
+          "outcome": "REQUIRE_APPROVAL",
+          "details": "Fare exceeds the approval threshold",
+          "threshold": {
+            "amount": 1000,
+            "currency": "USD"
+          },
+          "actualValue": {
+            "amount": 1462.5,
+            "currency": "USD"
+          },
+          "isBreached": true
+        }
+      ],
+      "assignedTo": [
+        "manager-001"
+      ],
+      "deadline": "2026-09-16T19:01:21.167Z",
+      "status": "PENDING",
+      "createdAt": "2026-09-15T19:01:21.167Z"
+    }
+  ],
+  "policyEvaluations": [
+    {
+      "evaluationId": "6ac32a34-b866-4336-9fe4-3a357f146a99",
+      "timestamp": "2026-09-15T18:47:50.927Z",
+      "outcome": "ALLOW",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-fare",
+          "policyName": "Fare Limit",
+          "outcome": "ALLOW",
+          "details": "Fare is within the approved limit",
+          "threshold": {
+            "amount": 4000,
+            "currency": "USD"
+          },
+          "actualValue": {
+            "amount": 1800,
+            "currency": "USD"
+          }
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "0266da7e-9093-4298-b63e-fd78db5a9354",
+      "timestamp": "2026-09-15T18:58:10.270Z",
+      "outcome": "REQUIRE_APPROVAL",
+      "requiresApproval": true,
+      "policies": [
+        {
+          "policyId": "pol-fare",
+          "policyName": "High-Fare Approval",
+          "outcome": "REQUIRE_APPROVAL",
+          "details": "Fare exceeds the approval threshold",
+          "threshold": {
+            "amount": 1000,
+            "currency": "USD"
+          },
+          "actualValue": {
+            "amount": 1800,
+            "currency": "USD"
+          },
+          "isBreached": true
+        }
+      ],
+      "approvalDetails": {
+        "approverIds": [
+          "manager-001"
+        ],
+        "deadline": "2026-09-16T18:58:10.269Z",
+        "reason": "Fare exceeds the manager approval threshold of USD 1000"
+      },
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "6d328c2f-a708-4e9b-911d-4322e0e891df",
+      "timestamp": "2026-09-15T19:00:13.665Z",
+      "outcome": "REQUIRE_APPROVAL",
+      "requiresApproval": true,
+      "policies": [
+        {
+          "policyId": "pol-fare",
+          "policyName": "High-Fare Approval",
+          "outcome": "REQUIRE_APPROVAL",
+          "details": "Fare exceeds the approval threshold",
+          "threshold": {
+            "amount": 1000,
+            "currency": "USD"
+          },
+          "actualValue": {
+            "amount": 1250,
+            "currency": "USD"
+          },
+          "isBreached": true
+        }
+      ],
+      "approvalDetails": {
+        "approverIds": [
+          "manager-001"
+        ],
+        "deadline": "2026-09-16T19:00:13.665Z",
+        "reason": "Fare exceeds the manager approval threshold of USD 1000"
+      },
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
+    }
+  ],
+  "events": [
+    {
+      "id": "20701ac9-33d9-4f55-b51f-9633ef48fe17",
+      "action": "BOOKING_HOLD_CREATED",
+      "createdAt": "2026-09-15T18:47:55.515Z",
+      "payload": {
+        "bookingId": "3b15a2fb-0dab-4648-b4bd-d2e14bc1c8cd",
+        "offerId": "flight-004"
+      }
+    },
+    {
+      "id": "cd5e2111-3763-4c07-bc88-3bb36a58a8a1",
+      "action": "BOOKING_CONFIRMED",
+      "createdAt": "2026-09-15T18:47:55.579Z",
+      "payload": {
+        "bookingId": "3b15a2fb-0dab-4648-b4bd-d2e14bc1c8cd"
+      }
+    },
+    {
+      "id": "7ee0296a-6ad9-4b25-8928-a93d78172fc2",
+      "action": "BOOKING_HOLD_CREATED",
+      "createdAt": "2026-09-15T18:58:15.251Z",
+      "payload": {
+        "bookingId": "c222cf70-6015-4f8e-b9ca-bc8d74033981",
+        "offerId": "flight-004"
+      }
+    },
+    {
+      "id": "93f9f649-e925-406e-b5d5-85771e5f4a96",
+      "action": "BOOKING_HOLD_CREATED",
+      "createdAt": "2026-09-15T19:01:21.167Z",
+      "payload": {
+        "bookingId": "4f25ea50-5882-4714-8a9b-0b7e4bc4bcb5",
+        "offerId": "flight-007"
+      }
+    }
+  ]
+}

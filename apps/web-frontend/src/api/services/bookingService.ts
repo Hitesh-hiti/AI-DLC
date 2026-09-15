@@ -41,6 +41,7 @@ import {
 import { generatePnrStub, generatePaymentApprovalStub } from '../types/booking';
 import type { PnrRecord, PaymentApproval } from '../types/booking';
 import { v4 as uuidv4 } from 'uuid';
+import { HttpFlightBookingService } from './httpBookingService';
 
 // ─── Service interface ────────────────────────────────────────────────────────
 
@@ -260,4 +261,18 @@ class CompatBookingService extends MockFlightBookingService {
   }
 }
 
-export const bookingService = new CompatBookingService();
+const useMockApi = (import.meta.env?.VITE_USE_MOCK_API ?? 'true').toLowerCase() !== 'false';
+
+class HttpCompatBookingService extends HttpFlightBookingService {
+  /** @deprecated use searchFlights */
+  searchHotels(req: SearchRequest): Promise<SearchResponse> {
+    return this.searchFlights(req);
+  }
+}
+
+/**
+ * Public service used by the UI. Mock mode remains the safe local default;
+ * setting VITE_USE_MOCK_API=false switches the exact same interface to REST.
+ */
+export const bookingService: IFlightBookingService & { searchHotels(req: SearchRequest): Promise<SearchResponse> } =
+  useMockApi ? new CompatBookingService() : new HttpCompatBookingService();

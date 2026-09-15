@@ -94,10 +94,14 @@ export const FEATURE_FLAGS = {
 /**
  * Error Retry Configuration
  */
+/**
+ * Error Retry Configuration
+ */
 export const RETRY_CONFIG = {
   RETRYABLE_STATUS_CODES: [408, 429, 500, 502, 503, 504],
+  RETRY_DELAY_MS: 500,
   EXPONENTIAL_BACKOFF_BASE: 2,
-  MAX_RETRY_DELAY_MS: 30000,
+  MAX_RETRY_DELAY_MS: 5000,
 };
 
 /**

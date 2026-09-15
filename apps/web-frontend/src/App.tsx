@@ -34,6 +34,9 @@ const BookingPage: React.FC = () => {
 
   // ── Step: search ────────────────────────────────────────────────────────────
   const handleSearch = async (request: SearchRequest) => {
+      console.log('VITE_USE_MOCK_API:', import.meta.env.VITE_USE_MOCK_API);
+      console.log('VITE_API_BASE_URL:', import.meta.env.VITE_API_BASE_URL);
+      console.log('bookingService:', bookingService.constructor.name);
     try {
       clearError();
       ctx.setIsLoading(true);
@@ -43,6 +46,7 @@ const BookingPage: React.FC = () => {
       ctx.setSearchResults(response.results);
       ctx.setCurrentStep('results');
     } catch (err) {
+      console.error('SEARCH ERROR:', err);
       setError(mapApiError(err).displayMessage);
     } finally {
       ctx.setIsLoading(false);

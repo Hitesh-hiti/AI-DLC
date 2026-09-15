@@ -1,75 +1,42 @@
-# React + TypeScript + Vite
+# TravelPlatform Web Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite flight booking frontend with a typed REST API layer.
 
-Currently, two official plugins are available:
+## Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Copy `.env.example` to `.env.local` and set `VITE_USE_MOCK_API=false` to use the backend API.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## REST API contract
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The UI keeps its existing `IFlightBookingService` interface. The HTTP implementation maps it to:
 
+| Operation | Method | Endpoint |
+|---|---|---|
+| Destination search | GET | `/destinations/search` |
+| Flight search | POST | `/flights/search` |
+| Hold booking | POST | `/bookings/holds` |
+| Confirm booking | POST | `/bookings/{bookingId}/confirm` |
+| Booking detail | GET | `/bookings/{bookingId}` |
+| List bookings | GET | `/bookings` |
+| Cancel booking | POST | `/bookings/{bookingId}/cancel` |
+| Evaluate policy | POST | `/policies/evaluate` |
+| Approval decision | POST | `/approvals/{approvalId}/decision` |
+| Generate PNR | POST | `/bookings/{bookingId}/pnr` |
+| Payment approval | POST | `/bookings/{bookingId}/payment-approval` |
+
+Successful responses may be either the typed payload directly or the existing `{ success, data, error }` envelope. Errors are converted to the existing `ApiError` model and handled by `mapApiError`.
+
+Authentication uses an optional `auth_token` value from browser local storage and sends it as `Authorization: Bearer <token>`.
+
+## Validation
+
+```bash
+npm test
+npm run build
+npm run lint
 ```

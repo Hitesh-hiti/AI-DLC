@@ -320,7 +320,7 @@ export const createMockPolicyResponseRequireApproval = (): PolicyEvaluationRespo
     policyName: 'High-Fare Approval',
     outcome: 'REQUIRE_APPROVAL',
     details: 'Fare exceeds the approval threshold',
-    threshold:   { amount: 1000, currency: 'USD' },
+    threshold:   { amount: 5000, currency: 'USD' },
     actualValue: { amount: 1800, currency: 'USD' },
     isBreached: true,
   }],
