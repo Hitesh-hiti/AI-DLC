@@ -52,16 +52,16 @@ Historical traceability is retained; changed behavior is versioned.
     qa.md
 
 phases/
-  01-requirement-analysis/agent.md + AGENTS.md
-  02-gap-analysis-and-specification/agent.md + AGENTS.md
-  03-architecture/agent.md + AGENTS.md
-  04-user-stories-and-acceptance-criteria/agent.md + AGENTS.md
-  05-ui-ux-design/agent.md + AGENTS.md
-  06-development/agent.md + AGENTS.md
-  07-git-push-and-pr/agent.md + AGENTS.md
-  08-ci-cd-pr-validation/agent.md + AGENTS.md
-  09-test-testcase_drafting/agent.md + AGENTS.md
-  10-test-automation/agent.md + AGENTS.md
+  requirement-analysis/agent.md + AGENTS.md
+  gap-analysis-and-specification/agent.md + AGENTS.md
+  architecture/agent.md + AGENTS.md
+  user-stories-and-acceptance-criteria/agent.md + AGENTS.md
+  ui-ux-design/agent.md + AGENTS.md
+  development/agent.md + AGENTS.md
+  git-push-and-pr/agent.md + AGENTS.md
+  ci-cd-pr-validation/agent.md + AGENTS.md
+  test-testcase_drafting/agent.md + AGENTS.md
+  test-automation/agent.md + AGENTS.md
 
 traceability/
   traceability-matrix.md
