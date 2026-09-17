@@ -8,6 +8,19 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { SearchForm } from './SearchForm'
 
+// Origin/Destination are populated from the backend (db) via bookingService.searchDestinations.
+// Mock that call so tests can select deterministic airport options.
+vi.mock('../../api/services/bookingService', () => ({
+  bookingService: {
+    searchDestinations: vi.fn().mockResolvedValue({
+      suggestions: [
+        { id: 'apt-001', name: 'London Heathrow (LHR)', type: 'AIRPORT', location: { city: 'London', country: 'UK' } },
+        { id: 'apt-002', name: 'New York JFK (JFK)', type: 'AIRPORT', location: { city: 'New York', country: 'USA' } },
+      ],
+    }),
+  },
+}))
+
 // Helper — fill a valid form and optionally submit
 async function fillValidForm(overrides: Record<string, string> = {}) {
   const user = userEvent.setup()
@@ -28,10 +41,12 @@ async function fillValidForm(overrides: Record<string, string> = {}) {
   const depInput = screen.getByLabelText(/departure/i)
   const retInput = screen.getByLabelText(/return/i)
 
-  await user.clear(originInput)
-  await user.type(originInput, values.origin)
-  await user.clear(destInput)
-  await user.type(destInput, values.destination)
+  await waitFor(() => {
+    expect((originInput as HTMLSelectElement).options.length).toBeGreaterThan(1)
+  })
+
+  await user.selectOptions(originInput, values.origin)
+  await user.selectOptions(destInput, values.destination)
   fireEvent.change(depInput, { target: { value: values.departure } })
   fireEvent.change(retInput, { target: { value: values.return } })
 }
@@ -140,9 +155,13 @@ describe('SearchForm — Clear Form', () => {
   it('clears origin input on Clear Form click', async () => {
     const user = userEvent.setup()
     render(<SearchForm onSearch={vi.fn()} />)
-    await user.type(screen.getByLabelText(/origin/i), 'LHR')
+    const originInput = screen.getByLabelText(/origin/i)
+    await waitFor(() => {
+      expect((originInput as HTMLSelectElement).options.length).toBeGreaterThan(1)
+    })
+    await user.selectOptions(originInput, 'LHR')
     fireEvent.click(screen.getByRole('button', { name: /clear form/i }))
-    expect((screen.getByLabelText(/origin/i) as HTMLInputElement).value).toBe('')
+    expect((screen.getByLabelText(/origin/i) as HTMLSelectElement).value).toBe('')
   })
 
   it('resets passenger count to 1 on Clear Form click', () => {
@@ -189,15 +208,6 @@ describe('SearchForm — validation', () => {
     })
   })
 
-  it('shows IATA error for non-letter origin', async () => {
-    const user = userEvent.setup()
-    render(<SearchForm onSearch={vi.fn()} />)
-    await user.type(screen.getByLabelText(/origin/i), '123')
-    fireEvent.click(screen.getByRole('button', { name: /search flights/i }))
-    await waitFor(() => {
-      expect(screen.getByText(/valid origin airport/i)).toBeInTheDocument()
-    })
-  })
 })
 
 // ─── onSearch callback ────────────────────────────────────────────────────────

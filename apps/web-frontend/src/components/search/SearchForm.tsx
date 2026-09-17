@@ -4,14 +4,22 @@
  * Implements design-document.md section 2.1
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { SearchRequest } from '../../api/types/search';
+import type { DestinationSuggestion } from '../../api/types/search';
 import { Button } from '../common/Button';
 import { Input } from '../common/Input';
 import { Alert } from '../common/Alert';
 import { validateFlightSearchCriteria } from '../../utils/validation';
 import { getMinCheckInDate } from '../../utils/dateTime';
+import { bookingService } from '../../api/services/bookingService';
 import './SearchForm.css';
+
+/** Extract the 3-letter IATA code from a suggestion name like "London Heathrow (LHR)" */
+const extractIataCode = (suggestion: DestinationSuggestion): string => {
+  const match = suggestion.name.match(/\(([A-Z]{3})\)/);
+  return match ? match[1] : suggestion.id;
+};
 
 export interface SearchFormProps {
   onSearch: (request: SearchRequest) => void;
@@ -36,6 +44,22 @@ export const SearchForm: React.FC<SearchFormProps> = ({
   const [passengers, setPassengers] = useState(1);
   const [cabinClass, setCabinClass] = useState<'ECONOMY' | 'BUSINESS' | 'FIRST' | 'PREMIUM_ECONOMY'>('ECONOMY');
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [airports, setAirports] = useState<DestinationSuggestion[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    bookingService
+      .searchDestinations({ query: '', limit: 50 })
+      .then((res) => {
+        if (!cancelled) setAirports(res.suggestions);
+      })
+      .catch(() => {
+        if (!cancelled) setAirports([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const minDepartureDate = getMinCheckInDate();
   const minReturnDate = departureDate
@@ -103,27 +127,59 @@ export const SearchForm: React.FC<SearchFormProps> = ({
 
       {/* Row 1: Origin & Destination */}
       <div className="search-form-row">
-        <Input
-          label="Origin"
-          placeholder="e.g., LHR"
-          value={origin}
-          onChange={(e) => setOrigin(e.target.value.toUpperCase())}
-          error={errors.origin}
-          required
-          maxLength={3}
-          data-testid="input-origin"
-        />
+        <div className="search-form-field">
+          <label htmlFor="origin" className="search-form-label">
+            Origin
+            <span className="input-required" aria-label="required">*</span>
+          </label>
+          <select
+            id="origin"
+            value={origin}
+            onChange={(e) => setOrigin(e.target.value.toUpperCase())}
+            className={`search-form-select ${errors.origin ? 'input-error' : ''}`}
+            aria-invalid={Boolean(errors.origin)}
+            data-testid="input-origin"
+          >
+            <option value="">Select origin</option>
+            {airports.map((airport) => (
+              <option key={airport.id} value={extractIataCode(airport)}>
+                {airport.name}
+              </option>
+            ))}
+          </select>
+          {errors.origin && (
+            <div className="input-error-message" role="alert">
+              {errors.origin}
+            </div>
+          )}
+        </div>
 
-        <Input
-          label="Destination"
-          placeholder="e.g., JFK"
-          value={destination}
-          onChange={(e) => setDestination(e.target.value.toUpperCase())}
-          error={errors.destination}
-          required
-          maxLength={3}
-          data-testid="input-destination"
-        />
+        <div className="search-form-field">
+          <label htmlFor="destination" className="search-form-label">
+            Destination
+            <span className="input-required" aria-label="required">*</span>
+          </label>
+          <select
+            id="destination"
+            value={destination}
+            onChange={(e) => setDestination(e.target.value.toUpperCase())}
+            className={`search-form-select ${errors.destination ? 'input-error' : ''}`}
+            aria-invalid={Boolean(errors.destination)}
+            data-testid="input-destination"
+          >
+            <option value="">Select destination</option>
+            {airports.map((airport) => (
+              <option key={airport.id} value={extractIataCode(airport)}>
+                {airport.name}
+              </option>
+            ))}
+          </select>
+          {errors.destination && (
+            <div className="input-error-message" role="alert">
+              {errors.destination}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Row 2: Departure & Return Dates + Cabin Class */}
