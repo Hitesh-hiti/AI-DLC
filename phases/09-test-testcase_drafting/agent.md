@@ -49,6 +49,7 @@ REQ
 13. Avoid duplicate test cases.
 14. Reuse existing test cases when behavior is unchanged.
 15. Create new test cases only when coverage requires them.
+16. Strictly verify the test cases are already automated or not and continue for not automated test cases.
 
 ## Test Case Design
 

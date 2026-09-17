@@ -1,3 +1,7 @@
+---
+inclusion: always
+---
+
 # Expertise Guardrails — Human-in-the-Loop Agent
 
 ## 1. Purpose

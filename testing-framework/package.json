@@ -1,0 +1,44 @@
+{
+  "name": "@travelplatform/testing-framework",
+  "version": "1.0.0",
+  "description": "TravelPlatform Test Automation Framework - Phase 1 Happy-Path Tests",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:experience": "vitest run api/scenarios/experience",
+    "test:content": "vitest run api/scenarios/content",
+    "test:policy": "vitest run api/scenarios/policy",
+    "test:payment": "vitest run api/scenarios/payment",
+    "test:xct": "vitest run api/scenarios/xct",
+    "test:ui": "vitest run ui/scenarios",
+    "lint": "eslint . --ext .ts,.tsx",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "@vitest/ui": "^1.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "dependencies": {
+    "supertest": "^6.3.3"
+  },
+  "keywords": [
+    "testing",
+    "automation",
+    "api",
+    "jest",
+    "vitest",
+    "supertest",
+    "travelplatform"
+  ],
+  "author": "TravelPlatform QA",
+  "license": "MIT"
+}

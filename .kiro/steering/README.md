@@ -1,3 +1,7 @@
+---
+inclusion: always
+---
+
 # AI DLC Enterprise Kiro Pack
 
 This pack implements the requested enterprise AI DLC workflow for Owner, PO, Architect, UI/UX Designer,
