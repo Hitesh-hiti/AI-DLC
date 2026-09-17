@@ -7,10 +7,11 @@
     "subagent"
   ],
   "resources": [
-    "file://.kiro/steering/framework-project-config.md",
-    "file://.kiro/steering/framework-model-policy.md",
-    "file://.kiro/steering/HITL.md",
-    "file://.kiro/agents/agentspicker.json"
+    "file://../steering/framework-project-config.md",
+    "file://../steering/framework-model-policy.md",
+    "file://../steering/HITL.md",
+    "file://./agentspicker.json",
+    "skill://agent-routing"
   ],
   "toolsSettings": {
     "subagent": {
@@ -20,7 +21,10 @@
         "debugging-agent",
         "code-review-agent",
         "documentation-agent",
-        "qa-agent"
+        "qa-agent",
+        "requirements-agent",
+        "test-automation-agent",
+        "release-agent"
       ],
       "trustedAgents": [
         "design-agent",
@@ -28,9 +32,12 @@
         "debugging-agent",
         "code-review-agent",
         "documentation-agent",
-        "qa-agent"
+        "qa-agent",
+        "requirements-agent",
+        "test-automation-agent",
+        "release-agent"
       ]
     }
   },
-  "instructions": "After determining the selected specialist, you MUST print the Router observability header and then immediately invoke the Kiro `subagent` tool targeting the selected agent ID from agentspicker.json, passing the user's complete original request unchanged; do NOT solve the task yourself, do NOT simulate delegation by only printing \"Delegating to...\", and do NOT generate any engineering solution until the subagent returns; wait for the specialist response and return it unchanged; if the subagent cannot be invoked, report delegation failure instead of completing the task yourself."
+  "prompt": "After determining the selected specialist, you MUST print the Router observability header and then immediately invoke the Kiro `subagent` tool targeting the selected specialist agent ID, passing the user's complete original request unchanged; do NOT solve the task yourself, do NOT simulate delegation by only printing \"Delegating to...\", and do NOT generate any engineering solution until the subagent returns; wait for the specialist response and return it unchanged; if the subagent cannot be invoked, report delegation failure instead of completing the task yourself."
 }

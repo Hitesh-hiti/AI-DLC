@@ -1,0 +1,187 @@
+{
+  "domain_id": "airlines",
+  "domain_name": "Airlines",
+  "sub_domains": [
+    "Passenger Service Systems (PSS)",
+    "Crew Management",
+    "Ops & Maintenance (M&E)",
+    "Cargo",
+    "Booking & Retailing",
+    "Inflight Operations"
+  ],
+  "business_functions": [
+    "Reservation & PNR management",
+    "Fare calculation & pricing",
+    "Check-in & boarding",
+    "Crew scheduling & compliance (FTL)",
+    "Aircraft maintenance planning & records",
+    "Cargo booking & tracking",
+    "Baggage handling & reconciliation",
+    "Inflight connectivity & IFE",
+    "Irregular operations (IROPS) rebooking"
+  ],
+  "risk_taxonomy": [
+    {
+      "area": "PNR data consistency across GDS/PSS/check-in touchpoints",
+      "why_it_matters": "A PNR desync can mean a passenger is confirmed in one system and wait-listed in another \u2014 a boarding-denial risk",
+      "typical_likelihood": "high"
+    },
+    {
+      "area": "Fare calculation & rule engine correctness under fare-rule combinatorics",
+      "why_it_matters": "Fare rules combine dozens of independent conditions (route, class, season, restrictions); a rule-interaction bug causes revenue leakage or incorrect passenger charges",
+      "typical_likelihood": "high"
+    },
+    {
+      "area": "IROPS rebooking logic during mass disruption (weather, ATC ground stop)",
+      "why_it_matters": "Rebooking-engine defects during a disruption event affect thousands of passengers simultaneously in a high-visibility, high-emotion context",
+      "typical_likelihood": "medium"
+    },
+    {
+      "area": "Crew Flight Time Limitation (FTL) compliance calculation",
+      "why_it_matters": "An FTL calculation defect is a flight-safety and regulatory-compliance risk, not just a scheduling inconvenience",
+      "typical_likelihood": "medium"
+    },
+    {
+      "area": "Maintenance record/airworthiness directive tracking accuracy",
+      "why_it_matters": "A missed or misrecorded AD (Airworthiness Directive) compliance item is a direct aviation-safety and regulatory risk",
+      "typical_likelihood": "low"
+    },
+    {
+      "area": "Baggage reconciliation (bag-passenger match) at departure",
+      "why_it_matters": "Bag-passenger mismatch is both a security requirement (in many jurisdictions, mandatory) and an operational delay risk",
+      "typical_likelihood": "medium"
+    },
+    {
+      "area": "Cargo weight & balance calculation integration with load planning",
+      "why_it_matters": "Weight-and-balance errors are a direct flight-safety risk, among the highest-consequence defect classes in this domain",
+      "typical_likelihood": "low"
+    },
+    {
+      "area": "Interline/codeshare data exchange correctness (baggage, fare, PNR)",
+      "why_it_matters": "Codeshare/interline defects are hard to reproduce because they only manifest at the boundary between two airlines' systems",
+      "typical_likelihood": "medium"
+    }
+  ],
+  "compliance_checklist": [
+    {
+      "standard": "IATA NDC (New Distribution Capability) / ONE Order",
+      "applies_to": "Booking, retailing, and order-management systems",
+      "note": "Increasingly the standard for airline distribution \u2014 verify which version/level the AUT targets"
+    },
+    {
+      "standard": "IATA PADIS / Type B messaging (for legacy PSS integration)",
+      "applies_to": "PNR and departure-control message exchange with GDS/interline partners",
+      "note": ""
+    },
+    {
+      "standard": "EASA/FAA Flight Time Limitation (FTL) regulations",
+      "applies_to": "Crew scheduling systems",
+      "note": "Jurisdiction-specific (EASA FTL vs. FAA Part 117 differ materially)"
+    },
+    {
+      "standard": "Airworthiness Directive (AD) compliance tracking (FAA/EASA)",
+      "applies_to": "Maintenance & engineering (M&E) systems",
+      "note": ""
+    },
+    {
+      "standard": "TSA/regional aviation-security baggage-reconciliation mandates",
+      "applies_to": "Baggage handling systems",
+      "note": ""
+    },
+    {
+      "standard": "EU261/local passenger-rights compensation regulation",
+      "applies_to": "IROPS/disruption-management rebooking and compensation logic",
+      "note": ""
+    }
+  ],
+  "oracle_library": [
+    {
+      "name": "PNR lifecycle state machine",
+      "technique": "state_transition",
+      "description": "created \u2192 ticketed \u2192 checked-in \u2192 boarded \u2192 flown/rebooked/cancelled, cross-checked for consistency across GDS, PSS, and DCS (departure control system) at every transition."
+    },
+    {
+      "name": "Fare rule decision table",
+      "technique": "decision_table",
+      "description": "Route x cabin x fare-class x booking-window x change/cancel-rule combinations \u2014 fare engines are a textbook decision-table domain given the combinatorial rule structure."
+    },
+    {
+      "name": "IROPS rebooking priority matrix",
+      "technique": "decision_table",
+      "description": "Passenger tier x connection risk x rebooking-inventory availability \u2014 determines rebooking sequencing during mass disruption."
+    },
+    {
+      "name": "FTL compliance boundary set",
+      "technique": "boundary_value_analysis",
+      "description": "Duty-period and rest-period boundaries per the applicable regulatory regime (EASA FTL / FAA Part 117), tested at the exact regulatory limits, not just nominal schedules."
+    },
+    {
+      "name": "Bag-passenger reconciliation matrix",
+      "technique": "decision_table",
+      "description": "Boarded-passenger list x loaded-bag list x offload-triggers (no-show, security hold) \u2014 verifies the reconciliation engine correctly triggers bag offload."
+    }
+  ],
+  "data_patterns": [
+    {
+      "pattern_name": "Synthetic PNR records",
+      "format_note": "Fake passenger/booking data in valid PNR format, using test-environment record locators that can never collide with a live PNR"
+    },
+    {
+      "pattern_name": "Synthetic fare filings",
+      "format_note": "Generated fare-rule combinations for rule-engine testing, decoupled from any live published fare"
+    },
+    {
+      "pattern_name": "Synthetic crew roster & duty records",
+      "format_note": "Fake crew schedules at controlled FTL boundary conditions for compliance-engine testing"
+    },
+    {
+      "pattern_name": "Synthetic maintenance/AD records",
+      "format_note": "Fake aircraft tail numbers and maintenance-event data, entirely decoupled from any real fleet"
+    }
+  ],
+  "kpi_benchmarks": [
+    {
+      "metric": "PSS availability",
+      "typical_target": "> 99.9% (often contractual given revenue-critical nature)",
+      "note": ""
+    },
+    {
+      "metric": "Check-in success rate",
+      "typical_target": "> 99.5%",
+      "note": ""
+    },
+    {
+      "metric": "Fare-quote accuracy vs. filed fare rules",
+      "typical_target": "100% for in-scope rule combinations tested",
+      "note": ""
+    },
+    {
+      "metric": "IROPS rebooking turnaround (mass disruption)",
+      "typical_target": "Automated rebooking proposed within minutes of disruption trigger",
+      "note": ""
+    },
+    {
+      "metric": "Baggage reconciliation accuracy",
+      "typical_target": "> 99.9% correct bag-passenger match",
+      "note": ""
+    },
+    {
+      "metric": "FTL compliance calculation accuracy",
+      "typical_target": "100% \u2014 no tolerance for calculation error given the safety implication",
+      "note": ""
+    }
+  ],
+  "environment_matrix": [
+    "PSS/GDS integration test environment",
+    "DCS (departure control system) staging",
+    "Crew scheduling sandbox with FTL rule-engine test harness",
+    "M&E/maintenance-tracking test environment",
+    "Cargo/load-planning simulator",
+    "Interline/codeshare partner test endpoints"
+  ],
+  "severity_notes": [
+    "Weight-and-balance, FTL compliance, and airworthiness-directive tracking defects are treated as flight-safety severity \u2014 a category above standard blocker/critical, requiring immediate cross-functional (engineering + safety/compliance) escalation regardless of how the defect was technically introduced.",
+    "PNR desync defects during IROPS windows are elevated priority over the same defect class in normal operations, because the blast radius during mass disruption is compressed into a much shorter, higher-stakes window.",
+    "Fare-engine defects causing under-charging are commercially severe even though they're 'in the customer's favor' \u2014 revenue leakage at scale is a material business risk, not a victimless bug."
+  ]
+}
