@@ -4,6 +4,8 @@
  * Flight booking domain (AC-EXP-01-01 – AC-EXP-06-03)
  */
 
+import { generateBookingReference } from '../../utils/bookingReference';
+
 import type {
   SearchResponse,
   FlightOffer,
@@ -168,7 +170,7 @@ export const createMockBookingHoldResponse = (
   return {
     bookingId,
     bookingStatus: withApproval ? 'PENDING_APPROVAL' : 'HELD',
-    confirmationNumber: `CONF-${bookingId.replace(/-/g,'').toUpperCase().slice(0,8)}`,
+    confirmationNumber: generateBookingReference(bookingId),
     holdExpiresAt: new Date(Date.now() + 1800000).toISOString(), // 30 min
 
     flightSummary: {
@@ -216,7 +218,7 @@ export const createMockBookingDetailResponse = (bookingId: string): BookingDetai
 
   return {
     bookingId,
-    confirmationNumber: `CONF-${bookingId.toUpperCase()}`,
+    confirmationNumber: generateBookingReference(bookingId),
     bookingStatus: 'HELD',
 
     flightDetails: {

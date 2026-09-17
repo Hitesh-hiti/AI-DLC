@@ -4,6 +4,7 @@
  */
 
 import type { BookingStatus, Money, AuditContext, PaginationMeta } from './common';
+import { generatePnr } from '../../utils/pnr';
 
 // ─── Hold ─────────────────────────────────────────────────────────────────────
 
@@ -85,7 +86,8 @@ export interface BookingHoldResponse {
 /**
  * PNR (Passenger Name Record) generation stub (AC-EXP-02-01)
  * In production this is returned by the GDS after hold.
- * For Phase 1 the frontend generates a deterministic stub from the bookingId.
+ * For Phase 1 the frontend generates a deterministic local stub. In production,
+ * this value must come from the reservation/GDS provider.
  */
 export interface PnrRecord {
   pnr: string;               // 6-char alphanumeric, e.g. "ABC123"
@@ -99,8 +101,8 @@ export interface PnrRecord {
  * Generate a deterministic stub PNR from a bookingId
  */
 export function generatePnrStub(bookingId: string): PnrRecord {
-  // Take first 6 chars of bookingId (UUID), uppercase, replace hyphens
-  const raw = bookingId.replace(/-/g, '').toUpperCase().slice(0, 6);
+  // Never expose or truncate the internal booking UUID as the customer reference.
+  const raw = generatePnr(bookingId);
   return {
     pnr: raw,
     bookingId,

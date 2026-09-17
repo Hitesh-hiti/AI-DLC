@@ -1,3 +1,4 @@
+import { generatePnr } from '../../utils/pnr';
 /**
  * Tests: api/mocks/fixtures.ts
  * Covers: MOCK_AIRPORTS, MOCK_FLIGHTS, createMockSearchResponse (origin/dest override),
@@ -129,7 +130,7 @@ describe('createMockBookingHoldResponse', () => {
     const resp = createMockBookingHoldResponse('booking-001', 'flight-001')
     expect(resp.bookingStatus).toBe('HELD')
     expect(resp.bookingId).toBe('booking-001')
-    expect(resp.confirmationNumber).toContain('CONF')
+    expect(resp.confirmationNumber).toMatch(/^[A-Z0-9]{6}$/)
     expect(resp.holdExpiresAt).toBeTruthy()
   })
   it('totalFare is higher than baseFare (includes taxes + fees)', () => {
@@ -190,7 +191,7 @@ describe('createMockBookingDetailResponse', () => {
   it('returns a booking detail with correct bookingId', () => {
     const r = createMockBookingDetailResponse('detail-001')
     expect(r.bookingId).toBe('detail-001')
-    expect(r.confirmationNumber).toContain('CONF')
+    expect(r.confirmationNumber).toMatch(/^[A-Z0-9]{6}$/)
     expect(r.bookingStatus).toBe('HELD')
   })
   it('has a non-zero total fare', () => {
@@ -209,3 +210,12 @@ describe('createMockBookingDetailResponse', () => {
     expect(r.flightDetails.airline).toBeTruthy()
   })
 })
+
+
+describe('booking reference and PNR', () => {
+  it('uses distinct identifiers for the same booking', () => {
+    const bookingId = 'booking-001';
+    const response = createMockBookingHoldResponse(bookingId, 'flight-001');
+    expect(generatePnr(bookingId)).not.toBe(response.confirmationNumber);
+  });
+});

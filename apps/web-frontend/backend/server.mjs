@@ -70,7 +70,55 @@ const fail = (res,status,code,message,details) => json(res,status,{success:false
 const readBody = async (req) => { let raw=''; for await (const chunk of req) raw += chunk; if (!raw) return {}; try{return JSON.parse(raw);}catch{throw new Error('Invalid JSON body');} };
 const now = () => new Date().toISOString();
 const money = (amount,currency='USD') => ({amount:Number(amount),currency});
-const confirmation = id => `CONF-${id.replaceAll('-','').toUpperCase().slice(0,8)}`;
+const BOOKING_REFERENCE_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+const BOOKING_REFERENCE_LENGTH = 6;
+
+// Local/mock record locator. Production integrations should use the
+// reservation/GDS provider's returned record locator.
+const generateBookingReference = (bookingId, usedReferences = new Set()) => {
+  if (!bookingId) throw new Error('bookingId is required');
+  let attempt = 0;
+  while (attempt < 100) {
+    let hash = 2166136261;
+    const seed = `${bookingId}:${attempt}`;
+    for (let i = 0; i < seed.length; i += 1) {
+      hash ^= seed.charCodeAt(i);
+      hash = Math.imul(hash, 16777619);
+    }
+    hash >>>= 0;
+    let reference = '';
+    for (let i = 0; i < BOOKING_REFERENCE_LENGTH; i += 1) {
+      hash = Math.imul(hash ^ (hash >>> 13), 0x5bd1e995) >>> 0;
+      reference += BOOKING_REFERENCE_ALPHABET[hash % BOOKING_REFERENCE_ALPHABET.length];
+    }
+    if (!usedReferences.has(reference)) return reference;
+    attempt += 1;
+  }
+  throw new Error('Unable to generate a unique booking reference');
+};
+
+const confirmation = (id, db) => generateBookingReference(id, new Set(db.bookings.map(b => b.confirmationNumber).filter(Boolean)));
+
+const generatePnr = (bookingId, bookingReference, usedPnrs = new Set()) => {
+  if (!bookingId) throw new Error('bookingId is required');
+  const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  for (let attempt = 0; attempt < 100; attempt += 1) {
+    let hash = 2166136261;
+    const seed = `PNR:${bookingId}:${attempt}`;
+    for (let i = 0; i < seed.length; i += 1) {
+      hash ^= seed.charCodeAt(i);
+      hash = Math.imul(hash, 16777619);
+    }
+    hash >>>= 0;
+    let pnr = '';
+    for (let i = 0; i < 6; i += 1) {
+      hash = Math.imul(hash ^ (hash >>> 13), 0x5bd1e995) >>> 0;
+      pnr += alphabet[hash % alphabet.length];
+    }
+    if (pnr !== bookingReference && !usedPnrs.has(pnr)) return pnr;
+  }
+  throw new Error('Unable to generate a unique PNR');
+};
 const audit = (db, action, payload) => db.events.push({id:randomUUID(),action,createdAt:now(),payload});
 
 function detailFromBooking(b) {
@@ -132,7 +180,7 @@ async function handler(req,res) {
       const bookingId=randomUUID(); const taxes=offer.price.amount*.15, fees=25, total=(offer.price.amount+taxes+fees)*Math.max(1,Number(body.flightDetails?.passengers||1));
       const policy=policyEvaluate({organizationId:body.organizationId,travelerId:body.travelerId,offerId:body.offerId,flight:{...body.flightDetails,airline:offer.airline,nonStop:offer.stops===0,advanceBookingDays:Math.max(0,Math.round((new Date(body.flightDetails.departureDate)-Date.now())/86400000))},totalFare:money(total)});
       const expires=new Date(Date.now()+1800000).toISOString();
-      const b={bookingId,offerId:offer.offerId,organizationId:body.organizationId,travelerId:body.travelerId,passengerInfo:body.passengerInfo||[],flightDetails:{...body.flightDetails,origin:offer.origin,destination:offer.destination},bookingStatus:policy.outcome==='REQUIRE_APPROVAL'?'PENDING_APPROVAL':'HELD',confirmationNumber:confirmation(bookingId),holdExpiresAt:expires,fareBreakdown:{baseFare:money(offer.price.amount*Number(body.flightDetails?.passengers||1)),taxes:money(taxes*Number(body.flightDetails?.passengers||1)),fees:money(fees*Number(body.flightDetails?.passengers||1)),totalFare:money(total)},cancellationPolicy:{refundable:true,cancellationDeadline:new Date(Date.now()+172800000).toISOString(),penaltyAmount:money(50)},createdAt:now(),modifiedAt:now(),approvalId:undefined,ticketNumbers:[]};
+      const b={bookingId,offerId:offer.offerId,organizationId:body.organizationId,travelerId:body.travelerId,passengerInfo:body.passengerInfo||[],flightDetails:{...body.flightDetails,origin:offer.origin,destination:offer.destination},bookingStatus:policy.outcome==='REQUIRE_APPROVAL'?'PENDING_APPROVAL':'HELD',confirmationNumber:confirmation(bookingId, db),holdExpiresAt:expires,fareBreakdown:{baseFare:money(offer.price.amount*Number(body.flightDetails?.passengers||1)),taxes:money(taxes*Number(body.flightDetails?.passengers||1)),fees:money(fees*Number(body.flightDetails?.passengers||1)),totalFare:money(total)},cancellationPolicy:{refundable:true,cancellationDeadline:new Date(Date.now()+172800000).toISOString(),penaltyAmount:money(50)},createdAt:now(),modifiedAt:now(),approvalId:undefined,ticketNumbers:[]};
       if(policy.requiresApproval){ const approvalId=`APPR-${bookingId.replaceAll('-','').slice(0,8).toUpperCase()}`; b.approvalId=approvalId; db.approvals.push({approvalId,bookingId,organizationId:body.organizationId,travelerId:body.travelerId,requestReason:policy.approvalDetails.reason,flightSummary:{origin:offer.origin,destination:offer.destination,departureDate:body.flightDetails.departureDate,returnDate:body.flightDetails.returnDate,airline:offer.airline,cabinClass:offer.cabinClass,totalFare:b.fareBreakdown.totalFare},policyViolations:policy.policies,assignedTo:policy.approvalDetails.approverIds,deadline:policy.approvalDetails.deadline,status:'PENDING',createdAt:now()}); }
       db.bookings.push(b); audit(db,'BOOKING_HOLD_CREATED',{bookingId,offerId:offer.offerId}); await saveDb(db);
       const response={bookingId,bookingStatus:b.bookingStatus,confirmationNumber:b.confirmationNumber,holdExpiresAt:b.holdExpiresAt,flightSummary:{airline:offer.airline,flightNumber:offer.flightNumber,origin:offer.origin,destination:offer.destination,departureTime:offer.departureTime,arrivalTime:offer.arrivalTime,cabinClass:offer.cabinClass,passengers:Number(body.flightDetails?.passengers||1)},fareBreakdown:b.fareBreakdown,cancellationPolicy:b.cancellationPolicy,createdAt:b.createdAt};
@@ -155,7 +203,9 @@ async function handler(req,res) {
     }
     if (req.method==='POST' && path==='/policies/evaluate') { const body=await readBody(req); if(!body.organizationId||!body.travelerId||!body.offerId) return fail(res,400,'VALIDATION_ERROR','organizationId, travelerId and offerId are required'); const result=policyEvaluate(body); const response={evaluationId:randomUUID(),timestamp:now(),...result}; db.policyEvaluations.push({...response,organizationId:body.organizationId,travelerId:body.travelerId}); await saveDb(db); return ok(res,response); }
     if (req.method==='POST' && parts[0]==='approvals' && parts[2]==='decision') { const id=decodeURIComponent(parts[1]); const body=await readBody(req); const a=db.approvals.find(x=>x.approvalId===id); if(!a) return fail(res,404,'APPROVAL_NOT_FOUND','Approval request was not found'); if(!['APPROVED','REJECTED'].includes(body.decision)) return fail(res,400,'VALIDATION_ERROR','decision must be APPROVED or REJECTED'); a.status=body.decision; a.respondedAt=now(); a.responseComments=body.comments; const b=db.bookings.find(x=>x.bookingId===a.bookingId); if(b){b.bookingStatus=body.decision==='APPROVED'?'HELD':'CANCELLED';b.modifiedAt=now();} audit(db,'APPROVAL_DECISION',{approvalId:id,decision:body.decision}); await saveDb(db); return ok(res,{approvalId:id,decision:body.decision,decidedAt:a.respondedAt,decidedBy:body.approverUserId,comments:body.comments,nextSteps:[body.decision==='APPROVED'?'Booking will proceed to ticketing':'Booking has been cancelled']}); }
-    if (req.method==='POST' && parts[0]==='bookings' && parts[2]==='pnr') { const id=decodeURIComponent(parts[1]); const b=db.bookings.find(x=>x.bookingId===id); if(!b) return fail(res,404,'BOOKING_NOT_FOUND','Booking was not found'); b.pnr=b.pnr||id.replaceAll('-','').toUpperCase().slice(0,6); b.modifiedAt=now(); await saveDb(db); return ok(res,{pnr:b.pnr,bookingId:id,generatedAt:now(),status:'STUB'}); }
+    if (req.method==='POST' && parts[0]==='bookings' && parts[2]==='pnr') { const id=decodeURIComponent(parts[1]); const b=db.bookings.find(x=>x.bookingId===id); if(!b) return fail(res,404,'BOOKING_NOT_FOUND','Booking was not found'); b.pnr = b.pnr && b.pnr !== b.confirmationNumber
+      ? b.pnr
+      : generatePnr(id, b.confirmationNumber, new Set(db.bookings.map(x => x.pnr).filter(Boolean))); b.modifiedAt=now(); await saveDb(db); return ok(res,{pnr:b.pnr,bookingId:id,generatedAt:now(),status:'STUB'}); }
     if (req.method==='POST' && parts[0]==='bookings' && parts[2]==='payment-approval') { const id=decodeURIComponent(parts[1]); const body=await readBody(req); const b=db.bookings.find(x=>x.bookingId===id); if(!b) return fail(res,404,'BOOKING_NOT_FOUND','Booking was not found'); return ok(res,{paymentReference:`PAY-${id.replaceAll('-','').toUpperCase().slice(0,8)}`,method:'LODGE_CARD',approvedAt:now(),amount:body.amount,status:'STUB'}); }
     return fail(res,404,'NOT_FOUND',`Route ${req.method} ${path} not found`);
   } catch (error) { console.error(error); return fail(res,500,'INTERNAL_ERROR',error instanceof Error?error.message:'Internal server error'); }

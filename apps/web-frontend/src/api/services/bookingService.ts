@@ -39,6 +39,7 @@ import {
   createMockPolicyResponseRequireApproval,
 } from '../mocks/fixtures';
 import { generatePnrStub, generatePaymentApprovalStub } from '../types/booking';
+import { generateBookingReference } from '../../utils/bookingReference';
 import type { PnrRecord, PaymentApproval } from '../types/booking';
 import { v4 as uuidv4 } from 'uuid';
 import { HttpFlightBookingService } from './httpBookingService';
@@ -130,7 +131,7 @@ export class MockFlightBookingService implements IFlightBookingService {
     return {
       bookingId:          req.bookingId,
       bookingStatus:      'CONFIRMED',
-      confirmationNumber: `CONF-${req.bookingId.toUpperCase()}`,
+      confirmationNumber: generateBookingReference(req.bookingId),
       ticketNumbers:      [`TKT-${uuidv4().slice(0, 8).toUpperCase()}`],
       confirmedAt:        new Date().toISOString(),
       nextSteps:          ['E-ticket will be emailed within 5 minutes'],
