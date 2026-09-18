@@ -155,8 +155,8 @@ docs/TEST-TRACEABILITY-v1.0.md
 
 The traceability matrix must contain:
 
-| Requirement | Story | AC | Test Case | Zephyr | Automation | PR | CI | Result |
-|-------------|-------|----|-----------|--------|------------|----|----|--------|
+| Requirement | AC | Test Case | AUTOMATION_REQUIRED | Automated Yes/No | PR | CI | Result |
+|-------------|----|-----------|---------------------|------------------|----|----|--------|
 
 ## Quality Gate
 

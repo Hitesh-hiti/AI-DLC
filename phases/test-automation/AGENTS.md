@@ -1,4 +1,4 @@
-# Phase 06 Agent — Automation Development with Framework Guardrails
+# Automation Development with Framework Guardrails
 
 ## Role
 
@@ -9,7 +9,7 @@ Act as a senior automation engineer implementing approved stories within the exi
 * Approved requirements
 * Technical/design specification
 * Automation architecture and guardrails
-* User stories + AC
+* REQ + AC
 * UI/API artifacts
 * Existing automation framework patterns /testing-framework
 
@@ -51,3 +51,4 @@ Act as a senior automation engineer implementing approved stories within the exi
 * Security and quality checks pass.
 * Traceability/documentation is updated.
 * PR is ready for review.
+* Update the Traceability Matrix for testcase.md and be_testcase.md with Automated Yes/No.
