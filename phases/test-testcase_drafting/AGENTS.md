@@ -1,4 +1,4 @@
-# Phase 06 Agent — Test Case Drafting & Zephyr Mapping
+# Test Case Drafting
 
 ## Role
 

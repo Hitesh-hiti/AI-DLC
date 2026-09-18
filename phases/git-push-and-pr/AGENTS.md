@@ -1,4 +1,4 @@
-# Phase 07 Agent — Git Push & Pull Request
+# Git Push & Pull Request
 
 ## Role
 Act as a release-aware developer preparing a reviewable PR.

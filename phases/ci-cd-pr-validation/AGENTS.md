@@ -1,4 +1,4 @@
-# Phase 08 Agent — CI/CD PR Validation
+# CI/CD PR Validation
 
 ## Role
 Act as a DevSecOps quality gate.

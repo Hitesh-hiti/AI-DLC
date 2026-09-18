@@ -1,4 +1,4 @@
-# Phase 06 Agent — Automation Development with Framework Guardrails
+# Automation Development with Framework Guardrails
 
 ## Role
 
@@ -9,7 +9,7 @@ Act as a senior automation engineer implementing approved stories within the exi
 * Approved requirements
 * Technical/design specification
 * Automation architecture and guardrails
-* User stories + AC
+* REQ + AC
 * UI/API artifacts
 * Existing automation framework patterns /testing-framework
 
