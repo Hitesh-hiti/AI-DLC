@@ -822,6 +822,7 @@ All items below require a human decision before the related acceptance criteria 
 | REQ-XCT-04 | Structured Logging & Observability | AC-XCT-04-01 to 04 | BE | RequirementDocument §observability; gap GUARDRAIL-O1, S3 |
 | REQ-XCT-05 | Error Response Format | AC-XCT-05-01 to 03 | FE+BE | gap §15.1 |
 | REQ-XCT-06 | No Raw PAN Storage | AC-XCT-06-01 to 03 | BE | gap Q3, ADR-005, GUARDRAIL-S1 |
+| REQ-XCT-07 | PAN Storage | AC-XCT-06-01 to 03 | BE | gap Q3, ADR-005, GUARDRAIL-S1 |
 
 ---
 

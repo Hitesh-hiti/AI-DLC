@@ -1816,6 +1816,7 @@ X-Correlation-ID: 01ARZ3NDEKTSV4RRFFQ69G5FAV
 | BET-028 | AC-EXP-07-04 | REQ-EXP-07 | P0 | Negative | AUTOMATION_REQUIRED | Non-approver → 403 |
 | BET-029 | AC-XCT-03-01 | REQ-XCT-03 | P0 | Negative | AUTOMATION_REQUIRED | Mutating endpoints require idempotency |
 | BET-030 | AC-XCT-04-01 | REQ-XCT-04 | P1 | Positive | AUTOMATION_RECOMMENDED | Structured logging |
+| BET-031 | AC-XCT-04-02 | REQ-XCT-07 | P1 | Positive | AUTOMATION_RECOMMENDED | Structured logging |
 
 ---
 

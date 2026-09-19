@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TravelPlatform — Requirement → AC → Automation Traceability Report</title>
+<style>
+:root{
+  --bg:#eef2f7;
+  --panel:#ffffff;
+  --panel-2:#f4f6fa;
+  --line:#dfe4ee;
+  --ink:#161a36;
+  --ink-dim:#596078;
+  --ink-faint:#7c8499;
+  --accent:#29266b;
+  --accent-2:#15966f;
+  --amber:#c47a12;
+  --red:#c94a38;
+  --igs-navy:#24215f;
+  --igs-deep:#17153f;
+  --igs-purple:#514aa0;
+  --igs-accent:#f15a24;
+  --igs-soft:#fff3ed;
+  --mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+  --sans:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;color:var(--ink);font-family:var(--sans);background:#eef2f7;}
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(900px 460px at 8% -4%, rgba(41,38,107,.16), transparent 62%),
+    radial-gradient(760px 420px at 96% 8%, rgba(241,90,36,.10), transparent 58%),
+    linear-gradient(180deg,#f8f9fc 0%,#eef2f7 38%,#e8edf4 100%);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;
+  background-image:linear-gradient(rgba(36,33,95,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(36,33,95,.035) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.55),transparent 72%);
+}
+a{color:var(--accent);}
+.wrap{max-width:1280px;margin:0 auto;padding:34px 24px 76px;position:relative;}
+
+/* ---- Header ---- */
+header.top{
+  position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:center;gap:34px;
+  background:linear-gradient(135deg,#211e58 0%,#29266b 52%,#3a347d 100%);
+  color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:24px;
+  padding:28px 30px;margin-bottom:26px;box-shadow:0 20px 46px rgba(27,24,73,.20);
+}
+header.top:before{content:"";position:absolute;width:390px;height:390px;right:-150px;top:-220px;border-radius:50%;background:rgba(241,90,36,.20);filter:blur(4px);}
+header.top:after{content:"";position:absolute;width:250px;height:250px;left:46%;bottom:-210px;border-radius:50%;background:rgba(255,255,255,.07);}
+.title-block,.meta{position:relative;z-index:1;}
+.brand-row{display:inline-flex;align-items:center;margin-bottom:16px;padding:7px 12px;border-radius:13px;background:rgba(255,255,255,.96);box-shadow:0 7px 18px rgba(0,0,0,.13);}
+.logo-mark{display:block;width:128px;height:50px;object-fit:contain;object-position:center;}
+.title-block .kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;color:#ffb08e;margin:0 0 8px;font-weight:700;}
+.title-block h1{font-size:30px;line-height:1.18;margin:0 0 9px;font-weight:750;max-width:760px;color:#fff;letter-spacing:-.02em;}
+.title-block .sub{color:rgba(255,255,255,.76);font-size:13.5px;margin:0;max-width:760px;line-height:1.6;}
+.meta{min-width:245px;font-family:var(--mono);font-size:11.5px;color:rgba(255,255,255,.62);text-align:right;line-height:1.95;padding:14px 0 4px;}
+.meta b{color:#fff;font-weight:650;}
+.live-meta{display:flex;align-items:center;justify-content:flex-end;gap:7px;color:#70e1bb;font-weight:750;white-space:nowrap;margin-top:6px;}
+.live-dot{width:9px;height:9px;border-radius:50%;background:#4fe0b0;box-shadow:0 0 0 5px rgba(79,224,176,.13),0 0 18px rgba(79,224,176,.45);animation:livePulse 1.8s infinite;}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.52;transform:scale(.82)}}
+
+/* ---- Stat cards ---- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;background:transparent;border:0;margin-bottom:26px;}
+.stat{position:relative;overflow:hidden;background:rgba(255,255,255,.92);border:1px solid rgba(210,216,229,.9);border-radius:18px;padding:20px 21px;min-height:122px;box-shadow:0 12px 28px rgba(31,39,76,.07);}
+.stat:before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--accent);}
+.stat.good:before{background:var(--accent-2);}.stat.warn:before{background:var(--igs-accent);}.stat:nth-child(2):before{background:var(--igs-purple);}
+.stat:after{content:"";position:absolute;width:90px;height:90px;right:-32px;bottom:-42px;border-radius:50%;background:rgba(41,38,107,.045);}
+.stat .num{font-size:31px;font-weight:650;font-family:var(--mono);line-height:1;position:relative;z-index:1;}
+.stat .num small{font-size:15px;color:var(--ink-faint);font-weight:400;}
+.stat .lbl{color:var(--ink-dim);font-size:12.5px;margin-top:12px;line-height:1.45;max-width:225px;position:relative;z-index:1;}
+.stat.accent .num{color:var(--accent);}.stat.good .num{color:var(--accent-2);}.stat.warn .num{color:var(--igs-accent);}
+
+/* ---- Panel ---- */
+.panel{background:rgba(255,255,255,.94);border:1px solid rgba(210,216,229,.9);border-radius:18px;margin-bottom:26px;overflow:hidden;box-shadow:0 12px 30px rgba(31,39,76,.065);}
+.panel-head{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:linear-gradient(180deg,#fff 0%,#fafbfe 100%);}
+.panel-head h2{font-size:15px;margin:0;font-weight:650;letter-spacing:-.01em;}.panel-head .note{font-size:11.5px;color:var(--ink-faint);font-family:var(--mono);}.panel-body{padding:18px 20px;}
+
+/* ---- Domain bars ---- */
+.domain-row{display:grid;grid-template-columns:180px 1fr 190px;gap:16px;align-items:center;padding:11px 0;}.domain-row + .domain-row{border-top:1px dashed var(--line);}.domain-name{font-size:13px;}.domain-name .code{font-family:var(--mono);color:var(--ink-faint);font-size:11px;display:block;}.bar-track{position:relative;height:10px;background:#edf0f6;border:1px solid #e0e4ed;border-radius:999px;overflow:hidden;}.bar-fill{position:absolute;top:0;left:0;bottom:0;background:linear-gradient(90deg,#15966f,#38b991);border-radius:999px;}.bar-fill.impl{background:linear-gradient(90deg,#29266b,#615ab0);}.domain-figs{font-family:var(--mono);font-size:12px;color:var(--ink-dim);text-align:right;white-space:nowrap;}.domain-figs b{color:var(--ink);}
+.legend{display:flex;gap:18px;font-size:11.5px;color:var(--ink-dim);font-family:var(--mono);flex-wrap:wrap;}.legend span{display:inline-flex;align-items:center;gap:6px;}.legend i{width:10px;height:10px;display:inline-block;border-radius:3px;}
+
+/* ---- Requirement accordion ---- */
+.req-list{border-top:1px solid var(--line);}.req{border-bottom:1px solid var(--line);}.req-summary{display:grid;grid-template-columns:118px 1fr 90px 130px 24px;gap:14px;align-items:center;padding:13px 20px;cursor:pointer;user-select:none;transition:background .15s ease;}.req-summary:hover{background:#f7f8fc;}.req-id{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:600;}.req-title{font-size:13.5px;}.req-title .ac-count{color:var(--ink-faint);font-size:11.5px;margin-left:6px;}.req-mini-bar{height:6px;background:#eef1f6;border:1px solid #e0e4ed;position:relative;border-radius:99px;overflow:hidden;}.req-mini-bar i{position:absolute;top:0;left:0;bottom:0;background:linear-gradient(90deg,#15966f,#40b993);border-radius:99px;}.req-pct{font-family:var(--mono);font-size:12px;color:var(--ink-dim);text-align:right;}.chev{color:var(--ink-faint);transition:transform .15s ease;font-size:11px;text-align:center;}.req.open .chev{transform:rotate(90deg);}.req-detail{display:none;padding:0 20px 18px;background:linear-gradient(180deg,#fbfcfe,#f8f9fc);}.req.open .req-detail{display:block;}
+
+table.ac-table{width:100%;border-collapse:separate;border-spacing:0;font-size:12.5px;}table.ac-table th{text-align:left;font-family:var(--mono);font-weight:500;font-size:10.5px;letter-spacing:.02em;color:#68718a;padding:9px 10px;border-bottom:1px solid var(--line);background:#f5f7fb;}table.ac-table th:first-child{border-radius:8px 0 0 0;}table.ac-table th:last-child{border-radius:0 8px 0 0;}table.ac-table td{padding:9px 10px;border-bottom:1px solid #e8ebf1;vertical-align:top;color:var(--ink-dim);background:rgba(255,255,255,.72);}table.ac-table tr:last-child td{border-bottom:none;}table.ac-table td.id{font-family:var(--mono);color:var(--ink);white-space:nowrap;}table.ac-table td.crit{color:var(--ink-dim);max-width:420px;line-height:1.5;}table.ac-table td.layer{font-family:var(--mono);font-size:11px;color:var(--ink-faint);white-space:nowrap;}
+.pill{display:inline-block;padding:3px 8px;border-radius:999px;font-family:var(--mono);font-size:10.5px;white-space:nowrap;border:1px solid transparent;font-weight:550;}.pill.impl-Implemented{color:#087a5a;border-color:#7ed2b6;background:#edf9f4;}.pill.impl-Partial{color:#9a6108;border-color:#e6bf78;background:#fff8ea;}.pill.impl-Blocked{color:#68718a;border-color:#cdd3df;background:#f4f6f9;}.pill.impl-NotImplemented{color:#ad4436;border-color:#e3aaa1;background:#fff2ef;opacity:.9;}.pill.impl-NotTracked{color:#68718a;border-color:#d6dbe5;background:#f4f6f9;}.pill.auto-yes{background:#edf9f4;color:#087a5a;border-color:#7ed2b6;}.pill.auto-manual{background:#fff8ea;color:#9a6108;border-color:#e6bf78;}.pill.auto-no{color:#68718a;border-color:#d6dbe5;background:#f4f6f9;}
+
+/* ---- Source matrix tabs ---- */
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}.tab-btn{background:#f3f5f9;border:1px solid #dce1eb;color:var(--ink-dim);font-family:var(--mono);font-size:11.5px;padding:9px 13px;cursor:pointer;border-radius:10px;transition:.15s ease;}.tab-btn:hover{border-color:#bbbfd4;background:#fff;}.tab-btn span{color:var(--ink-faint);font-size:10px;display:block;margin-top:2px;}.tab-btn.active{color:#fff;border-color:var(--accent);background:linear-gradient(135deg,#29266b,#48418d);box-shadow:0 5px 14px rgba(41,38,107,.18);}.tab-btn.active span{color:rgba(255,255,255,.68);}
+table.src-matrix{width:100%;border-collapse:collapse;font-size:12.5px;}table.src-matrix th{text-align:left;font-family:var(--mono);font-weight:500;font-size:10.5px;color:#68718a;padding:9px 10px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#f5f7fb;}table.src-matrix td{padding:8px 10px;border-bottom:1px solid #e8ebf1;color:var(--ink-dim);vertical-align:top;}table.src-matrix tr:hover td{background:#fafbfe;}table.src-matrix td.id{font-family:var(--mono);color:var(--ink);white-space:nowrap;}
+
+/* ---- Full register ---- */
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}.controls input,.controls select{background:#f5f7fb;border:1px solid #d9deea;color:var(--ink);font-family:var(--sans);font-size:12.5px;padding:8px 10px;border-radius:9px;}.controls input{min-width:220px;}.controls input:focus,.controls select:focus{outline:2px solid rgba(41,38,107,.14);border-color:#817bb8;}
+#fullTable{width:100%;border-collapse:collapse;font-size:12.5px;}#fullTable thead th{position:sticky;top:0;background:#f5f7fb;text-align:left;font-family:var(--mono);font-weight:500;font-size:10.5px;color:#68718a;padding:10px;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;}#fullTable thead th:hover{color:var(--accent);}#fullTable tbody td{padding:8px 10px;border-bottom:1px solid #e8ebf1;color:var(--ink-dim);vertical-align:top;}#fullTable tbody tr:nth-child(even) td{background:#fcfcfe;}#fullTable tbody tr:hover td{background:#f6f7fb;}#fullTable td.id{font-family:var(--mono);color:var(--ink);white-space:nowrap;}#fullTable td.crit{max-width:360px;line-height:1.5;}.table-scroll{overflow-x:auto;max-height:640px;overflow-y:auto;border:1px solid var(--line);border-radius:12px;}
+footer{margin-top:36px;color:var(--ink-faint);font-size:11.5px;font-family:var(--mono);line-height:1.8;}footer .src{color:var(--ink-dim);}
+
+/* ---- Loader panel ---- */
+.loader-panel{border-color:#a8a5d2;border-style:dashed;}.loader-body{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}.loader-title{font-size:13.5px;font-weight:600;margin-bottom:4px;}.loader-sub{font-size:12px;color:var(--ink-dim);max-width:640px;line-height:1.6;}.loader-sub code{font-family:var(--mono);color:var(--accent);background:#f0effa;padding:1px 5px;}.loader-drop{flex:none;border:1px dashed #c9cde0;background:#f5f6fb;color:var(--ink-dim);font-family:var(--mono);font-size:12px;padding:16px 22px;cursor:pointer;text-align:center;min-width:220px;border-radius:10px;}.loader-drop:hover,.loader-drop.dragover{border-color:var(--accent);color:var(--accent);background:#faf9ff;}.loader-status{padding:0 20px 14px;font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);}.loader-status.ok{color:var(--accent-2);}.loader-status.err{color:var(--red);}
+
+@media (max-width:900px){header.top{align-items:flex-start;}.meta{text-align:left;}.live-meta{justify-content:flex-start;}.stats{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:760px){.wrap{padding:22px 14px 60px;}header.top{flex-direction:column;padding:22px;border-radius:20px;}.title-block h1{font-size:24px;}.meta{min-width:0;width:100%;}.stats{grid-template-columns:1fr 1fr;gap:10px;}.stat{padding:17px 16px;min-height:116px;}.domain-row{grid-template-columns:1fr;gap:6px;}.domain-figs{text-align:left;}.req-summary{grid-template-columns:1fr auto;grid-template-areas:"id chev" "title title" "bar bar" "pct pct";}.req-summary>*:nth-child(1){grid-area:id}.req-summary>*:nth-child(2){grid-area:title}.req-summary>*:nth-child(3){grid-area:bar}.req-summary>*:nth-child(4){grid-area:pct}.req-summary>*:nth-child(5){grid-area:chev}.live-meta{font-size:10.5px;}}
+@media (max-width:520px){.stats{grid-template-columns:1fr;}.brand-row{margin-bottom:13px;}.logo-mark{width:116px;height:45px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="title-block">
+      <div class="brand-row">
+        <img class="logo-mark" src="IGS_Logo.webp" alt="IGS Global Logo">
+      </div>
+      <p class="kicker">TRAVELPLATFORM · TRACEABILITY REPORT</p>
+      <h1>Requirement → Acceptance Criteria → Automation Status</h1>
+      <p class="sub">Consolidated view assembled from the requirement, acceptance-criteria, development-status and test-case artefacts produced across the delivery phases.</p>
+    </div>
+    <div class="meta">
+      <div><b>Requirements:</b> <span id="metaReq"></span></div>
+      <div><b>Acceptance Criteria:</b> <span id="metaAC"></span></div>
+      <div class="live-meta"><span class="live-dot" aria-hidden="true"></span><b>LIVE</b> <span id="liveDateTime">—</span></div>
+    </div>
+  </header>
+
+  
+
+  <section class="stats">
+    <div class="stat accent">
+      <div class="num" id="statTotalAC">—</div>
+      <div class="lbl">Total acceptance criteria<br>across <span id="statReqCount">—</span> requirements</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="statImpl">—<small> / <span id="statImplPct"></span>%</small></div>
+      <div class="lbl">ACs implemented (FE and/or BE)</div>
+    </div>
+    <div class="stat good">
+      <div class="num" id="statAuto">—<small> / <span id="statAutoPct"></span>%</small></div>
+      <div class="lbl">ACs with automated test coverage (candidate/planned)</div>
+    </div>
+    <div class="stat warn">
+      <div class="num" id="statManual">—</div>
+      <div class="lbl">ACs classified manual-only</div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Coverage by domain</h2>
+      <div class="legend">
+        <span><i style="background:var(--accent)"></i> implemented</span>
+        <span><i style="background:var(--accent-2)"></i> automated</span>
+      </div>
+    </div>
+    <div class="panel-body" id="domainBars"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Requirement → AC → Automation (by requirement)</h2>
+      <div class="note">click a row to expand its acceptance criteria</div>
+    </div>
+    <div class="req-list" id="reqList"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Source traceability matrices</h2>
+      <div class="note">as authored in the phase documents, unmodified</div>
+    </div>
+    <div class="panel-body">
+      <div class="tabs" id="matrixTabs">
+        <button class="tab-btn active" data-tab="a">Requirement → AC <span>(requirement_breakdown.md §9)</span></button>
+        <button class="tab-btn" data-tab="b">FE: AC → Test Case <span>(testcase.md)</span></button>
+        <button class="tab-btn" data-tab="c">BE: AC → Test Case <span>(be_testcase.md §10)</span></button>
+      </div>
+      <div class="table-scroll" style="max-height:420px;">
+        <table id="matrixTableA" class="src-matrix"></table>
+        <table id="matrixTableB" class="src-matrix" style="display:none;"></table>
+        <table id="matrixTableC" class="src-matrix" style="display:none;"></table>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Full traceability register</h2>
+      <div class="controls">
+        <input id="searchBox" type="text" placeholder="Search REQ / AC / text…">
+        <select id="domainFilter"><option value="">All domains</option></select>
+        <select id="implFilter">
+          <option value="">All implementation states</option>
+          <option>Implemented</option><option>Partial</option>
+          <option>Not Implemented</option><option>Blocked</option>
+        </select>
+        <select id="autoFilter">
+          <option value="">All automation states</option>
+          <option value="auto">Automated (candidate)</option>
+          <option value="manual">Manual</option>
+          <option value="none">Not automated</option>
+        </select>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="table-scroll">
+        <table id="fullTable">
+          <thead>
+            <tr>
+              <th data-k="req_id">Requirement</th>
+              <th data-k="ac_id">AC ID</th>
+              <th data-k="layer">Layer</th>
+              <th data-k="criterion">Acceptance Criterion</th>
+              <th data-k="impl_status">Implementation</th>
+              <th data-k="test_cases">Test Case(s)</th>
+              <th data-k="automated_status">Automation Status</th>
+            </tr>
+          </thead>
+          <tbody id="fullTableBody"></tbody>
+        </table>
+      </div>
+      <div class="note" id="rowCount" style="margin-top:10px; font-family:var(--mono); font-size:11.5px; color:var(--ink-faint);"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="src">Sources parsed: requirement_breakdown.md, fe_acceptance_criteria.md, be_acceptance_criteria.md, fe_development_status.md, be_development_status.md, testcase.md, be_testcase.md.</div>
+    <div>Automation status reflects the automation <i>classification</i> recorded against each drafted test case (AUTOMATION_REQUIRED / AUTOMATION_RECOMMENDED / MANUAL) at the test-case-drafting phase. The test-automation phase had not produced an executed/CI-verified automation log at the time this report was generated, so "Automated" here means a test case exists and is classified for automation — not a confirmed passing automated run.</div>
+  </footer>
+</div>
+
+<script>
+let DATA = null; // LIVE ONLY: all report data comes from server.py /api/report
+let LIVE_SERVER_MODE = false;
+let livePollTimer = null;
+
+function escHtml(v){
+  return String(v ?? '').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+/* Adapt server.py's /api/report payload to the data contract used by this
+   original TravelPlatform UI.  The server remains the source of truth. */
+function normalizeServerData(payload){
+  const acs = Array.isArray(payload.acs) ? payload.acs : [];
+  const requirements = Array.isArray(payload.requirements) ? payload.requirements : [];
+  const summary = payload.summary || {};
+
+  const rows = acs.map(a=>{
+    const impls = Array.isArray(a.implementation) ? a.implementation : [];
+    const statuses = impls.map(x=>String(x.status||'').trim()).filter(Boolean);
+    const canonical = s => {
+      if(!s) return '';
+      if(s.startsWith('✅')) return 'Implemented';
+      if(s.startsWith('⚠')) return 'Partial';
+      if(s.startsWith('❌')) return 'Not Implemented';
+      if(s.startsWith('🚫') || s.startsWith('🔒')) return 'Blocked';
+      return s;
+    };
+    let impl_status = a.impl_status || 'Not Tracked';
+    if(!a.impl_status){
+      const ss = statuses.map(canonical);
+      if(!ss.length) impl_status='Not Tracked';
+      else if(ss.every(s=>s==='Implemented')) impl_status='Implemented';
+      else if(ss.every(s=>s==='Not Implemented')) impl_status='Not Implemented';
+      else if(ss.includes('Blocked')) impl_status='Blocked';
+      else if(ss.includes('Partial') || new Set(ss).size>1) impl_status='Partial';
+      else impl_status=ss[0] || 'Not Tracked';
+    }
+    const tests = Array.isArray(a.tests) ? a.tests : [];
+    const test_cases = tests.length ? tests.map(t=>`${t.type||''}: ${t.id}`).join(', ') : '—';
+    let automated_status='Not Automated (no test case)';
+    if(a.automation_status==='AUTOMATED') automated_status='Automated (planned/candidate)';
+    else if(a.automation_status==='MANUAL') automated_status='Manual';
+    else if(a.automation_status==='NOT_AUTOMATABLE') automated_status='Not Automatable';
+    else if(a.automation_status==='DRAFTED') automated_status='Drafted (not classified)';
+    return {
+      req_id:a.requirement_id, req_title:(requirements.find(r=>r.id===a.requirement_id)||{}).title||'',
+      ac_id:a.id, layer:(a.sources||[]).some(x=>/^be_/i.test(x))?'BE':((a.sources||[]).some(x=>/^fe_/i.test(x))?'FE':(a.id.includes('-BE-')?'BE':'FE')),
+      criterion:a.criterion||'', fe_status:null, be_status:null, impl_status,
+      test_cases, automation_class:tests.map(t=>t.automation).filter(Boolean).join(', ')||'—', automated_status,
+      _server:a
+    };
+  });
+
+  const req_summary = requirements.map(r=>{
+    const rs=rows.filter(x=>x.req_id===r.id);
+    const automated=rs.filter(x=>x.automated_status.startsWith('Automated')).length;
+    return {req_id:r.id,title:r.title||'',total_ac:rs.length,implemented:rs.filter(x=>x.impl_status==='Implemented').length,
+      impl_pct:rs.length?Math.round(rs.filter(x=>x.impl_status==='Implemented').length/rs.length*1000)/10:0,
+      automated,manual:rs.filter(x=>x.automated_status==='Manual').length,not_automated:rs.filter(x=>x.automated_status.startsWith('Not Automated')).length,
+      automated_pct:rs.length?Math.round(automated/rs.length*1000)/10:0};
+  });
+
+  const domainNames={CNT:'Content / GDS',DAT:'Data / Transaction Spine',EXP:'Experience',PAY:'Payment & Expense',POL:'Policy Evaluation',SVC:'Servicing',XCT:'Cross-Cutting'};
+  const domain_summary=Object.entries(domainNames).map(([domain,name])=>{
+    const rs=rows.filter(x=>{ const m=String(x.req_id||'').match(/^REQ-([A-Z]+)-/i); return m && m[1].toUpperCase()===domain; });
+    const automated=rs.filter(x=>x.automated_status.startsWith('Automated')).length;
+    const implemented=rs.filter(x=>x.impl_status==='Implemented').length;
+    return {domain,name,total_ac:rs.length,automated,implemented,
+      impl_pct:rs.length?Math.round(implemented/rs.length*1000)/10:0,
+      automated_pct:rs.length?Math.round(automated/rs.length*1000)/10:0};
+  }).filter(x=>x.total_ac);
+
+  const tests=acs.flatMap(a=>Array.isArray(a.tests)?a.tests:[]);
+  // Prefer the server's already-normalized matrices.  This is important for
+  // duplicate/explicit requirement-to-AC edges and matrix-only testcase rows.
+  const matrix_req_ac=Array.isArray(payload.matrix_req_ac) ? payload.matrix_req_ac :
+    requirements.map(r=>({req_id:r.id,title:r.title||'',ac_ids:(r.acs||[]).join(', '),layer:r.layer || ((r.sources||[]).some(x=>/^be_/i.test(x))?'BE':((r.sources||[]).some(x=>/^fe_/i.test(x))?'FE':'—')),source:(r.sources||[]).join(', ')||'—'}));
+  const matrix_fe_tc=Array.isArray(payload.matrix_fe_tc) ? payload.matrix_fe_tc : [];
+  const matrix_be_tc=Array.isArray(payload.matrix_be_tc) ? payload.matrix_be_tc : [];
+
+  const overall={
+    total_req:summary.requirements??requirements.length,total_ac:summary.acs??rows.length,
+    implemented:rows.filter(r=>r.impl_status==='Implemented').length,
+    impl_pct:rows.length?Math.round(rows.filter(r=>r.impl_status==='Implemented').length/rows.length*1000)/10:0,
+    automated:rows.filter(r=>r.automated_status.startsWith('Automated')).length,
+    automated_pct:rows.length?Math.round(rows.filter(r=>r.automated_status.startsWith('Automated')).length/rows.length*1000)/10:0,
+    manual:rows.filter(r=>r.automated_status==='Manual').length
+  };
+  return {rows,req_summary,domain_summary,overall,matrix_req_ac,matrix_fe_tc,matrix_be_tc,generated_at:payload.generated_at,source_root:payload.source_root,summary};
+}
+
+function saveUiState(){
+  return {
+    domain:document.getElementById('domainFilter')?.value||'',
+    impl:document.getElementById('implFilter')?.value||'',
+    auto:document.getElementById('autoFilter')?.value||'',
+    search:document.getElementById('searchBox')?.value||'',
+    sortKey,sortDir,lastSortKey,
+    matrixTab:document.querySelector('#matrixTabs .tab-btn.active')?.dataset.tab||'a',
+    openReqs:[...document.querySelectorAll('.req.open .req-summary')].map(x=>x.dataset.target).filter(Boolean)
+  };
+}
+function restoreUiState(st){
+  if(!st)return;
+  const restore=(id,val)=>{const e=document.getElementById(id); if(e && [...e.options].some(o=>o.value===val)) e.value=val;};
+  restore('domainFilter',st.domain); restore('implFilter',st.impl); restore('autoFilter',st.auto);
+  const q=document.getElementById('searchBox'); if(q)q.value=st.search;
+  sortKey=st.sortKey; sortDir=st.sortDir; lastSortKey=st.lastSortKey;
+  document.querySelectorAll('#matrixTabs .tab-btn').forEach(b=>{
+    const active=b.dataset.tab===st.matrixTab; b.classList.toggle('active',active);
+    ['a','b','c'].forEach(k=>{const t=document.getElementById('matrixTable'+k.toUpperCase()); if(t)t.style.display=(k===st.matrixTab)?'':'none';});
+  });
+  (st.openReqs||[]).forEach(reqId=>{
+    const summary=document.querySelector(`.req-summary[data-target="${CSS.escape(reqId)}"]`);
+    if(summary) summary.parentElement.classList.add('open');
+  });
+}
+
+let liveClockTimer=null;
+function updateLiveClock(){
+  const el=document.getElementById('liveDateTime');
+  if(!el) return;
+  const now=new Date();
+  el.textContent=now.toLocaleString([], {day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit', second:'2-digit'});
+}
+
+let liveFetchInFlight=false;
+let livePollTimeout=null;
+
+async function loadLiveFromServer(){
+  if(liveFetchInFlight) return false;
+  liveFetchInFlight=true;
+  try{
+    const apiBase = location.protocol === 'file:'
+      ? 'http://127.0.0.1:8765/api/report'
+      : new URL('/api/report', location.origin).toString();
+    const url = new URL(apiBase);
+    url.searchParams.set('_ts', Date.now().toString());
+    const res=await fetch(url.toString(),{
+      method:'GET',
+      cache:'no-store',
+      headers:{'Accept':'application/json','Cache-Control':'no-cache'},
+      credentials:'omit'
+    });
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const payload=await res.json();
+    const state=saveUiState();
+    DATA=normalizeServerData(payload);
+    renderAll();
+    restoreUiState(state);
+    renderFullTable();
+    // Keep the visible status generic; source paths are intentionally hidden.
+    setStatus('LIVE — data refresh every 5 seconds.', 'ok');
+    LIVE_SERVER_MODE=true;
+    updateLiveClock();
+    return true;
+  }catch(err){
+    console.warn('Live server data unavailable:',err);
+    setStatus('LIVE — waiting for the report server…', 'err');
+    return false;
+  }finally{
+    liveFetchInFlight=false;
+  }
+}
+
+function scheduleLivePoll(delay=5000){
+  if(livePollTimeout) clearTimeout(livePollTimeout);
+  livePollTimeout=setTimeout(async ()=>{
+    await loadLiveFromServer();
+    scheduleLivePoll(5000);
+  }, delay);
+}
+
+async function startLiveServerMode(){
+  if(livePollTimeout) clearTimeout(livePollTimeout);
+  if(liveClockTimer) clearInterval(liveClockTimer);
+  updateLiveClock();
+  liveClockTimer=setInterval(updateLiveClock,1000);
+  await loadLiveFromServer();
+  // Recursive timeout avoids overlapping network requests and keeps polling
+  // even when a request fails. The browser still gets a fresh API request
+  // every cycle with a cache-busting query parameter.
+  scheduleLivePoll(5000);
+  document.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState==='visible'){
+      updateLiveClock();
+      loadLiveFromServer();
+      scheduleLivePoll(5000);
+    }
+  });
+}
+
+
+function pillClassImpl(s){
+  return 'pill impl-' + s.replace(/\s+/g,'');
+}
+function pillClassAuto(s){
+  if(s.startsWith('Automated')) return 'pill auto-yes';
+  if(s === 'Manual') return 'pill auto-manual';
+  return 'pill auto-no';
+}
+function shortAuto(s){
+  if(s.startsWith('Automated')) return 'Automated';
+  if(s === 'Manual') return 'Manual';
+  if(s.includes('feature not implemented')) return 'Not automated (unbuilt)';
+  return 'Not automated';
+}
+
+function renderSourceMatrices(){
+  const tables={a:document.getElementById('matrixTableA'),b:document.getElementById('matrixTableB'),c:document.getElementById('matrixTableC')};
+  if(!tables.a) return;
+  const rowsA=Array.isArray(DATA.matrix_req_ac)?DATA.matrix_req_ac:[];
+  const rowsB=Array.isArray(DATA.matrix_fe_tc)?DATA.matrix_fe_tc:[];
+  const rowsC=Array.isArray(DATA.matrix_be_tc)?DATA.matrix_be_tc:[];
+  const make=(table,headers,rows,keys)=>{
+    table.innerHTML='<thead><tr>'+headers.map(h=>'<th>'+escHtml(h)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+keys.map(k=>'<td class="'+(k==='req_id'||k==='ac_id'||k==='bet_id'?'id':'')+'">'+escHtml(r[k]??'—')+'</td>').join('')+'</tr>').join('')+'</tbody>';
+  };
+  make(tables.a,['Requirement','Title','AC IDs','Layer','Source'],rowsA,['req_id','title','ac_ids','layer','source']);
+  make(tables.b,['AC ID','Requirement','Story','Test Case','Zephyr','Automation','Source'],rowsB,['ac_id','req_id','story','test_cases','zephyr','automation','source']);
+  make(tables.c,['BE Test Case','AC ID','Requirement','Priority','Test Type','Automation','Notes'],rowsC,['bet_id','ac_id','req_id','priority','test_type','automation','notes']);
+}
+
+function renderAll(){
+  const __uiState = saveUiState();
+  document.getElementById('metaReq').textContent = DATA.overall.total_req;
+  document.getElementById('metaAC').textContent = DATA.overall.total_ac;
+  updateLiveClock();
+
+  document.getElementById('statTotalAC').textContent = DATA.overall.total_ac;
+  document.getElementById('statReqCount').textContent = DATA.overall.total_req;
+  document.getElementById('statImpl').firstChild.textContent = DATA.overall.implemented;
+  document.getElementById('statImplPct').textContent = DATA.overall.impl_pct;
+  document.getElementById('statAuto').firstChild.textContent = DATA.overall.automated;
+  document.getElementById('statAutoPct').textContent = DATA.overall.automated_pct;
+  document.getElementById('statManual').textContent = DATA.overall.manual;
+
+  // domain bars
+  const domainBars = document.getElementById('domainBars');
+  domainBars.innerHTML = '';
+  DATA.domain_summary.forEach(d=>{
+    const row = document.createElement('div');
+    row.className = 'domain-row';
+    row.innerHTML = `
+      <div class="domain-name">${d.name}<span class="code">${d.domain} · ${d.total_ac} ACs</span></div>
+      <div class="bar-track">
+        <div class="bar-fill impl" style="width:${d.impl_pct}%; opacity:.35;"></div>
+        <div class="bar-fill" style="width:${d.automated_pct}%;"></div>
+      </div>
+      <div class="domain-figs"><b>${d.automated}</b>/${d.total_ac} automated · ${d.automated_pct}%</div>
+    `;
+    domainBars.appendChild(row);
+  });
+
+  // domain filter options
+  const domainFilter = document.getElementById('domainFilter');
+  const prevDomVal = domainFilter.value;
+  domainFilter.innerHTML = '<option value="">All domains</option>';
+  DATA.domain_summary.forEach(d=>{
+    const o = document.createElement('option');
+    o.value = d.domain; o.textContent = `${d.domain} — ${d.name}`;
+    domainFilter.appendChild(o);
+  });
+  if([...domainFilter.options].some(o=>o.value===prevDomVal)) domainFilter.value = prevDomVal;
+
+  // Keep the implementation filter vocabulary aligned with the live payload.
+  const implFilter = document.getElementById('implFilter');
+  const prevImplVal = implFilter.value;
+  const implValues = ['Implemented','Partial','Not Implemented','Blocked','Not Tracked'];
+  implFilter.innerHTML = '<option value="">All implementation states</option>' +
+    implValues.map(v=>`<option value="${escHtml(v)}">${escHtml(v)}</option>`).join('');
+  if([...implFilter.options].some(o=>o.value===prevImplVal)) implFilter.value = prevImplVal;
+
+  // source traceability matrices — always rebuilt from the latest server payload
+  renderSourceMatrices();
+
+  // requirement accordion
+  const reqList = document.getElementById('reqList');
+  reqList.innerHTML = '';
+  DATA.req_summary.forEach(r=>{
+    const acs = DATA.rows.filter(x=>x.req_id === r.req_id);
+    const el = document.createElement('div');
+    el.className = 'req';
+    el.innerHTML = `
+      <div class="req-summary" data-target="${r.req_id}">
+        <div class="req-id">${r.req_id}</div>
+        <div class="req-title">${r.title}<span class="ac-count">${r.total_ac} AC${r.total_ac>1?'s':''}</span></div>
+        <div class="req-mini-bar"><i style="width:${r.automated_pct}%"></i></div>
+        <div class="req-pct">${r.automated}/${r.total_ac} auto · ${r.automated_pct}%</div>
+        <div class="chev">▸</div>
+      </div>
+      <div class="req-detail" id="detail-${r.req_id}"></div>
+    `;
+    reqList.appendChild(el);
+
+    const detail = el.querySelector('.req-detail');
+    let tbl = `<table class="ac-table"><thead><tr>
+      <th>AC ID</th><th>Layer</th><th>Acceptance Criterion</th><th>Implementation</th><th>Test Case(s)</th><th>Automation</th>
+    </tr></thead><tbody>`;
+    acs.forEach(a=>{
+      tbl += `<tr>
+        <td class="id">${a.ac_id}</td>
+        <td class="layer">${a.layer}</td>
+        <td class="crit">${a.criterion.replace(/\*\*/g,'')}</td>
+        <td><span class="${pillClassImpl(a.impl_status)}">${a.impl_status}</span></td>
+        <td class="id">${a.test_cases}</td>
+        <td><span class="${pillClassAuto(a.automated_status)}">${shortAuto(a.automated_status)}</span></td>
+      </tr>`;
+    });
+    tbl += `</tbody></table>`;
+    detail.innerHTML = tbl;
+
+    el.querySelector('.req-summary').addEventListener('click', ()=>{
+      el.classList.toggle('open');
+    });
+  });
+
+  renderSourceMatrices();
+  renderFullTable();
+  restoreUiState(__uiState);
+}
+
+function bindStaticEventsOnce(){
+  document.querySelectorAll('#matrixTabs .tab-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('#matrixTabs .tab-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      ['a','b','c'].forEach(k=>{
+        document.getElementById('matrixTable'+k.toUpperCase()).style.display = (k===btn.dataset.tab)?'':'none';
+      });
+    });
+  });
+
+  document.getElementById('searchBox').addEventListener('input', renderFullTable);
+  document.getElementById('domainFilter').addEventListener('change', renderFullTable);
+  document.getElementById('implFilter').addEventListener('change', renderFullTable);
+  document.getElementById('autoFilter').addEventListener('change', renderFullTable);
+
+  document.querySelectorAll('#fullTable thead th').forEach(th=>{
+    th.addEventListener('click', ()=>{
+      sortKey = th.dataset.k;
+      sortDir = (sortKey === lastSortKey) ? -sortDir : 1;
+      lastSortKey = sortKey;
+      renderFullTable();
+    });
+  });
+}
+
+function renderSourceMatrices(){
+  const a = document.getElementById('matrixTableA');
+  a.innerHTML = `<thead><tr><th>Req ID</th><th>Requirement Title</th><th>AC IDs</th><th>Layer</th><th>Source</th></tr></thead><tbody>` +
+    DATA.matrix_req_ac.map(r=>`<tr>
+      <td class="id">${r.req_id}</td><td>${r.title}</td><td class="id">${r.ac_ids}</td><td class="id">${r.layer}</td><td>${r.source}</td>
+    </tr>`).join('') + `</tbody>`;
+
+  const b = document.getElementById('matrixTableB');
+  b.innerHTML = `<thead><tr><th>AC ID</th><th>Req ID</th><th>Story</th><th>Test Case(s)</th><th>Zephyr Status</th><th>Automation</th><th>Source</th></tr></thead><tbody>` +
+    DATA.matrix_fe_tc.map(r=>`<tr>
+      <td class="id">${r.ac_id}</td><td class="id">${r.req_id}</td><td class="id">${r.story}</td>
+      <td class="id">${r.test_cases}</td><td class="id">${r.zephyr}</td><td class="id">${r.automation}</td><td>${r.source}</td>
+    </tr>`).join('') + `</tbody>`;
+
+  const c = document.getElementById('matrixTableC');
+  c.innerHTML = `<thead><tr><th>BET ID</th><th>AC ID</th><th>Req ID</th><th>Priority</th><th>Test Type</th><th>Automation</th><th>Notes</th></tr></thead><tbody>` +
+    DATA.matrix_be_tc.map(r=>`<tr>
+      <td class="id">${r.bet_id}</td><td class="id">${r.ac_id}</td><td class="id">${r.req_id}</td>
+      <td class="id">${r.priority}</td><td>${r.test_type}</td><td class="id">${r.automation}</td><td>${r.notes}</td>
+    </tr>`).join('') + `</tbody>`;
+}
+
+let lastSortKey = null, sortKey = null, sortDir = 1;
+
+function renderFullTable(){
+  if(!DATA) return;
+
+  const q = document.getElementById('searchBox').value.trim().toLowerCase();
+  const dom = document.getElementById('domainFilter').value;
+  const impl = document.getElementById('implFilter').value;
+  const auto = document.getElementById('autoFilter').value;
+
+  const norm = v => String(v ?? '').trim().toLowerCase();
+  const rowDomain = r => {
+    const m = String(r.req_id || '').match(/^REQ-([A-Z]+)-/i);
+    return m ? m[1].toUpperCase() : '';
+  };
+
+  let rows = DATA.rows.filter(r=>{
+    // Domain: use the actual requirement domain code, not substring matching.
+    if(dom && rowDomain(r) !== dom.toUpperCase()) return false;
+
+    // Implementation: exact match against the normalized aggregate status.
+    if(impl && norm(r.impl_status) !== norm(impl)) return false;
+
+    // Automation: classify from the actual automation status and test metadata.
+    const a = norm(r.automated_status);
+    if(auto === 'auto' && !a.startsWith('automated')) return false;
+    if(auto === 'manual' && a !== 'manual') return false;
+    if(auto === 'none' && (a.startsWith('automated') || a === 'manual')) return false;
+
+    // Search all user-visible traceability fields. In particular, test-case
+    // IDs and automation are searchable; the previous version omitted them.
+    if(q){
+      const hay = [
+        r.req_id, r.ac_id, r.req_title, r.layer, r.criterion,
+        r.impl_status, r.fe_status, r.be_status, r.test_cases,
+        r.automation_class, r.automated_status
+      ].map(norm).join(' ');
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  if(sortKey){
+    rows = rows.slice().sort((a,b)=>{
+      const av = (a[sortKey] ?? '').toString();
+      const bv = (b[sortKey] ?? '').toString();
+      return av.localeCompare(bv, undefined, {numeric:true, sensitivity:'base'}) * sortDir;
+    });
+  }
+
+  const tbody = document.getElementById('fullTableBody');
+  tbody.innerHTML = rows.map(r=>`
+    <tr>
+      <td class="id">${escHtml(r.req_id)}</td>
+      <td class="id">${escHtml(r.ac_id)}</td>
+      <td>${escHtml(r.layer)}</td>
+      <td class="crit">${escHtml(String(r.criterion||'').replace(/\*\*/g,''))}</td>
+      <td><span class="${pillClassImpl(r.impl_status)}">${escHtml(r.impl_status)}</span></td>
+      <td class="id">${escHtml(r.test_cases)}</td>
+      <td><span class="${pillClassAuto(r.automated_status)}">${escHtml(shortAuto(r.automated_status))}</span></td>
+    </tr>
+  `).join('');
+
+  const active = [q,dom,impl,auto].filter(Boolean).length;
+  document.getElementById('rowCount').textContent =
+    `Showing ${rows.length} of ${DATA.rows.length} acceptance criteria` +
+    (active ? ` · ${active} filter${active===1?'':'s'} active` : '');
+}
+
+
+/* =========================================================================
+   LIVE PARSER — mirrors the Python extraction logic, run in-browser against
+   the actual .md files from phases.zip (or individually selected .md files).
+   ========================================================================= */
+
+const FILES_NEEDED = {
+  requirement_breakdown: 'requirement_breakdown.md',
+  be_acceptance_criteria: 'be_acceptance_criteria.md',
+  fe_acceptance_criteria: 'fe_acceptance_criteria.md',
+  fe_development_status: 'fe_development_status.md',
+  be_development_status: 'be_development_status.md',
+  testcase: 'testcase.md',
+  be_testcase: 'be_testcase.md',
+};
+
+const DOMAIN_NAMES = {
+  EXP:'Experience', CNT:'Content / GDS', POL:'Policy Evaluation',
+  PAY:'Payment & Expense', SVC:'Servicing', DAT:'Data / Transaction Spine',
+  XCT:'Cross-Cutting'
+};
+
+function normLine(t){ return t.replace(/\r\n/g,'\n'); }
+
+function reqIdFromAc(acId){
+  const m = acId.match(/^AC-([A-Z]+)-(\d+)-(\d+)$/);
+  return m ? `REQ-${m[1]}-${m[2]}` : null;
+}
+
+function parseAcceptanceCriteria(text, acs){
+  const lines = normLine(text).split('\n');
+  let currentReq = null;
+  for(const line of lines){
+    const hm = line.match(/^###\s+(REQ-[A-Z]+-\d+)/);
+    if(hm){ currentReq = hm[1]; continue; }
+    const m = line.match(/^\|\s*(AC-[A-Z]+-\d+-\d+)\s*\|\s*\[([^\]]+)\]\s*\|\s*(.+?)\s*\|\s*$/);
+    if(m){
+      const [, acId, tag, criterion] = m;
+      const reqId = currentReq || reqIdFromAc(acId);
+      if(!acs[acId]) acs[acId] = {req_id: reqId, tag, criterion};
+      const entry = acs[acId];
+      if(entry.tag !== tag) entry.tag = 'FE+BE';
+      if(criterion.length > (entry.criterion||'').length) entry.criterion = criterion;
+    }
+  }
+}
+
+function parseReqTitles(text){
+  const t = normLine(text);
+  const titles = {};
+  for(const line of t.split('\n')){
+    const m = line.match(/^\|\s*(REQ-[A-Z]+-\d+)\s*\|\s*([^|]+?)\s*\|/);
+    if(m) titles[m[1]] = m[2].trim();
+  }
+  const headerRe = /^###\s+(REQ-[A-Z]+-\d+)\s*[—-]\s*(.+)$/gm;
+  let hm;
+  while((hm = headerRe.exec(t)) !== null){ titles[hm[1]] = hm[2].trim(); }
+  return titles;
+}
+
+function sliceBetween(text, startMarker, endMarker){
+  const t = normLine(text);
+  const i = t.indexOf(startMarker);
+  if(i === -1) return '';
+  const rest = t.slice(i + startMarker.length);
+  if(!endMarker) return rest;
+  const j = rest.indexOf(endMarker);
+  return j === -1 ? rest : rest.slice(0, j);
+}
+
+function normStatus(s){
+  if(!s) return null;
+  s = s.trim();
+  if(s.startsWith('✅')) return 'Implemented';
+  if(s.startsWith('⚠️')) return 'Partial';
+  if(s.startsWith('❌')) return 'Not Implemented';
+  if(s.startsWith('🚫') || s.startsWith('🔒')) return 'Blocked';
+  return s;
+}
+
+function parseFeStatus(text){
+  const sec = sliceBetween(text, '## 8. FULL TRACEABILITY MATRIX', '## 9.');
+  const out = {};
+  for(const line of sec.split('\n')){
+    const m = line.match(/^\|\s*(AC-[A-Z]+-\d+-\d+)\s*\|\s*(REQ-[A-Z]+-\d+)\s*\|\s*([^|]+)\|\s*([^|]+)\|/);
+    if(m) out[m[1]] = m[4].trim();
+  }
+  return out;
+}
+
+function parseBeStatus(text){
+  const t = normLine(text);
+  const out = {};
+  let currentReq = null;
+  for(const line of t.split('\n')){
+    const hm = line.match(/^###\s+(REQ-[A-Z]+-\d+)/);
+    if(hm){ currentReq = hm[1]; continue; }
+    const m = line.match(/^\|\s*(AC-[A-Z]+-\d+-\d+)\s*\|\s*([^|]+)\|/);
+    if(m) out[m[1]] = m[2].trim();
+  }
+  return out;
+}
+
+function parseFeTestTraceability(text){
+  const sec = sliceBetween(text, '## Traceability Matrix', '## Coverage Gaps');
+  const out = {}, matrix = [];
+  for(const line of sec.split('\n')){
+    const m = line.match(/^\|\s*(AC-[A-Z]+-\d+-\d+)\s*\|\s*(REQ-[A-Z]+-\d+)\s*\|\s*([^|]+)\|\s*([^|]+)\|\s*([^|]+)\|\s*([^|]+)\|\s*([^|]+)\|/);
+    if(m){
+      const [, acId, reqId, story, tcids, zephyr, automation, source] = m.map(x=>typeof x==='string'?x.trim():x);
+      out[acId] = {test_cases: tcids, automation};
+      matrix.push({ac_id: acId, req_id: reqId, story, test_cases: tcids, zephyr, automation, source});
+    }
+  }
+  const exclSec = sliceBetween(text, '## ACs Excluded', '## Automation Candidates Summary');
+  const excluded = {};
+  for(const line of exclSec.split('\n')){
+    const m = line.match(/^\|\s*(AC-[A-Z]+-\d+-\d+)\s*\|\s*(REQ-[A-Z]+-\d+)\s*\|\s*([^|]+)\|/);
+    if(m) excluded[m[1]] = m[3].trim();
+  }
+  return {fe_tc: out, fe_excluded: excluded, matrix_fe_tc: matrix};
+}
+
+function parseBeTestTraceability(text){
+  const sec = sliceBetween(text, '## 10. TRACEABILITY MATRIX', '## 11.');
+  const out = {}, matrix = [];
+  for(const line of sec.split('\n')){
+    const m = line.match(/^\|\s*(BET-\d+)\s*\|\s*(AC-[A-Z]+-\d+-\d+)\s*\|\s*(REQ-[A-Z]+-\d+)\s*\|\s*([^|]+)\|\s*([^|]+)\|\s*([^|]+)\|\s*([^|]+)\|/);
+    if(m){
+      const [, betId, acId, reqId, priority, testType, automation, notes] = m.map(x=>typeof x==='string'?x.trim():x);
+      if(!out[acId]) out[acId] = {test_cases: [], automation};
+      out[acId].test_cases.push(betId);
+      matrix.push({bet_id: betId, ac_id: acId, req_id: reqId, priority, test_type: testType, automation, notes});
+    }
+  }
+  for(const k in out) out[k].test_cases = out[k].test_cases.join(', ');
+  return {be_tc: out, matrix_be_tc: matrix};
+}
+
+function parseReqAcMatrix(text){
+  const sec = sliceBetween(text, '## 9. REQUIREMENT', '## TOTALS SUMMARY');
+  const matrix = [];
+  for(const line of sec.split('\n')){
+    const m = line.match(/^\|\s*(REQ-[A-Z]+-\d+)\s*\|\s*([^|]+)\|\s*([^|]+)\|\s*([^|]+)\|\s*([^|]+)\|/);
+    if(m){
+      const [, reqId, title, acIds, layer, source] = m.map(x=>typeof x==='string'?x.trim():x);
+      matrix.push({req_id: reqId, title, ac_ids: acIds, layer, source});
+    }
+  }
+  return matrix;
+}
+
+function pct(n, d){ return d ? Math.round((100*n/d)*10)/10 : 0.0; }
+
+function buildDataset(files){
+  const reqTitles = parseReqTitles(files.requirement_breakdown);
+  const acs = {};
+  parseAcceptanceCriteria(files.be_acceptance_criteria, acs);
+  parseAcceptanceCriteria(files.fe_acceptance_criteria, acs);
+
+  const feStatus = parseFeStatus(files.fe_development_status);
+  const beStatus = parseBeStatus(files.be_development_status);
+  const {fe_tc, fe_excluded, matrix_fe_tc} = parseFeTestTraceability(files.testcase);
+  const {be_tc, matrix_be_tc} = parseBeTestTraceability(files.be_testcase);
+  const matrix_req_ac = parseReqAcMatrix(files.requirement_breakdown);
+
+  const rows = [];
+  Object.keys(acs).sort().forEach(acId=>{
+    const a = acs[acId];
+    const reqId = a.req_id;
+    const feS = normStatus(feStatus[acId]);
+    const beS = normStatus(beStatus[acId]);
+    const statuses = [feS, beS].filter(Boolean);
+
+    let impl;
+    if(statuses.length === 0) impl = 'Not Tracked';
+    else if(statuses.includes('Implemented') && statuses.every(s=>s==='Implemented')) impl = 'Implemented';
+    else if(statuses.includes('Not Implemented') && statuses.every(s=>s==='Not Implemented')) impl = 'Not Implemented';
+    else if(statuses.includes('Blocked')) impl = 'Blocked';
+    else impl = 'Partial';
+
+    const feEntry = fe_tc[acId], beEntry = be_tc[acId];
+    const testCases = [];
+    const automations = new Set();
+    if(feEntry){ testCases.push('FE: ' + feEntry.test_cases); automations.add(feEntry.automation); }
+    if(beEntry){ testCases.push('BE: ' + beEntry.test_cases); automations.add(beEntry.automation); }
+
+    let automationClass = null;
+    if(automations.size){
+      if(automations.has('AUTOMATION_REQUIRED')) automationClass = 'AUTOMATION_REQUIRED';
+      else if(automations.has('AUTOMATION_RECOMMENDED')) automationClass = 'AUTOMATION_RECOMMENDED';
+      else if(automations.has('MANUAL')) automationClass = 'MANUAL';
+      else automationClass = [...automations].sort().join('/');
+    }
+
+    let automatedStatus;
+    if(automationClass === 'AUTOMATION_REQUIRED' || automationClass === 'AUTOMATION_RECOMMENDED'){
+      automatedStatus = 'Automated (planned/candidate)';
+    } else if(automationClass === 'MANUAL'){
+      automatedStatus = 'Manual';
+    } else if(fe_excluded[acId]){
+      automatedStatus = 'Not Automated (feature not implemented)';
+    } else {
+      automatedStatus = 'Not Automated (no test case)';
+    }
+
+    rows.push({
+      req_id: reqId, req_title: reqTitles[reqId] || '', ac_id: acId, layer: a.tag,
+      criterion: a.criterion, fe_status: feS, be_status: beS, impl_status: impl,
+      test_cases: testCases.length ? testCases.join('; ') : '—',
+      automation_class: automationClass || '—', automated_status: automatedStatus,
+    });
+  });
+
+  // requirement rollups
+  const reqMap = {};
+  rows.forEach(r=>{
+    if(!reqMap[r.req_id]) reqMap[r.req_id] = {req_id: r.req_id, title: r.req_title, domain: r.req_id.split('-')[1], acs: []};
+    reqMap[r.req_id].acs.push(r);
+  });
+  const reqSummary = Object.values(reqMap).map(info=>{
+    const total = info.acs.length;
+    const implemented = info.acs.filter(a=>a.impl_status==='Implemented').length;
+    const automated = info.acs.filter(a=>a.automated_status.startsWith('Automated')).length;
+    const manual = info.acs.filter(a=>a.automated_status==='Manual').length;
+    return {
+      req_id: info.req_id, title: info.title, domain: info.domain, total_ac: total,
+      implemented, impl_pct: pct(implemented, total),
+      automated, manual, not_automated: total - automated - manual,
+      automated_pct: pct(automated, total),
+    };
+  });
+
+  const domainMap = {};
+  rows.forEach(r=>{
+    const dom = r.req_id.split('-')[1];
+    (domainMap[dom] = domainMap[dom] || []).push(r);
+  });
+  const domainSummary = Object.keys(domainMap).map(dom=>{
+    const lst = domainMap[dom];
+    const total = lst.length;
+    const implemented = lst.filter(a=>a.impl_status==='Implemented').length;
+    const automated = lst.filter(a=>a.automated_status.startsWith('Automated')).length;
+    const manual = lst.filter(a=>a.automated_status==='Manual').length;
+    return {domain: dom, name: DOMAIN_NAMES[dom] || dom, total_ac: total,
+      implemented, impl_pct: pct(implemented,total), automated, manual, automated_pct: pct(automated,total)};
+  });
+
+  const overall = {
+    total_req: Object.keys(reqMap).length,
+    total_ac: rows.length,
+    implemented: rows.filter(r=>r.impl_status==='Implemented').length,
+    partial: rows.filter(r=>r.impl_status==='Partial').length,
+    not_implemented: rows.filter(r=>r.impl_status==='Not Implemented').length,
+    blocked: rows.filter(r=>r.impl_status==='Blocked').length,
+    automated: rows.filter(r=>r.automated_status.startsWith('Automated')).length,
+    manual: rows.filter(r=>r.automated_status==='Manual').length,
+    not_automated: rows.filter(r=>r.automated_status.startsWith('Not Automated')).length,
+  };
+  overall.impl_pct = pct(overall.implemented, overall.total_ac);
+  overall.automated_pct = pct(overall.automated, overall.total_ac);
+
+  return {
+    rows, req_summary: reqSummary, domain_summary: domainSummary, overall,
+    matrix_req_ac, matrix_fe_tc, matrix_be_tc,
+  };
+}
+
+/* ---------- File loading (zip or loose .md files) ---------- */
+
+function setStatus(msg, cls){
+  const el = document.getElementById('loaderStatus');
+  el.textContent = msg;
+  el.className = 'loader-status' + (cls ? ' ' + cls : '');
+}
+
+async function findInZip(zip, filename){
+  const entries = Object.keys(zip.files).filter(p => !zip.files[p].dir && p.split('/').pop() === filename);
+  if(!entries.length) return null;
+  return await zip.files[entries[0]].async('string');
+}
+
+async function loadFromFileList(fileList){
+  const files = Array.from(fileList);
+  const zipFile = files.find(f => f.name.toLowerCase().endsWith('.zip'));
+  const collected = {};
+
+  try{
+    if(zipFile){
+      setStatus('Reading ' + zipFile.name + ' …');
+      const buf = await zipFile.arrayBuffer();
+      const zip = await JSZip.loadAsync(buf);
+      for(const [key, filename] of Object.entries(FILES_NEEDED)){
+        const content = await findInZip(zip, filename);
+        if(content) collected[key] = content;
+      }
+    } else {
+      for(const [key, filename] of Object.entries(FILES_NEEDED)){
+        const f = files.find(f => f.name === filename);
+        if(f) collected[key] = await f.text();
+      }
+    }
+
+    const missing = Object.entries(FILES_NEEDED).filter(([k]) => !collected[k]).map(([,v])=>v);
+    if(missing.length){
+      setStatus('Missing required file(s): ' + missing.join(', '), 'err');
+      return;
+    }
+
+    const dataset = buildDataset(collected);
+    DATA = dataset;
+    renderAll();
+    setStatus('Live — local file parse completed.', 'ok');
+  } catch(err){
+    console.error(err);
+    setStatus('Could not parse the selected file(s): ' + err.message, 'err');
+  }
+}
+
+function initLoader(){
+  const dropZone = document.getElementById('dropZone');
+  const fileInput = document.getElementById('fileInput');
+  dropZone.addEventListener('click', ()=> fileInput.click());
+  fileInput.addEventListener('change', (e)=> { if(e.target.files.length) loadFromFileList(e.target.files); });
+
+  ['dragenter','dragover'].forEach(evt=>{
+    dropZone.addEventListener(evt, (e)=>{ e.preventDefault(); dropZone.classList.add('dragover'); });
+  });
+  ['dragleave','drop'].forEach(evt=>{
+    dropZone.addEventListener(evt, (e)=>{ e.preventDefault(); dropZone.classList.remove('dragover'); });
+  });
+  dropZone.addEventListener('drop', (e)=>{
+    const dt = e.dataTransfer;
+    if(dt && dt.files && dt.files.length) loadFromFileList(dt.files);
+  });
+}
+
+bindStaticEventsOnce();
+startLiveServerMode();
+</script>
+</body>
+</html>

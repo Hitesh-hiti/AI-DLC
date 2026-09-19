@@ -74,6 +74,29 @@ Only include artifacts relevant to the change.
 28. Do not bypass security, governance, or platform controls for development or testing convenience.
 29. Follow approved enterprise/industry standards; deviations require documented approval.
 
+## Domain Pack Requirement
+
+Architecture analysis MUST NOT begin until the applicable
+Domain Pack has been identified and loaded.
+
+The Architecture Agent must:
+
+1. Identify the applicable domain.
+2. Identify the corresponding Domain Pack.
+3. Load the Domain Pack.
+4. Validate that the Domain Pack is available.
+5. Use the Domain Pack as an authoritative domain reference.
+6. Record the Domain Pack version/path used.
+
+If the Domain Pack is missing:
+
+Status = BLOCKED
+
+Reason = DOMAIN_PACK_NOT_LOADED
+
+The agent must not infer missing domain rules from its own
+general knowledge when the project requires Domain Pack authority.
+
 ## Gate
 
 **Architecture + Product approval is mandatory before implementation planning.**

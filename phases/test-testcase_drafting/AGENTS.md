@@ -56,8 +56,6 @@ Every test case must contain:
 
 - Test Case ID
 - Requirement ID
-- Epic ID
-- Story ID
 - Acceptance Criteria ID
 - Test Case Title
 - Objective
@@ -69,7 +67,6 @@ Every test case must contain:
 - Test Type
 - Automation Candidate
 - Automation Framework
-- Zephyr Mapping
 - Traceability Information
 
 ## Test Coverage
@@ -104,10 +101,9 @@ Provide the reason.
 
 Every approved test case must have a deterministic mapping:
 
-STORY-ID
+    -> REW-ID
     -> AC-ID
     -> TC-ID
-    -> ZEPHYR-ID
 
 Do not invent a Zephyr ID if the test case has not yet been uploaded.
 

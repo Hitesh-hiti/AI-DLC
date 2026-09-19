@@ -1071,3 +1071,39 @@ Human Review / Validation Required
 The fundamental operating principle is:
 
 > **The AI may analyze and recommend within its validated boundaries, but the guardrail determines whether it is authorized to act. When the boundary is exceeded, a qualified human validates or makes the final decision.**
+
+# Phase Escalation and Routing
+
+HITL is a cross-phase policy.
+
+Any agent operating in any phase must use this policy when
+ambiguity, conflict, insufficient evidence, missing authority,
+or material change is detected.
+
+## Phase Ownership
+
+| Issue Type | Owning Phase |
+|---|---|
+| Requirement ambiguity | Requirement Analysis |
+| Domain ambiguity | Domain / Gap Analysis |
+| Specification ambiguity | Gap Analysis & Specification |
+| Acceptance Criteria ambiguity | Requirement & Acceptance Criteria |
+| Architecture ambiguity | Architecture |
+| UI/UX ambiguity | UI/UX Design |
+| Implementation ambiguity | Development |
+| Test Case ambiguity | Test Case |
+| Automation ambiguity | Test Automation |
+| CI/CD ambiguity | CI/CD / PR Validation |
+
+## Routing Rule
+
+When an agent detects an issue outside its phase authority:
+
+1. Stop the affected action.
+2. Classify the issue.
+3. Create a HITL review package.
+4. Identify the owning phase.
+5. Request human validation when required.
+6. Route the approved change to the owning phase.
+7. Revalidate all downstream artifacts affected by the change.
+8. Resume execution only after required approvals are complete.

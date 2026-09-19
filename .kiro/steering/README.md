@@ -44,7 +44,7 @@ Historical traceability is retained; changed behavior is versioned.
 .kiro/
   agents/
     test-automation.json
-  steering/
+  steering/   
     product.md
     traceability.md
     architecture-guardrails.md
