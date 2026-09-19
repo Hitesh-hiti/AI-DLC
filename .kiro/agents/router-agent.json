@@ -24,7 +24,9 @@
         "qa-agent",
         "requirements-agent",
         "test-automation-agent",
-        "release-agent"
+        "release-agent",
+        "planner-agent",
+        "architecture-agent"
       ],
       "trustedAgents": [
         "design-agent",
@@ -35,7 +37,9 @@
         "qa-agent",
         "requirements-agent",
         "test-automation-agent",
-        "release-agent"
+        "release-agent",
+        "planner-agent",
+        "architecture-agent"
       ]
     }
   },
