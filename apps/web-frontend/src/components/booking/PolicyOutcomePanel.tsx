@@ -5,6 +5,7 @@
  * AC-POL-01-05: WARN — visible, non-blocking; traveler can continue
  * AC-POL-01-06 / AC-POL-04-03: BLOCK — non-dismissible, only "Return to Search"
  * AC-EXP-02-10: WARN rendered alongside booking details, does not prevent hold
+ * AC-POL-03-05: WARN override — mandatory reason-code dropdown before proceeding
  */
 
 import React, { useState } from 'react';
@@ -22,6 +23,8 @@ export const PolicyOutcomePanel: React.FC<PolicyOutcomePanelProps> = ({
 }) => {
   const { outcome, policies, warnings } = policyEvaluation;
   const [warnAcknowledged, setWarnAcknowledged] = useState(false);
+  const [overrideReasonCode, setOverrideReasonCode] = useState<string>('');
+  const [overrideReasonText, setOverrideReasonText] = useState<string>('');
 
   if (outcome === 'ALLOW') {
     return (
@@ -89,9 +92,51 @@ export const PolicyOutcomePanel: React.FC<PolicyOutcomePanelProps> = ({
               </button>
             </div>
           )}
-          {warnAcknowledged && (
+          {warnAcknowledged && !overrideReasonCode && (
+            <div className="policy-panel-actions" aria-label="Override reason required">
+              <p className="policy-override-hint">
+                Please provide a reason for overriding this policy warning:
+              </p>
+              <div className="policy-override-form">
+                <select
+                  className="policy-override-select"
+                  value={overrideReasonCode}
+                  onChange={(e) => setOverrideReasonCode(e.target.value)}
+                  aria-label="Reason code"
+                  data-testid="override-reason-code-select"
+                >
+                  <option value="">Select a reason...</option>
+                  <option value="PERSONAL">Personal choice</option>
+                  <option value="EMERGENCY">Emergency travel</option>
+                  <option value="BUSINESS_CRITICAL">Business critical</option>
+                  <option value="OTHER">Other</option>
+                </select>
+                {overrideReasonCode === 'OTHER' && (
+                  <textarea
+                    className="policy-override-textarea"
+                    value={overrideReasonText}
+                    onChange={(e) => setOverrideReasonText(e.target.value)}
+                    aria-label="Additional reason details"
+                    placeholder="Please describe..."
+                    data-testid="override-reason-text"
+                  />
+                )}
+              </div>
+              <button
+                type="button"
+                className="policy-confirm-override-btn"
+                onClick={() => setWarnAcknowledged(true)}
+                disabled={!overrideReasonCode}
+                aria-label="Confirm override and continue"
+                data-testid="btn-confirm-override"
+              >
+                Confirm Override — Proceed to Hold
+              </button>
+            </div>
+          )}
+          {warnAcknowledged && overrideReasonCode && (
             <p className="policy-ack-confirmed" aria-live="polite" data-testid="policy-warn-acknowledged">
-              ✓ Warning acknowledged — you may proceed to hold.
+              ✓ Warning acknowledged with reason "{overrideReasonCode}" — you may proceed to hold.
             </p>
           )}
         </div>

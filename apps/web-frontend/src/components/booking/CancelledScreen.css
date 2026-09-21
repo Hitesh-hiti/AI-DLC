@@ -1,0 +1,160 @@
+/**
+ * CancelledScreen Styles
+ * Responsive, accessible styling for cancelled/refunded booking
+ */
+
+.cancelled-screen {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cancelled-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.cancelled-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.cancelled-icon.cancelled-cancelled {
+  color: #dc3545;
+}
+
+.cancelled-icon.cancelled-refunded {
+  color: #198754;
+}
+
+.cancelled-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 8px 0;
+}
+
+.cancelled-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.cancelled-ref-card {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.cancelled-ref-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.cancelled-ref-row:last-child {
+  border-bottom: none;
+}
+
+.cancelled-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.cancelled-value {
+  font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+  color: #212529;
+}
+
+.cancelled-void-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e7f1ff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.cancelled-void-badge {
+  background: #0d6efd;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.cancelled-void-text {
+  font-size: 0.875rem;
+  color: #0a58ca;
+}
+
+.cancelled-section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+
+.cancelled-refund-table {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.cancelled-refund-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.cancelled-refund-value {
+  font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+  color: #212529;
+  text-align: right;
+}
+
+.cancelled-refund-value.negative {
+  color: #dc3545;
+}
+
+.cancelled-tax-row {
+  font-size: 0.875rem;
+}
+
+.cancelled-tax-code {
+  display: block;
+  font-weight: 600;
+}
+
+.cancelled-tax-note {
+  color: #6c757d;
+}
+
+.cancelled-refund-total td {
+  padding-top: 12px;
+  border-top: 2px solid #dee2e6;
+}
+
+.cancelled-alert {
+  margin-bottom: 24px;
+}
+
+.cancelled-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+@media (min-width: 480px) {
+  .cancelled-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}

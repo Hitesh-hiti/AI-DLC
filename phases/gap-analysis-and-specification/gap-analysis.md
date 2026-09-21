@@ -16,6 +16,7 @@
 | 0.3 | 2026-09-04 | Q6–Q16 resolved; all 16 gaps closed; status set COMPLETE |
 | 0.4 | 2026-09-10 | Re-baselined against architecture.md v1.1. Q11 GDS decision revised (Sabre-only Phase 1; Amadeus Phase 2). 26 architecture review remediations recorded. 1 new blocking gap identified (ADR-009 ticketing authority). 3 new open items added to the gate. Gap resolution table updated throughout. |
 | 0.5 | 2026-09-10 | ADR-009 closed: Model B (host agency) decided. PENDING_ISSUE state and TICKETING_QUEUE consequences recorded. GAP-ARCH-01 closed. ARCH-02 status updated. Overall readiness changed to NO BLOCKERS. |
+| 0.6 | 2026-09-18 | Domain pack (airlines.json) gap analysis completed. 4 domain-specific gaps identified (GAP-DP-01 through GAP-DP-05). All deferred to Phase 2 as outside Phase 1 scope. Phase 1 state machine acceptable deviation (GAP-DP-01). Gap analysis v0.5 remains baseline for implementation. |
 
 ---
 
@@ -32,6 +33,8 @@ The RequirementDocument defines an **AI-native, enterprise-grade travel platform
 
 **Core Intent:** unified platform from user perspective; API-first; event-driven; extensible, loosely-coupled domains; built-in resilience, security, privacy, scalability, auditability; idempotent, compensating distributed transactions.
 
+**Domain Pack Reference:** `domainpack/airlines.json` defines airline industry standards, risk taxonomy, compliance requirements, and test techniques. The platform focuses on "Booking & Retailing" sub-domain (reservation, PNR management, fare calculation) as defined in the domain pack.
+
 ---
 
 ## OVERALL READINESS STATUS
@@ -39,11 +42,13 @@ The RequirementDocument defines an **AI-native, enterprise-grade travel platform
 | Area | Status |
 |------|--------|
 | Requirements (Q1–Q16) | ✅ COMPLETE |
-| Architecture design (architecture.md v1.2) | ✅ COMPLETE |
+| Architecture design (architecture.md v1.4) | ✅ COMPLETE |
 | Original 16 gaps | ✅ ALL RESOLVED |
 | Architecture review remediations (B1–C7) | ✅ 26 of 26 resolved in v1.1 |
 | **ADR-009 — Ticketing authority** | ✅ **CLOSED — Model B (host agency) 2026-09-10** |
+| Domain pack gaps (GAP-DP-01 through GAP-DP-05) | ✅ **ALL DEFERRED TO PHASE 2** |
 | Gate sign-off (Architect + PO) | ⏳ Pending |
+| Gap Analysis v0.5 | ✅ **VALID — Baseline for Phase 1 implementation** |
 
 ---
 
@@ -378,3 +383,136 @@ The following are tracked as deferred, not gaps. All have explicit placeholders 
 | ARCH-04: ASC 606 gross vs. net revenue treatment | Sprint 2 ERP posting logic depends on this; must be resolved before Sprint 2 planning |
 
 **Recommended gate condition:** Architect and PO approval of architecture.md v1.2. ARCH-02 through ARCH-04 are noted as Sprint-level pre-conditions in the User Stories phase, not gate blockers.
+## DOMAIN PACK GAP ANALYSIS
+
+### GAP-DP-01: PNR Lifecycle State Machine Alignment
+
+| Item | Value |
+|------|-------|
+| **GAP ID** | GAP-DP-01 |
+| **Category** | State Machine / Workflow |
+| **Severity** | Medium (not blocking) |
+| **Domain Pack Reference** | "PNR lifecycle state machine: created → ticketed → checked-in → boarded → flown/rebooked/cancelled" |
+| **Current Implementation** | `DRAFT → HELD → PENDING_ISSUE → CONFIRMED → COMPLETED` |
+| **Gap** | Missing "checked-in" and "boarded" states in the current state machine |
+| **Rationale** | The domain pack explicitly lists "Check-in & boarding" as a core business function, but the current state machine jumps directly from "ticketed" (ISSUED) to "boarded" (CONFIRMED) without explicit states. This is acceptable for Phase 1 since the system is backend-only and doesn't track passenger touchpoints. |
+| **Phase** | Phase 1 (acceptable deviation) |
+| **Phase 2 Action** | Consider adding "CHECKED_IN" and "BOARDED" states if frontend or departure control integration is added. |
+| **Resolution** | **ACCEPTED** - The state machine is correct for a backend-only system that doesn't track passenger touchpoints. |
+
+### GAP-DP-02: Baggage Reconciliation Tracking
+
+| Item | Value |
+|------|-------|
+| **GAP ID** | GAP-DP-02 |
+| **Category** | Missing Capability |
+| **Severity** | Medium (safety/compliance risk) |
+| **Domain Pack Reference** | "Baggage reconciliation (bag-passenger match) at departure. Bag-passenger mismatch is both a security requirement and an operational delay risk." |
+| **Current Implementation** | No baggage entity or reconciliation tracking in the data model |
+| **Gap** | The domain pack identifies baggage reconciliation as a high-priority risk area (99.9% target accuracy), but Phase 1 has no baggage tracking capability |
+| **Rationale** | Baggage reconciliation is a core airline function but is not required for Phase 1's PNR reservation and ticketing focus. The system currently tracks passengers and segments but not baggage. |
+| **Phase** | Phase 2+ |
+| **Impact on Phase 1** | **NONE** - Baggage reconciliation is outside Phase 1 scope. |
+| **Phase 2 Action** | Add `baggage` entity with: baggage_id, booking_id, passenger_id, baggage_weight, baggage_tag_number, reconciliation_status (PENDING/RECONCILED/OFFLOADED), offload_reason (if applicable). |
+
+### GAP-DP-03: Interline/Codeshare Modeling
+
+| Item | Value |
+|------|-------|
+| **GAP ID** | GAP-DP-03 |
+| **Category** | Missing Capability |
+| **Severity** | Medium (data exchange risk) |
+| **Domain Pack Reference** | "Interline/codeshare data exchange correctness (baggage, fare, PNR) is hard to reproduce because they only manifest at the boundary between two airlines' systems." |
+| **Current Implementation** | Single GDS (Sabre) only in Phase 1. No interline/codeshare modeling. |
+| **Gap** | The domain pack identifies interline/codeshare data exchange as a medium-risk area, but Phase 1 is single-vendor only. |
+| **Rationale** | The current architecture correctly defers interline/codeshare to Phase 2 (see ADR-008, Q6, Q11 in gap-analysis.md). Single-supplier Phase 1 simplifies implementation and reduces risk. |
+| **Phase** | Phase 2+ |
+| **Impact on Phase 1** | **NONE** - Single GDS (Sabre) Phase 1 is intentional. |
+| **Phase 2 Action** | Add `interline_partner` and `codeshare_agency` entities. Add `segment.partner_code` and `segment.operating_carrier` fields to support interline/codeshare modeling. |
+
+### GAP-DP-04: Irregular Operations (IROPS) Rebooking
+
+| Item | Value |
+|------|-------|
+| **GAP ID** | GAP-DP-04 |
+| **Category** | Missing Capability |
+| **Severity** | Medium (high-visibility disruption handling) |
+| **Domain Pack Reference** | "IROPS rebooking priority matrix: Passenger tier x connection risk x rebooking-inventory availability determines rebooking sequencing during mass disruption." |
+| **Current Implementation** | No disruption rebooking workflow. Manual cancellation only. |
+| **Gap** | The domain pack emphasizes IROPS rebooking priority-based sequencing, but Phase 1 has no disruption handling beyond basic cancellation. |
+| **Rationale** | IROPS rebooking is a complex domain with high business impact. It is correctly deferred to Phase 2. |
+| **Phase** | Phase 2+ |
+| **Impact on Phase 1** | **NONE** - Basic cancellation is sufficient for Phase 1. |
+| **Phase 2 Action** | Add `disruption` entity with: disruption_id, type (WEATHER/ATC/MECHANICAL/OPERATIONAL), severity, rebooking_priority_matrix, affected_bookings[]. Add `rebooking` entity with: rebooking_id, original_segment_id, new_segment_id, priority, status (PROPOSED/APPROVED/REJECTED). |
+
+### GAP-DP-05: Fare Rule Decision Table Complexity
+
+| Item | Value |
+|------|-------|
+| **GAP ID** | GAP-DP-05 |
+| **Category** | Simplification / Future Enhancement |
+| **Severity** | Low (revenue risk at scale) |
+| **Domain Pack Reference** | "Fare rule decision table: Route x cabin x fare-class x booking-window x change/cancel-rule combinations — fare engines are a textbook decision-table domain given the combinatorial rule structure." |
+| **Current Implementation** | Simple threshold-based policy evaluator (e.g., fare > $500 → REQUIRE_APPROVAL). |
+| **Gap** | The domain pack describes fare engines as combinatorial decision tables, but Phase 1 uses simple thresholds without full fare rule processing. |
+| **Rationale** | Phase 1's "Policy Evaluator" is intentionally simplified for rapid MVP delivery. Full fare rule processing is deferred to Phase 2. |
+| **Phase** | Phase 2+ |
+| **Impact on Phase 1** | **MINIMAL** - Threshold-based policies are sufficient for Phase 1 business rules. |
+| **Phase 2 Action** | Replace simplified policy evaluator with full fare rule decision table engine. Support IATA fare rules, seasonal surcharges, advance purchase restrictions, and change/cancel fees. |
+
+---
+
+## COMPLIANCE CHECKLIST ALIGNMENT
+
+| Standard | Domain Pack Reference | Current Implementation | Gap |
+|----------|----------------------|----------------------|-----|
+| IATA NDC / ONE Order | "Booking, retailing, and order-management systems" | ❌ Not implemented | Deferred to Phase 2 |
+| IATA PADIS / Type B | "PNR and departure-control message exchange" | ❌ Not implemented | Deferred to Phase 2 |
+| EASA/FAA FTL | "Crew scheduling systems" | ❌ Not applicable | Not in Phase 1 scope |
+| AD Compliance | "Maintenance & engineering (M&E) systems" | ❌ Not applicable | Not in Phase 1 scope |
+| TSA Baggage | "Baggage handling systems" | ❌ Not implemented | Deferred to Phase 2 |
+| EU261 | "IROPS/disruption-management" | ❌ Not implemented | Deferred to Phase 2 |
+
+---
+
+## IMPACT MATRIX
+
+| Gap ID | Severity | Phase 1 Impact | Phase 2 Priority | Effort |
+|--------|----------|---------------|-----------------|--------|
+| GAP-DP-01 | Medium | None (acceptable deviation) | Low (if passenger touchpoints needed) | Low |
+| GAP-DP-02 | Medium | None (outside scope) | High (security/compliance) | Medium |
+| GAP-DP-03 | Medium | None (single GDS intentional) | Medium (interline business) | Medium |
+| GAP-DP-04 | Medium | None (basic cancel sufficient) | High (high-visibility disruption) | High |
+| GAP-DP-05 | Low | Minimal (threshold policies OK) | High (revenue risk at scale) | High |
+
+---
+
+## ASSUMPTIONS
+
+1. **Phase 1 Scope:** Single GDS (Sabre), single-supplier reservation and ticketing only.
+2. **Domain Pack Focus:** Airlines domain pack emphasizes operations and safety-critical systems; TravelPlatform is a passenger booking platform with backend-only implementation.
+3. **Compliance Deferrals:** IATA NDC, baggage reconciliation, and EU261 passenger rights are deferred to Phase 2.
+4. **Testing Approach:** Phase 1 uses simplified policy evaluator (threshold-based) rather than full fare rule decision tables.
+
+---
+
+## HUMAN REVIEW CHECKLIST
+
+- [ ] Architect: Review domain pack gaps and confirm Phase 2 priorities
+- [ ] Product Owner: Validate business priorities for Phase 2 gaps
+- [ ] Compliance: Review compliance checklist alignment
+- [ ] QA Lead: Confirm test coverage gaps are acceptable for Phase 1
+
+---
+
+## REVISION HISTORY
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 0.6 | 2026-09-18 | AI Gap Analysis | Domain pack (airlines.json) gap analysis completed. 4 domain-specific gaps identified (GAP-DP-01 through GAP-DP-05). All deferred to Phase 2 as outside Phase 1 scope. |
+| 0.5 | 2026-09-10 | Architect + PO | ADR-009 closed: Model B (host agency) decided. |
+
+---
+
+**Status:** READY FOR HUMAN REVIEW  
+**Next Steps:** Human review of open questions and Phase 2 priorities

@@ -1,0 +1,107 @@
+/**
+ * TicketingInProgressScreen Styles
+ * Responsive, accessible styling for PENDING_ISSUE state
+ */
+
+.ticketing-screen {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ticketing-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.ticketing-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.ticketing-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 8px 0;
+}
+
+.ticketing-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.ticketing-ref-card {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.ticketing-ref-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.ticketing-ref-row:last-child {
+  border-bottom: none;
+}
+
+.ticketing-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.ticketing-value {
+  font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+  color: #212529;
+}
+
+.ticketing-status-alert {
+  margin-bottom: 24px;
+}
+
+.ticketing-section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+
+.ticketing-expect-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ticketing-expect-list li {
+  padding: 8px 0;
+  color: #495057;
+}
+
+.ticketing-expect-list li::before {
+  content: 'ℹ';
+  margin-right: 8px;
+  color: #0d6efd;
+}
+
+.ticketing-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+@media (min-width: 480px) {
+  .ticketing-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
