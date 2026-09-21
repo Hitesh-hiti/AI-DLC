@@ -13,13 +13,13 @@ import { Button } from '../common/Button';
 import './NotificationCentre.css';
 
 export interface NotificationCentreProps {
-  notifications: Notification[];
+  notifications?: Notification[];
   onMarkAllRead?: () => void;
   onNotificationClick?: (notificationId: string) => void;
 }
 
 export const NotificationCentre: React.FC<NotificationCentreProps> = ({
-  notifications,
+  notifications = [],
   onMarkAllRead,
   onNotificationClick,
 }) => {

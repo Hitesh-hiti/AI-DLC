@@ -376,3 +376,322 @@ body::after {
     color: var(--color-text-light) !important;
   }
 }
+
+/* ── Navigation Bar ────────────────────────────────────────────────────────── */
+
+.app-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-md) 0;
+}
+
+.app-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+}
+
+.app-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: color 0.2s ease;
+}
+
+.app-nav-logo:hover {
+  color: var(--color-primary-dark);
+}
+
+.nav-logo-icon {
+  font-size: 1.5rem;
+}
+
+.app-nav-links {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: var(--color-primary-light);
+  color: white;
+}
+
+.app-nav-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.nav-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-primary-light);
+}
+
+.nav-btn-primary {
+  background: var(--color-primary);
+  color: white;
+  border: 1px solid var(--color-primary);
+}
+
+.nav-btn-primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────────── */
+
+.app-footer {
+  margin-top: var(--spacing-2xl);
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-xl) 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-section-text {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.footer-links a {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom-text {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+}
+
+.footer-bottom-actions {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.footer-language-btn,
+.footer-currency-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 0.875rem;
+  color: var(--color-text);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+.footer-language-btn:hover,
+.footer-currency-btn:hover {
+  background: var(--color-secondary);
+}
+
+/* ── Responsive Design ─────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .app-footer {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-nav {
+    padding: var(--spacing-sm) 0;
+  }
+
+  .app-nav-container {
+    gap: var(--spacing-md);
+  }
+
+  .app-nav-logo {
+    font-size: 1rem;
+  }
+
+  .app-nav-links {
+    display: none;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .app-footer {
+    padding: var(--spacing-md) 0;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-container {
+    padding: var(--spacing-sm);
+  }
+
+  .app-header {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+  }
+
+  .app-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .app-header p {
+    font-size: 1rem;
+  }
+
+  .app-header-icon {
+    font-size: 2.5rem;
+  }
+
+  .search-form {
+    padding: var(--spacing-lg);
+  }
+
+  .footer-section-title {
+    font-size: 0.9375rem;
+  }
+
+  .footer-section-text,
+  .footer-links a {
+    font-size: 0.8125rem;
+  }
+
+  .nav-btn,
+  .footer-language-btn,
+  .footer-currency-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.8125rem;
+  }
+}
+
+/* ── Print Styles ──────────────────────────────────────────────────────────── */
+
+@media print {
+  body::before,
+  body::after,
+  .travel-pin {
+    display: none;
+  }
+
+  .app-header {
+    background: white !important;
+    color: var(--color-text) !important;
+    box-shadow: none !important;
+  }
+
+  .app-header h1 {
+    color: var(--color-text) !important;
+  }
+
+  .app-header p {
+    color: var(--color-text-light) !important;
+  }
+
+  .app-header-icon {
+    color: var(--color-text-light) !important;
+  }
+
+  .app-nav,
+  .app-footer {
+    display: none;
+  }
+}

@@ -452,3 +452,50 @@ export interface BookingConfirmResponse {
   confirmedAt: string;
   nextSteps?: string[];
 }
+
+// ─── Notification ─────────────────────────────────────────────────────────────
+
+/**
+ * Notification type for in-app notifications (AC-EXP-08-01 to AC-EXP-08-04)
+ */
+export type NotificationType = 
+  | 'BookingHeld'      // AC-EXP-08-01: Booking reference, hold expiry
+  | 'ApprovalRequested' // AC-EXP-08-02: Reference, action link
+  | 'BookingExpired'   // AC-EXP-08-03: Expiry message
+  | 'RefundConfirmed'  // AC-EXP-08-04: Amount, payment ref
+  | 'PolicyViolation'  // Bonus: Policy warning
+  | 'SystemUpdate';    // Bonus: System maintenance
+
+/**
+ * Notification payload for dynamic content
+ */
+export interface NotificationPayload {
+  bookingReference?: string;
+  flightSummary?: {
+    origin: string;
+    destination: string;
+    departureDate: string;
+    airline: string;
+  };
+  holdExpiresAt?: string;
+  refundAmount?: number;
+  currency?: string;
+  paymentReference?: string;
+  reason?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * Notification item (stored in memory for Phase 1)
+ */
+export interface Notification {
+  id: string;                    // Unique identifier (UUIDv4)
+  type: NotificationType;        // Notification type
+  route?: string;                // For display: e.g. "LHR → JFK"
+  title?: string;                // Override default title
+  message: string;               // Notification body
+  payload?: NotificationPayload; // Dynamic data
+  isRead: boolean;               // Read status
+  createdAt: string;             // ISO 8601 timestamp
+  expiresAt?: string;            // Optional expiry for auto-dismiss
+}

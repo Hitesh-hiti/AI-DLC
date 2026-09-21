@@ -16,8 +16,10 @@
     "dev:all": "node scripts/dev-all.mjs"
   },
   "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.4",
     "uuid": "^14.0.2"
   },
   "devDependencies": {
