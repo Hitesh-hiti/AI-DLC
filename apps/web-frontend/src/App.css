@@ -718,7 +718,7 @@ body::after {
   width: 100%;
   min-height: 72px;
   background: #fff;
-  border-bottom: 1px solid #e4e6ed;
+  border-bottom: 1px solid transparent;
   box-shadow: 0 2px 8px rgba(40, 40, 95, 0.06);
 }
 
@@ -987,15 +987,15 @@ body::after {
   position: relative;
   z-index: 1000;
   width: 100%;
-  min-height: 88px;
+  min-height: 100px;
   background: #ffffff;
-  border-bottom: 1px solid #e4e6ed;
+  border-bottom: 1px solid transparent;
   box-shadow: 0 2px 8px rgba(40, 40, 95, 0.06);
 }
 
 .enterprise-navbar-inner {
   width: min(1200px, calc(100% - 48px));
-  min-height: 88px;
+  min-height: 100px;
   margin: 0 auto;
 
   display: grid;
@@ -1047,8 +1047,8 @@ body::after {
   display: block;
 
   width: auto;
-  height: 68px;
-  max-width: 280px;
+  height: 92px;
+  max-width: 340px;
 
   object-fit: contain;
   object-position: left center;
@@ -1296,13 +1296,13 @@ body::after {
 
 @media (max-width: 900px) {
   .enterprise-navbar {
-    min-height: 82px;
+    min-height: 92px;
   }
 
   .enterprise-navbar-inner {
     width: calc(100% - 28px);
 
-    min-height: 82px;
+    min-height: 92px;
 
     grid-template-columns: 1fr auto;
 
@@ -1316,8 +1316,8 @@ body::after {
   }
 
   .enterprise-logo-image {
-    height: 58px;
-    max-width: 230px;
+    height: 72px;
+    max-width: 270px;
   }
 
   .enterprise-nav {
@@ -1368,8 +1368,8 @@ body::after {
   }
 
   .enterprise-logo-image {
-    height: 48px;
-    max-width: 190px;
+    height: 58px;
+    max-width: 220px;
   }
 
   .enterprise-brand-name {

@@ -1,0 +1,403 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+
+  --social-bg: rgba(244, 243, 236, 0.5);
+
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   Dark mode
+   ========================================================= */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+
+    --social-bg: rgba(47, 48, 58, 0.5);
+
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
+      rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+/* =========================================================
+   Global sizing / reset
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+
+  background: var(--bg);
+  color: var(--text);
+
+  font-family: var(--sans);
+}
+
+/* =========================================================
+   React root
+   IMPORTANT:
+   Removed the old 1126px width restriction.
+   ========================================================= */
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 100svh;
+
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   Application shell
+   ========================================================= */
+
+.app-shell {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 100svh;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   Application content
+   ========================================================= */
+
+.app-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  flex: 1 1 auto;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   Headings
+   ========================================================= */
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+/* =========================================================
+   Paragraphs
+   ========================================================= */
+
+p {
+  margin: 0;
+}
+
+/* =========================================================
+   Code
+   ========================================================= */
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+
+/* =========================================================
+   Enterprise Header
+   ========================================================= */
+
+.enterprise-navbar {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+}
+
+.enterprise-navbar-inner {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0 32px;
+
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+
+  align-items: center;
+
+  min-height: 72px;
+
+  gap: 16px;
+}
+
+.enterprise-header-actions {
+  justify-self: end;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.enterprise-nav {
+  justify-self: center;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.enterprise-brand {
+  justify-self: start;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================================
+   Header responsive layout
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .enterprise-navbar-inner {
+    min-height: 64px;
+    padding: 0 20px;
+    gap: 12px;
+  }
+
+  .enterprise-nav {
+    gap: 4px;
+  }
+
+  .enterprise-header-actions {
+    gap: 4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .enterprise-navbar-inner {
+    min-height: auto;
+
+    padding: 12px 16px;
+
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .enterprise-brand,
+  .enterprise-nav,
+  .enterprise-header-actions {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .enterprise-brand {
+    justify-content: flex-start;
+  }
+
+  .enterprise-nav {
+    justify-content: flex-start;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+  }
+
+  .enterprise-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .enterprise-nav > * {
+    flex: 0 0 auto;
+  }
+
+  .enterprise-header-actions {
+    justify-content: flex-end;
+  }
+}
+
+/* =========================================================
+   Small mobile screens
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .enterprise-navbar-inner {
+    padding: 10px 12px;
+  }
+
+  .enterprise-header-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================================
+   Prevent oversized images/content from creating overflow
+   ========================================================= */
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+/* =========================================================
+   Accessibility / focus
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

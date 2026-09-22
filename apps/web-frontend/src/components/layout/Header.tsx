@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
           aria-label="TravelPlatform home"
         >
           <img
-            src="/TravelPlatform.png"
+            src="/logo.png"
             alt="TravelPlatform"
             className="enterprise-logo-image"
           />

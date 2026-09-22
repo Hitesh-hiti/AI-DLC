@@ -1,0 +1,154 @@
+/* Button Component Styles */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+  gap: 0.5rem;
+  min-height: 40px;
+}
+
+/* Size variants */
+.btn-sm {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  min-height: 32px;
+}
+
+.btn-md {
+  padding: 0.625rem 1rem;
+  font-size: 1rem;
+  min-height: 40px;
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  min-height: 48px;
+}
+
+/* Color variants */
+.btn-primary {
+  background-color: #0066cc;
+  color: white;
+}
+
+.btn-primary:hover:not(.btn-disabled) {
+  background-color: #0052a3;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+}
+
+.btn-primary:active:not(.btn-disabled) {
+  background-color: #003d7a;
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #d0d0d0;
+}
+
+.btn-secondary:hover:not(.btn-disabled) {
+  background-color: #e6e6e6;
+}
+
+.btn-secondary:active:not(.btn-disabled) {
+  background-color: #ddd;
+  transform: scale(0.98);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover:not(.btn-disabled) {
+  background-color: #c82333;
+}
+
+.btn-danger:active:not(.btn-disabled) {
+  background-color: #bd2130;
+  transform: scale(0.98);
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-success:hover:not(.btn-disabled) {
+  background-color: #218838;
+}
+
+.btn-success:active:not(.btn-disabled) {
+  background-color: #1e7e34;
+  transform: scale(0.98);
+}
+
+.btn-neutral {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-neutral:hover:not(.btn-disabled) {
+  background-color: #5a6268;
+}
+
+.btn-neutral:active:not(.btn-disabled) {
+  background-color: #4e555b;
+  transform: scale(0.98);
+}
+
+/* Full width variant */
+.btn-full-width {
+  width: 100%;
+}
+
+/* Disabled state */
+.btn-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Loading spinner */
+.btn-spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Focus/keyboard accessibility */
+.btn:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .btn-md {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.9375rem;
+  }
+
+  .btn-lg {
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+  }
+}

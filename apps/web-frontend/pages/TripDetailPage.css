@@ -1,0 +1,201 @@
+/**
+ * TripDetailPage Styles
+ * Responsive, accessible styling for trip detail display
+ */
+
+.trip-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.trip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.trip-info h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 4px 0;
+}
+
+.trip-dates {
+  margin: 0;
+  color: #6c757d;
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.booking-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.booking-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.booking-card-exception {
+  border-left: 4px solid #dc3545;
+}
+
+.booking-status {
+  margin-bottom: 12px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.held {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.pending-issue {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.status-badge.confirmed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.completed {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.status-badge.cancelled {
+  background: #e2e3e5;
+  color: #383d41;
+}
+
+.status-badge.expired {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.status-badge.action-required {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.booking-flight {
+  margin-bottom: 16px;
+}
+
+.booking-route {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.booking-arrow {
+  color: #6c757d;
+}
+
+.booking-time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  color: #6c757d;
+}
+
+.booking-airline {
+  margin-top: 4px;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.booking-segments {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e9ecef;
+}
+
+.booking-segment {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 0.875rem;
+  color: #495057;
+}
+
+.booking-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.booking-alert {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e9ecef;
+}
+
+.booking-alert-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.booking-alert-icon {
+  font-size: 1.5rem;
+}
+
+.correlation-id-label {
+  font-weight: 600;
+  color: #495057;
+  margin-right: 8px;
+}
+
+.correlation-id-value {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #212529;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  color: #6c757d;
+  margin-bottom: 12px;
+}
+
+.empty-state-text {
+  margin: 0;
+  color: #6c757d;
+}

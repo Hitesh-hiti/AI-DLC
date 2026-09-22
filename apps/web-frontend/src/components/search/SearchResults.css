@@ -2,18 +2,25 @@
 /* Flight results display per design-document.md section 2.2 */
 
 .search-results {
-  /* Match .search-main: max-width 1400px, horizontal padding 20px */
+  /* Match .search-main exactly: same max-width, padding, and grid */
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto 2rem;
+  margin: -20px auto 2rem;
   padding: 0 20px;
   box-sizing: border-box;
+
+  /* Mirror the two-column grid so cards align under the search form */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 0 40px;
 }
 
-/* Visual separator between search form and results */
-.search-results + .search-results,
-.search-flight-screen + .search-results {
-  margin-top: 0;
+/* Title and list both live in the left column */
+.search-results-title,
+.search-results-list,
+.search-results-loading,
+.search-results-empty {
+  grid-column: 1;
 }
 
 .search-results-list {
@@ -93,7 +100,7 @@
 }
 
 .flight-card-header {
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid #f0f0f0;
   display: flex;
   justify-content: space-between;
@@ -102,7 +109,7 @@
 
 .flight-info h3 {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: #333;
   font-weight: 600;
 }
@@ -129,7 +136,7 @@
 }
 
 .flight-card-body {
-  padding: 1.5rem;
+  padding: 1rem 1rem 0.75rem;
 }
 
 .flight-route {
@@ -147,7 +154,7 @@
 }
 
 .flight-segment .time {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: #333;
 }
@@ -198,7 +205,7 @@
 }
 
 .flight-card-footer {
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   border-top: 1px solid #f0f0f0;
   display: flex;
   align-items: center;
@@ -252,6 +259,21 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .search-results {
+    /* Collapse to single column matching the search form's breakpoint */
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .search-results-title,
+  .search-results-list,
+  .search-results-loading,
+  .search-results-empty {
+    grid-column: 1;
+  }
+}
+
 @media (max-width: 768px) {
   .flight-card-header {
     flex-direction: column;
