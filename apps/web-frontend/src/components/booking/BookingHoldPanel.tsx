@@ -73,6 +73,7 @@ export const BookingHoldPanel: React.FC<BookingHoldPanelProps> = ({
   const totalFare = holdResponse?.fareBreakdown.totalFare ?? { amount: baseFare.amount + taxes.amount + fees.amount, currency: flight.price.currency };
 
   return (
+    <div className="hold-panel-page">
     <div className="hold-panel" data-testid="hold-panel">
       {/* ── Step indicator ─────────────────────────────────── */}
       <h2 className="hold-panel-title">
@@ -228,6 +229,7 @@ export const BookingHoldPanel: React.FC<BookingHoldPanelProps> = ({
           </Button>
         )}
       </div>
+    </div>
     </div>
   );
 };

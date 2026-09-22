@@ -695,3 +695,727 @@ body::after {
     display: none;
   }
 }
+
+/* =========================================================
+   TRAVELPLATFORM FINAL SINGLE-SHELL OVERRIDES
+   ========================================================= */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f8f9fb 0%, #f1f3f7 100%);
+}
+
+.app-content {
+  flex: 1;
+  width: 100%;
+}
+
+.enterprise-navbar {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  min-height: 72px;
+  background: #fff;
+  border-bottom: 1px solid #e4e6ed;
+  box-shadow: 0 2px 8px rgba(40, 40, 95, 0.06);
+}
+
+.enterprise-navbar-inner {
+  width: min(1200px, calc(100% - 48px));
+  min-height: 72px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+
+.enterprise-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  background: transparent;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.enterprise-brand:hover {
+  background: transparent;
+}
+
+.enterprise-brand:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.enterprise-logo-mark {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #28285f;
+  color: #fff;
+  font-size: 21px;
+  line-height: 1;
+}
+
+.enterprise-logo-image {
+  display: block;
+  width: auto;
+  height: 70px;
+  max-width: 280px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.enterprise-brand-name {
+  color: #28285f;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.enterprise-nav {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.enterprise-nav-item {
+  position: relative;
+  height: 72px;
+  padding: 0 18px;
+  border: 0;
+  background: transparent;
+  color: #55586a;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.enterprise-nav-item:hover,
+.enterprise-nav-item.active {
+  color: #28285f;
+}
+
+.enterprise-nav-item.active::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: #ec5814;
+}
+
+.enterprise-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.enterprise-signin,
+.enterprise-signup {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.enterprise-signin {
+  min-width: 76px;
+  border: 1px solid #d9dce5;
+  background: #fff;
+  color: #28285f;
+}
+
+.enterprise-signup {
+  min-width: 76px;
+  border: 1px solid #ec5814;
+  background: #ec5814;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(236, 88, 20, 0.16);
+}
+
+.enterprise-signin:hover { background: #f7f7fb; }
+.enterprise-signup:hover { background: #c8460d; border-color: #c8460d; }
+
+.coming-soon-page {
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+}
+
+.coming-soon-card {
+  width: min(620px, 100%);
+  padding: 60px 48px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e1e4ec;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(40, 40, 95, 0.10);
+}
+
+.coming-soon-icon {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e9eaf4;
+  color: #28285f;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.coming-soon-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ec5814;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.coming-soon-card h1 {
+  margin: 0;
+  color: #28285f;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.coming-soon-divider {
+  width: 42px;
+  height: 3px;
+  margin: 20px auto;
+  border-radius: 4px;
+  background: #ec5814;
+}
+
+.coming-soon-text {
+  margin: 0;
+  color: #28285f;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.coming-soon-description {
+  max-width: 430px;
+  margin: 12px auto 0;
+  color: #6a6d7b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .enterprise-navbar-inner {
+    width: calc(100% - 28px);
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  .enterprise-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    height: 44px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .enterprise-nav::-webkit-scrollbar { display: none; }
+  .enterprise-nav-item { height: 44px; padding: 0 12px; }
+  .enterprise-nav-item.active::after { left: 10px; right: 10px; }
+}
+
+@media (max-width: 560px) {
+  .enterprise-navbar-inner { width: calc(100% - 20px); }
+  .enterprise-brand-name { font-size: 15px; }
+  .enterprise-logo-mark { width: 36px; height: 36px; font-size: 18px; }
+  .enterprise-signin,
+  .enterprise-signup { min-width: auto; height: 32px; padding: 0 10px; font-size: 11px; }
+  .coming-soon-page { min-height: 440px; padding: 40px 14px; }
+  .coming-soon-card { padding: 42px 24px; }
+}
+
+/* =========================================================
+   TRAVELPLATFORM FINAL SINGLE-SHELL OVERRIDES
+   ========================================================= */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f8f9fb 0%, #f1f3f7 100%);
+}
+
+.app-content {
+  flex: 1;
+  width: 100%;
+}
+
+/* =========================================================
+   ENTERPRISE NAVBAR
+   ========================================================= */
+
+.enterprise-navbar {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  min-height: 88px;
+  background: #ffffff;
+  border-bottom: 1px solid #e4e6ed;
+  box-shadow: 0 2px 8px rgba(40, 40, 95, 0.06);
+}
+
+.enterprise-navbar-inner {
+  width: min(1200px, calc(100% - 48px));
+  min-height: 88px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto minmax(260px, 1fr);
+
+  align-items: center;
+  gap: 24px;
+}
+
+/* =========================================================
+   BRAND / IGS LOGO
+   ========================================================= */
+
+.enterprise-brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+
+  width: fit-content;
+  min-height: 76px;
+
+  border: none;
+  background: transparent;
+  padding: 4px 8px;
+
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.enterprise-brand:hover {
+  background: transparent;
+}
+
+.enterprise-brand:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Hide old airplane logo if it still exists anywhere */
+.enterprise-logo-mark {
+  display: none;
+}
+
+/* Actual IGS logo */
+.enterprise-logo-image {
+  display: block;
+
+  width: auto;
+  height: 68px;
+  max-width: 280px;
+
+  object-fit: contain;
+  object-position: left center;
+
+  flex: 0 0 auto;
+}
+
+/* TravelPlatform text beside logo */
+.enterprise-brand-name {
+  color: #28285f;
+
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   PRIMARY NAVIGATION
+   ========================================================= */
+
+.enterprise-nav {
+  height: 88px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+}
+
+.enterprise-nav-item {
+  position: relative;
+
+  height: 88px;
+  padding: 0 18px;
+
+  border: 0;
+  background: transparent;
+
+  color: #55586a;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.enterprise-nav-item:hover,
+.enterprise-nav-item.active {
+  color: #28285f;
+}
+
+.enterprise-nav-item.active::after {
+  content: '';
+
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+
+  height: 3px;
+
+  border-radius: 3px 3px 0 0;
+
+  background: #ec5814;
+}
+
+/* =========================================================
+   HEADER ACTIONS
+   ========================================================= */
+
+.enterprise-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.enterprise-signin,
+.enterprise-signup {
+  height: 38px;
+
+  padding: 0 14px;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.enterprise-signin {
+  min-width: 76px;
+
+  border: 1px solid #d9dce5;
+
+  background: #ffffff;
+  color: #28285f;
+}
+
+.enterprise-signup {
+  min-width: 76px;
+
+  border: 1px solid #ec5814;
+
+  background: #ec5814;
+  color: #ffffff;
+
+  box-shadow: 0 4px 10px rgba(236, 88, 20, 0.16);
+}
+
+.enterprise-signin:hover {
+  background: #f7f7fb;
+  border-color: #28285f;
+}
+
+.enterprise-signup:hover {
+  background: #c8460d;
+  border-color: #c8460d;
+}
+
+.enterprise-signin:active,
+.enterprise-signup:active {
+  transform: translateY(1px);
+}
+
+/* =========================================================
+   COMING SOON
+   ========================================================= */
+
+.coming-soon-page {
+  min-height: 520px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px 24px;
+}
+
+.coming-soon-card {
+  width: min(620px, 100%);
+
+  padding: 60px 48px;
+
+  text-align: center;
+
+  background: #ffffff;
+  border: 1px solid #e1e4ec;
+  border-radius: 16px;
+
+  box-shadow: 0 18px 45px rgba(40, 40, 95, 0.10);
+}
+
+.coming-soon-icon {
+  width: 54px;
+  height: 54px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e9eaf4;
+  color: #28285f;
+
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.coming-soon-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #ec5814;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.coming-soon-card h1 {
+  margin: 0;
+
+  color: #28285f;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.coming-soon-divider {
+  width: 42px;
+  height: 3px;
+
+  margin: 20px auto;
+
+  border-radius: 4px;
+
+  background: #ec5814;
+}
+
+.coming-soon-text {
+  margin: 0;
+
+  color: #28285f;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.coming-soon-description {
+  max-width: 430px;
+
+  margin: 12px auto 0;
+
+  color: #6a6d7b;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .enterprise-navbar {
+    min-height: 82px;
+  }
+
+  .enterprise-navbar-inner {
+    width: calc(100% - 28px);
+
+    min-height: 82px;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 12px;
+
+    padding: 6px 0;
+  }
+
+  .enterprise-brand {
+    min-height: 68px;
+  }
+
+  .enterprise-logo-image {
+    height: 58px;
+    max-width: 230px;
+  }
+
+  .enterprise-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+    height: 44px;
+
+    justify-content: flex-start;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+  .enterprise-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .enterprise-nav-item {
+    height: 44px;
+    padding: 0 12px;
+  }
+
+  .enterprise-nav-item.active::after {
+    left: 10px;
+    right: 10px;
+  }
+
+  .enterprise-header-actions {
+    align-self: center;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 560px) {
+  .enterprise-navbar-inner {
+    width: calc(100% - 20px);
+  }
+
+  .enterprise-brand {
+    gap: 9px;
+    min-height: 60px;
+  }
+
+  .enterprise-logo-image {
+    height: 48px;
+    max-width: 190px;
+  }
+
+  .enterprise-brand-name {
+    font-size: 14px;
+  }
+
+  .enterprise-signin,
+  .enterprise-signup {
+    min-width: auto;
+    height: 32px;
+
+    padding: 0 10px;
+
+    font-size: 11px;
+  }
+
+  .coming-soon-page {
+    min-height: 440px;
+    padding: 40px 14px;
+  }
+
+  .coming-soon-card {
+    padding: 42px 24px;
+  }
+}
+
+/* =========================================================
+   SEARCH RESULTS — ALIGN WITH SEARCH FLIGHT FORM
+   ========================================================= */
+
+.app-content {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* search-results sizing is owned by SearchResults.css */
+
+.search-results-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flight-card {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+}

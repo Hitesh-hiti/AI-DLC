@@ -46,7 +46,7 @@ export interface BookingContextType {
 
   // ── UI ────────────────────────────────────────────────────────────────────
   isLoading:   boolean;
-  currentStep: 'search' | 'results' | 'details' | 'booking' | 'policy' | 'confirmation';
+  currentStep: 'search' | 'results' | 'details' | 'booking' | 'policy' | 'confirmation' | 'cancelled' | 'expired';
 
   // ── Actions ───────────────────────────────────────────────────────────────
   setSearchRequest:    (req: SearchRequest) => void;

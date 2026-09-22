@@ -1,5 +1,14 @@
 /* BookingHoldPanel — AC-EXP-02-01, AC-EXP-02-10 */
 
+/* Centered page wrapper — keeps the panel from stretching full-width */
+.hold-panel-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
 .hold-panel {
   background: white;
   border-radius: var(--border-radius);
@@ -8,6 +17,10 @@
   position: relative;
   overflow: hidden;
   margin-bottom: var(--spacing-xl);
+  /* Cap width so long content doesn't stretch uncomfortably */
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .hold-panel::before {
   content: '';
@@ -214,6 +227,12 @@
 }
 
 @media (max-width: 640px) {
+  .hold-panel-page {
+    padding: 24px 16px;
+  }
+  .hold-panel {
+    padding: var(--spacing-lg);
+  }
   .hold-route { grid-template-columns: 1fr; }
   .hold-segment-right { text-align: left; }
   .hold-details-grid { grid-template-columns: 1fr; }

@@ -1,5 +1,6 @@
 /**
  * App — Flight booking platform entry point
+ *
  * Implements REQ-EXP-01 (Search) + REQ-EXP-02 (Hold) flow:
  *   search → results → details (passengers) → booking (hold+policy) → confirmation
  *
@@ -8,44 +9,71 @@
  * AC-POL-01-05 · AC-POL-01-06 · AC-POL-04-03
  */
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+
 import { AppProvider } from './state/AppContext';
 import { BookingProvider, useBookingContext } from './state/BookingContext';
+
 import { SearchFlightScreen } from './components/search/SearchFlightScreen';
 import { SearchResults } from './components/search/SearchResults';
+
 import { PassengerForm } from './components/booking/PassengerForm';
 import { BookingHoldPanel } from './components/booking/BookingHoldPanel';
 import { ApprovalPendingScreen } from './components/booking/ApprovalPendingScreen';
 import { BookingConfirmedScreen } from './components/booking/BookingConfirmedScreen';
 import { CancelledScreen } from './components/booking/CancelledScreen';
 import { ExpiredBookingScreen } from './components/booking/ExpiredBookingScreen';
+
 import { NotificationCentre } from './components/notifications/NotificationCentre';
 import { Alert } from './components/common/Alert';
-import { Button } from './components/common/Button';
+import { ToastContainer, type ToastItem, type ToastVariant } from './components/common/Toast';
+
 import { bookingService } from './api/services/bookingService';
 import { mapApiError } from './api/services/errorMapper';
+
 import type { SearchRequest, FlightOffer } from './api/types/search';
 import type { PassengerInfo } from './api/types/booking';
+
+import { Header, type AppPage } from './components/layout/Header';
+import { Footer } from './components/layout/Footer';
+import { ComingSoonPage } from './components/layout/ComingSoonPage';
+
 import './App.css';
 
-// ─── Inner page — consumes context ────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Inner page — consumes context
+ * ──────────────────────────────────────────────────────────────────────────── */
 
 const BookingPage: React.FC = () => {
   const ctx = useBookingContext();
+
   const [error, setError] = useState<string | null>(null);
-  const [notificationMessage, setNotificationMessage] = useState<string | null>(null);
+  const [toasts, setToasts] = useState<ToastItem[]>([]);
+
+  const [activePage, setActivePage] = useState<AppPage>('search');
 
   const clearError = () => setError(null);
-  const clearNotification = () => setNotificationMessage(null);
 
-  // ── Step: search ────────────────────────────────────────────────────────────
+  const showToast = useCallback((message: string, variant: ToastVariant = 'success') => {
+    const id = `toast-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+    setToasts((prev) => [...prev, { id, message, variant, duration: 4000 }]);
+  }, []);
+
+  const closeToast = useCallback((id: string) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  }, []);
+
+  /* ── Step: search ─────────────────────────────────────────────────────── */
+
   const handleSearch = async (request: SearchRequest) => {
     try {
       clearError();
-      clearNotification();
+
       ctx.setIsLoading(true);
       ctx.setCurrentStep('search');
+
       const response = await bookingService.searchFlights(request);
+
       ctx.setSearchRequest(request);
       ctx.setSearchResults(response.results);
       ctx.setCurrentStep('results');
@@ -57,25 +85,28 @@ const BookingPage: React.FC = () => {
     }
   };
 
-  // ── Step: select flight → go to passenger form ──────────────────────────────
+  /* ── Step: select flight → go to passenger form ──────────────────────── */
+
   const handleSelectFlight = (flight: FlightOffer) => {
-    ctx.selectFlight(flight); // sets currentStep → 'details'
+    ctx.selectFlight(flight);
   };
 
-  // ── Step: passenger form submitted → evaluate policy + prepare hold ─────────
+  /* ── Step: passenger form submitted → evaluate policy + prepare hold ── */
+
   const handlePassengersSubmit = async (passengers: PassengerInfo[]) => {
     if (!ctx.selectedFlight) return;
+
     try {
       clearError();
-      clearNotification();
+
       ctx.setIsLoading(true);
       ctx.setPassengers(passengers);
 
-      // Evaluate policy before presenting the hold panel (AC-POL-01-05/06)
       const policyResp = await bookingService.evaluatePolicy({
         organizationId: 'org-001',
         travelerId: 'traveler-001',
         offerId: ctx.selectedFlight.offerId,
+
         flight: {
           origin: ctx.selectedFlight.origin,
           destination: ctx.selectedFlight.destination,
@@ -83,15 +114,20 @@ const BookingPage: React.FC = () => {
           cabinClass: ctx.selectedFlight.cabinClass,
           airline: ctx.selectedFlight.airline,
           nonStop: ctx.selectedFlight.stops === 0,
+
           advanceBookingDays: Math.max(
             0,
             Math.ceil(
-              (new Date(ctx.selectedFlight.departureTime).getTime() - Date.now()) / 86400000
+              (new Date(ctx.selectedFlight.departureTime).getTime() -
+                Date.now()) /
+                86400000
             )
           ),
         },
+
         totalFare: ctx.selectedFlight.price,
         purpose: 'BUSINESS',
+
         audit: {
           userId: 'traveler-001',
           organizationId: 'org-001',
@@ -102,7 +138,7 @@ const BookingPage: React.FC = () => {
       });
 
       ctx.setPolicyEvaluation(policyResp);
-      ctx.setCurrentStep('booking'); // show BookingHoldPanel
+      ctx.setCurrentStep('booking');
     } catch (err) {
       setError(mapApiError(err).displayMessage);
     } finally {
@@ -110,19 +146,21 @@ const BookingPage: React.FC = () => {
     }
   };
 
-  // ── Step: hold ──────────────────────────────────────────────────────────────
+  /* ── Step: hold ──────────────────────────────────────────────────────── */
+
   const handleHold = async () => {
     if (!ctx.selectedFlight || !ctx.policyEvaluation) return;
 
     try {
       clearError();
-      clearNotification();
+
       ctx.setIsLoading(true);
 
       const holdResp = await bookingService.holdBooking({
         offerId: ctx.selectedFlight.offerId,
         organizationId: 'org-001',
         travelerId: 'traveler-001',
+
         flightDetails: {
           origin: ctx.selectedFlight.origin,
           destination: ctx.selectedFlight.destination,
@@ -130,7 +168,9 @@ const BookingPage: React.FC = () => {
           cabinClass: ctx.selectedFlight.cabinClass,
           passengers: ctx.passengers.length,
         },
+
         passengerInfo: ctx.passengers,
+
         audit: {
           userId: 'traveler-001',
           organizationId: 'org-001',
@@ -143,28 +183,36 @@ const BookingPage: React.FC = () => {
       ctx.setCurrentBooking(holdResp);
       ctx.setBookingId(holdResp.bookingId);
 
-      // Generate PNR + payment stubs in parallel
+      /* Generate PNR + payment stubs in parallel */
       const [pnr, payment] = await Promise.all([
         bookingService.generatePnr(holdResp.bookingId),
+
         bookingService.generatePaymentApproval(
           holdResp.bookingId,
           holdResp.fareBreakdown.totalFare
         ),
       ]);
+
       ctx.setPnrRecord(pnr);
       ctx.setPaymentApproval(payment);
 
-      // If approval required: go to approval-pending screen
-      if (holdResp.approvalDetails || holdResp.bookingStatus === 'PENDING_APPROVAL') {
-        setNotificationMessage('Booking requires approval. Please wait for approval confirmation.');
-        ctx.setCurrentStep('policy'); // reuse 'policy' step for approval-pending
+      /* If approval required: go to approval-pending screen */
+      if (
+        holdResp.approvalDetails ||
+        holdResp.bookingStatus === 'PENDING_APPROVAL'
+      ) {
+        showToast('Booking requires approval. Waiting for approval confirmation.', 'info');
+
+        ctx.setCurrentStep('policy');
+
         return;
       }
 
-      // ALLOW/WARN: advance to confirmation (auto-confirm for the mock)
+      /* ALLOW/WARN: advance to confirmation */
       const confirmResp = await bookingService.confirmBooking({
         bookingId: holdResp.bookingId,
         paymentReference: payment.paymentReference,
+
         audit: {
           userId: 'traveler-001',
           organizationId: 'org-001',
@@ -175,7 +223,9 @@ const BookingPage: React.FC = () => {
       });
 
       ctx.setConfirmResponse(confirmResp);
-      setNotificationMessage(`Booking confirmed successfully! PNR: ${pnr.pnr}`);
+
+      showToast(`Booking confirmed! PNR: ${pnr.pnr}`);
+
       ctx.setCurrentStep('confirmation');
     } catch (err) {
       setError(mapApiError(err).displayMessage);
@@ -184,15 +234,17 @@ const BookingPage: React.FC = () => {
     }
   };
 
-  // ── Step: cancel booking ────────────────────────────────────────────────────
+  /* ── Step: cancel booking ────────────────────────────────────────────── */
+
   const handleCancelBooking = async (bookingId: string) => {
     try {
       clearError();
-      clearNotification();
+
       ctx.setIsLoading(true);
 
       const cancelResp = await bookingService.cancelBooking({
         bookingId,
+
         audit: {
           userId: 'traveler-001',
           organizationId: 'org-001',
@@ -202,8 +254,10 @@ const BookingPage: React.FC = () => {
         },
       });
 
-      setNotificationMessage('Booking cancelled successfully');
+      showToast('Booking cancelled successfully');
+
       ctx.reset();
+
       return cancelResp;
     } catch (err) {
       setError(mapApiError(err).displayMessage);
@@ -213,55 +267,42 @@ const BookingPage: React.FC = () => {
     }
   };
 
-  // ── Navigation handlers ─────────────────────────────────────────────────────
+  /* ── Navigation handlers ────────────────────────────────────────────── */
+
   const handleReturnToSearch = () => {
     ctx.reset();
     clearError();
-    clearNotification();
+    setActivePage('search');
   };
 
-  const handleBackToResults = () => ctx.setCurrentStep('results');
-  const handleBackToPassengers = () => ctx.setCurrentStep('details');
+  const handlePageNavigation = (page: AppPage) => {
+    clearError();
 
-  // ─── Render ──────────────────────────────────────────────────────────────
+    if (page === 'search') {
+      ctx.reset();
+    }
+
+    setActivePage(page);
+  };
+
+  const handleBackToResults = () => {
+    ctx.setCurrentStep('results');
+  };
+
+  const handleBackToPassengers = () => {
+    ctx.setCurrentStep('details');
+  };
+
+  /* ── Render ──────────────────────────────────────────────────────────── */
 
   return (
-    <>
-      {/* ── Navigation Bar (Fixed Top) ──────────────────────────────────────── */}
-      <nav className="app-nav" role="navigation" aria-label="Main navigation">
-        <div className="app-nav-container">
-          <div className="app-nav-logo" onClick={handleReturnToSearch} role="link" tabIndex={0}>
-            <div className="nav-logo-icon" aria-hidden="true">✈</div>
-            <span className="nav-logo-text">TravelPlatform</span>
-          </div>
-          <div className="app-nav-links">
-            <button type="button" onClick={handleReturnToSearch} className="nav-link active">
-              Search
-            </button>
-            <button type="button" className="nav-link">
-              My Trips
-            </button>
-            <button type="button" className="nav-link">
-              Refunds
-            </button>
-            <button type="button" className="nav-link">
-              Support
-            </button>
-          </div>
-          <div className="app-nav-actions">
-            <button type="button" className="nav-btn">Sign In</button>
-            <button type="button" className="nav-btn nav-btn-primary">Sign Up</button>
-          </div>
-        </div>
-      </nav>
+    <div className="app-shell">
+      <Header
+        activePage={activePage}
+        onNavigate={handlePageNavigation}
+      />
 
-      {/* Decorative travel pins */}
-      <div className="travel-pin" /><div className="travel-pin" />
-      <div className="travel-pin" /><div className="travel-pin" />
-      <div className="travel-pin" />
-
-      <div className="app-container">
-        {/* ── Global error ──────────────────────────────────────────────────── */}
+      <main className="app-content">
         {error && (
           <Alert
             variant="error"
@@ -273,160 +314,121 @@ const BookingPage: React.FC = () => {
           />
         )}
 
-        {/* ── Notification message ──────────────────────────────────────────── */}
-        {notificationMessage && (
-          <Alert
-            variant="success"
-            title="Success"
-            message={notificationMessage}
-            dismissible
-            onDismiss={clearNotification}
-            data-testid="app-notification-alert"
-          />
+        {activePage === 'my-trips' && (
+          <ComingSoonPage title="My Trips" />
         )}
 
-        {/* ── Step: search + results ────────────────────────────────────────── */}
-        {(ctx.currentStep === 'search' || ctx.currentStep === 'results') && (
+        {activePage === 'support' && (
+          <ComingSoonPage title="Support" />
+        )}
+
+        {activePage === 'search' && (
           <>
-            <SearchFlightScreen onSearch={handleSearch} isLoading={ctx.isLoading} />
-            {ctx.searchResults && (
-              <SearchResults
-                results={ctx.searchResults}
-                onSelectFlight={handleSelectFlight}
-                isLoading={ctx.isLoading}
-              />
+            {(ctx.currentStep === 'search' ||
+              ctx.currentStep === 'results') && (
+              <>
+                <SearchFlightScreen
+                  onSearch={handleSearch}
+                  isLoading={ctx.isLoading}
+                />
+
+                {ctx.searchResults && (
+                  <SearchResults
+                    results={ctx.searchResults}
+                    onSelectFlight={handleSelectFlight}
+                    isLoading={ctx.isLoading}
+                  />
+                )}
+              </>
             )}
+
+            {ctx.currentStep === 'details' &&
+              ctx.selectedFlight && (
+                <PassengerForm
+                  passengerCount={ctx.searchRequest?.passengers ?? 1}
+                  onSubmit={handlePassengersSubmit}
+                  onBack={handleBackToResults}
+                  isLoading={ctx.isLoading}
+                />
+              )}
+
+            {ctx.currentStep === 'booking' &&
+              ctx.selectedFlight &&
+              ctx.policyEvaluation && (
+                <BookingHoldPanel
+                  flight={ctx.selectedFlight}
+                  passengers={ctx.passengers}
+                  policyEvaluation={ctx.policyEvaluation}
+                  holdResponse={
+                    ctx.currentBooking ?? undefined
+                  }
+                  paymentApproval={
+                    ctx.paymentApproval ?? undefined
+                  }
+                  isLoading={ctx.isLoading}
+                  onHold={handleHold}
+                  onBack={handleBackToPassengers}
+                  onReturnToSearch={handleReturnToSearch}
+                />
+              )}
+
+            {ctx.currentStep === 'policy' &&
+              ctx.currentBooking &&
+              ctx.selectedFlight && (
+                <ApprovalPendingScreen
+                  holdResponse={ctx.currentBooking}
+                  flight={ctx.selectedFlight}
+                  onReturnToSearch={handleReturnToSearch}
+                />
+              )}
+
+            {ctx.currentStep === 'confirmation' &&
+              ctx.confirmResponse &&
+              ctx.currentBooking &&
+              ctx.selectedFlight && (
+                <BookingConfirmedScreen
+                  confirmResponse={ctx.confirmResponse}
+                  holdResponse={ctx.currentBooking}
+                  flight={ctx.selectedFlight}
+                  pnrRecord={ctx.pnrRecord ?? undefined}
+                  paymentApproval={
+                    ctx.paymentApproval ?? undefined
+                  }
+                  onReturnToSearch={handleReturnToSearch}
+                />
+              )}
+
+            {ctx.currentStep === 'cancelled' &&
+              ctx.currentBooking && (
+                <CancelledScreen
+                  booking={ctx.currentBooking}
+                  onReturnToSearch={handleReturnToSearch}
+                />
+              )}
+
+            {ctx.currentStep === 'expired' &&
+              ctx.currentBooking && (
+                <ExpiredBookingScreen
+                  booking={ctx.currentBooking}
+                  onReturnToSearch={handleReturnToSearch}
+                />
+              )}
           </>
         )}
+      </main>
 
-        {/* ── Step: details — passenger form ────────────────────────────────── */}
-        {ctx.currentStep === 'details' && ctx.selectedFlight && (
-          <PassengerForm
-            passengerCount={ctx.searchRequest?.passengers ?? 1}
-            onSubmit={handlePassengersSubmit}
-            onBack={handleBackToResults}
-            isLoading={ctx.isLoading}
-          />
-        )}
+      <NotificationCentre />
 
-        {/* ── Step: booking — hold panel + policy ────────────────────────────── */}
-        {ctx.currentStep === 'booking' &&
-          ctx.selectedFlight &&
-          ctx.policyEvaluation && (
-          <BookingHoldPanel
-            flight={ctx.selectedFlight}
-            passengers={ctx.passengers}
-            policyEvaluation={ctx.policyEvaluation}
-            holdResponse={ctx.currentBooking ?? undefined}
-            paymentApproval={ctx.paymentApproval ?? undefined}
-            isLoading={ctx.isLoading}
-            onHold={handleHold}
-            onBack={handleBackToPassengers}
-            onReturnToSearch={handleReturnToSearch}
-          />
-        )}
+      <ToastContainer toasts={toasts} onClose={closeToast} />
 
-        {/* ── Step: policy — approval pending ────────────────────────────────── */}
-        {ctx.currentStep === 'policy' &&
-          ctx.currentBooking &&
-          ctx.selectedFlight && (
-          <ApprovalPendingScreen
-            holdResponse={ctx.currentBooking}
-            flight={ctx.selectedFlight}
-            onReturnToSearch={handleReturnToSearch}
-          />
-        )}
-
-        {/* ── Step: confirmation ────────────────────────────────────────────── */}
-        {ctx.currentStep === 'confirmation' &&
-          ctx.confirmResponse &&
-          ctx.currentBooking &&
-          ctx.selectedFlight && (
-          <BookingConfirmedScreen
-            confirmResponse={ctx.confirmResponse}
-            holdResponse={ctx.currentBooking}
-            flight={ctx.selectedFlight}
-            pnrRecord={ctx.pnrRecord ?? undefined}
-            paymentApproval={ctx.paymentApproval ?? undefined}
-            onReturnToSearch={handleReturnToSearch}
-          />
-        )}
-
-        {/* ── Step: cancelled ───────────────────────────────────────────────── */}
-        {ctx.currentStep === 'cancelled' && ctx.currentBooking && (
-          <CancelledScreen
-            booking={ctx.currentBooking}
-            onReturnToSearch={handleReturnToSearch}
-          />
-        )}
-
-        {/* ── Step: expired ─────────────────────────────────────────────────── */}
-        {ctx.currentStep === 'expired' && ctx.currentBooking && (
-          <ExpiredBookingScreen
-            booking={ctx.currentBooking}
-            onReturnToSearch={handleReturnToSearch}
-          />
-        )}
-
-        {/* ── Footer ────────────────────────────────────────────────────────── */}
-        <footer className="app-footer" role="contentinfo">
-          <div className="footer-container">
-            <div className="footer-section">
-              <h4 className="footer-section-title">TravelPlatform</h4>
-              <p className="footer-section-text">
-                Your trusted partner for flight bookings worldwide.
-                Transparent pricing, flexible options, and 24/7 support.
-              </p>
-            </div>
-            <div className="footer-section">
-              <h4 className="footer-section-title">Company</h4>
-              <ul className="footer-links">
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#careers">Careers</a></li>
-                <li><a href="#press">Press</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </div>
-            <div className="footer-section">
-              <h4 className="footer-section-title">Support</h4>
-              <ul className="footer-links">
-                <li><a href="#help">Help Center</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#refunds">Refunds</a></li>
-                <li><a href="#support">Contact Support</a></li>
-              </ul>
-            </div>
-            <div className="footer-section">
-              <h4 className="footer-section-title">Legal</h4>
-              <ul className="footer-links">
-                <li><a href="#terms">Terms of Service</a></li>
-                <li><a href="#privacy">Privacy Policy</a></li>
-                <li><a href="#cookies">Cookie Policy</a></li>
-                <li><a href="#accessibility">Accessibility</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p className="footer-bottom-text">&copy; 2026 TravelPlatform. All rights reserved.</p>
-            <div className="footer-bottom-actions">
-              <button type="button" className="footer-language-btn" aria-label="Change language">
-                🌐 English
-              </button>
-              <button type="button" className="footer-currency-btn" aria-label="Change currency">
-                💵 USD
-              </button>
-            </div>
-          </div>
-        </footer>
-
-        {/* ── Notification Centre (Hidden by default, can be opened) ──────────── */}
-        <NotificationCentre onClose={clearNotification} />
-      </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 
-// ─── Root ─────────────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Root
+ * ──────────────────────────────────────────────────────────────────────────── */
 
 function App() {
   return (
