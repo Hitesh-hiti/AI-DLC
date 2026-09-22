@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({
           />
 
           <span className="enterprise-brand-name">
-            TravelPlatform
+            IGS TravelPlatform
           </span>
         </button>
 

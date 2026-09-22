@@ -26,12 +26,12 @@ export const Header: React.FC<HeaderProps> = ({
         >
           <img
             src="/logo.png"
-            alt="TravelPlatform"
+            alt="IGS TravelPlatform"
             className="enterprise-logo-image"
           />
 
           <span className="enterprise-brand-name">
-            TravelPlatform
+            IGS TravelPlatform
           </span>
         </button>
 
