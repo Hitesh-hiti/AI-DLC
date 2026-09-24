@@ -91,17 +91,17 @@ Every test step MUST also contain a detailed Given, When, Then structure.
 Use:
 
 ```text
-Step 1:
+TC001_TS001:
   Given <specific precondition/state>
   When <specific user/system action>
   Then <specific expected result/assertion>
 
-Step 2:
+TC001_TS002:
   Given <state resulting from Step 1>
   When <next user/system action>
   Then <specific expected result/assertion>
 
-Step 3:
+TC001_TS003:
   Given <state resulting from Step 2>
   When <next user/system action>
   Then <specific expected result/assertion>

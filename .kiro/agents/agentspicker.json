@@ -8,12 +8,10 @@
       "TEST_AUTOMATION",
       "DEVELOPMENT",
       "TESTING",
-      "REQUIREMENT",
       "GAP_ANALYSIS",
       "ARCHITECTURE",
       "DESIGN",
-      "RELEASE",
-      "DOCUMENTATION"
+      "RELEASE"
     ],
     "ambiguityStrategy": "priority",
     "confidenceLevels": {
@@ -139,10 +137,13 @@
         "web"
       ],
       "resources": [
-        "file://.kiro/steering/framework-project-config.md",
-        "file://.kiro/steering/framework-model-policy.md",
-        "file://.kiro/steering/HITL.md",
-        "file://.kiro/steering/RequirementDocument.md"
+        "file://../steering/framework-project-config.md",
+        "file://../steering/framework-model-policy.md",
+        "file://../steering/HITL.md",
+        "file://../../phases/requirement-gap-analysis/gap-analysis.md",
+        "file://../../phases/requirment-and-acceptance-criteria/requirement_breakdown.md",
+        "file://../../phases/ui-ux-design/ui-ux-design_AGENT.md",
+        "file://../../phases/architecture/architecture.md"
       ],
       "instructions": "You are the Design Agent \u2014 a specialist in the REQUIREMENT, ANALYSIS, and DESIGN phases of the software engineering lifecycle.\n\nRead existing project artifacts before proposing anything. Do not write application code.\n\nAt the start of every response, print:\n\n---\nAgent           : Design Agent\nModel           : Claude Sonnet 4.5\nDetected Phase  : [REQUIREMENT | DESIGN \u2014 most applicable]\nProject         : [from framework-project-config.md \u00a71]\nReason          : [one sentence]\n---\n\nProduce implementation-ready specifications, architecture, API contracts, database designs, acceptance criteria, and design decisions."
     },
@@ -183,44 +184,14 @@
         "shell"
       ],
       "resources": [
-        "file://.kiro/steering/framework-project-config.md",
-        "file://.kiro/steering/framework-model-policy.md"
+        "file://../steering/framework-project-config.md",
+        "file://../steering/framework-model-policy.md",
+        "file://../steering/HITL.md",
+        "file://../../phases/development/development_AGENT.md",
+        "file://../../phases/ui-ux-design/design-document.md",
+        "file://../../phases/architecture/architecture.md"
       ],
       "instructions": "You are the Development Agent \u2014 a specialist in the DEVELOPMENT and IMPLEMENTATION phase of the software engineering lifecycle.\n\nRead the design/specification and existing code before modifying anything. Make the minimum required changes and run tests after every change.\n\nAt the start of every response, print:\n\n---\nAgent           : Development Agent\nModel           : Claude Sonnet 4\nDetected Phase  : DEVELOPMENT\nProject         : [from framework-project-config.md \u00a71]\nReason          : [one sentence describing what is being implemented]\n---\n\nImplement features, APIs, database changes, integrations, refactoring, and application fixes."
-    },
-    "documentation-agent": {
-      "id": "documentation-agent",
-      "name": "documentation-agent",
-      "category": "DOCUMENTATION",
-      "priority": 7,
-      "model": "minimax-m21",
-      "keywords": [
-        "documentation",
-        "README",
-        "API documentation",
-        "release notes",
-        "developer guide",
-        "update docs",
-        "write docs",
-        "document this",
-        "technical writing",
-        "changelog",
-        "how to use",
-        "usage guide",
-        "onboarding guide",
-        "wiki",
-        "runbook"
-      ],
-      "description": "Handles README files, API documentation, technical documentation, release notes, and developer documentation.",
-      "tools": [
-        "read",
-        "write"
-      ],
-      "resources": [
-        "file://.kiro/steering/framework-project-config.md",
-        "file://.kiro/steering/framework-model-policy.md"
-      ],
-      "instructions": "You are the Documentation Agent \u2014 a specialist in the DOCUMENTATION phase of the software engineering lifecycle.\n\nRead existing documentation and relevant source code before writing. Document confirmed implementation behavior only.\n\nAt the start of every response, print:\n\n---\nAgent           : Documentation Agent\nModel           : MiniMax M2.1\nDetected Phase  : DOCUMENTATION\nProject         : [from framework-project-config.md \u00a71]\nReason          : [one sentence describing what documentation is being produced]\n---\n\nMaintain concise, accurate Markdown documentation."
     },
     "qa-agent": {
       "id": "qa-agent",
@@ -264,30 +235,13 @@
         "shell"
       ],
       "resources": [
-        "file://.kiro/steering/framework-project-config.md",
-        "file://.kiro/steering/framework-model-policy.md"
+        "file://../steering/framework-project-config.md",
+        "file://../steering/framework-model-policy.md",
+        "file://../../phases/testcase_drafting/testcase_AGENT.md",
+        "file://../../phases/requirment-and-acceptance-criteria/AC_breakdown_AGENT.md",
+        "file://../steering/HITL.md"
       ],
       "instructions": "You are the QA Agent \u2014 a specialist in the TESTING phase of the software engineering lifecycle.\n\nRead requirements, implementation, and existing tests before writing tests. Use the project's existing testing framework and patterns.\n\nAt the start of every response, print:\n\n---\nAgent           : QA Agent\nModel           : Claude Haiku 4.5\nDetected Phase  : TESTING\nProject         : [from framework-project-config.md \u00a71]\nReason          : [one sentence describing what is being tested]\n---\n\nGenerate and execute positive, negative, boundary, edge, error, security, regression, unit, integration, and E2E tests as appropriate."
-    },
-    "requirements-agent": {
-      "id": "requirements-agent",
-      "name": "requirements-agent",
-      "category": "REQUIREMENT",
-      "priority": 4,
-      "model": "claude-sonnet-4-5",
-      "keywords": [
-        "requirement",
-        "requirements",
-        "business requirement",
-        "user story",
-        "acceptance criteria",
-        "acceptance criterion",
-        "clarify requirement",
-        "requirement analysis",
-        "gap analysis",
-        "specification"
-      ],
-      "description": "Requirements analysis, clarification, decomposition, and acceptance criteria."
     },
     "test-automation-agent": {
       "id": "test-automation-agent",
@@ -306,6 +260,14 @@
         "page object",
         "fixture"
       ],
+      "resources": [
+          "file://../steering/framework-project-config.md",
+          "file://../steering/framework-model-policy.md",
+          "file://../../phases/test-automation/test-automation_AGENT.md",
+          "file://../../phases/test-automation/fe_testcase.md",
+          "file://../../phases/test-automation/be_testcase.md",
+          "file://.kiro/steering/HITL.md"
+        ],
       "description": "UI/API test automation using the project framework."
     },
     "release-agent": {
@@ -361,11 +323,10 @@
         "file://../steering/framework-project-config.md",
         "file://../steering/framework-model-policy.md",
         "file://../steering/HITL.md",
-        "file://../steering/architecture-guardrails.md",
+        "file://../../phases/architecture/architecture_AGENT.md",
+        "file://../../phases/requirement-gap-analysis/gap-analysis.md",
         "file://../steering/RequirementDocument.md",
-        "file://../steering/traceability.md",
-        "file://../domainpack/**/*.json",
-        "skill://architecture"
+        "file://../domainpack/**/*.json"
       ],
       "instructions": "You are the Architecture Agent \u2014 a specialist in the ARCHITECTURE phase of the software engineering lifecycle.\n\nRead the approved requirements, acceptance criteria, existing architecture artifacts, architecture guardrails, HITL policy, project configuration, traceability information, and applicable Domain Pack before making architecture decisions. Treat the applicable Domain Pack as authoritative for domain terminology, business rules, workflows, and constraints. Do not invent or infer missing domain rules. If the applicable Domain Pack cannot be loaded, block architecture analysis and escalate through HITL. Do not silently modify requirements or acceptance criteria. If approved artifacts conflict, escalate through HITL and identify the owning phase. Record architecture decisions, assumptions, conflicts, and the Domain Pack used."
     },
@@ -400,8 +361,7 @@
         "file://../steering/framework-project-config.md",
         "file://../steering/framework-model-policy.md",
         "file://../steering/HITL.md",
-        "file://../steering/traceability.md",
-        "skill://agent-routing"
+        "file://../../phases/Planner/Planner_Agent.md"
       ],
       "instructions": "You are the Planner Agent \u2014 a specialist in planning and orchestration of software engineering work.\n\nRead existing project artifacts before planning. Do not implement application code and do not silently change approved requirements, acceptance criteria, architecture, or other governing artifacts. Produce an ordered, dependency-aware plan with objectives, inputs, outputs, risks, validation points, and the specialist agent responsible for each step. Identify ambiguity or cross-phase conflicts and route them through HITL rather than inventing decisions. When a plan depends on a Domain Pack, require the applicable Domain Pack to be loaded before domain-dependent work begins.\n\nAt the start of every response, print:\n\n---\nAgent           : Planner Agent\nModel           : Claude Sonnet 4.5\nDetected Phase  : PLANNING\nProject         : [from framework-project-config.md \u00a71]\nReason          : [one sentence describing what is being planned]\n---"
     },
@@ -412,6 +372,15 @@
       "priority": 4,
       "model": "claude-sonnet-4-5",
       "keywords": [
+        "requirement",
+        "requirements",
+        "business requirement",
+        "user story",
+        "acceptance criteria",
+        "acceptance criterion",
+        "clarify requirement",
+        "requirement analysis",
+        "specification",
         "gap analysis",
         "gap",
         "analyze gaps",
@@ -435,11 +404,12 @@
         "shell"
       ],
       "resources": [
-        "file://.kiro/steering/framework-project-config.md",
-        "file://.kiro/steering/framework-model-policy.md",
-        "file://.kiro/steering/HITL.md",
-        "file://.kiro/steering/RequirementDocument.md",
-        "file://.kiro/steering/traceability.md"
+         "file://.kiro/steering/framework-project-config.md",
+          "file://.kiro/steering/framework-model-policy.md",
+          "file://.kiro/steering/HITL.md",
+          "file://.kiro/steering/RequirementDocument.md",
+          "file://../../phases/requirement-gap-analysis/gap-analysis_AGENT.md",
+          "file://../../domainpack/*"
       ],
       "instructions": "You are the Gap Analysis Agent. Compare approved requirements against the existing system and artifacts. Identify existing capability, missing capability, conflicts, ambiguity, dependencies, assumptions, and impact. Do not silently modify requirements or acceptance criteria. Escalate material conflicts through HITL. Produce evidence-backed, traceable gap findings."
     }

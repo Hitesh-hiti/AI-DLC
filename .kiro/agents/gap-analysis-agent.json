@@ -12,6 +12,7 @@
     "file://.kiro/steering/framework-model-policy.md",
     "file://.kiro/steering/HITL.md",
     "file://.kiro/steering/RequirementDocument.md",
-    "file://.kiro/steering/traceability.md"
+    "file://../../phases/requirement-gap-analysis/gap-analysis_AGENT.md",
+    "file://../../domainpack/*"
   ]
 }

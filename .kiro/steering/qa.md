@@ -634,22 +634,7 @@ P0 and P1 tests should normally form the core regression suite.
 
 # Test Case Structure
 
-Use this structure:
-
-| Field | Description |
-|---|---|
-| Test Case ID | Unique identifier |
-| Requirement ID | Requirement being validated |
-| Source | AC/REQ/UI-DERIVED/CLARIFICATION/EXPLORATORY |
-| Scenario | What behavior is being tested |
-| Preconditions | Required application state |
-| Test Data | Data required |
-| Steps | Actions to perform |
-| Expected Result | Observable expected behavior |
-| Priority | P0/P1/P2/P3 |
-| Test Type | Positive/Negative/Boundary/etc. |
-| Automation Candidate | Yes/No |
-| Notes | Assumptions, risks, or clarification required |
+Use the structure as defined in `testcase_drafting/testcase_AGENT.md`
 
 ---
 
