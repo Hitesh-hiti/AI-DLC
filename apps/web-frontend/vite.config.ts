@@ -1,13 +1,37 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+
   test: {
     environment: 'jsdom',
     globals: true,
-    setupFiles: ['./src/test/setup.ts'],
-    include: ['src/**/*.test.{ts,tsx}'],
+
+    setupFiles: ['./test/setup.ts'],
+
+    include: ['**/*.test.{ts,tsx}'],
+
+    reporters: [
+      'default',
+      [
+        'html',
+        {
+          outputDir: './reports/vitest',
+        },
+      ],
+      [
+        'junit',
+        {
+          outputFile: './reports/vitest/junit.xml',
+        },
+      ],
+    ],
+
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html', 'lcov'],
+      reportsDirectory: './reports/vitest/coverage',
+    },
   },
 })
