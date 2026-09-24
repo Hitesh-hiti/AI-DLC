@@ -130,6 +130,12 @@ Do not automatically split it again.
 
 ## Output
 
+Create/update:
+
+```text
+`development/development-completed-breakdown.md`
+```
+
 ```markdown
 # Implementation Plan
 

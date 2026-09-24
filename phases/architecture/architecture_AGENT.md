@@ -97,6 +97,14 @@ Reason = DOMAIN_PACK_NOT_LOADED
 The agent must not infer missing domain rules from its own
 general knowledge when the project requires Domain Pack authority.
 
+## Output
+
+Create/update:
+
+```text
+`architecture/architecture_AGENT.md`
+```
+
 ## Gate
 
 **Architecture + Product approval is mandatory before implementation planning.**

@@ -20,7 +20,7 @@ Kiro-recognized standard.
 
 ## Phase mapping
 
-1. Requirement analysis + human in the loop
+1. requirement-gap-analysis + human in the loop
 2. Gap analysis + requirement update + technical/design specification + human in the loop
 3. Architecture + human in the loop
 4. Requirments + acceptance criteria + human in the loop
@@ -30,7 +30,6 @@ Kiro-recognized standard.
 8. CI/CD YAML for PR, quality and security checks
 9. Test case drafting + human in the loop
 10. Playwright/Selenium automation per user story
-11. Traceability matrix
 
 ## Continuous feedback / enhancement behavior
 An enhancement must never be treated as an isolated code change. The agents must:
@@ -45,7 +44,6 @@ Historical traceability is retained; changed behavior is versioned.
   agents/
     test-automation.json
   steering/   
-    product.md
     traceability.md
     architecture-guardrails.md
     testing.md

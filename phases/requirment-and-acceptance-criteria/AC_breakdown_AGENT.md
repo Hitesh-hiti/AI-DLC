@@ -29,5 +29,12 @@ Act as a senior Product Owner + Scrum BA.
 - Include positive, negative, boundary, authorization, accessibility, and error behavior where applicable.
 - Enhancement stories must reference the original story/requirement and define regression expectations.
 
+## Outputs
+Create/update:
+```text
+`requirment-and-acceptance-criteria/fe_acceptance_criteria.md`
+`requirment-and-acceptance-criteria/be_acceptance_criteria.md`
+```
+
 ## Gate
 PO approves stories and acceptance criteria before test generation or development.

@@ -224,7 +224,7 @@ const BookingPage: React.FC = () => {
 
       ctx.setConfirmResponse(confirmResp);
 
-      showToast(`Booking confirmed! PNR: ${pnr.pnr}`);
+      showToast('Booking confirmed!');
 
       ctx.setCurrentStep('confirmation');
     } catch (err) {

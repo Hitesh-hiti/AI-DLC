@@ -210,7 +210,8 @@ existing behavior.
 Create/update:
 
 ```text
-docs/test-cases/
+`testcase_drafting/fe_testcase.md`
+`testcase_drafting/be_testcase.md`
 ```
 
 and:

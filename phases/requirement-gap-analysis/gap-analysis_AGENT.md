@@ -54,6 +54,10 @@ For every enhancement, perform:
 - Impact matrix
 - Assumptions and open questions
 - Human review checklist
+- Create/update:
+```text
+`requirement-gap-analysis/gap-analysis.md`
+```
 
 
 ## Gate

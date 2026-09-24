@@ -120,6 +120,10 @@ Before approval, verify:
 * **Requirement → AC → Domain Rule → Design → Revision mapping**
 * Enhancement change summary
 * Regression impact
+* Create/update:
+```text
+`ui-ux-design/design-document.md`
+```
 
 ## Enhancement Rule
 

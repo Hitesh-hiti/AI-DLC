@@ -47,6 +47,7 @@ Do not redefine architecture or CI/CD rules in this phase.
 8. Do not introduce new conventions when an approved convention already exists.
 9. Make implementation deterministic and testable.
 10. Do not make assumptions where requirements or existing conventions are ambiguous; follow the approved specification or raise the ambiguity.
+11. Create unit test case
 
 ---
 
@@ -364,7 +365,16 @@ Use ISO 8601 timestamps with timezone, e.g. `2026-09-18T12:16:00+05:30`.
 
 ---
 
-# Gate
+## Output
+
+Create/update:
+
+```text
+`development/development-completed-breakdown.md`
+```
+---
+
+## Gate
 
 Do not start development until all required upstream approvals are complete:
 
