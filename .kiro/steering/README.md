@@ -11,7 +11,7 @@ Developer, and Tester.
 Kiro's current documentation supports `AGENTS.md` as the standard always-included agent steering file,
 and `.kiro/steering/*.md` for workspace steering. This pack therefore provides:
 - `AGENTS.md` at the repository root
-- `AGENTS.md` and `agent.md` in each phase directory
+- `*_AGENTS.md` in each phase directory
 - `.kiro/steering/*.md` for persistent project-wide rules
 - `.kiro/agents/test-automation.json` for the dedicated automation custom agent
 
@@ -21,14 +21,14 @@ Kiro-recognized standard.
 ## Phase mapping
 
 1. Requirement analysis + human in the loop
-2. Gap analysis + requirement update + technical/design specification
-3. Architecture
-4. Requirments + acceptance criteria
-5. UI/UX design
-6. Development with architecture guardrails/framework structure
+2. Gap analysis + requirement update + technical/design specification + human in the loop
+3. Architecture + human in the loop
+4. Requirments + acceptance criteria + human in the loop
+5. UI/UX design + human in the loop
+6. Development with architecture guardrails/framework structure 
 7. Git push + PR
 8. CI/CD YAML for PR, quality and security checks
-9. Test case drafting
+9. Test case drafting + human in the loop
 10. Playwright/Selenium automation per user story
 11. Traceability matrix
 
@@ -52,16 +52,16 @@ Historical traceability is retained; changed behavior is versioned.
     qa.md
 
 phases/
-  requirement-analysis/agent.md + AGENTS.md
-  gap-analysis-and-specification/agent.md + AGENTS.md
-  architecture/agent.md + AGENTS.md
-  user-stories-and-acceptance-criteria/agent.md + AGENTS.md
-  ui-ux-design/agent.md + AGENTS.md
-  development/agent.md + AGENTS.md
-  git-push-and-pr/agent.md + AGENTS.md
-  ci-cd-pr-validation/agent.md + AGENTS.md
-  test-testcase_drafting/agent.md + AGENTS.md
-  test-automation/agent.md + AGENTS.md
+  requirement-analysis/Requirement-analysis_AGENT.md
+  gap-analysis-and-specification/gap-analysis_AGENT.md
+  architecture/architecture_AGENT.md
+  requirment-and-acceptance-criteria/AC_breakdown_AGENT.md
+  ui-ux-design/ui-ux-design_AGENT.md
+  development/development_AGENT.md
+  git-push-and-pr/git_push_pr_AGENTS.md
+  ci-cd-pr-validation/ci-cd-pr_AGENT.md
+  test-testcase_drafting/testcase_AGENT.md
+  test-automation/test-automation_AGENT.md
 
 traceability/
   traceability-matrix.md
