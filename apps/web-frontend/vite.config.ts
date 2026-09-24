@@ -7,17 +7,15 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
-
+    pool: 'vmThreads',
     setupFiles: ['./test/setup.ts'],
-
     include: ['**/*.test.{ts,tsx}'],
-
     reporters: [
       'default',
       [
         'html',
         {
-          outputDir: './reports/vitest',
+          outputDir: './reports/vitest/ui-report',
         },
       ],
       [
@@ -27,11 +25,11 @@ export default defineConfig({
         },
       ],
     ],
-
     coverage: {
-      provider: 'v8',
+      provider: 'istanbul', 
       reporter: ['text', 'html', 'lcov'],
-      reportsDirectory: './reports/vitest/coverage',
+      reportsDirectory: './reports/vitest/coverage-report',
+      reportOnFailure: true
     },
   },
 })

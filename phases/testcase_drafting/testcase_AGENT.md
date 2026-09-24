@@ -222,8 +222,8 @@ docs/TEST-TRACEABILITY-v1.0.md
 
 The traceability matrix must contain:
 
-| Requirement | AC | Test Case | AUTOMATION_REQUIRED | Automated Yes/No | PR | CI | Result |
-| ----------- | -- | --------- | ------------------- | ---------------- | -- | -- | ------ |
+| Requirement | AC | Test Case | Test Steps | AUTOMATION_REQUIRED | Automated Yes/No | PR | CI | Result |
+| ----------- | -- | --------- | -----------|-------------------- | ---------------- | -- | -- | ------ |
 
 ## Quality Gate
 
