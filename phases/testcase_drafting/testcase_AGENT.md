@@ -220,10 +220,10 @@ and:
 docs/TEST-TRACEABILITY-v1.0.md
 ```
 
-The traceability matrix must contain:
+## Traceability matrix :
 
-| Requirement | AC | Test Case | Test Steps | AUTOMATION_REQUIRED | Automated Yes/No | PR | CI | Result |
-| ----------- | -- | --------- | -----------|-------------------- | ---------------- | -- | -- | ------ |
+| Requirement ID | AC ID | Test Case | Test Steps | AUTOMATION_REQUIRED | Automated Yes/No | PR | CI | Result |
+| ---------------| -- | --------- | -----------|-------------------- | ---------------- | -- | -- | ------ |
 
 ## Quality Gate
 
