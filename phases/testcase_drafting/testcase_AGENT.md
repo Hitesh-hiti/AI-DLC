@@ -208,7 +208,7 @@ and:
 docs/TEST-TRACEABILITY-v1.0.md
 ```
 
-## Traceability matrix :
+## Test Case Traceability matrix Template :
 
 | Requirement ID | AC ID | Test Case | Test Steps | AUTOMATION_REQUIRED | Automated Yes/No | PR | CI | Result |
 | ---------------| -- | --------- | -----------|-------------------- | ---------------- | -- | -- | ------ |

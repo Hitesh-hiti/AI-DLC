@@ -22,7 +22,7 @@ Act as a senior automation engineer implementing approved stories within the exi
 5. Reuse existing pages, components, API clients, fixtures, utilities, and test data.
 6. Keep changes small, maintainable, and reviewable.
 7. Add logging/reporting where required.
-8. Update documentation and traceability metadata.
+8. Update documentation and traceability metadata to `phases/testcase_drafting/*_testcase.md`
 
 ## Automation Guardrails
 
