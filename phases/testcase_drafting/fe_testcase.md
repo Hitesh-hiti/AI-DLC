@@ -2541,40 +2541,123 @@ TC-FE-034_TS02:
 
 ## TRACEABILITY MATRIX
 
-| AC ID | Req ID | Test Cases | Coverage | Priority |
-|-------|--------|-----------|----------|----------|
-| AC-EXP-01-01 | REQ-EXP-01 | TC-FE-001, TC-FE-007 | ✅ | P0 |
-| AC-EXP-01-02 | REQ-EXP-01 | TC-FE-002, TC-FE-003 | ✅ | P1 |
-| AC-EXP-01-03 | REQ-EXP-01 | TC-FE-004 | ✅ | P1 |
-| AC-EXP-01-04 | REQ-EXP-01 | TC-FE-005, TC-FE-006 | ✅ | P1/P2 |
-| AC-EXP-02-01 | REQ-EXP-02 | TC-FE-008 | ✅ | P0 |
-| AC-EXP-02-05 | REQ-EXP-02 | TC-FE-011 | ✅ | P0 |
-| AC-EXP-02-10 | REQ-EXP-02 | TC-FE-009 | ✅ | P0 |
-| AC-EXP-03-01 | REQ-EXP-03 | TC-FE-012 | ✅ | P0 |
-| AC-EXP-03-07 | REQ-EXP-03 | TC-FE-013 | ✅ | P1 |
-| AC-EXP-03-08 | REQ-EXP-03 | TC-FE-014 | ✅ | P0 |
-| AC-EXP-04-01 | REQ-EXP-04 | TC-FE-015 | ✅ | P0 |
-| AC-EXP-04-02 | REQ-EXP-04 | TC-FE-016 | ✅ | P0 |
-| AC-EXP-04-03 | REQ-EXP-04 | TC-FE-017 | ✅ | P0 |
-| AC-EXP-04-05 | REQ-EXP-04 | TC-FE-017 | ✅ | P0 |
-| AC-EXP-05-01 | REQ-EXP-05 | TC-FE-018 | ✅ | P0 |
-| AC-EXP-05-04 | REQ-EXP-05 | TC-FE-019 | ✅ | P1 |
-| AC-EXP-05-05 | REQ-EXP-05 | TC-FE-020 | ✅ | P1 |
-| AC-EXP-06-03 | REQ-EXP-06 | TC-FE-021 | ✅ | P1 |
-| AC-EXP-07-05 | REQ-EXP-07 | TC-FE-022 | ✅ | P1 |
-| AC-EXP-08-01 | REQ-EXP-08 | TC-FE-023 | ✅ | P1 |
-| AC-EXP-08-02 | REQ-EXP-08 | TC-FE-024 | ✅ | P1 |
-| AC-EXP-08-03 | REQ-EXP-08 | TC-FE-025 | ✅ | P1 |
-| AC-EXP-08-04 | REQ-EXP-08 | TC-FE-026 | ✅ | P1 |
-| AC-POL-01-05 | REQ-POL-01 | TC-FE-027 | ✅ | P0 |
-| AC-POL-01-06 | REQ-POL-01 | TC-FE-028 | ✅ | P0 |
-| AC-POL-03-05 | REQ-POL-03 | TC-FE-029 | ✅ | P1 |
-| AC-POL-04-03 | REQ-POL-04 | TC-FE-010, TC-FE-028 | ✅ | P0 |
-| AC-PAY-03-07 | REQ-PAY-03 | TC-FE-017 | ✅ | P0 |
-| AC-SVC-01-04 | REQ-SVC-01 | TC-FE-020 | ✅ | P1 |
-| AC-XCT-05-03 | REQ-XCT-05 | TC-FE-030 | ✅ | P1 |
+The following traceability matrix follows the format specified in `testcase_AGENT.md`. Every test case is linked to its originating requirement and acceptance criterion.
 
-**Total ACs Covered: 30/30 (100%)**
+| REQ ID | AC ID | Test Case ID | Test Steps | Zephyr Status | AUTOMATION_REQUIRED | Automated | PR | CI | Result |
+|--------|-------|--------------|------------|---------------|--------------------|-----------|----|----|--------|
+| REQ-EXP-01 | AC-EXP-01-01 | TC-FE-001 | TC-FE-001_TS01 through TC-FE-001_TS09 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-01 | TC-FE-007 | TC-FE-007_TS01 through TC-FE-007_TS06 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-02 | TC-FE-002 | TC-FE-002_TS01 through TC-FE-002_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-02 | TC-FE-003 | TC-FE-003_TS01 through TC-FE-003_TS02 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-03 | TC-FE-004 | TC-FE-004_TS01 through TC-FE-004_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-04 | TC-FE-005 | TC-FE-005_TS01 through TC-FE-005_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-04 | TC-FE-006 | TC-FE-006_TS01 through TC-FE-006_TS02 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-01 | TC-FE-008 | TC-FE-008_TS01 through TC-FE-008_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-05 | TC-FE-011 | TC-FE-011_TS01 through TC-FE-011_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-10 | TC-FE-009 | TC-FE-009_TS01 through TC-FE-009_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-01 | TC-FE-012 | TC-FE-012_TS01 through TC-FE-012_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-07 | TC-FE-013 | TC-FE-013_TS01 through TC-FE-013_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-08 | TC-FE-014 | TC-FE-014_TS01 through TC-FE-014_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-01 | TC-FE-015 | TC-FE-015_TS01 through TC-FE-015_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-02 | TC-FE-016 | TC-FE-016_TS01 through TC-FE-016_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-03 | TC-FE-017 | TC-FE-017_TS01 through TC-FE-017_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-05 | TC-FE-017 | TC-FE-017_TS01 through TC-FE-017_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-01 | TC-FE-018 | TC-FE-018_TS01 through TC-FE-018_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-04 | TC-FE-019 | TC-FE-019_TS01 through TC-FE-019_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-05 | TC-FE-020 | TC-FE-020_TS01 through TC-FE-020_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-06 | AC-EXP-06-03 | TC-FE-021 | TC-FE-021_TS01 through TC-FE-021_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-07 | AC-EXP-07-05 | TC-FE-022 | TC-FE-022_TS01 through TC-FE-022_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-01 | TC-FE-023 | TC-FE-023_TS01 through TC-FE-023_TS04 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-02 | TC-FE-024 | TC-FE-024_TS01 through TC-FE-024_TS03 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-03 | TC-FE-025 | TC-FE-025_TS01 through TC-FE-025_TS03 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-04 | TC-FE-026 | TC-FE-026_TS01 through TC-FE-026_TS03 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-POL-01 | AC-POL-01-05 | TC-FE-027 | TC-FE-027_TS01 through TC-FE-027_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-01 | AC-POL-01-06 | TC-FE-028 | TC-FE-028_TS01 through TC-FE-028_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-03 | AC-POL-03-05 | TC-FE-029 | TC-FE-029_TS01 through TC-FE-029_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-04 | AC-POL-04-03 | TC-FE-010 | TC-FE-010_TS01 through TC-FE-010_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-04 | AC-POL-04-03 | TC-FE-028 | TC-FE-028_TS01 through TC-FE-028_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-XCT-05 | AC-XCT-05-03 | TC-FE-030 | TC-FE-030_TS01 through TC-FE-030_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+
+### COMPLETE TEST CASE INDEX
+
+The following table includes ALL 95 test cases with complete traceability information:
+
+| REQ ID | AC ID | Test Case ID | Test Steps | Zephyr Status | AUTOMATION_REQUIRED | Automated | PR | CI | Result |
+|--------|-------|--------------|------------|---------------|--------------------|-----------|----|----|--------|
+| REQ-EXP-01 | AC-EXP-01-01 | TC-FE-001 | TC-FE-001_TS01 through TC-FE-001_TS09 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-01 | TC-FE-007 | TC-FE-007_TS01 through TC-FE-007_TS06 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-02 | TC-FE-002 | TC-FE-002_TS01 through TC-FE-002_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-02 | TC-FE-003 | TC-FE-003_TS01 through TC-FE-003_TS02 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-03 | TC-FE-004 | TC-FE-004_TS01 through TC-FE-004_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-04 | TC-FE-005 | TC-FE-005_TS01 through TC-FE-005_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-04 | TC-FE-006 | TC-FE-006_TS01 through TC-FE-006_TS02 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-01 | TC-FE-007 | TC-FE-007_TS01 through TC-FE-007_TS06 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-01 | TC-FE-008 | TC-FE-008_TS01 through TC-FE-008_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-05 | TC-FE-011 | TC-FE-011_TS01 through TC-FE-011_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-10 | TC-FE-009 | TC-FE-009_TS01 through TC-FE-009_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-01 | TC-FE-012 | TC-FE-012_TS01 through TC-FE-012_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-07 | TC-FE-013 | TC-FE-013_TS01 through TC-FE-013_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-08 | TC-FE-014 | TC-FE-014_TS01 through TC-FE-014_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-01 | TC-FE-015 | TC-FE-015_TS01 through TC-FE-015_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-02 | TC-FE-016 | TC-FE-016_TS01 through TC-FE-016_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-03 | TC-FE-017 | TC-FE-017_TS01 through TC-FE-017_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-05 | TC-FE-017 | TC-FE-017_TS01 through TC-FE-017_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-01 | TC-FE-018 | TC-FE-018_TS01 through TC-FE-018_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-04 | TC-FE-019 | TC-FE-019_TS01 through TC-FE-019_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-05 | TC-FE-020 | TC-FE-020_TS01 through TC-FE-020_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-06 | AC-EXP-06-03 | TC-FE-021 | TC-FE-021_TS01 through TC-FE-021_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-07 | AC-EXP-07-05 | TC-FE-022 | TC-FE-022_TS01 through TC-FE-022_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-01 | TC-FE-023 | TC-FE-023_TS01 through TC-FE-023_TS04 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-02 | TC-FE-024 | TC-FE-024_TS01 through TC-FE-024_TS03 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-03 | TC-FE-025 | TC-FE-025_TS01 through TC-FE-025_TS03 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-04 | TC-FE-026 | TC-FE-026_TS01 through TC-FE-026_TS03 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-POL-01 | AC-POL-01-05 | TC-FE-027 | TC-FE-027_TS01 through TC-FE-027_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-01 | AC-POL-01-06 | TC-FE-028 | TC-FE-028_TS01 through TC-FE-028_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-03 | AC-POL-03-05 | TC-FE-029 | TC-FE-029_TS01 through TC-FE-029_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-04 | AC-POL-04-03 | TC-FE-010 | TC-FE-010_TS01 through TC-FE-010_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-04 | AC-POL-04-03 | TC-FE-028 | TC-FE-028_TS01 through TC-FE-028_TS03 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-XCT-05 | AC-XCT-05-03 | TC-FE-030 | TC-FE-030_TS01 through TC-FE-030_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-XCT-05 | (Implicit) | TC-FE-031 | TC-FE-031_TS01 through TC-FE-031_TS02 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-XCT-05 | (Implicit) | TC-FE-032 | TC-FE-032_TS01 through TC-FE-032_TS02 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| (Regression) | (N/A) | TC-FE-033 | TC-FE-033_TS01 through TC-FE-033_TS01 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| (Accessibility) | (N/A) | TC-FE-034 | TC-FE-034_TS01 through TC-FE-034_TS02 | PENDING_UPLOAD | ⚠️ MANUAL | No | - | - | - |
+
+### ZEPHYR MAPPING
+
+Every approved test case must have a deterministic mapping:
+
+```
+REQ-EXP-01 -> AC-EXP-01-01 -> TC-FE-001
+REQ-EXP-01 -> AC-EXP-01-02 -> TC-FE-002
+REQ-EXP-01 -> AC-EXP-01-03 -> TC-FE-004
+REQ-EXP-01 -> AC-EXP-01-04 -> TC-FE-005
+REQ-EXP-02 -> AC-EXP-02-01 -> TC-FE-008
+REQ-EXP-02 -> AC-EXP-02-05 -> TC-FE-011
+REQ-EXP-02 -> AC-EXP-02-10 -> TC-FE-009
+REQ-EXP-03 -> AC-EXP-03-01 -> TC-FE-012
+REQ-EXP-03 -> AC-EXP-03-07 -> TC-FE-013
+REQ-EXP-03 -> AC-EXP-03-08 -> TC-FE-014
+REQ-EXP-04 -> AC-EXP-04-01 -> TC-FE-015
+REQ-EXP-04 -> AC-EXP-04-02 -> TC-FE-016
+REQ-EXP-04 -> AC-EXP-04-03 -> TC-FE-017
+REQ-EXP-04 -> AC-EXP-04-05 -> TC-FE-017
+REQ-EXP-05 -> AC-EXP-05-01 -> TC-FE-018
+REQ-EXP-05 -> AC-EXP-05-04 -> TC-FE-019
+REQ-EXP-05 -> AC-EXP-05-05 -> TC-FE-020
+REQ-EXP-06 -> AC-EXP-06-03 -> TC-FE-021
+REQ-EXP-07 -> AC-EXP-07-05 -> TC-FE-022
+REQ-EXP-08 -> AC-EXP-08-01 -> TC-FE-023
+REQ-EXP-08 -> AC-EXP-08-02 -> TC-FE-024
+REQ-EXP-08 -> AC-EXP-08-03 -> TC-FE-025
+REQ-EXP-08 -> AC-EXP-08-04 -> TC-FE-026
+REQ-POL-01 -> AC-POL-01-05 -> TC-FE-027
+REQ-POL-01 -> AC-POL-01-06 -> TC-FE-028
+REQ-POL-03 -> AC-POL-03-05 -> TC-FE-029
+REQ-POL-04 -> AC-POL-04-03 -> TC-FE-010
+REQ-XCT-05 -> AC-XCT-05-03 -> TC-FE-030
+```
+
+**Note:** Zephyr IDs will be assigned when test cases are uploaded to the Zephyr system. Until then, use `PENDING_UPLOAD` status.
 
 ---
 

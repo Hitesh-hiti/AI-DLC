@@ -20,18 +20,6 @@ Read and validate:
 8. Existing test cases
 9. Existing Zephyr mappings
 
-## Primary Traceability
-
-REQ
--> REQ
--> AC
--> TEST CASE
--> ZEPHYR TEST CASE
--> AUTOMATION SCRIPT
--> PR
--> CI RUN
--> TEST RESULT
-
 ## Responsibilities
 
 1. Read the complete user story.

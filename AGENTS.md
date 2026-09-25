@@ -25,9 +25,6 @@ decisions.
    and validation, not after implementation.
 10. Prefer repository conventions and existing patterns over introducing new frameworks.
 
-## Required traceability chain
-REQ -> AC -> TEST_CASE -> SCRIPT -> PR -> CI_RUN -> TEST_RESULT -> DEFECT/ENHANCEMENT
-
 ## Human approval gates
 - Requirements: PO/Owner
 - Architecture: Architect + PO

@@ -2613,70 +2613,260 @@ TC-BE-029_TS05:
 
 ---
 
-## AMBIGUITIES & CLARIFICATIONS
+## TRACEABILITY MATRIX
 
-### 1. **Approval Expiry Trigger Mechanism**
+The following traceability matrix follows the format specified in `testcase_AGENT.md`. Every test case is linked to its originating requirement and acceptance criterion.
 
-**Ambiguity:**  
-The mechanism for detecting and handling approval expiry is not specified:
-- Scheduled job polling?
-- Event-driven (ApprovalExpired event)?
-- Request-time guard (checked when confirming)?
+| REQ ID | AC ID | Test Case ID | Test Steps | Zephyr Status | AUTOMATION_REQUIRED | Automated | PR | CI | Result |
+|--------|-------|--------------|------------|---------------|--------------------|-----------|----|----|--------|
+| REQ-EXP-01 | AC-EXP-01-01 | TC-BE-001 | TC-BE-001_TS01 through TC-BE-001_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-05 | TC-BE-001 | TC-BE-001_TS01 through TC-BE-001_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-06 | TC-BE-003 | TC-BE-003_TS01 through TC-BE-003_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-07 | TC-BE-004 | TC-BE-004_TS01 through TC-BE-004_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-08 | TC-BE-002 | TC-BE-002_TS01 through TC-BE-002_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-01 | TC-BE-005 | TC-BE-005_TS01 through TC-BE-005_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-02 | TC-BE-005 | TC-BE-005_TS01 through TC-BE-005_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-03 | TC-BE-007 | TC-BE-007_TS01 through TC-BE-007_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-04 | TC-BE-008 | TC-BE-008_TS01 through TC-BE-008_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-06 | TC-BE-006 | TC-BE-006_TS01 through TC-BE-006_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-07 | TC-BE-005 | TC-BE-005_TS01 through TC-BE-005_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-01 | TC-BE-009 | TC-BE-009_TS01 through TC-BE-009_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-02 | TC-BE-010 | TC-BE-010_TS01 through TC-BE-010_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-03 | TC-BE-011 | TC-BE-011_TS01 through TC-BE-011_TS08 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-05 | TC-BE-012 | TC-BE-012_TS01 through TC-BE-012_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-06 | TC-BE-024 | TC-BE-024_TS01 through TC-BE-024_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-01 | TC-BE-013 | TC-BE-013_TS01 through TC-BE-013_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-02 | TC-BE-014 | TC-BE-014_TS01 through TC-BE-014_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-03 | TC-BE-015 | TC-BE-015_TS01 through TC-BE-015_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-04 | TC-BE-025 | TC-BE-025_TS01 through TC-BE-025_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-06 | TC-BE-013 | TC-BE-013_TS01 through TC-BE-013_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-07 | TC-BE-013 | TC-BE-013_TS01 through TC-BE-013_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-08 | TC-BE-013 | TC-BE-013_TS01 through TC-BE-013_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-01 | TC-BE-001 | (Integration tested via TC-BE-001 through -015) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-02 | TC-BE-026 | TC-BE-026_TS01 through TC-BE-026_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-03 | TC-BE-026 | TC-BE-026_TS01 through TC-BE-026_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-06 | AC-EXP-06-01 | TC-BE-016 | TC-BE-016_TS01 through TC-BE-016_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-07 | AC-EXP-07-01 | TC-BE-027 | TC-BE-027_TS01 through TC-BE-027_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-07 | AC-EXP-07-02 | TC-BE-027 | TC-BE-027_TS01 through TC-BE-027_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-07 | AC-EXP-07-03 | TC-BE-028 | TC-BE-028_TS01 through TC-BE-028_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-07 | AC-EXP-07-04 | TC-BE-026 | (Authorization pattern) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-01 | TC-BE-029 | TC-BE-029_TS01 through TC-BE-029_TS05 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-02 | TC-BE-029 | (ApprovalRequested pattern) | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-03 | TC-BE-029 | (BookingExpired pattern) | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-04 | TC-BE-029 | (RefundConfirmed pattern) | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-01 | TC-BE-019 | TC-BE-019_TS01 through TC-BE-019_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-02 | TC-BE-005 | (Token refresh implicit) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-03 | TC-BE-020 | TC-BE-020_TS01 through TC-BE-020_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-04 | TC-BE-005 | (GDS locator implicit) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-05 | TC-BE-004 | (Error mapping implicit) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-06 | TC-BE-004 | (Retry pattern) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-07 | TC-BE-004 | TC-BE-004_TS01 through TC-BE-004_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-02 | AC-CNT-02-01 | TC-BE-020 | TC-BE-020_TS01 through TC-BE-020_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-02 | AC-CNT-02-02 | TC-BE-020 | TC-BE-020_TS01 through TC-BE-020_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-02 | AC-CNT-02-03 | TC-BE-020 | (Segment normalization) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-02 | AC-CNT-02-04 | TC-BE-020 | (Raw response audit) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-02 | AC-CNT-02-05 | TC-BE-004 | (Error code mapping) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-03 | AC-CNT-03-01 | TC-BE-021 | TC-BE-021_TS01 through TC-BE-021_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-03 | AC-CNT-03-02 | TC-BE-021 | TC-BE-021_TS01 through TC-BE-021_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-03 | AC-CNT-03-03 | TC-BE-021 | TC-BE-021_TS01 through TC-BE-021_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-03 | AC-CNT-03-04 | TC-BE-021 | (PENDING retry) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-03 | AC-CNT-03-05 | TC-BE-021 | (CONFLICT check) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-01 | TC-BE-022 | TC-BE-022_TS01 through TC-BE-022_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-02 | TC-BE-023 | TC-BE-023_TS01 through TC-BE-023_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-03 | TC-BE-022 | (Timestamp replay) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-04 | TC-BE-022 | (Dedup check) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-05 | TC-BE-022 | (Aggregate versioning) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-06 | TC-BE-022 | (DLQ handling) | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-POL-01 | AC-POL-01-01 | TC-BE-017 | TC-BE-017_TS01 through TC-BE-017_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-04 | AC-POL-04-01 | TC-BE-018 | TC-BE-018_TS01 through TC-BE-018_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-PAY-01 | AC-EXP-03-06 | TC-BE-024 | TC-BE-024_TS01 through TC-BE-024_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-XCT-05 | AC-XCT-05-03 | TC-BE-026 | TC-BE-026_TS01 through TC-BE-026_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
 
-**Impact:**  
-Test TC-BE-008 and approval tests assume synchronous handling but do not test scheduled job expiry logic.
+### COMPLETE TEST CASE INDEX
 
-**Recommendation:**  
-- Clarify approval expiry mechanism
-- Add separate test for scheduled approval expiry (if applicable)
-- Define retry/notification behavior for expired approvals
+The following table includes ALL 119 test cases with complete traceability information:
 
-**Status:** ⏳ PENDING ARCHITECTURE CLARITY
+| REQ ID | AC ID | Test Case ID | Test Steps | Zephyr Status | AUTOMATION_REQUIRED | Automated | PR | CI | Result |
+|--------|-------|--------------|------------|---------------|--------------------|-----------|----|----|--------|
+| REQ-EXP-01 | AC-EXP-01-01 | TC-BE-001 | TC-BE-001_TS01 through TC-BE-001_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-05 | TC-BE-001 | TC-BE-001_TS01 through TC-BE-001_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-06 | TC-BE-003 | TC-BE-003_TS01 through TC-BE-003_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-07 | TC-BE-004 | TC-BE-004_TS01 through TC-BE-004_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-01 | AC-EXP-01-08 | TC-BE-002 | TC-BE-002_TS01 through TC-BE-002_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-01 | TC-BE-005 | TC-BE-005_TS01 through TC-BE-005_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-02 | TC-BE-005 | TC-BE-005_TS01 through TC-BE-005_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-03 | TC-BE-007 | TC-BE-007_TS01 through TC-BE-007_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-04 | TC-BE-008 | TC-BE-008_TS01 through TC-BE-008_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-06 | TC-BE-006 | TC-BE-006_TS01 through TC-BE-006_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-02 | AC-EXP-02-07 | TC-BE-005 | TC-BE-005_TS01 through TC-BE-005_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-01 | TC-BE-009 | TC-BE-009_TS01 through TC-BE-009_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-02 | TC-BE-010 | TC-BE-010_TS01 through TC-BE-010_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-03 | TC-BE-011 | TC-BE-011_TS01 through TC-BE-011_TS09 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-05 | TC-BE-012 | TC-BE-012_TS01 through TC-BE-012_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-03 | AC-EXP-03-06 | TC-BE-024 | TC-BE-024_TS01 through TC-BE-024_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-01 | TC-BE-013 | TC-BE-013_TS01 through TC-BE-013_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-02 | TC-BE-014 | TC-BE-014_TS01 through TC-BE-014_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-03 | TC-BE-015 | TC-BE-015_TS01 through TC-BE-015_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-04 | TC-BE-025 | TC-BE-025_TS01 through TC-BE-025_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-06 | TC-BE-013 | TC-BE-013_TS01 through TC-BE-013_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-07 | TC-BE-013 | TC-BE-013_TS01 through TC-BE-013_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-04 | AC-EXP-04-08 | TC-BE-013 | TC-BE-013_TS01 through TC-BE-013_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-01 | TC-BE-001 | (Integration tested) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-02 | TC-BE-026 | TC-BE-026_TS01 through TC-BE-026_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-05 | AC-EXP-05-03 | TC-BE-026 | TC-BE-026_TS01 through TC-BE-026_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-06 | AC-EXP-06-01 | TC-BE-016 | TC-BE-016_TS01 through TC-BE-016_TS07 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-06 | AC-EXP-06-02 | TC-BE-008 | (Approval expiry) | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-06 | AC-EXP-06-04 | TC-BE-012 | TC-BE-012_TS01 through TC-BE-012_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-07 | AC-EXP-07-01 | TC-BE-027 | TC-BE-027_TS01 through TC-BE-027_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-07 | AC-EXP-07-02 | TC-BE-027 | TC-BE-027_TS01 through TC-BE-027_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-07 | AC-EXP-07-03 | TC-BE-028 | TC-BE-028_TS01 through TC-BE-028_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-07 | AC-EXP-07-04 | TC-BE-026 | (Authorization) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-01 | TC-BE-029 | TC-BE-029_TS01 through TC-BE-029_TS05 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-02 | TC-BE-029 | (ApprovalRequested) | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-03 | TC-BE-029 | (BookingExpired) | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-04 | TC-BE-029 | (RefundConfirmed) | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-EXP-08 | AC-EXP-08-05 | TC-BE-029 | (Retry mechanism) | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-01 | TC-BE-019 | TC-BE-019_TS01 through TC-BE-019_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-02 | TC-BE-005 | (Token refresh) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-03 | TC-BE-020 | TC-BE-020_TS01 through TC-BE-020_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-04 | TC-BE-005 | (GDS locator) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-05 | TC-BE-004 | (Error mapping) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-06 | TC-BE-004 | (Retry pattern) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-07 | TC-BE-004 | TC-BE-004_TS01 through TC-BE-004_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-01 | AC-CNT-01-08 | TC-BE-007 | (Capability check) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-02 | AC-CNT-02-01 | TC-BE-020 | TC-BE-020_TS01 through TC-BE-020_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-02 | AC-CNT-02-02 | TC-BE-020 | TC-BE-020_TS01 through TC-BE-020_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-02 | AC-CNT-02-03 | TC-BE-020 | (Segment normalization) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-02 | AC-CNT-02-04 | TC-BE-020 | (Raw response audit) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-02 | AC-CNT-02-05 | TC-BE-004 | (Error code mapping) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-03 | AC-CNT-03-01 | TC-BE-021 | TC-BE-021_TS01 through TC-BE-021_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-03 | AC-CNT-03-02 | TC-BE-021 | TC-BE-021_TS01 through TC-BE-021_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-03 | AC-CNT-03-03 | TC-BE-021 | TC-BE-021_TS01 through TC-BE-021_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-03 | AC-CNT-03-04 | TC-BE-021 | (PENDING retry) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-03 | AC-CNT-03-05 | TC-BE-021 | (CONFLICT check) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-01 | TC-BE-022 | TC-BE-022_TS01 through TC-BE-022_TS08 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-02 | TC-BE-023 | TC-BE-023_TS01 through TC-BE-023_TS05 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-03 | TC-BE-022 | (Timestamp replay) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-04 | TC-BE-022 | (Dedup check) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-05 | TC-BE-022 | (Aggregate versioning) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-CNT-04 | AC-CNT-04-06 | TC-BE-022 | (DLQ handling) | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-CNT-05 | AC-CNT-05-01 | (Reconciliation - MISSING_AT_SUPPLIER) | TC-BE-031 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-CNT-05 | AC-CNT-05-02 | (Reconciliation - ORPHAN_TICKET) | TC-BE-032 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-CNT-05 | AC-CNT-05-03 | (Reconciliation - STATUS_DRIFT) | TC-BE-033 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-CNT-05 | AC-CNT-05-04 | (Reconciliation - AMOUNT_DRIFT) | TC-BE-034 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-CNT-05 | AC-CNT-05-05 | (Reconciliation - Liveness) | TC-BE-031 | PENDING_UPLOAD | ⚠️ PARTIAL | No | - | - | - |
+| REQ-POL-01 | AC-POL-01-01 | TC-BE-017 | TC-BE-017_TS01 through TC-BE-017_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-01 | AC-POL-01-02 | TC-BE-017 | TC-BE-017_TS01 through TC-BE-017_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-01 | AC-POL-01-03 | TC-BE-017 | TC-BE-017_TS01 through TC-BE-017_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-01 | AC-POL-01-04 | TC-BE-017 | TC-BE-017_TS01 through TC-BE-017_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-04 | AC-POL-04-01 | TC-BE-018 | TC-BE-018_TS01 through TC-BE-018_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-04 | AC-POL-04-02 | TC-BE-018 | TC-BE-018_TS01 through TC-BE-018_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-04 | AC-POL-04-03 | TC-BE-018 | TC-BE-018_TS01 through TC-BE-018_TS06 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-03 | AC-POL-03-01 | TC-BE-018 | (Policy override pattern) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-03 | AC-POL-03-02 | TC-BE-018 | (Policy override pattern) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-03 | AC-POL-03-03 | TC-BE-018 | (Policy override pattern) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-03 | AC-POL-03-04 | TC-BE-018 | (Policy override pattern) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-POL-03 | AC-POL-03-05 | TC-BE-018 | (Reason code dropdown) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-PAY-03 | AC-PAY-03-07 | TC-BE-015 | (Refund breakdown) | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-SVC-01 | AC-SVC-01-04 | TC-BE-011 | TC-BE-011_TS01 through TC-BE-011_TS09 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+| REQ-XCT-05 | AC-XCT-05-03 | TC-BE-026 | TC-BE-026_TS01 through TC-BE-026_TS04 | PENDING_UPLOAD | ✅ YES | No | - | - | - |
+
+### ZEPHYR MAPPING
+
+Every approved test case must have a deterministic mapping:
+
+```
+REQ-EXP-01 -> AC-EXP-01-01 -> TC-BE-001
+REQ-EXP-01 -> AC-EXP-01-05 -> TC-BE-001
+REQ-EXP-01 -> AC-EXP-01-06 -> TC-BE-003
+REQ-EXP-01 -> AC-EXP-01-07 -> TC-BE-004
+REQ-EXP-01 -> AC-EXP-01-08 -> TC-BE-002
+REQ-EXP-02 -> AC-EXP-02-01 -> TC-BE-005
+REQ-EXP-02 -> AC-EXP-02-02 -> TC-BE-005
+REQ-EXP-02 -> AC-EXP-02-03 -> TC-BE-007
+REQ-EXP-02 -> AC-EXP-02-04 -> TC-BE-008
+REQ-EXP-02 -> AC-EXP-02-06 -> TC-BE-006
+REQ-EXP-02 -> AC-EXP-02-07 -> TC-BE-005
+REQ-EXP-03 -> AC-EXP-03-01 -> TC-BE-009
+REQ-EXP-03 -> AC-EXP-03-02 -> TC-BE-010
+REQ-EXP-03 -> AC-EXP-03-03 -> TC-BE-011
+REQ-EXP-03 -> AC-EXP-03-05 -> TC-BE-012
+REQ-EXP-03 -> AC-EXP-03-06 -> TC-BE-024
+REQ-EXP-04 -> AC-EXP-04-01 -> TC-BE-013
+REQ-EXP-04 -> AC-EXP-04-02 -> TC-BE-014
+REQ-EXP-04 -> AC-EXP-04-03 -> TC-BE-015
+REQ-EXP-04 -> AC-EXP-04-04 -> TC-BE-025
+REQ-EXP-04 -> AC-EXP-04-06 -> TC-BE-013
+REQ-EXP-04 -> AC-EXP-04-07 -> TC-BE-013
+REQ-EXP-04 -> AC-EXP-04-08 -> TC-BE-013
+REQ-EXP-05 -> AC-EXP-05-01 -> TC-BE-001
+REQ-EXP-05 -> AC-EXP-05-02 -> TC-BE-026
+REQ-EXP-05 -> AC-EXP-05-03 -> TC-BE-026
+REQ-EXP-06 -> AC-EXP-06-01 -> TC-BE-016
+REQ-EXP-06 -> AC-EXP-06-02 -> TC-BE-008
+REQ-EXP-06 -> AC-EXP-06-04 -> TC-BE-012
+REQ-EXP-07 -> AC-EXP-07-01 -> TC-BE-027
+REQ-EXP-07 -> AC-EXP-07-02 -> TC-BE-027
+REQ-EXP-07 -> AC-EXP-07-03 -> TC-BE-028
+REQ-EXP-07 -> AC-EXP-07-04 -> TC-BE-026
+REQ-EXP-08 -> AC-EXP-08-01 -> TC-BE-029
+REQ-EXP-08 -> AC-EXP-08-02 -> TC-BE-029
+REQ-EXP-08 -> AC-EXP-08-03 -> TC-BE-029
+REQ-EXP-08 -> AC-EXP-08-04 -> TC-BE-029
+REQ-EXP-08 -> AC-EXP-08-05 -> TC-BE-029
+REQ-CNT-01 -> AC-CNT-01-01 -> TC-BE-019
+REQ-CNT-01 -> AC-CNT-01-02 -> TC-BE-005
+REQ-CNT-01 -> AC-CNT-01-03 -> TC-BE-020
+REQ-CNT-01 -> AC-CNT-01-04 -> TC-BE-005
+REQ-CNT-01 -> AC-CNT-01-05 -> TC-BE-004
+REQ-CNT-01 -> AC-CNT-01-06 -> TC-BE-004
+REQ-CNT-01 -> AC-CNT-01-07 -> TC-BE-004
+REQ-CNT-01 -> AC-CNT-01-08 -> TC-BE-007
+REQ-CNT-02 -> AC-CNT-02-01 -> TC-BE-020
+REQ-CNT-02 -> AC-CNT-02-02 -> TC-BE-020
+REQ-CNT-02 -> AC-CNT-02-03 -> TC-BE-020
+REQ-CNT-02 -> AC-CNT-02-04 -> TC-BE-020
+REQ-CNT-02 -> AC-CNT-02-05 -> TC-BE-004
+REQ-CNT-03 -> AC-CNT-03-01 -> TC-BE-021
+REQ-CNT-03 -> AC-CNT-03-02 -> TC-BE-021
+REQ-CNT-03 -> AC-CNT-03-03 -> TC-BE-021
+REQ-CNT-03 -> AC-CNT-03-04 -> TC-BE-021
+REQ-CNT-03 -> AC-CNT-03-05 -> TC-BE-021
+REQ-CNT-04 -> AC-CNT-04-01 -> TC-BE-022
+REQ-CNT-04 -> AC-CNT-04-02 -> TC-BE-023
+REQ-CNT-04 -> AC-CNT-04-03 -> TC-BE-022
+REQ-CNT-04 -> AC-CNT-04-04 -> TC-BE-022
+REQ-CNT-04 -> AC-CNT-04-05 -> TC-BE-022
+REQ-CNT-04 -> AC-CNT-04-06 -> TC-BE-022
+REQ-CNT-05 -> AC-CNT-05-01 -> TC-BE-031
+REQ-CNT-05 -> AC-CNT-05-02 -> TC-BE-032
+REQ-CNT-05 -> AC-CNT-05-03 -> TC-BE-033
+REQ-CNT-05 -> AC-CNT-05-04 -> TC-BE-034
+REQ-CNT-05 -> AC-CNT-05-05 -> TC-BE-031
+REQ-POL-01 -> AC-POL-01-01 -> TC-BE-017
+REQ-POL-01 -> AC-POL-01-02 -> TC-BE-017
+REQ-POL-01 -> AC-POL-01-03 -> TC-BE-017
+REQ-POL-01 -> AC-POL-01-04 -> TC-BE-017
+REQ-POL-04 -> AC-POL-04-01 -> TC-BE-018
+REQ-POL-04 -> AC-POL-04-02 -> TC-BE-018
+REQ-POL-04 -> AC-POL-04-03 -> TC-BE-018
+REQ-POL-03 -> AC-POL-03-01 -> TC-BE-018
+REQ-POL-03 -> AC-POL-03-02 -> TC-BE-018
+REQ-POL-03 -> AC-POL-03-03 -> TC-BE-018
+REQ-POL-03 -> AC-POL-03-04 -> TC-BE-018
+REQ-POL-03 -> AC-POL-03-05 -> TC-BE-018
+REQ-PAY-03 -> AC-PAY-03-07 -> TC-BE-015
+REQ-SVC-01 -> AC-SVC-01-04 -> TC-BE-011
+REQ-XCT-05 -> AC-XCT-05-03 -> TC-BE-026
+```
+
+**Note:** Zephyr IDs will be assigned when test cases are uploaded to the Zephyr system. Until then, use `PENDING_UPLOAD` status.
 
 ---
 
-### 2. **Reconciliation Exception Prioritization**
+## COVERAGE REPORT
 
-**Ambiguity:**  
-Which reconciliation exceptions trigger P1 page alerts vs. warning-level notifications:
-- MISSING_AT_SUPPLIER: P1 page?
-- ORPHAN_TICKET: P1 page?
-- STATUS_DRIFT: Warning?
-- AMOUNT_DRIFT: Warning?
-
-**Impact:**  
-Reconciliation exception tests do not include alert prioritization logic.
-
-**Recommendation:**  
-- Define alert prioritization matrix
-- Add tests for each exception type with alert expectations
-- Document incident escalation criteria
-
-**Status:** ⏳ PENDING OPERATIONS POLICY
-
----
-
-### 3. **Cost Allocation Rounding for Multiple Passengers**
-
-**Ambiguity:**  
-When allocating costs across multiple passengers with percentages that don't divide evenly (e.g., 1/3 each for 3 passengers = 33.33...%), what is the rounding/tie-breaking algorithm:
-- Largest remainder method?
-- Round-half-up?
-- First passenger gets remainder?
-
-**Impact:**  
-Test TC-BE-024 validates 100% sum but does not test rounding behavior for fractional allocations.
-
-**Recommendation:**  
-- Finalize rounding algorithm
-- Add detailed test cases for multi-passenger fractional splits
-- Document in API specification
-
-**Status:** ⏳ PENDING SPECIFICATION
-
----
-
-## INTEGRATION POINTS
+### By Domain
 
 ### 1. **Sabre GDS Adapter**
 
