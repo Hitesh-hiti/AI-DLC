@@ -11,9 +11,9 @@ description: Apply the detailed workflow and guardrails for phase 02-gap-analysi
 
 ## Revision History
 
-| Version | Date | Timestamp | Change |
-|---|---|---|---|
-| 1.0 | 2026-09-25 | 2026-09-25T01:06:00+05:30 | Initial gap analysis and technical/design specification |
+| Version |  Timestamp | Change |
+|---------|------------|--------|
+| 1.0     |  2026-09-25T01:06:00+05:30 | Initial gap analysis and technical/design specification |
 
 ## Role
 
