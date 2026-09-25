@@ -3228,3 +3228,111 @@ These 119 BE test cases are:
 **Approval Gate:** QA Lead + Tech Lead  
 **Last Updated:** 2026-09-24  
 **Version:** 1.0
+
+
+---
+
+## AUTOMATION TRACEABILITY MATRIX (Updated)
+
+**Updated:** 2026-09-03  
+**Source:** Verified against `testing-framework/api/` scripts  
+**Framework:** Vitest + Supertest — `testing-framework/api/scenarios/`  
+**Verifier:** AI-assisted scan of all test files + `TEST_AUTOMATION_SUMMARY.md`
+
+---
+
+### Verification Legend
+
+| Symbol | Meaning |
+|--------|---------|
+| ✅ AUTOMATED | Script exists, BET ID traced, all `it()` blocks verified |
+| 🟡 DRAFT | File listed in TEST_AUTOMATION_SUMMARY.md but not yet in repo |
+| ❌ NOT AUTOMATED | No script, no draft reference |
+| 🔒 BLOCKED | Cannot automate yet — environment/backend not available |
+
+---
+
+### BE Traceability Matrix — All Test Cases
+
+| TC-BE ID | BET ID | AC ID(s) | Req ID | Priority | Test Scenario | Script File | Test Method Count | Automation Status | Notes |
+|----------|--------|----------|--------|----------|---------------|-------------|-------------------|-------------------|-------|
+| TC-BE-001 | BET-001 | AC-EXP-01-01, AC-EXP-01-05 | REQ-EXP-01 | P0 | Search returns offers with integer minor units + fare invariant | `api/scenarios/experience/search.test.ts` | 2 | ✅ AUTOMATED | Validates: each offer has integer base_fare, taxes[], fees[], invariant (base+taxes+fees=total), no floats, ISO 4217 currency |
+| TC-BE-002 | BET-002 | AC-EXP-01-06 | REQ-EXP-01 | P1 | Search returns HTTP 200 with empty offers array for no-match | `api/scenarios/experience/search.test.ts` | 2 | ✅ AUTOMATED | Empty array (not 404), past-date search also returns empty |
+| TC-BE-003 | BET-003 | AC-EXP-01-08 | REQ-EXP-01 | P1 | Search missing mandatory field → HTTP 400 VALIDATION_ERROR | `api/scenarios/experience/search.test.ts` | 5 | ✅ AUTOMATED | 5 cases: missing origin, destination, departure_date, passengers; RFC 7807 format with correlation_id |
+| TC-BE-004 | BET-004 | AC-EXP-02-01, AC-EXP-02-02, AC-EXP-02-07 | REQ-EXP-02 | P0 | Booking hold created — HELD status, GDS locator (append-only), policy snapshot | `api/scenarios/experience/booking.test.ts` | 2 | ✅ AUTOMATED | Validates: status=HELD, hold_expires_at within 5 min, supplier_mapping type=GDS_LOCATOR, policy_decision_snapshot with outcome+rule_set_version+matched_rules; multi-passenger PII pointer model |
+| TC-BE-005 | BET-005 | AC-EXP-02-03, AC-POL-04-01 | REQ-EXP-02, REQ-POL-04 | P0 | Policy BLOCK → HTTP 422 POLICY_BLOCKED, no booking created | `api/scenarios/experience/booking.test.ts` | 1 | ✅ AUTOMATED | Validates: 422 status, error_code=POLICY_BLOCKED, correlation_id echoed, no booking_id in response |
+| TC-BE-006 | BET-006 | AC-EXP-02-06 | REQ-EXP-02 | P1 | Missing Idempotency-Key → HTTP 400 IDEMPOTENCY_KEY_MISSING | `api/scenarios/experience/booking.test.ts` | 1 | ✅ AUTOMATED | Gateway-level rejection, error_code=IDEMPOTENCY_KEY_MISSING, detail mentions header name |
+| TC-BE-007 | BET-007 | AC-EXP-02-07, AC-EXP-02-08 | REQ-EXP-02 | P0 | Duplicate Idempotency-Key → cached response, no second booking | `api/scenarios/experience/booking.test.ts` | 1 | ✅ AUTOMATED | First and second response identical: same booking_id, same status, same policy_decision_snapshot |
+| TC-BE-008 | BET-008 | AC-EXP-02-09 | REQ-EXP-02 | P1 | Policy decision snapshot is immutable | `api/scenarios/experience/booking.test.ts` | 1 | ✅ AUTOMATED | Snapshot structure verified (outcome, rule_set_version, matched_rules[]) — full DB immutability requires Testcontainers (Phase 2) |
+| TC-BE-009 | BET-013 | AC-EXP-02-04 | REQ-EXP-02 | P0 | REQUIRE_APPROVAL → booking HELD + approval record PENDING + ApprovalRequested event | `api/scenarios/experience/booking.test.ts` | 2 | ✅ AUTOMATED | Validates: status=HELD, policy snapshot=REQUIRE_APPROVAL, approval.approval_id, approval.status=PENDING, expires_at within 5 min, events[] contains ApprovalRequested event with event_id |
+| TC-BE-010 | BET-009 | AC-EXP-03-01 | REQ-EXP-03 | P0 | Confirm HELD booking → PENDING_ISSUE + BookingQueuedForTicketing event | `api/scenarios/experience/confirm.test.ts` | — | 🟡 DRAFT | File listed in TEST_AUTOMATION_SUMMARY.md; not present in repo |
+| TC-BE-011 | BET-010 | AC-EXP-04-01 | REQ-EXP-04 | P0 | Cancel HELD booking → CANCELLED + GDS hold released | `api/scenarios/experience/cancel.test.ts` | — | 🟡 DRAFT | File listed in TEST_AUTOMATION_SUMMARY.md; not present in repo |
+| TC-BE-012 | — | AC-EXP-03-05 | REQ-EXP-03 | P1 | Confirm expired hold → HTTP 409 BOOKING_STATE_INVALID | Not in repo | — | 🟡 DRAFT | Requires clock-mocking (Testcontainers); no file created yet |
+| TC-BE-013 | BET-011 | AC-EXP-05-01 | REQ-EXP-05 | P0 | GET /v1/trips/:id → trip details with all booking segments | `api/scenarios/experience/trip.test.ts` | — | 🟡 DRAFT | File listed in summary; not present in repo |
+| TC-BE (Approval) | BET-012 | AC-EXP-07-01 | REQ-EXP-07 | P1 | Approval decision → booking proceeds to confirm / cancelled | `api/scenarios/experience/approval.test.ts` | — | 🟡 DRAFT | File listed in summary; not present in repo |
+| TC-BE (GDS Adapter) | BET-014–018 | AC-CNT-01-03, CNT-02-02, CNT-03-01, CNT-03-02 | REQ-CNT | P0/P1 | GDS adapter: creds, normalisation, fare invariant, idempotency | `api/scenarios/content/gds-adapter.test.ts` | — | 🟡 DRAFT | 5 tests planned; not present in repo |
+| TC-BE (Policy) | BET-019–020 | AC-POL-01-01, POL-01-04 | REQ-POL-01 | P0/P1 | Policy sync evaluation — precedence + timeout → 503 | `api/scenarios/policy/evaluation.test.ts` | — | 🟡 DRAFT | Not present in repo |
+| TC-BE (Financial) | BET-021–022 | AC-PAY-01-01, PAY-02-04 | REQ-PAY | P0/P1 | Financial events (21 dims) + cost allocation sum invariant | `api/scenarios/payment/*.test.ts` | — | 🟡 DRAFT | Not present in repo |
+| TC-BE (State Guards) | BET-023 | AC-SVC-03-01 | REQ-SVC | P1 | Illegal state transition rejected | `api/scenarios/servicing/state-guards.test.ts` | — | 🟡 DRAFT | Not present in repo |
+| TC-BE (Tenant Isolation) | BET-025 | AC-DAT-05-02 | REQ-DAT | P1 | Cross-tenant booking → HTTP 404 | `api/scenarios/data/tenant-isolation.test.ts` | — | 🟡 DRAFT | Not present in repo |
+| TC-BE (Auth) | BET-027–029 | AC-XCT-02-01, XCT-03-01 | REQ-XCT | P1 | Missing JWT → 401; non-approver → 403; mutate without idempotency | `api/scenarios/xct/auth.test.ts` | — | 🟡 DRAFT | Not present in repo |
+| TC-BE (Logging) | BET-030 | AC-XCT-04-01 | REQ-XCT | P1 | Structured JSON log + PII sanitisation | `api/scenarios/xct/logging.test.ts` | — | 🟡 DRAFT | Not present in repo |
+
+---
+
+### BE Coverage Summary by Domain
+
+| Domain | TC-BE IDs | BET IDs | ACs Covered | Scripts Present | Status |
+|--------|-----------|---------|-------------|----------------|--------|
+| Experience — Search | TC-BE-001 to TC-BE-003 | BET-001, 002, 003 | AC-EXP-01-01, 01-05, 01-06, 01-08 | `search.test.ts` ✅ | ✅ AUTOMATED (9 it-blocks) |
+| Experience — Booking Hold | TC-BE-004 to TC-BE-009 | BET-004, 005, 006, 007, 008, 013 | AC-EXP-02-01, 02-02, 02-03, 02-04, 02-06, 02-07, 02-08, 02-09 | `booking.test.ts` ✅ | ✅ AUTOMATED (8 it-blocks) |
+| Experience — Confirm | TC-BE-010, TC-BE-012 | BET-009 | AC-EXP-03-01, 03-05 | `confirm.test.ts` 🟡 | 🟡 DRAFT |
+| Experience — Cancel | TC-BE-011 | BET-010 | AC-EXP-04-01 | `cancel.test.ts` 🟡 | 🟡 DRAFT |
+| Experience — Trip | TC-BE-013 | BET-011 | AC-EXP-05-01 | `trip.test.ts` 🟡 | 🟡 DRAFT |
+| Experience — Approval | — | BET-012 | AC-EXP-07-01 | `approval.test.ts` 🟡 | 🟡 DRAFT |
+| Content — GDS Adapter | — | BET-014–018 | AC-CNT-01–03 | `gds-adapter.test.ts` 🟡 | 🟡 DRAFT |
+| Policy | — | BET-019–020 | AC-POL-01-01, 01-04 | `evaluation.test.ts` 🟡 | 🟡 DRAFT |
+| Payment | — | BET-021–022 | AC-PAY-01-01, 02-04 | `payment/*.test.ts` 🟡 | 🟡 DRAFT |
+| Servicing | — | BET-023 | AC-SVC-03-01 | `state-guards.test.ts` 🟡 | 🟡 DRAFT |
+| Cross-Cutting / Auth | — | BET-025–030 | AC-XCT-02-01, 03-01, 04-01, DAT-05-02 | `xct/*.test.ts` 🟡 | 🟡 DRAFT |
+
+---
+
+### BE Automation Count
+
+| Status | BET IDs | Count | % of 30 BET IDs |
+|--------|---------|-------|-----------------|
+| ✅ AUTOMATED | BET-001, 002, 003, 004, 005, 006, 007, 008, 013 | 9 | 30% |
+| 🟡 DRAFT | BET-009 to BET-012, BET-014 to BET-030 | 21 | 70% |
+| ❌ NOT AUTOMATED | — | 0 | 0% |
+
+**Total Vitest API test files in repo:** 2 (`search.test.ts`, `booking.test.ts`)  
+**Total `it()` blocks verified:** 17  
+**Phase 1 complete test IDs:** BET-001, BET-002, BET-003, BET-004, BET-005, BET-006, BET-007, BET-008, BET-013
+
+---
+
+### Verified Script → TC-BE Traceability
+
+| Script | it() Count | TC-BE IDs | BET IDs | AC IDs | Run Status |
+|--------|-----------|-----------|---------|--------|------------|
+| `api/scenarios/experience/search.test.ts` | 9 | TC-BE-001, TC-BE-002, TC-BE-003 | BET-001, BET-002, BET-003 | AC-EXP-01-01, 01-05, 01-06, 01-08 | 🔒 BLOCKED — requires live API on port 3000 or Wiremock |
+| `api/scenarios/experience/booking.test.ts` | 8 | TC-BE-004 to TC-BE-009 | BET-004, BET-005, BET-006, BET-007, BET-008, BET-013 | AC-EXP-02-01 to 02-09 (partial), AC-POL-04-01 | 🔒 BLOCKED — requires live API on port 3000 |
+
+> **Note on execution status:** The BE API tests call `POST /v1/search` and `POST /v1/bookings` on `http://localhost:3000`. This backend service is not yet running — the frontend mock service cannot satisfy these calls. Tests are structurally complete and will execute once a Wiremock server or real backend is available. This is consistent with the TEST_AUTOMATION_SUMMARY.md Phase 2 roadmap.
+
+---
+
+### Gap Items — Blocking Phase 1 BE Execution
+
+| Gap | BET IDs | Root Cause | Action Required |
+|-----|---------|------------|-----------------|
+| Backend API not running | All BET | No Express/Spring backend on port 3000 | Deploy backend stub or Wiremock server |
+| Missing draft files | BET-009 to BET-012, BET-014 to BET-030 | Files in TEST_AUTOMATION_SUMMARY.md but not created | Create scripts per Phase 1 completion plan |
+| Testcontainers not configured | BET-008 (immutability), BET-012 (clock mock) | Requires Docker + PostgreSQL container | Phase 2 infrastructure setup |
+| Wiremock Sabre fixtures incomplete | BET-014–018 | GDS adapter test needs Sabre mock responses | Complete Wiremock fixture library |
+
+---
+
+*Matrix generated from live inspection of `testing-framework/api/` directory.*  
+*All script paths are relative to `c:\Users\Hitesh_C\Documents\TravelPlatform\testing-framework\`*
