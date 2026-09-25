@@ -393,6 +393,118 @@
       ],
       "pnr": "TR4VW4",
       "confirmedAt": "2026-09-24T19:34:13.125Z"
+    },
+    {
+      "bookingId": "37be538c-8a1f-4bd7-9660-8b1425845259",
+      "offerId": "flight-002",
+      "organizationId": "org-001",
+      "travelerId": "traveler-001",
+      "passengerInfo": [
+        {
+          "passengerType": "ADT",
+          "firstName": "BHARATHI",
+          "lastName": "VAIDYA"
+        }
+      ],
+      "flightDetails": {
+        "origin": "LHR",
+        "destination": "JFK",
+        "departureDate": "2026-10-01",
+        "cabinClass": "ECONOMY",
+        "passengers": 1
+      },
+      "bookingStatus": "CONFIRMED",
+      "confirmationNumber": "LCU4WF",
+      "holdExpiresAt": "2026-09-25T08:44:01.797Z",
+      "fareBreakdown": {
+        "baseFare": {
+          "amount": 380,
+          "currency": "USD"
+        },
+        "taxes": {
+          "amount": 57,
+          "currency": "USD"
+        },
+        "fees": {
+          "amount": 25,
+          "currency": "USD"
+        },
+        "totalFare": {
+          "amount": 462,
+          "currency": "USD"
+        }
+      },
+      "cancellationPolicy": {
+        "refundable": true,
+        "cancellationDeadline": "2026-09-27T08:14:01.798Z",
+        "penaltyAmount": {
+          "amount": 50,
+          "currency": "USD"
+        }
+      },
+      "createdAt": "2026-09-25T08:14:01.798Z",
+      "modifiedAt": "2026-09-25T08:14:01.848Z",
+      "ticketNumbers": [
+        "TKT-E14F5138"
+      ],
+      "pnr": "4RHFJB",
+      "confirmedAt": "2026-09-25T08:14:01.848Z"
+    },
+    {
+      "bookingId": "77270311-4de5-4d02-babd-b2f33d29544a",
+      "offerId": "flight-002",
+      "organizationId": "org-001",
+      "travelerId": "traveler-001",
+      "passengerInfo": [
+        {
+          "passengerType": "ADT",
+          "firstName": "BHARATHI",
+          "lastName": "VAIDYA"
+        }
+      ],
+      "flightDetails": {
+        "origin": "LHR",
+        "destination": "JFK",
+        "departureDate": "2026-10-01",
+        "cabinClass": "ECONOMY",
+        "passengers": 1
+      },
+      "bookingStatus": "CONFIRMED",
+      "confirmationNumber": "MQHLSB",
+      "holdExpiresAt": "2026-09-25T08:45:22.999Z",
+      "fareBreakdown": {
+        "baseFare": {
+          "amount": 380,
+          "currency": "USD"
+        },
+        "taxes": {
+          "amount": 57,
+          "currency": "USD"
+        },
+        "fees": {
+          "amount": 25,
+          "currency": "USD"
+        },
+        "totalFare": {
+          "amount": 462,
+          "currency": "USD"
+        }
+      },
+      "cancellationPolicy": {
+        "refundable": true,
+        "cancellationDeadline": "2026-09-27T08:15:22.999Z",
+        "penaltyAmount": {
+          "amount": 50,
+          "currency": "USD"
+        }
+      },
+      "createdAt": "2026-09-25T08:15:22.999Z",
+      "modifiedAt": "2026-09-25T08:15:23.035Z",
+      "ticketNumbers": [
+        "TKT-5F577124"
+      ],
+      "pnr": "532UEK",
+      "confirmedAt": "2026-09-25T08:15:23.035Z"
     }
   ],
   "approvals": [],
@@ -424,6 +536,54 @@
     {
       "evaluationId": "28998114-5aae-4579-891c-d0c5a51f2b7f",
       "timestamp": "2026-09-24T19:34:08.821Z",
+      "outcome": "ALLOW",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-fare",
+          "policyName": "Fare Limit",
+          "outcome": "ALLOW",
+          "details": "Fare is within the approved limit",
+          "threshold": {
+            "amount": 1000,
+            "currency": "USD"
+          },
+          "actualValue": {
+            "amount": 380,
+            "currency": "USD"
+          }
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "4829929f-d16b-4286-8d1d-e956c453a6ee",
+      "timestamp": "2026-09-25T08:13:49.868Z",
+      "outcome": "ALLOW",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-fare",
+          "policyName": "Fare Limit",
+          "outcome": "ALLOW",
+          "details": "Fare is within the approved limit",
+          "threshold": {
+            "amount": 1000,
+            "currency": "USD"
+          },
+          "actualValue": {
+            "amount": 380,
+            "currency": "USD"
+          }
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "ca54b012-2966-4824-adb9-74f0e8dfa4ff",
+      "timestamp": "2026-09-25T08:15:19.539Z",
       "outcome": "ALLOW",
       "requiresApproval": false,
       "policies": [
@@ -479,6 +639,40 @@
       "createdAt": "2026-09-24T19:34:13.125Z",
       "payload": {
         "bookingId": "2a9abcbb-4b72-410e-8036-a70aab3d1bcf"
+      }
+    },
+    {
+      "id": "a03beb53-ad97-4842-bf79-808ba5589214",
+      "action": "BOOKING_HOLD_CREATED",
+      "createdAt": "2026-09-25T08:14:01.798Z",
+      "payload": {
+        "bookingId": "37be538c-8a1f-4bd7-9660-8b1425845259",
+        "offerId": "flight-002"
+      }
+    },
+    {
+      "id": "96bd9e39-2b48-4a92-bfad-b5aedbe4a1e9",
+      "action": "BOOKING_CONFIRMED",
+      "createdAt": "2026-09-25T08:14:01.848Z",
+      "payload": {
+        "bookingId": "37be538c-8a1f-4bd7-9660-8b1425845259"
+      }
+    },
+    {
+      "id": "de897ac3-b638-4c05-8123-d6b8bd8d62fe",
+      "action": "BOOKING_HOLD_CREATED",
+      "createdAt": "2026-09-25T08:15:22.999Z",
+      "payload": {
+        "bookingId": "77270311-4de5-4d02-babd-b2f33d29544a",
+        "offerId": "flight-002"
+      }
+    },
+    {
+      "id": "89155d26-6bf1-4c5f-a69b-d24820b933ed",
+      "action": "BOOKING_CONFIRMED",
+      "createdAt": "2026-09-25T08:15:23.035Z",
+      "payload": {
+        "bookingId": "77270311-4de5-4d02-babd-b2f33d29544a"
       }
     }
   ]
