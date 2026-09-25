@@ -186,6 +186,43 @@ Front-end notification templates for booking confirmation, approval request, hol
 
 ## 8. FE TRACEABILITY MATRIX
 
+### AC_breakdown_AGENT Format
+
+| Domain | Requirement ID | AC ID | Priority | Layer | Source |
+|--------|----------------|-------|----------|-------|--------|
+| Experience | REQ-EXP-01 | AC-EXP-01-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q2, Q6 |
+| Experience | REQ-EXP-01 | AC-EXP-01-02 | P1 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-01 | AC-EXP-01-03 | P1 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-01 | AC-EXP-01-04 | P1 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-02 | AC-EXP-02-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q1, Q2, Q7 |
+| Experience | REQ-EXP-02 | AC-EXP-02-05 | P0 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-02 | AC-EXP-02-10 | P0 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-03 | AC-EXP-03-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q1, Q3 |
+| Experience | REQ-EXP-03 | AC-EXP-03-07 | P1 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-03 | AC-EXP-03-08 | P0 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-04 | AC-EXP-04-01 | P0 | FE+BE | RequirementDocument.md |
+| Experience | REQ-EXP-04 | AC-EXP-04-02 | P0 | FE+BE | RequirementDocument.md |
+| Experience | REQ-EXP-04 | AC-EXP-04-03 | P0 | FE+BE | RequirementDocument.md |
+| Experience | REQ-EXP-04 | AC-EXP-04-05 | P0 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-05 | AC-EXP-05-01 | P0 | FE+BE | RequirementDocument.md |
+| Experience | REQ-EXP-05 | AC-EXP-05-04 | P1 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-05 | AC-EXP-05-05 | P1 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-06 | AC-EXP-06-03 | P1 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-07 | AC-EXP-07-05 | P1 | FE | RequirementDocument.md |
+| Experience | REQ-EXP-08 | AC-EXP-08-01 | P1 | FE trigger | RequirementDocument.md |
+| Experience | REQ-EXP-08 | AC-EXP-08-02 | P1 | FE trigger | RequirementDocument.md |
+| Experience | REQ-EXP-08 | AC-EXP-08-03 | P1 | FE trigger | RequirementDocument.md |
+| Experience | REQ-EXP-08 | AC-EXP-08-04 | P1 | FE trigger | RequirementDocument.md |
+| Policy | REQ-POL-01 | AC-POL-01-05 | P0 | FE | RequirementDocument.md |
+| Policy | REQ-POL-01 | AC-POL-01-06 | P0 | FE | RequirementDocument.md |
+| Policy | REQ-POL-03 | AC-POL-03-05 | P1 | FE | RequirementDocument.md |
+| Policy | REQ-POL-04 | AC-POL-04-03 | P0 | FE | RequirementDocument.md |
+| Payment | REQ-PAY-03 | AC-PAY-03-07 | P0 | FE | RequirementDocument.md |
+| Servicing | REQ-SVC-01 | AC-SVC-01-04 | P1 | FE | RequirementDocument.md |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-03 | P1 | FE | RequirementDocument.md |
+
+### Legacy Traceability Matrix (for reference)
+
 | AC ID | Req ID | Layer | Description |
 |-------|--------|-------|-------------|
 | AC-EXP-01-01 | REQ-EXP-01 | FE+BE | Search form submission — render results with amounts and currencies |

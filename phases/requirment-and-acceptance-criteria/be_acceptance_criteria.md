@@ -483,6 +483,8 @@
 
 ## 9. BE TRACEABILITY MATRIX
 
+### Legacy Traceability Matrix (Original Format)
+
 | AC ID | Req ID | Description |
 |-------|--------|-------------|
 | AC-EXP-01-01 | REQ-EXP-01 | Search returns offers with amounts in minor units + ISO 4217 |
@@ -556,6 +558,180 @@
 | AC-XCT-04-01 to 04 | REQ-XCT-04 | Logging: JSON structure, PII scan, OTEL span attributes, health endpoints |
 | AC-XCT-05-01 to 02 | REQ-XCT-05 | Error format: problem+json fields, no stack trace |
 | AC-XCT-06-01 to 03 | REQ-XCT-06 | No PAN: Luhn scan, log/DB scan, config scan |
+
+### AC_breakdown_AGENT Format Traceability Matrix
+
+| Domain | Requirement ID | AC ID | Priority | Layer | Source |
+|--------|----------------|-------|----------|-------|--------|
+| Experience | REQ-EXP-01 | AC-EXP-01-01 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-01 | AC-EXP-01-05 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-01 | AC-EXP-01-06 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-01 | AC-EXP-01-07 | P0 | BE | Requirement Document |
+| Experience | REQ-EXP-01 | AC-EXP-01-08 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-02 | AC-EXP-02-01 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-02 | AC-EXP-02-02 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-02 | AC-EXP-02-03 | P0 | BE | Requirement Document |
+| Experience | REQ-EXP-02 | AC-EXP-02-04 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-02 | AC-EXP-02-06 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-02 | AC-EXP-02-07 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-02 | AC-EXP-02-08 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-02 | AC-EXP-02-09 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-03 | AC-EXP-03-01 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-03 | AC-EXP-03-02 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-03 | AC-EXP-03-03 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-03 | AC-EXP-03-04 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-03 | AC-EXP-03-05 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-03 | AC-EXP-03-06 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-03 | AC-EXP-03-09 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-04 | AC-EXP-04-01 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-04 | AC-EXP-04-02 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-04 | AC-EXP-04-03 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-04 | AC-EXP-04-04 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-04 | AC-EXP-04-06 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-04 | AC-EXP-04-07 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-04 | AC-EXP-04-08 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-05 | AC-EXP-05-01 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-05 | AC-EXP-05-02 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-05 | AC-EXP-05-03 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-06 | AC-EXP-06-01 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-06 | AC-EXP-06-02 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-06 | AC-EXP-06-04 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-07 | AC-EXP-07-01 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-07 | AC-EXP-07-02 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-07 | AC-EXP-07-03 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-07 | AC-EXP-07-04 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-08 | AC-EXP-08-01 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-08 | AC-EXP-08-02 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-08 | AC-EXP-08-03 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-08 | AC-EXP-08-04 | P1 | BE | Requirement Document |
+| Experience | REQ-EXP-08 | AC-EXP-08-05 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-01 | AC-CNT-01-01 | P0 | BE | Requirement Document |
+| Content | REQ-CNT-01 | AC-CNT-01-02 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-01 | AC-CNT-01-03 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-01 | AC-CNT-01-04 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-01 | AC-CNT-01-05 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-01 | AC-CNT-01-06 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-01 | AC-CNT-01-07 | P0 | BE | Requirement Document |
+| Content | REQ-CNT-01 | AC-CNT-01-08 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-02 | AC-CNT-02-01 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-02 | AC-CNT-02-02 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-02 | AC-CNT-02-03 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-02 | AC-CNT-02-04 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-02 | AC-CNT-02-05 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-03 | AC-CNT-03-01 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-03 | AC-CNT-03-02 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-03 | AC-CNT-03-03 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-03 | AC-CNT-03-04 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-03 | AC-CNT-03-05 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-04 | AC-CNT-04-01 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-04 | AC-CNT-04-02 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-04 | AC-CNT-04-03 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-04 | AC-CNT-04-04 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-04 | AC-CNT-04-05 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-04 | AC-CNT-04-06 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-05 | AC-CNT-05-01 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-05 | AC-CNT-05-02 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-05 | AC-CNT-05-03 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-05 | AC-CNT-05-04 | P1 | BE | Requirement Document |
+| Content | REQ-CNT-05 | AC-CNT-05-05 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-01 | AC-POL-01-01 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-01 | AC-POL-01-02 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-01 | AC-POL-01-03 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-01 | AC-POL-01-04 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-02 | AC-POL-02-01 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-02 | AC-POL-02-02 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-02 | AC-POL-02-03 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-02 | AC-POL-02-04 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-02 | AC-POL-02-05 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-03 | AC-POL-03-01 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-03 | AC-POL-03-02 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-03 | AC-POL-03-03 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-03 | AC-POL-03-04 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-03 | AC-POL-03-06 | P1 | BE | Requirement Document |
+| Policy | REQ-POL-04 | AC-POL-04-01 | P0 | BE | Requirement Document |
+| Policy | REQ-POL-04 | AC-POL-04-02 | P0 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-01 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-02 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-03 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-04 | P0 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-05 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-06 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-01 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-02 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-03 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-04 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-05 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-06 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-01 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-02 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-03 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-04 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-05 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-06 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-04 | AC-PAY-04-01 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-04 | AC-PAY-04-02 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-04 | AC-PAY-04-03 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-04 | AC-PAY-04-04 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-04 | AC-PAY-04-05 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-05 | AC-PAY-05-01 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-05 | AC-PAY-05-02 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-05 | AC-PAY-05-03 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-05 | AC-PAY-05-04 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-06 | AC-PAY-06-01 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-06 | AC-PAY-06-02 | P1 | BE | Requirement Document |
+| Payment & Expense | REQ-PAY-06 | AC-PAY-06-03 | P1 | BE | Requirement Document |
+| Servicing | REQ-SVC-01 | AC-SVC-01-01 | P0 | BE | Requirement Document |
+| Servicing | REQ-SVC-01 | AC-SVC-01-02 | P1 | BE | Requirement Document |
+| Servicing | REQ-SVC-01 | AC-SVC-01-03 | P0 | BE | Requirement Document |
+| Servicing | REQ-SVC-02 | AC-SVC-02-01 | P1 | BE | Requirement Document |
+| Servicing | REQ-SVC-02 | AC-SVC-02-02 | P1 | BE | Requirement Document |
+| Servicing | REQ-SVC-02 | AC-SVC-02-03 | P1 | BE | Requirement Document |
+| Servicing | REQ-SVC-03 | AC-SVC-03-01 | P1 | BE | Requirement Document |
+| Servicing | REQ-SVC-03 | AC-SVC-03-02 | P1 | BE | Requirement Document |
+| Servicing | REQ-SVC-03 | AC-SVC-03-03 | P1 | BE | Requirement Document |
+| Servicing | REQ-SVC-03 | AC-SVC-03-04 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-01 | AC-DAT-01-01 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-01 | AC-DAT-01-02 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-01 | AC-DAT-01-03 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-01 | AC-DAT-01-04 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-01 | AC-DAT-01-05 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-02 | AC-DAT-02-01 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-02 | AC-DAT-02-02 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-02 | AC-DAT-02-03 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-03 | AC-DAT-03-01 | P0 | BE | Requirement Document |
+| Data | REQ-DAT-03 | AC-DAT-03-02 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-03 | AC-DAT-03-03 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-03 | AC-DAT-03-04 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-04 | AC-DAT-04-01 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-04 | AC-DAT-04-02 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-04 | AC-DAT-04-03 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-04 | AC-DAT-04-04 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-04 | AC-DAT-04-05 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-04 | AC-DAT-04-06 | P1 | BE | Requirement Document |
+| Data | REQ-DAT-05 | AC-DAT-05-01 | P0 | BE | Requirement Document |
+| Data | REQ-DAT-05 | AC-DAT-05-02 | P0 | BE | Requirement Document |
+| Data | REQ-DAT-05 | AC-DAT-05-03 | P0 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-01 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-02 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-03 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-04 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-01 | P0 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-02 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-03 | P0 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-04 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-05 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-01 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-02 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-03 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-01 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-02 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-03 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-04 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-01 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-02 | P1 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-01 | P0 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-02 | P0 | BE | Requirement Document |
+| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-03 | P1 | BE | Requirement Document |
 
 **Total BE / FE+BE criteria: 138**
 
