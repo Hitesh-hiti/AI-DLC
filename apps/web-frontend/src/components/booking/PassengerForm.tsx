@@ -67,6 +67,10 @@ export const PassengerForm: React.FC<PassengerFormProps> = ({
       if (!p.lastName.trim()) pErrors.lastName = 'Last name is required';
       else if (p.lastName.trim().length < 2) pErrors.lastName = 'Must be at least 2 characters';
       if (Object.keys(pErrors).length) newErrors[i] = pErrors;
+      else if (!p.passportNumber?.trim() || !/^[A-Za-z0-9]{9}$/.test(p.passportNumber.trim())) {
+      pErrors.passportNumber = 'Passport number must be exactly 9 alphanumeric characters';  
+      }
+      if (Object.keys(pErrors).length) newErrors[i] = pErrors;
     });
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -161,11 +165,14 @@ export const PassengerForm: React.FC<PassengerFormProps> = ({
               onChange={(e) => updatePassenger(i, 'frequentFlyerNumber', e.target.value)}
             />
             <Input
-              label="Passport Number (optional)"
+              label="Passport Number"
               id={`pax-passport-${i}`}
               placeholder="e.g. A12345678"
               value={pax.passportNumber ?? ''}
               onChange={(e) => updatePassenger(i, 'passportNumber', e.target.value.toUpperCase())}
+	            error={errors[i]?.passportNumber}
+	            required
+    	        data-testid={`pax-${i}-passport-Number`}
             />
           </div>
         </fieldset>

@@ -786,6 +786,63 @@
       ],
       "pnr": "G6NZTK",
       "confirmedAt": "2026-09-28T07:37:03.996Z"
+    },
+    {
+      "bookingId": "572f54c6-b5d0-4b48-aae5-5fa559b671b9",
+      "offerId": "flight-002",
+      "organizationId": "org-001",
+      "travelerId": "traveler-001",
+      "passengerInfo": [
+        {
+          "passengerType": "ADT",
+          "firstName": "HITESH",
+          "lastName": "HITI",
+          "passportNumber": "T45678345"
+        }
+      ],
+      "flightDetails": {
+        "origin": "LHR",
+        "destination": "JFK",
+        "departureDate": "2026-10-01",
+        "cabinClass": "ECONOMY",
+        "passengers": 1
+      },
+      "bookingStatus": "CONFIRMED",
+      "confirmationNumber": "GUVDZT",
+      "holdExpiresAt": "2026-09-28T12:33:50.725Z",
+      "fareBreakdown": {
+        "baseFare": {
+          "amount": 380,
+          "currency": "USD"
+        },
+        "taxes": {
+          "amount": 57,
+          "currency": "USD"
+        },
+        "fees": {
+          "amount": 25,
+          "currency": "USD"
+        },
+        "totalFare": {
+          "amount": 462,
+          "currency": "USD"
+        }
+      },
+      "cancellationPolicy": {
+        "refundable": true,
+        "cancellationDeadline": "2026-09-30T12:03:50.725Z",
+        "penaltyAmount": {
+          "amount": 50,
+          "currency": "USD"
+        }
+      },
+      "createdAt": "2026-09-28T12:03:50.725Z",
+      "modifiedAt": "2026-09-28T12:03:50.760Z",
+      "ticketNumbers": [
+        "TKT-BEE186F0"
+      ],
+      "pnr": "5M5ZVR",
+      "confirmedAt": "2026-09-28T12:03:50.760Z"
     }
   ],
   "approvals": [],
@@ -1000,6 +1057,144 @@
       ],
       "organizationId": "org-001",
       "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "6131feab-ade0-4513-9979-21de4863c871",
+      "timestamp": "2026-09-28T11:50:56.065Z",
+      "outcome": "WARN",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-advance",
+          "policyName": "Advance Booking",
+          "outcome": "WARN",
+          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "ADV_BOOKING_SHORT",
+          "message": "This booking is less than 7 days in advance",
+          "severity": "WARNING"
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "b45c2d3a-42d7-480c-b3eb-f94cfe23ab2e",
+      "timestamp": "2026-09-28T12:00:46.729Z",
+      "outcome": "WARN",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-advance",
+          "policyName": "Advance Booking",
+          "outcome": "WARN",
+          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "ADV_BOOKING_SHORT",
+          "message": "This booking is less than 7 days in advance",
+          "severity": "WARNING"
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "a7b8716b-8656-44c7-8590-c7f0dc8b6481",
+      "timestamp": "2026-09-28T12:02:54.941Z",
+      "outcome": "WARN",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-advance",
+          "policyName": "Advance Booking",
+          "outcome": "WARN",
+          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "ADV_BOOKING_SHORT",
+          "message": "This booking is less than 7 days in advance",
+          "severity": "WARNING"
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "35d3deff-ff87-43c3-ad19-b58273b7845a",
+      "timestamp": "2026-09-28T12:03:23.840Z",
+      "outcome": "WARN",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-advance",
+          "policyName": "Advance Booking",
+          "outcome": "WARN",
+          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "ADV_BOOKING_SHORT",
+          "message": "This booking is less than 7 days in advance",
+          "severity": "WARNING"
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "c6028a81-4c8e-48ed-b83f-07034cef2bf8",
+      "timestamp": "2026-09-28T12:08:29.708Z",
+      "outcome": "WARN",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-advance",
+          "policyName": "Advance Booking",
+          "outcome": "WARN",
+          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "ADV_BOOKING_SHORT",
+          "message": "This booking is less than 7 days in advance",
+          "severity": "WARNING"
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "96bb4ec9-5d77-42e9-9690-c24483c677f5",
+      "timestamp": "2026-09-28T12:09:23.684Z",
+      "outcome": "WARN",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-advance",
+          "policyName": "Advance Booking",
+          "outcome": "WARN",
+          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "ADV_BOOKING_SHORT",
+          "message": "This booking is less than 7 days in advance",
+          "severity": "WARNING"
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
     }
   ],
   "events": [
@@ -1154,6 +1349,23 @@
       "createdAt": "2026-09-28T07:37:03.996Z",
       "payload": {
         "bookingId": "c1bf9235-a741-40d9-83b8-83c64692b291"
+      }
+    },
+    {
+      "id": "64bdabcd-f4ba-44d2-a985-c8723637b754",
+      "action": "BOOKING_HOLD_CREATED",
+      "createdAt": "2026-09-28T12:03:50.725Z",
+      "payload": {
+        "bookingId": "572f54c6-b5d0-4b48-aae5-5fa559b671b9",
+        "offerId": "flight-002"
+      }
+    },
+    {
+      "id": "d906f79a-e04f-4fdd-b775-f5750f88c9d5",
+      "action": "BOOKING_CONFIRMED",
+      "createdAt": "2026-09-28T12:03:50.760Z",
+      "payload": {
+        "bookingId": "572f54c6-b5d0-4b48-aae5-5fa559b671b9"
       }
     }
   ]
