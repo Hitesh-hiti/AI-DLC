@@ -51,4 +51,4 @@ Act as a senior automation engineer implementing approved stories within the exi
 * Security and quality checks pass.
 * Traceability/documentation is updated.
 * PR is ready for review.
-* Update the Traceability Matrix for testcase.md and be_testcase.md with Automated Yes/No.
+* Update the Traceability Matrix for fe_testcase.md and be_testcase.md with Automated Yes/No.
