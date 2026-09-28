@@ -12,6 +12,7 @@ export interface CurrencyAmountProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
   highlight?: boolean;
+  negative?: boolean;
 }
 
 export const CurrencyAmount: React.FC<CurrencyAmountProps> = ({
@@ -19,12 +20,14 @@ export const CurrencyAmount: React.FC<CurrencyAmountProps> = ({
   className = '',
   size = 'md',
   highlight = false,
+  negative = false,
 }) => {
   const sizeClass = `currency-${size}`;
   const highlightClass = highlight ? 'currency-highlight' : '';
+  const negativeClass = negative ? 'negative' : '';
 
   return (
-    <span className={`currency-amount ${sizeClass} ${highlightClass} ${className}`}>
+    <span className={`currency-amount ${sizeClass} ${highlightClass} ${negativeClass} ${className}`}>
       {formatMoney(money)}
     </span>
   );

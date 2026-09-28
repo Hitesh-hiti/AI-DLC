@@ -14,6 +14,9 @@ export interface StatusDisplay {
   color: 'success' | 'warning' | 'error' | 'info' | 'neutral';
   icon: string;
   description: string;
+  class?: string;
+  hasView?: boolean;
+  hasCancel?: boolean;
 }
 
 // ─── Booking status display ───────────────────────────────────────────────────

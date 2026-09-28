@@ -16,12 +16,14 @@ export interface NotificationCentreProps {
   notifications?: Notification[];
   onMarkAllRead?: () => void;
   onNotificationClick?: (notificationId: string) => void;
+  onClose?: () => void;
 }
 
 export const NotificationCentre: React.FC<NotificationCentreProps> = ({
   notifications = [],
   onMarkAllRead,
   onNotificationClick,
+  onClose,
 }) => {
   const [filter, setFilter] = useState<'all' | 'unread'>('all');
 
@@ -72,6 +74,9 @@ export const NotificationCentre: React.FC<NotificationCentreProps> = ({
       {/* ── Header ────────────────────────────────────────────── */}
       <div className="notification-header">
         <h2 className="notification-title">Notifications</h2>
+        {onClose && (
+          <button type="button" aria-label="Close notifications" onClick={onClose}>×</button>
+        )}
         {unreadCount > 0 && (
           <span className="notification-badge" aria-label={`${unreadCount} unread notifications`}>
             {unreadCount}

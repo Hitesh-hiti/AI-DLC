@@ -71,7 +71,7 @@ export class HttpClient {
 
   get<T>(
     path: string,
-    query?: Record<string, unknown>,
+    query?: object,
     signal?: AbortSignal,
   ) {
     return this.request<T>(
@@ -129,7 +129,7 @@ export class HttpClient {
     method: string,
     path: string,
     body?: unknown,
-    query?: Record<string, unknown>,
+    query?: object,
     signal?: AbortSignal,
   ): Promise<T> {
     const url = new URL(

@@ -21,6 +21,7 @@ import type {
   BookingCancellationResponse,
   BookingConfirmRequest,
   BookingConfirmResponse,
+  TripDetailsResponse,
 } from '../types/booking';
 import type {
   PolicyEvaluationRequest,
@@ -64,6 +65,9 @@ export interface IFlightBookingService {
 
   /** List bookings for a traveller / organisation */
   listBookings(req: ListBookingsRequest): Promise<ListBookingsResponse>;
+
+  /** Retrieve trip details and its associated bookings */
+  getTripDetails(tripId: string): Promise<TripDetailsResponse>;
 
   /** Cancel a booking */
   cancelBooking(req: BookingCancellationRequest): Promise<BookingCancellationResponse>;
@@ -161,6 +165,31 @@ export class MockFlightBookingService implements IFlightBookingService {
       },
     };
   }
+
+  async getTripDetails(tripId: string): Promise<TripDetailsResponse> {
+    await this.delay();
+    if (!tripId) throw new Error('tripId is required');
+    const response = await this.listBookings({ pageSize: 10, pageNumber: 1 });
+    const bookings = response.bookings.map((b) => ({
+      ...b,
+      status: b.bookingStatus,
+      origin: b.flightDetails.origin,
+      destination: b.flightDetails.destination,
+      departureTime: b.flightDetails.departureTime,
+      arrivalTime: b.flightDetails.arrivalTime,
+      airline: b.flightDetails.airline,
+      flightNumber: b.flightDetails.flightNumber,
+    }));
+    const dates = bookings.map((b) => b.departureTime).sort();
+    return {
+      tripId,
+      tripPurpose: 'Business Trip',
+      startDate: dates[0] ?? new Date().toISOString(),
+      endDate: dates[dates.length - 1] ?? new Date().toISOString(),
+      bookings,
+    };
+  }
+
 
   // ── Cancel ───────────────────────────────────────────────────────────────────
 

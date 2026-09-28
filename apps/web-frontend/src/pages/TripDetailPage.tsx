@@ -8,17 +8,20 @@
 
 import React from 'react';
 import type { Booking } from '../api/types/booking';
+import { getBookingStatusClass, canCancelBooking } from '../utils/statusMapping';
+import { bookingService } from '../api/services/bookingService';
+import { useParams } from 'react-router-dom';
 import { getBookingStatusDisplay } from '../utils/statusMapping';
 import { Alert } from '../components/common/Alert';
 import { Button } from '../components/common/Button';
 import './TripDetailPage.css';
 
 interface TripDetailPageProps {
-  tripId: string;
-  tripPurpose: string;
-  startDate: string;
-  endDate: string;
-  bookings: Booking[];
+  tripId?: string;
+  tripPurpose?: string;
+  startDate?: string;
+  endDate?: string;
+  bookings?: Booking[];
   onBookAnother?: () => void;
   onBookingClick?: (bookingId: string) => void;
 }
@@ -32,6 +35,19 @@ export const TripDetailPage: React.FC<TripDetailPageProps> = ({
   onBookAnother,
   onBookingClick,
 }) => {
+  const params = useParams();
+  const resolvedTripId = tripId ?? params.tripId ?? '';
+  const [loadedBookings, setLoadedBookings] = React.useState<Booking[]>([]);
+
+  React.useEffect(() => {
+    if (bookings || !resolvedTripId) return;
+    bookingService.getTripDetails(resolvedTripId).then((trip) => setLoadedBookings(trip.bookings)).catch((error) => console.error('Failed to load trip details', error));
+  }, [bookings, resolvedTripId]);
+
+  const resolvedBookings = bookings ?? loadedBookings;
+  const resolvedPurpose = tripPurpose ?? 'Trip Details';
+  const resolvedStartDate = startDate ?? resolvedBookings[0]?.departureTime ?? new Date().toISOString();
+  const resolvedEndDate = endDate ?? resolvedBookings[resolvedBookings.length - 1]?.arrivalTime ?? resolvedStartDate;
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
     return date.toLocaleDateString('en-US', {
@@ -49,9 +65,9 @@ export const TripDetailPage: React.FC<TripDetailPageProps> = ({
       {/* ── Trip Header ────────────────────────────────────────── */}
       <div className="trip-header">
         <div className="trip-info">
-          <h1 className="trip-title">{tripPurpose}</h1>
+          <h1 className="trip-title">{resolvedPurpose}</h1>
           <p className="trip-dates">
-            {formatDate(startDate)} - {formatDate(endDate)}
+            {formatDate(resolvedStartDate)} - {formatDate(resolvedEndDate)}
           </p>
         </div>
         {onBookAnother && (
@@ -63,13 +79,13 @@ export const TripDetailPage: React.FC<TripDetailPageProps> = ({
 
       {/* ── Bookings List ──────────────────────────────────────── */}
       <div className="bookings-list" role="list" aria-label="Bookings">
-        {bookings.length === 0 ? (
+        {resolvedBookings.length === 0 ? (
           <div className="empty-state" role="status">
             <div className="empty-state-icon" aria-hidden="true">✈️</div>
             <p className="empty-state-text">No bookings for this trip</p>
           </div>
         ) : (
-          bookings.map((booking) => {
+          resolvedBookings.map((booking) => {
             const statusDisplay = getBookingStatusDisplay(booking.status);
             const isException = booking.status === 'CONFIRM_EXCEPTION';
 
@@ -83,7 +99,7 @@ export const TripDetailPage: React.FC<TripDetailPageProps> = ({
               >
                 {/* ── Status Badge ────────────────────────────────── */}
                 <div className="booking-status">
-                  <span className={`status-badge ${statusDisplay.class}`}>
+                  <span className={`status-badge ${getBookingStatusClass(booking.status)}`}>
                     {statusDisplay.label}
                   </span>
                 </div>
@@ -126,7 +142,7 @@ export const TripDetailPage: React.FC<TripDetailPageProps> = ({
 
                 {/* ── Actions ─────────────────────────────────────── */}
                 <div className="booking-actions">
-                  {statusDisplay.hasView && (
+                  {true && (
                     <Button
                       type="button"
                       variant="secondary"
@@ -139,7 +155,7 @@ export const TripDetailPage: React.FC<TripDetailPageProps> = ({
                       View Details
                     </Button>
                   )}
-                  {statusDisplay.hasCancel && (
+                  {canCancelBooking(booking.status) && (
                     <Button
                       type="button"
                       variant="danger"

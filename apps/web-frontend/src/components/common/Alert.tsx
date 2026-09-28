@@ -9,7 +9,8 @@ import './Alert.css';
 export interface AlertProps {
   variant?: 'info' | 'success' | 'warning' | 'error';
   title?: string;
-  message: string | React.ReactNode;
+  message?: string | React.ReactNode;
+  children?: React.ReactNode;
   dismissible?: boolean;
   onDismiss?: () => void;
   className?: string;
@@ -20,6 +21,7 @@ export const Alert: React.FC<AlertProps> = ({
   variant = 'info',
   title,
   message,
+  children,
   dismissible = false,
   onDismiss,
   className = '',
@@ -52,7 +54,7 @@ export const Alert: React.FC<AlertProps> = ({
         <div className="alert-body">
           {title && <div className="alert-title">{title}</div>}
           <div className={title ? 'alert-message' : 'alert-message alert-message-only'}>
-            {message}
+            {message ?? children}
           </div>
         </div>
       </div>

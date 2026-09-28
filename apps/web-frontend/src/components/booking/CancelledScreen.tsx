@@ -6,27 +6,31 @@
  */
 
 import React from 'react';
+import type { BookingHoldResponse } from '../../api/types/booking';
+import type { CurrencyCode } from '../../api/types/common';
 import { Alert } from '../common/Alert';
 import { Button } from '../common/Button';
 import { CurrencyAmount } from '../common/CurrencyAmount';
 import './CancelledScreen.css';
 
 interface CancelledScreenProps {
-  bookingReference: string;
-  flight: {
+  booking?: BookingHoldResponse;
+  onReturnToSearch?: () => void;
+  bookingReference?: string;
+  flight?: {
     origin: string;
     destination: string;
     departureTime: string;
     arrivalTime: string;
   };
-  status: 'CANCELLED' | 'REFUNDED';
+  status?: 'CANCELLED' | 'REFUNDED';
   refundEligible?: boolean;
   withinVoidWindow?: boolean;
   refundDetails?: {
     grossAmount: number;
-    currency: string;
+    currency: CurrencyCode;
     penaltyAmount: number;
-    nonRefundableTaxBreakdown: Array<{ code: string; amount: number; currency: string }>;
+    nonRefundableTaxBreakdown: Array<{ code: string; amount: number; currency: CurrencyCode }>;
     netRefundableAmount: number;
   };
   onCancelAnother?: () => void;
@@ -42,7 +46,18 @@ export const CancelledScreen: React.FC<CancelledScreenProps> = ({
   refundDetails,
   onCancelAnother,
   onViewTrips,
+  booking,
+  onReturnToSearch,
 }) => {
+  const resolvedBookingReference = bookingReference ?? booking?.confirmationNumber ?? booking?.bookingId ?? '—';
+  const resolvedFlight = flight ?? (booking ? {
+    origin: booking.flightSummary.origin,
+    destination: booking.flightSummary.destination,
+    departureTime: booking.flightSummary.departureTime,
+    arrivalTime: booking.flightSummary.arrivalTime,
+  } : { origin: '—', destination: '—', departureTime: new Date().toISOString(), arrivalTime: new Date().toISOString() });
+  const resolvedStatus = status ?? 'CANCELLED';
+
   const formatDateTime = (iso: string) => {
     return new Date(iso).toLocaleString('en-US', {
       year: 'numeric', month: 'short', day: 'numeric',
@@ -58,14 +73,14 @@ export const CancelledScreen: React.FC<CancelledScreenProps> = ({
     <div className="cancelled-screen" aria-label="Booking cancelled" data-testid="cancelled-screen">
       {/* ── Status Header ───────────────────────────────────── */}
       <div className="cancelled-header">
-        <div className={`cancelled-icon cancelled-${status.toLowerCase()}`} aria-hidden="true">
-          {status === 'CANCELLED' ? '✕' : '✓'}
+        <div className={`cancelled-icon cancelled-${resolvedStatus.toLowerCase()}`} aria-hidden="true">
+          {resolvedStatus === 'CANCELLED' ? '✕' : '✓'}
         </div>
         <h2 className="cancelled-title">
-          {status === 'CANCELLED' ? 'Booking Cancelled' : 'Booking Refunded'}
+          {resolvedStatus === 'CANCELLED' ? 'Booking Cancelled' : 'Booking Refunded'}
         </h2>
         <p className="cancelled-subtitle">
-          {status === 'CANCELLED'
+          {resolvedStatus === 'CANCELLED'
             ? 'Your booking has been cancelled. No refund is applicable as no ticket was issued.'
             : 'Your refund has been processed. The amount will appear on your statement shortly.'}
         </p>
@@ -76,7 +91,7 @@ export const CancelledScreen: React.FC<CancelledScreenProps> = ({
         <div className="cancelled-ref-row">
           <span className="cancelled-label">Booking Reference</span>
           <span className="cancelled-value" data-testid="cancelled-booking-ref">
-            {bookingReference}
+            {resolvedBookingReference}
           </span>
         </div>
 
@@ -88,7 +103,7 @@ export const CancelledScreen: React.FC<CancelledScreenProps> = ({
         <div className="cancelled-ref-row">
           <span className="cancelled-label">Route</span>
           <span className="cancelled-value">
-            {flight.origin} → {flight.destination} ({formatDate(flight.departureTime)})
+            {resolvedFlight.origin} → {resolvedFlight.destination} ({formatDate(resolvedFlight.departureTime)})
           </span>
         </div>
       </section>
@@ -165,7 +180,7 @@ export const CancelledScreen: React.FC<CancelledScreenProps> = ({
       {/* ── Next Steps ────────────────────────────────���─────── */}
       <div className="cancelled-next-steps" aria-label="Next steps">
         <Alert variant="info" className="cancelled-alert">
-          {status === 'CANCELLED'
+          {resolvedStatus === 'CANCELLED'
             ? 'If you need to book a new flight, you can search for available options below.'
             : 'A confirmation email with your refund details has been sent to your registered email address.'}
         </Alert>
@@ -173,8 +188,8 @@ export const CancelledScreen: React.FC<CancelledScreenProps> = ({
 
       {/* ── Actions ─────────────────────────────────────────── */}
       <div className="cancelled-actions">
-        {onCancelAnother && (
-          <Button type="button" variant="primary" size="lg" onClick={onCancelAnother}>
+        {(onCancelAnother || onReturnToSearch) && (
+          <Button type="button" variant="primary" size="lg" onClick={onCancelAnother ?? onReturnToSearch}>
             Book Another Flight
           </Button>
         )}

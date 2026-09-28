@@ -1,5 +1,5 @@
 import type { Money } from '../types/common';
-import type { PnrRecord, PaymentApproval, BookingHoldRequest, BookingHoldResponse, BookingDetailRequest, BookingDetailResponse, ListBookingsRequest, ListBookingsResponse, BookingCancellationRequest, BookingCancellationResponse, BookingConfirmRequest, BookingConfirmResponse } from '../types/booking';
+import type { PnrRecord, PaymentApproval, BookingHoldRequest, BookingHoldResponse, BookingDetailRequest, BookingDetailResponse, ListBookingsRequest, ListBookingsResponse, BookingCancellationRequest, BookingCancellationResponse, BookingConfirmRequest, BookingConfirmResponse, TripDetailsResponse } from '../types/booking';
 import type { SearchRequest, SearchResponse, DestinationSearchRequest, DestinationSearchResponse } from '../types/search';
 import type { PolicyEvaluationRequest, PolicyEvaluationResponse, ApprovalDecisionRequest, ApprovalDecisionResponse } from '../types/policy';
 import { httpClient, type HttpClient } from './httpClient';
@@ -15,6 +15,7 @@ export class HttpFlightBookingService implements IFlightBookingService {
   confirmBooking(req: BookingConfirmRequest) { return this.client.post<BookingConfirmResponse>(`/bookings/${encodeURIComponent(req.bookingId)}/confirm`, req); }
   getBookingDetail(req: BookingDetailRequest) { return this.client.get<BookingDetailResponse>(`/bookings/${encodeURIComponent(req.bookingId)}`, req.audit ? { audit: JSON.stringify(req.audit) } : undefined); }
   listBookings(req: ListBookingsRequest) { return this.client.get<ListBookingsResponse>('/bookings', req as Record<string, unknown>); }
+  getTripDetails(tripId: string) { return this.client.get<TripDetailsResponse>(`/trips/${encodeURIComponent(tripId)}`); }
   cancelBooking(req: BookingCancellationRequest) { return this.client.post<BookingCancellationResponse>(`/bookings/${encodeURIComponent(req.bookingId)}/cancel`, req); }
   evaluatePolicy(req: PolicyEvaluationRequest) { return this.client.post<PolicyEvaluationResponse>('/policies/evaluate', req); }
   decideApproval(req: ApprovalDecisionRequest) { return this.client.post<ApprovalDecisionResponse>(`/approvals/${encodeURIComponent(req.approvalId)}/decision`, req); }

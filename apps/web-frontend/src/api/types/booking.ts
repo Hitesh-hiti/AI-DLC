@@ -144,6 +144,27 @@ export function generatePaymentApprovalStub(
   };
 }
 
+/** Flattened booking shape used by trip-detail presentation. */
+export type Booking = BookingDetailResponse & {
+  status: BookingStatus;
+  origin: string;
+  destination: string;
+  departureTime: string;
+  arrivalTime: string;
+  airline: string;
+  flightNumber: string;
+  segments?: Array<{ origin: string; destination: string; departureTime: string; arrivalTime?: string }>;
+  correlationId?: string;
+};
+
+export interface TripDetailsResponse {
+  tripId: string;
+  tripPurpose: string;
+  startDate: string;
+  endDate: string;
+  bookings: Booking[];
+}
+
 // ─── Detail ───────────────────────────────────────────────────────────────────
 
 export interface BookingDetailRequest {
