@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitest/config'
 import istanbul from 'vite-plugin-istanbul'
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 export default defineConfig({
   // 🌐 1. VITE SERVER & BUILDER CONFIGURATION (For Playwright E2E Instrumentation)
   plugins: [
@@ -24,37 +28,44 @@ export default defineConfig({
 
   // 🧪 2. VITEST TEST RUNNER CONFIGURATION (For Unit Scenarios)
   test: {
-    environment: 'jsdom',
-    globals: true,
-    pool: 'vmThreads',
-    setupFiles: ['./test/setup.ts'],
-    include: ['**/*.test.{ts,tsx}'],
-    reporters: [
-      'default',
-      [
-        'html',
-        {
-          outputDir: './reports/vitest/ui-report',
-        },
-      ],
-      [
-        'junit',
-        {
-          outputFile: './reports/vitest/junit.xml',
-        },
-      ],
+  environment: 'jsdom',
+  globals: true,
+  pool: 'vmThreads',
+
+  setupFiles: [
+    path.resolve(__dirname, 'test/setup.ts'),
+  ],
+
+  include: ['**/*.test.{ts,tsx}'],
+
+  reporters: [
+    'default',
+    [
+      'html',
+      {
+        outputDir: './reports/vitest/ui-report',
+      },
     ],
-    coverage: {
-      provider: 'istanbul', 
-      reporter: ['text', 'html', 'lcov'],
-      reportsDirectory: './reports/vitest/coverage-report',
-      reportOnFailure: true,
-      thresholds: {
-        statements: 80,
-        branches: 75,
-        functions: 80,
-        lines: 80,
-      }
+    [
+      'junit',
+      {
+        outputFile: './reports/vitest/junit.xml',
+      },
+    ],
+  ],
+
+  coverage: {
+    provider: 'istanbul',
+    reporter: ['text', 'html', 'lcov'],
+    reportsDirectory: './reports/vitest/coverage-report',
+    reportOnFailure: true,
+
+    thresholds: {
+      statements: 80,
+      branches: 75,
+      functions: 80,
+      lines: 80,
     },
   },
+},
 })

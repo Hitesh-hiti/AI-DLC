@@ -78,6 +78,16 @@ npm run test -- ui/scenarios/booking
 npm run test -- api/scenarios/policy
 ```
 
+### Istanbul Coverage
+
+```bash
+npm run test:coverage
+npm run test:e2e:coverage
+npm run test:e2e:coverage:merge
+```
+
+See `ISTANBUL_COVERAGE.md` for the required frontend `vite-plugin-istanbul` setup.
+
 ### Coverage Report
 
 ```bash

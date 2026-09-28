@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Istanbul / Vitest coverage artifacts
+coverage/
+reports/vitest/coverage-report/

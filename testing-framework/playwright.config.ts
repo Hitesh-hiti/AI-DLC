@@ -69,7 +69,11 @@ export default defineConfig({
 
   /* Start the Vite dev server before tests */
   webServer: {
-    command: 'npm run dev',
+    command: process.env.E2E_COVERAGE === 'true'
+      ? (process.platform === 'win32'
+          ? 'set VITE_COVERAGE=true&& npm run dev'
+          : 'VITE_COVERAGE=true npm run dev')
+      : 'npm run dev',
     cwd: '../apps/web-frontend',
     port: 5173,
     reuseExistingServer: !process.env.CI,

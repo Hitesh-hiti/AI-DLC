@@ -144,6 +144,16 @@ npm run test -- api/scenarios/policy/evaluation.test.ts
 npm run test:watch
 ```
 
+### Istanbul Coverage
+
+```bash
+npm run test:coverage
+npm run test:e2e:coverage
+npm run test:e2e:coverage:merge
+```
+
+See `ISTANBUL_COVERAGE.md` for the required frontend `vite-plugin-istanbul` setup.
+
 ### Coverage Report
 
 ```bash

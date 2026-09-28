@@ -69,17 +69,13 @@ export class SearchPage {
     returnDate?: string;
     cabin?: string;
   }) {
-    // 1. Updated dropdown interaction rules replacing old .fill() patterns
-    await this.originInput.selectOption(origin);
-    await this.destinationInput.selectOption(destination);
-
-    // 2. Maintained your original date validation fill operations
+    // origin and destination are free-text IATA inputs (e.g. "LHR", "JFK")
+    await this.originInput.fill(origin);
+    await this.destinationInput.fill(destination);
     await this.departureDateInput.fill(departureDate);
     if (returnDate) {
       await this.returnDateInput.fill(returnDate);
     }
-    
-    // 3. Cabin selection execution and submission actions
     await this.cabinSelect.selectOption(cabin);
     await this.searchBtn.click();
   }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="2" failures="2" errors="0" time="0">
+    <testsuite name="api/scenarios/experience/booking.test.ts" timestamp="2026-09-25T17:48:03.854Z" hostname="Hitesh-C" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="api/scenarios/experience/booking.test.ts" name="api/scenarios/experience/booking.test.ts" time="0">
+            <failure message="Cannot find module &apos;/@id/C:/Users/Hitesh_C/Documents/TravelPlatform/testing-framework/test/setup.ts&apos;" type="Error">
+Error: Cannot find module &apos;/@id/C:/Users/Hitesh_C/Documents/TravelPlatform/testing-framework/test/setup.ts&apos;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: &apos;ERR_MODULE_NOT_FOUND&apos; }
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="api/scenarios/experience/search.test.ts" timestamp="2026-09-25T17:48:03.860Z" hostname="Hitesh-C" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="api/scenarios/experience/search.test.ts" name="api/scenarios/experience/search.test.ts" time="0">
+            <failure message="Cannot find module &apos;/@id/C:/Users/Hitesh_C/Documents/TravelPlatform/testing-framework/test/setup.ts&apos;" type="Error">
+Error: Cannot find module &apos;/@id/C:/Users/Hitesh_C/Documents/TravelPlatform/testing-framework/test/setup.ts&apos;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: &apos;ERR_MODULE_NOT_FOUND&apos; }
+            </failure>
+        </testcase>
+    </testsuite>
+</testsuites>

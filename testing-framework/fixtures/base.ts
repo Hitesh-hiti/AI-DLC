@@ -12,8 +12,10 @@ import { PassengerFormPage }  from '../pages/PassengerFormPage';
 import { ReviewBookingPage }  from '../pages/ReviewBookingPage';
 import { BookingConfirmedPage } from '../pages/BookingConfirmedPage';
 import { ApprovalPendingPage } from '../pages/ApprovalPendingPage';
+import { saveIstanbulCoverage } from '../utils/istanbulCoverage';
 
 export type TravelPlatformFixtures = {
+  _istanbulCoverage: void;
   searchPage:         SearchPage;
   passengerFormPage:  PassengerFormPage;
   reviewBookingPage:  ReviewBookingPage;
@@ -22,6 +24,10 @@ export type TravelPlatformFixtures = {
 };
 
 export const test = base.extend<TravelPlatformFixtures>({
+  _istanbulCoverage: [async ({ page }, use, testInfo) => {
+    await use();
+    await saveIstanbulCoverage(page, `${testInfo.testId}-${testInfo.retry}`);
+  }, { auto: true }],
   searchPage: async ({ page }, use) => {
     await use(new SearchPage(page));
   },

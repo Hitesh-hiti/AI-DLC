@@ -14,16 +14,22 @@
     "test:xct": "vitest run api/scenarios/xct",
     "test:ui": "vitest run ui/scenarios",
     "lint": "eslint . --ext .ts,.tsx",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test:e2e": "playwright test",
+    "test:e2e:coverage": "node scripts/run-e2e-coverage.mjs",
+    "test:e2e:coverage:merge": "node scripts/merge-istanbul-coverage.mjs"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
+    "@babel/core": "^7.28.0",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.0.0",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitest/coverage-istanbul": "^5.0.0",
     "@vitest/ui": "^5.0.0",
     "eslint": "^8.0.0",
+    "jsdom": "^30.1.1",
     "typescript": "^5.0.0",
     "vite-plugin-istanbul": "^9.0.1",
     "vitest": "^5.0.0"

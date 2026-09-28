@@ -12,216 +12,299 @@
 # Error details
 
 ```
-Error: expect(locator).toBeVisible() failed
-
-Locator: getByTestId('policy-panel-allow')
-Expected: visible
-Timeout: 5000ms
-Error: element(s) not found
-
+Error: locator.fill: Error: Element is not an <input>, <textarea> or [contenteditable] element
 Call log:
-  - Expect "toBeVisible" getByTestId('policy-panel-allow') with timeout 5000ms
-  - waiting for getByTestId('policy-panel-allow')
+  - waiting for getByTestId('input-origin')
+    - locator resolved to <select id="origin" aria-invalid="false" data-testid="input-origin" class="search-form-select ">…</select>
+    - fill("LHR")
+  - attempting fill action
+    - waiting for element to be visible, enabled and editable
 
 ```
 
+# Page snapshot
+
 ```yaml
-- banner:
-  - button "TravelPlatform home":
-    - img "IGS TravelPlatform"
-    - text: IGS TravelPlatform
-  - navigation "Primary navigation":
-    - button "Search Flights"
-    - button "My Trips"
-    - button "Support"
-  - button "Sign In"
-  - button "Sign Up"
-- main:
-  - heading "3 Review & Confirm Flight" [level=2]
-  - region "Selected flight": United Airlines· UA 908 ECONOMY 00:14 LHR Wed, Sep 23, 2026 8h 08:14 JFK Wed, Sep 23, 2026 Boeing 787-10
-  - region "Passengers":
-    - heading "Passengers" [level=3]
-    - list:
-      - listitem: 1. JOHN SMITH ADT
-  - region "Fare breakdown":
-    - heading "Fare Breakdown" [level=3]
-    - table:
-      - rowgroup:
-        - row "Base fare $380.00":
-          - cell "Base fare"
-          - cell "$380.00"
-        - row "Taxes $57.00":
-          - cell "Taxes"
-          - cell "$57.00"
-        - row "Fees $25.00":
-          - cell "Fees"
-          - cell "$25.00"
-        - row "Total $462.00":
-          - cell "Total":
-            - strong: Total
-          - cell "$462.00"
-  - note "Policy warning":
-    - text: ⚠
-    - strong: Policy Warning
-    - paragraph: "Advance Booking: Booking made less than 7 days before departure (recommended: 14+ days)"
-    - paragraph: This booking is less than 7 days in advance
-    - button "Acknowledge policy warning and continue": I understand — continue anyway
-  - button "← Edit Passengers"
-  - button "Confirm Booking"
-- heading "Notifications" [level=2]
-- button "All"
-- button "Unread"
-- list "Notification list":
-  - status:
-    - paragraph: No notifications
-- contentinfo:
-  - heading "TravelPlatform" [level=4]
-  - paragraph: Your trusted partner for flight bookings worldwide. Transparent pricing, flexible options, and 24/7 support.
-  - heading "Company" [level=4]
-  - list:
-    - listitem:
-      - link "About Us":
-        - /url: "#about"
-    - listitem:
-      - link "Careers":
-        - /url: "#careers"
-    - listitem:
-      - link "Press":
-        - /url: "#press"
-    - listitem:
-      - link "Contact":
-        - /url: "#contact"
-  - heading "Support" [level=4]
-  - list:
-    - listitem:
-      - link "Help Center":
-        - /url: "#help"
-    - listitem:
-      - link "FAQ":
-        - /url: "#faq"
-    - listitem:
-      - link "Refunds":
-        - /url: "#refunds"
-    - listitem:
-      - link "Contact Support":
-        - /url: "#support"
-  - heading "Legal" [level=4]
-  - list:
-    - listitem:
-      - link "Terms of Service":
-        - /url: "#terms"
-    - listitem:
-      - link "Privacy Policy":
-        - /url: "#privacy"
-    - listitem:
-      - link "Cookie Policy":
-        - /url: "#cookies"
-    - listitem:
-      - link "Accessibility":
-        - /url: "#accessibility"
-  - paragraph: © 2026 TravelPlatform. All rights reserved.
-  - button "Change language": 🌐 English
-  - button "Change currency": 💵 USD
-- text: ✈
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - button "TravelPlatform home" [ref=e6] [cursor=pointer]:
+          - img "IGS TravelPlatform" [ref=e7]
+          - generic [ref=e8]: IGS TravelPlatform
+        - navigation "Primary navigation" [ref=e9]:
+          - button "Search Flights" [ref=e10] [cursor=pointer]
+          - button "My Trips" [ref=e11] [cursor=pointer]
+          - button "Support" [ref=e12] [cursor=pointer]
+        - generic [ref=e13]:
+          - button "Sign In" [ref=e14] [cursor=pointer]
+          - button "Sign Up" [ref=e15] [cursor=pointer]
+    - main [ref=e16]:
+      - generic [ref=e17]:
+        - region "Welcome to TravelPlatform" [ref=e18]:
+          - generic [ref=e19]:
+            - heading "Discover Your Next Adventure" [level=1] [ref=e20]
+            - paragraph [ref=e21]: Search and book flights to over 5,000 destinations worldwide with transparent pricing and flexible booking options.
+        - main [ref=e22]:
+          - region "Flight search" [ref=e23]:
+            - generic [ref=e24]:
+              - heading "Search Flights" [level=2] [ref=e26]
+              - generic [ref=e27]:
+                - generic [ref=e28]:
+                  - generic [ref=e29]: From*
+                  - combobox "Fromrequired" [ref=e30] [cursor=pointer]:
+                    - option "Select origin" [selected]
+                - generic [ref=e31]:
+                  - generic [ref=e32]: To*
+                  - combobox "Torequired" [ref=e33] [cursor=pointer]:
+                    - option "Select destination" [selected]
+              - generic [ref=e34]:
+                - generic [ref=e36]:
+                  - generic [ref=e37]:
+                    - text: Departure
+                    - generic "required" [ref=e38]: "*"
+                  - textbox "Departure required" [ref=e39]
+                - generic [ref=e41]:
+                  - generic [ref=e42]: Return
+                  - textbox "Return" [ref=e43]
+                - generic [ref=e44]:
+                  - generic [ref=e45]: Cabin Class
+                  - combobox "Cabin Class" [ref=e46] [cursor=pointer]:
+                    - option "Economy" [selected]
+                    - option "Premium Economy"
+                    - option "Business"
+                    - option "First Class"
+              - generic [ref=e48]:
+                - generic [ref=e49]: Passengers
+                - generic [ref=e50]:
+                  - button "Remove passenger" [disabled] [ref=e51]: −
+                  - generic [ref=e52]: "1"
+                  - button "Add passenger" [ref=e53] [cursor=pointer]: +
+              - generic [ref=e54]:
+                - button "Search Flights" [ref=e55] [cursor=pointer]
+                - button "Clear Form" [ref=e56] [cursor=pointer]
+              - status "Search information" [ref=e57]:
+                - generic [ref=e58]: ✓ Best price guarantee
+                - generic [ref=e59]: ✓ Free cancellation on selected flights
+                - generic [ref=e60]: ✓ Secure payment
+          - complementary "Quick search links" [ref=e61]:
+            - heading "Popular Routes" [level=3] [ref=e62]
+            - generic [ref=e63]:
+              - button "LHR → JFK London → New York" [ref=e64] [cursor=pointer]:
+                - generic [ref=e65]: LHR → JFK
+                - generic [ref=e66]: London → New York
+              - button "JFK → LHR New York → London" [ref=e67] [cursor=pointer]:
+                - generic [ref=e68]: JFK → LHR
+                - generic [ref=e69]: New York → London
+              - button "LAX → SIN Los Angeles → Singapore" [ref=e70] [cursor=pointer]:
+                - generic [ref=e71]: LAX → SIN
+                - generic [ref=e72]: Los Angeles → Singapore
+              - button "SIN → LAX Singapore → Los Angeles" [ref=e73] [cursor=pointer]:
+                - generic [ref=e74]: SIN → LAX
+                - generic [ref=e75]: Singapore → Los Angeles
+    - generic "Notifications" [ref=e76]:
+      - heading "Notifications" [level=2] [ref=e78]
+      - generic [ref=e79]:
+        - button "All" [ref=e80] [cursor=pointer]
+        - button "Unread" [ref=e81] [cursor=pointer]
+      - list "Notification list" [ref=e82]:
+        - status [ref=e83]:
+          - generic [aria-hidden] [ref=e84]: 📬
+          - paragraph [ref=e85]: No notifications
+    - contentinfo [ref=e86]:
+      - generic [ref=e87]:
+        - generic [ref=e88]:
+          - heading "TravelPlatform" [level=4] [ref=e89]
+          - paragraph [ref=e90]: Your trusted partner for flight bookings worldwide. Transparent pricing, flexible options, and 24/7 support.
+        - generic [ref=e91]:
+          - heading "Company" [level=4] [ref=e92]
+          - list [ref=e93]:
+            - listitem [ref=e94]:
+              - link "About Us" [ref=e95] [cursor=pointer]:
+                - /url: "#about"
+            - listitem [ref=e96]:
+              - link "Careers" [ref=e97] [cursor=pointer]:
+                - /url: "#careers"
+            - listitem [ref=e98]:
+              - link "Press" [ref=e99] [cursor=pointer]:
+                - /url: "#press"
+            - listitem [ref=e100]:
+              - link "Contact" [ref=e101] [cursor=pointer]:
+                - /url: "#contact"
+        - generic [ref=e102]:
+          - heading "Support" [level=4] [ref=e103]
+          - list [ref=e104]:
+            - listitem [ref=e105]:
+              - link "Help Center" [ref=e106] [cursor=pointer]:
+                - /url: "#help"
+            - listitem [ref=e107]:
+              - link "FAQ" [ref=e108] [cursor=pointer]:
+                - /url: "#faq"
+            - listitem [ref=e109]:
+              - link "Refunds" [ref=e110] [cursor=pointer]:
+                - /url: "#refunds"
+            - listitem [ref=e111]:
+              - link "Contact Support" [ref=e112] [cursor=pointer]:
+                - /url: "#support"
+        - generic [ref=e113]:
+          - heading "Legal" [level=4] [ref=e114]
+          - list [ref=e115]:
+            - listitem [ref=e116]:
+              - link "Terms of Service" [ref=e117] [cursor=pointer]:
+                - /url: "#terms"
+            - listitem [ref=e118]:
+              - link "Privacy Policy" [ref=e119] [cursor=pointer]:
+                - /url: "#privacy"
+            - listitem [ref=e120]:
+              - link "Cookie Policy" [ref=e121] [cursor=pointer]:
+                - /url: "#cookies"
+            - listitem [ref=e122]:
+              - link "Accessibility" [ref=e123] [cursor=pointer]:
+                - /url: "#accessibility"
+      - generic [ref=e124]:
+        - paragraph [ref=e125]: © 2026 TravelPlatform. All rights reserved.
+        - generic [ref=e126]:
+          - button "Change language" [ref=e127] [cursor=pointer]: 🌐 English
+          - button "Change currency" [ref=e128] [cursor=pointer]: 💵 USD
+  - text: ✈
 ```
 
 # Test source
 
 ```ts
-  1  | /**
-  2  |  * ReviewBookingPage — Page Object Model
-  3  |  *
-  4  |  * Covers: BookingHoldPanel + PolicyOutcomePanel (step 3 of booking flow)
-  5  |  * Traceability: REQ-EXP-02, REQ-POL-01, REQ-POL-04
-  6  |  * Test Cases: TC-005, TC-006, TC-007, TC-008, TC-009
-  7  |  */
-  8  | 
-  9  | import { type Page, type Locator, expect } from '@playwright/test';
-  10 | 
-  11 | export class ReviewBookingPage {
-  12 |   readonly page: Page;
-  13 | 
-  14 |   readonly holdPanel: Locator;
-  15 |   readonly confirmBookingBtn: Locator;
-  16 |   readonly editPassengersBtn: Locator;
-  17 | 
-  18 |   // Policy panels
-  19 |   readonly policyAllow: Locator;
-  20 |   readonly policyWarn: Locator;
-  21 |   readonly policyBlock: Locator;
-  22 |   readonly acknowledgeWarningBtn: Locator;
-  23 |   readonly warnAcknowledgedMsg: Locator;
-  24 |   readonly returnToSearchBtn: Locator;
-  25 | 
-  26 |   constructor(page: Page) {
-  27 |     this.page = page;
-  28 | 
-  29 |     this.holdPanel          = page.getByTestId('hold-panel');
-  30 |     this.confirmBookingBtn  = page.getByTestId('btn-confirm-booking');
-  31 |     this.editPassengersBtn  = page.getByRole('button', { name: '← Edit Passengers' });
-  32 | 
-  33 |     this.policyAllow        = page.getByTestId('policy-panel-allow');
-  34 |     this.policyWarn         = page.getByTestId('policy-panel-warn');
-  35 |     this.policyBlock        = page.getByTestId('policy-panel-block');
-  36 |     this.acknowledgeWarningBtn = page.getByTestId('btn-acknowledge-warning');
-  37 |     this.warnAcknowledgedMsg   = page.getByTestId('policy-warn-acknowledged');
-  38 |     this.returnToSearchBtn  = page.getByTestId('btn-return-to-search');
-  39 |   }
-  40 | 
-  41 |   /** Assert the review panel is visible */
-  42 |   async assertVisible() {
-  43 |     await expect(this.holdPanel).toBeVisible({ timeout: 15000 });
-  44 |     await expect(
-  45 |       this.page.getByRole('heading', { name: 'Review & Confirm Flight' })
-  46 |     ).toBeVisible();
-  47 |   }
-  48 | 
-  49 |   /** Assert the ALLOW policy panel is shown */
-  50 |   async assertPolicyAllow() {
-> 51 |     await expect(this.policyAllow).toBeVisible();
-     |                                    ^ Error: expect(locator).toBeVisible() failed
-  52 |     await expect(this.policyAllow).toContainText('Policy Check Passed');
-  53 |   }
-  54 | 
-  55 |   /** Assert the WARN policy panel is shown, then acknowledge it */
-  56 |   async assertPolicyWarnAndAcknowledge() {
-  57 |     await expect(this.policyWarn).toBeVisible();
-  58 |     await expect(this.policyWarn).toContainText('Policy Warning');
-  59 |     await expect(this.acknowledgeWarningBtn).toBeVisible();
-  60 |     await this.acknowledgeWarningBtn.click();
-  61 |     await expect(this.warnAcknowledgedMsg).toBeVisible();
-  62 |     await expect(this.warnAcknowledgedMsg).toContainText('Warning acknowledged');
-  63 |   }
-  64 | 
-  65 |   /** Assert the BLOCK panel is shown and Confirm Booking is absent */
-  66 |   async assertPolicyBlock() {
-  67 |     await expect(this.policyBlock).toBeVisible();
-  68 |     await expect(this.policyBlock).toContainText('Booking Blocked by Policy');
-  69 |     await expect(this.returnToSearchBtn).toBeVisible();
-  70 |     await expect(this.confirmBookingBtn).not.toBeVisible();
-  71 |   }
-  72 | 
-  73 |   /** Click Confirm Booking */
-  74 |   async confirmBooking() {
-  75 |     await expect(this.confirmBookingBtn).toBeEnabled();
-  76 |     await this.confirmBookingBtn.click();
-  77 |   }
-  78 | 
-  79 |   /** Assert fare breakdown section is visible with all rows */
-  80 |   async assertFareBreakdown() {
-  81 |     const fareSection = this.holdPanel.getByRole('region', { name: 'Fare breakdown' });
-  82 |     await expect(fareSection).toBeVisible();
-  83 |     await expect(fareSection).toContainText('Base fare');
-  84 |     await expect(fareSection).toContainText('Taxes');
-  85 |     await expect(fareSection).toContainText('Fees');
-  86 |     await expect(fareSection).toContainText('Total');
-  87 |   }
-  88 | 
-  89 |   /** Assert the passengers section lists the given passenger name */
-  90 |   async assertPassengerListed(firstName: string, lastName: string) {
-  91 |     const passengersSection = this.holdPanel.getByRole('region', { name: 'Passengers' });
-  92 |     await expect(passengersSection).toContainText(`${firstName} ${lastName}`);
-  93 |   }
-  94 | }
-  95 | 
+  1   | /**
+  2   |  * SearchPage — Page Object Model
+  3   |  *
+  4   |  * Covers: SearchForm + SearchResults components
+  5   |  * Traceability: REQ-EXP-01, AC-EXP-01-01
+  6   |  * Test Cases: TC-001, TC-002, TC-003, TC-004
+  7   |  */
+  8   | 
+  9   | import { type Page, type Locator, expect } from '@playwright/test';
+  10  | 
+  11  | export class SearchPage {
+  12  |   readonly page: Page;
+  13  | 
+  14  |   // ── Form locators ────────────────────────────────────────────────────────
+  15  |   readonly form: Locator;
+  16  |   readonly originInput: Locator;
+  17  |   readonly destinationInput: Locator;
+  18  |   readonly departureDateInput: Locator;
+  19  |   readonly returnDateInput: Locator;
+  20  |   readonly cabinSelect: Locator;
+  21  |   readonly passengerCount: Locator;
+  22  |   readonly addPassengerBtn: Locator;
+  23  |   readonly removePassengerBtn: Locator;
+  24  |   readonly searchBtn: Locator;
+  25  |   readonly clearFormBtn: Locator;
+  26  | 
+  27  |   // ── Results locators ─────────────────────────────────────────────────────
+  28  |   readonly searchResults: Locator;
+  29  |   readonly flightList: Locator;
+  30  | 
+  31  |   constructor(page: Page) {
+  32  |     this.page = page;
+  33  | 
+  34  |     this.form              = page.getByTestId('search-form');
+  35  |     this.originInput       = page.getByTestId('input-origin');
+  36  |     this.destinationInput  = page.getByTestId('input-destination');
+  37  |     this.departureDateInput= page.getByTestId('input-departure');
+  38  |     this.returnDateInput   = page.getByTestId('input-return');
+  39  |     this.cabinSelect       = page.getByTestId('select-cabin');
+  40  |     this.passengerCount    = page.getByTestId('passenger-count');
+  41  |     this.addPassengerBtn   = page.getByTestId('btn-add-passenger');
+  42  |     this.removePassengerBtn= page.getByTestId('btn-remove-passenger');
+  43  |     this.searchBtn         = page.getByTestId('btn-search');
+  44  |     this.clearFormBtn      = page.getByTestId('btn-clear-form');
+  45  |     this.searchResults     = page.getByTestId('search-results');
+  46  |     this.flightList        = page.getByTestId('flight-list');
+  47  |   }
+  48  | 
+  49  |   /** Navigate to app root */
+  50  |   async goto() {
+  51  |     await this.page.goto('/');
+  52  |     await expect(this.form).toBeVisible();
+  53  |   }
+  54  | 
+  55  |   /**
+  56  |    * Fill and submit the search form.
+  57  |    * departureDate and returnDate must be ISO date strings (YYYY-MM-DD).
+  58  |    */
+  59  |   async search({
+  60  |     origin,
+  61  |     destination,
+  62  |     departureDate,
+  63  |     returnDate,
+  64  |     cabin = 'ECONOMY',
+  65  |   }: {
+  66  |     origin: string;
+  67  |     destination: string;
+  68  |     departureDate: string;
+  69  |     returnDate?: string;
+  70  |     cabin?: string;
+  71  |   }) {
+  72  |     // origin and destination are free-text IATA inputs (e.g. "LHR", "JFK")
+> 73  |     await this.originInput.fill(origin);
+      |                            ^ Error: locator.fill: Error: Element is not an <input>, <textarea> or [contenteditable] element
+  74  |     await this.destinationInput.fill(destination);
+  75  |     await this.departureDateInput.fill(departureDate);
+  76  |     if (returnDate) {
+  77  |       await this.returnDateInput.fill(returnDate);
+  78  |     }
+  79  |     await this.cabinSelect.selectOption(cabin);
+  80  |     await this.searchBtn.click();
+  81  |   }
+  82  | 
+  83  |   /** Wait for results list to be visible */
+  84  |   async waitForResults() {
+  85  |     await expect(this.searchResults).toBeVisible({ timeout: 15000 });
+  86  |     await expect(this.flightList).toBeVisible();
+  87  |   }
+  88  | 
+  89  |   /** Return all flight cards */
+  90  |   flightCards() {
+  91  |     return this.flightList.getByTestId('flight-card');
+  92  |   }
+  93  | 
+  94  |   /** Return the Select button for a specific offerId */
+  95  |   selectBtnForOffer(offerId: string) {
+  96  |     return this.page.getByTestId(`btn-select-flight-${offerId}`);
+  97  |   }
+  98  | 
+  99  |   /** Click the first available (non-disabled) Select button */
+  100 |   async selectFirstAvailableFlight() {
+  101 |     const cards = this.flightList.getByTestId('flight-card');
+  102 |     const count = await cards.count();
+  103 |     for (let i = 0; i < count; i++) {
+  104 |       const btn = cards.nth(i).getByRole('button', { name: 'Select' });
+  105 |       const disabled = await btn.isDisabled();
+  106 |       if (!disabled) {
+  107 |         await btn.click();
+  108 |         return;
+  109 |       }
+  110 |     }
+  111 |     throw new Error('No available (non-sold-out) flight found in results');
+  112 |   }
+  113 | 
+  114 |   /** Open fare breakdown for the nth flight card (0-indexed) */
+  115 |   async openFareBreakdown(cardIndex = 0) {
+  116 |     const card = this.flightList.getByTestId('flight-card').nth(cardIndex);
+  117 |     const toggle = card.locator('.price-toggle');
+  118 |     await toggle.click();
+  119 |     await expect(card.locator('.fare-breakdown')).toBeVisible();
+  120 |   }
+  121 | 
+  122 |   /** Return the heading showing results count */
+  123 |   resultsHeading() {
+  124 |     return this.searchResults.locator('h2.search-results-title');
+  125 |   }
+  126 | 
+  127 |   /** Verify a flight card shows the expected origin and destination codes */
+  128 |   async expectRouteOnCard(cardIndex: number, origin: string, destination: string) {
+  129 |     const card = this.flightList.getByTestId('flight-card').nth(cardIndex);
+  130 |     await expect(card.locator('.airport').first()).toHaveText(origin);
+  131 |     await expect(card.locator('.airport').last()).toHaveText(destination);
+  132 |   }
+  133 | }
+  134 | 
 ```
