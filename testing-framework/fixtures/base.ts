@@ -1,6 +1,6 @@
 /**
  * Base Playwright Fixture
- * Extends the default `test` with typed Page Object instances.
+ * Extends the default `test` with typed Page Object instances and Allure context.
  * All specs import `test` and `expect` from this file — never from @playwright/test directly.
  *
  * Traceability: All TCs (TC-001 → TC-015)

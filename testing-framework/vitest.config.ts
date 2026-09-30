@@ -36,7 +36,7 @@ export default defineConfig({
     path.resolve(__dirname, 'test/setup.ts'),
   ],
 
-  include: ['**/*.test.{ts,tsx}'],
+  include: ['**/*.tests.{ts,tsx}'],
 
   reporters: [
     'default',

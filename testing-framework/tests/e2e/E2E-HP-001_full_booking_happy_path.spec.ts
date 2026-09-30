@@ -26,6 +26,7 @@
 
 import { test, expect } from '../../fixtures/base';
 import { STANDARD_SEARCH, PASSENGER_JOHN } from '../../test-data/search';
+import { addFeature, addStory, addSeverity, addTms } from '../../utils/allure';
 
 test(
   'E2E-HP-001 | Full booking happy path — search → select → passenger → confirm → confirmed',
@@ -35,7 +36,12 @@ test(
     passengerFormPage,
     reviewBookingPage,
     confirmedPage,
-  }) => {
+  }, testInfo) => {
+    // Allure metadata
+    addFeature('Experience');
+    addStory('Full Booking Journey');
+    addSeverity('critical');
+    addTms('E2E-HP-001');
 
     // ── Step 1: Open application ─────────────────────────────────────────────
     await searchPage.goto();
@@ -80,6 +86,7 @@ test(
     await passengerFormPage.assertVisible();
     await expect(passengerFormPage.firstNameInput(0)).toBeVisible();
     await expect(passengerFormPage.lastNameInput(0)).toBeVisible();
+    await expect(passengerFormPage.passportInput(0)).toBeVisible();
 
     // Fill passenger: JOHN SMITH
     await passengerFormPage.submitPassengers([PASSENGER_JOHN]);

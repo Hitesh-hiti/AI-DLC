@@ -14,6 +14,7 @@ export class PassengerFormPage {
   readonly form: Locator;
   readonly reviewBookingBtn: Locator;
   readonly backToResultsBtn: Locator;
+  readonly passport: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -21,6 +22,7 @@ export class PassengerFormPage {
     this.form             = page.getByTestId('passenger-form');
     this.reviewBookingBtn = page.getByTestId('btn-review-booking');
     this.backToResultsBtn = page.getByTestId('btn-back-to-results');
+    this.passport         = page.getByTestId('pax-0-passport-Number');
   }
 
   /** Assert the passenger form is visible */
@@ -39,6 +41,11 @@ export class PassengerFormPage {
     return this.page.getByTestId(`pax-${passengerIndex}-last-name`);
   }
 
+  /** Locator for the last name input of passenger at index (0-based) */
+  passportInput(passengerIndex: number) {
+    return this.page.getByTestId(`pax-${passengerIndex}-passport-Number`);
+  }
+
   /**
    * Fill in a single passenger's details.
    * Names are auto-uppercased by the component — pass any case.
@@ -46,6 +53,7 @@ export class PassengerFormPage {
   async fillPassenger(index: number, firstName: string, lastName: string) {
     await this.firstNameInput(index).fill(firstName);
     await this.lastNameInput(index).fill(lastName);
+    await this.passportInput(index).fill("A12345678");
   }
 
   /** Fill all passengers and click Review Booking */

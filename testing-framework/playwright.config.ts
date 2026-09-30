@@ -28,6 +28,11 @@ export default defineConfig({
   /* Reporter */
   reporter: [
     ['list'],
+    ['allure-playwright', { 
+      detail: true,
+      outputFolder: 'allure-results',
+      suiteTitle: false,
+    }],
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
     ['json', { outputFile: 'test-results/results.json' }],
   ],

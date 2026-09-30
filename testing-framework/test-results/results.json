@@ -1,0 +1,177 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Bharathi_K\\Documents\\TravelPlatform\\testing-framework\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/"
+    ],
+    "configFile": "C:\\Users\\Bharathi_K\\Documents\\TravelPlatform\\testing-framework\\playwright.config.ts",
+    "rootDir": "C:/Users/Bharathi_K/Documents/TravelPlatform/testing-framework/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Bharathi_K/Documents/TravelPlatform/testing-framework/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/Bharathi_K/Documents/TravelPlatform/testing-framework/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "C:\\Users\\Bharathi_K\\Documents\\TravelPlatform\\testing-framework\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+        {
+          "detail": true,
+          "outputFolder": "allure-results",
+          "suiteTitle": false
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run dev",
+      "cwd": "../apps/web-frontend",
+      "port": 5173,
+      "reuseExistingServer": true,
+      "timeout": 60000,
+      "stdout": "ignore",
+      "stderr": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "e2e\\E2E-HP-001_full_booking_happy_path.spec.ts",
+      "file": "e2e/E2E-HP-001_full_booking_happy_path.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "E2E-HP-001 | Full booking happy path — search → select → passenger → confirm → confirmed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "feature",
+                  "description": "Experience"
+                },
+                {
+                  "type": "story",
+                  "description": "Full Booking Journey"
+                },
+                {
+                  "type": "severity",
+                  "description": "critical"
+                },
+                {
+                  "type": "tms",
+                  "description": "E2E-HP-001"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2863,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-30T10:41:35.913Z",
+                  "annotations": [
+                    {
+                      "type": "feature",
+                      "description": "Experience"
+                    },
+                    {
+                      "type": "story",
+                      "description": "Full Booking Journey"
+                    },
+                    {
+                      "type": "severity",
+                      "description": "critical"
+                    },
+                    {
+                      "type": "tms",
+                      "description": "E2E-HP-001"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fcb05febefa591bffcfe-a39f9f9cd8d56498236e",
+          "file": "e2e/E2E-HP-001_full_booking_happy_path.spec.ts",
+          "line": 31,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-30T10:41:35.300Z",
+    "duration": 3960.755,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

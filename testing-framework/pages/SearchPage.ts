@@ -69,9 +69,9 @@ export class SearchPage {
     returnDate?: string;
     cabin?: string;
   }) {
-    // origin and destination are free-text IATA inputs (e.g. "LHR", "JFK")
-    await this.originInput.fill(origin);
-    await this.destinationInput.fill(destination);
+    // origin and destination are select elements with IATA codes
+    await this.originInput.selectOption(origin.toUpperCase());
+    await this.destinationInput.selectOption(destination.toUpperCase());
     await this.departureDateInput.fill(departureDate);
     if (returnDate) {
       await this.returnDateInput.fill(returnDate);
