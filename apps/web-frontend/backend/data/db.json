@@ -7,8 +7,8 @@
       "aircraft": "Boeing 777-200ER",
       "origin": "LHR",
       "destination": "JFK",
-      "departureTime": "2026-10-05T07:21:31.010Z",
-      "arrivalTime": "2026-10-05T14:51:31.010Z",
+      "departureTime": "2026-10-07T15:46:32.407Z",
+      "arrivalTime": "2026-10-07T23:16:32.407Z",
       "duration": "PT7.5H",
       "stops": 0,
       "cabinClass": "ECONOMY",
@@ -37,7 +37,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-09-28T07:21:31.010Z"
+        "lastUpdated": "2026-09-30T15:46:32.411Z"
       }
     },
     {
@@ -47,8 +47,8 @@
       "aircraft": "Boeing 787-10",
       "origin": "LHR",
       "destination": "JFK",
-      "departureTime": "2026-10-05T07:21:31.010Z",
-      "arrivalTime": "2026-10-05T15:21:31.010Z",
+      "departureTime": "2026-10-07T15:46:32.407Z",
+      "arrivalTime": "2026-10-07T23:46:32.407Z",
       "duration": "PT8H",
       "stops": 0,
       "cabinClass": "ECONOMY",
@@ -77,7 +77,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-09-28T07:21:31.010Z"
+        "lastUpdated": "2026-09-30T15:46:32.411Z"
       }
     },
     {
@@ -87,8 +87,8 @@
       "aircraft": "Airbus A330-300",
       "origin": "LHR",
       "destination": "JFK",
-      "departureTime": "2026-10-05T07:21:31.010Z",
-      "arrivalTime": "2026-10-05T15:06:31.010Z",
+      "departureTime": "2026-10-07T15:46:32.407Z",
+      "arrivalTime": "2026-10-07T23:31:32.407Z",
       "duration": "PT7.75H",
       "stops": 1,
       "cabinClass": "PREMIUM_ECONOMY",
@@ -117,7 +117,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-09-28T07:21:31.010Z"
+        "lastUpdated": "2026-09-30T15:46:32.411Z"
       }
     },
     {
@@ -127,8 +127,8 @@
       "aircraft": "Boeing 777-300ER",
       "origin": "LHR",
       "destination": "JFK",
-      "departureTime": "2026-10-06T07:21:31.010Z",
-      "arrivalTime": "2026-10-06T14:51:31.010Z",
+      "departureTime": "2026-10-08T15:46:32.407Z",
+      "arrivalTime": "2026-10-08T23:16:32.407Z",
       "duration": "PT7.5H",
       "stops": 0,
       "cabinClass": "BUSINESS",
@@ -157,7 +157,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-09-28T07:21:31.010Z"
+        "lastUpdated": "2026-09-30T15:46:32.411Z"
       }
     },
     {
@@ -167,8 +167,8 @@
       "aircraft": "Airbus A340-600",
       "origin": "LHR",
       "destination": "JFK",
-      "departureTime": "2026-10-07T07:21:31.010Z",
-      "arrivalTime": "2026-10-07T15:51:31.010Z",
+      "departureTime": "2026-10-09T15:46:32.407Z",
+      "arrivalTime": "2026-10-10T00:16:32.407Z",
       "duration": "PT8.5H",
       "stops": 2,
       "cabinClass": "ECONOMY",
@@ -197,7 +197,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-09-28T07:21:31.010Z"
+        "lastUpdated": "2026-09-30T15:46:32.411Z"
       }
     },
     {
@@ -207,8 +207,8 @@
       "aircraft": "Airbus A380",
       "origin": "DXB",
       "destination": "JFK",
-      "departureTime": "2026-10-08T07:21:31.010Z",
-      "arrivalTime": "2026-10-08T21:21:31.010Z",
+      "departureTime": "2026-10-10T15:46:32.407Z",
+      "arrivalTime": "2026-10-11T05:46:32.407Z",
       "duration": "PT14H",
       "stops": 0,
       "cabinClass": "ECONOMY",
@@ -237,7 +237,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-09-28T07:21:31.010Z"
+        "lastUpdated": "2026-09-30T15:46:32.411Z"
       }
     },
     {
@@ -247,8 +247,8 @@
       "aircraft": "Airbus A350",
       "origin": "SIN",
       "destination": "JFK",
-      "departureTime": "2026-10-10T07:21:31.010Z",
-      "arrivalTime": "2026-10-11T01:21:31.010Z",
+      "departureTime": "2026-10-12T15:46:32.407Z",
+      "arrivalTime": "2026-10-13T09:46:32.407Z",
       "duration": "PT18H",
       "stops": 0,
       "cabinClass": "PREMIUM_ECONOMY",
@@ -277,34 +277,34 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-09-28T07:21:31.010Z"
+        "lastUpdated": "2026-09-30T15:46:32.411Z"
       }
     }
   ],
   "bookings": [
     {
-      "bookingId": "09b70ea4-6401-49cb-9fcd-11779534b5e3",
+      "bookingId": "0c1e42c0-002d-4497-9832-0a8e82412931",
       "offerId": "flight-002",
       "organizationId": "org-001",
       "travelerId": "traveler-001",
       "passengerInfo": [
         {
           "passengerType": "ADT",
-          "firstName": "BHARATHI",
-          "lastName": "VAIDYA",
-          "passportNumber": "A13764732"
+          "firstName": "JOHN",
+          "lastName": "SMITH",
+          "passportNumber": "A12345678"
         }
       ],
       "flightDetails": {
         "origin": "LHR",
         "destination": "JFK",
-        "departureDate": "2026-10-05",
+        "departureDate": "2026-10-07",
         "cabinClass": "ECONOMY",
         "passengers": 1
       },
       "bookingStatus": "CONFIRMED",
-      "confirmationNumber": "M86CNB",
-      "holdExpiresAt": "2026-09-28T07:52:03.514Z",
+      "confirmationNumber": "DEMKVP",
+      "holdExpiresAt": "2026-09-30T16:16:52.200Z",
       "fareBreakdown": {
         "baseFare": {
           "amount": 380,
@@ -325,466 +325,26 @@
       },
       "cancellationPolicy": {
         "refundable": true,
-        "cancellationDeadline": "2026-09-30T07:22:03.514Z",
+        "cancellationDeadline": "2026-10-02T15:46:52.200Z",
         "penaltyAmount": {
           "amount": 50,
           "currency": "USD"
         }
       },
-      "createdAt": "2026-09-28T07:22:03.514Z",
-      "modifiedAt": "2026-09-28T07:22:03.529Z",
+      "createdAt": "2026-09-30T15:46:52.200Z",
+      "modifiedAt": "2026-09-30T15:46:52.258Z",
       "ticketNumbers": [
-        "TKT-BB73394A"
+        "TKT-68DE81A7"
       ],
-      "pnr": "ME2ZT4",
-      "confirmedAt": "2026-09-28T07:22:03.529Z"
-    },
-    {
-      "bookingId": "c63c826d-c2eb-4d4f-92fd-7be148f2ea22",
-      "offerId": "flight-007",
-      "organizationId": "org-001",
-      "travelerId": "traveler-001",
-      "passengerInfo": [
-        {
-          "passengerType": "INF",
-          "firstName": "BHARATHI",
-          "lastName": "VAIDYA",
-          "passportNumber": "A13764732"
-        }
-      ],
-      "flightDetails": {
-        "origin": "SIN",
-        "destination": "JFK",
-        "departureDate": "2026-10-10",
-        "cabinClass": "ECONOMY",
-        "passengers": 1
-      },
-      "bookingStatus": "PENDING_APPROVAL",
-      "confirmationNumber": "54PQK4",
-      "holdExpiresAt": "2026-09-28T07:52:37.149Z",
-      "fareBreakdown": {
-        "baseFare": {
-          "amount": 1250,
-          "currency": "USD"
-        },
-        "taxes": {
-          "amount": 187.5,
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": 25,
-          "currency": "USD"
-        },
-        "totalFare": {
-          "amount": 1462.5,
-          "currency": "USD"
-        }
-      },
-      "cancellationPolicy": {
-        "refundable": true,
-        "cancellationDeadline": "2026-09-30T07:22:37.149Z",
-        "penaltyAmount": {
-          "amount": 50,
-          "currency": "USD"
-        }
-      },
-      "createdAt": "2026-09-28T07:22:37.149Z",
-      "modifiedAt": "2026-09-28T07:22:37.159Z",
-      "approvalId": "APPR-C63C826D",
-      "ticketNumbers": [],
-      "pnr": "PU32U4"
-    },
-    {
-      "bookingId": "cef64fe4-0229-488b-bd51-771c5016f128",
-      "offerId": "flight-002",
-      "organizationId": "org-001",
-      "travelerId": "traveler-001",
-      "passengerInfo": [
-        {
-          "passengerType": "ADT",
-          "firstName": "BHARATHI",
-          "lastName": "VAIDYA",
-          "passportNumber": "A13764732"
-        },
-        {
-          "passengerType": "ADT",
-          "firstName": "BHARATHI",
-          "lastName": "VAIDYA"
-        }
-      ],
-      "flightDetails": {
-        "origin": "LHR",
-        "destination": "JFK",
-        "departureDate": "2026-10-05",
-        "cabinClass": "PREMIUM_ECONOMY",
-        "passengers": 2
-      },
-      "bookingStatus": "CONFIRMED",
-      "confirmationNumber": "E6SGUE",
-      "holdExpiresAt": "2026-09-28T09:00:43.786Z",
-      "fareBreakdown": {
-        "baseFare": {
-          "amount": 760,
-          "currency": "USD"
-        },
-        "taxes": {
-          "amount": 114,
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": 50,
-          "currency": "USD"
-        },
-        "totalFare": {
-          "amount": 924,
-          "currency": "USD"
-        }
-      },
-      "cancellationPolicy": {
-        "refundable": true,
-        "cancellationDeadline": "2026-09-30T08:30:43.787Z",
-        "penaltyAmount": {
-          "amount": 50,
-          "currency": "USD"
-        }
-      },
-      "createdAt": "2026-09-28T08:30:43.787Z",
-      "modifiedAt": "2026-09-28T08:30:43.812Z",
-      "ticketNumbers": [
-        "TKT-980E60EA"
-      ],
-      "pnr": "JN8567",
-      "confirmedAt": "2026-09-28T08:30:43.812Z"
+      "pnr": "NZA3L7",
+      "confirmedAt": "2026-09-30T15:46:52.258Z"
     }
   ],
-  "approvals": [
-    {
-      "approvalId": "APPR-C63C826D",
-      "bookingId": "c63c826d-c2eb-4d4f-92fd-7be148f2ea22",
-      "organizationId": "org-001",
-      "travelerId": "traveler-001",
-      "requestReason": "Fare exceeds the manager approval threshold of USD 1000",
-      "flightSummary": {
-        "origin": "SIN",
-        "destination": "JFK",
-        "departureDate": "2026-10-10",
-        "airline": "Singapore Airlines",
-        "cabinClass": "PREMIUM_ECONOMY",
-        "totalFare": {
-          "amount": 1462.5,
-          "currency": "USD"
-        }
-      },
-      "policyViolations": [
-        {
-          "policyId": "pol-fare",
-          "policyName": "High-Fare Approval",
-          "outcome": "REQUIRE_APPROVAL",
-          "details": "Fare exceeds the approval threshold",
-          "threshold": {
-            "amount": 1000,
-            "currency": "USD"
-          },
-          "actualValue": {
-            "amount": 1462.5,
-            "currency": "USD"
-          },
-          "isBreached": true
-        }
-      ],
-      "assignedTo": [
-        "manager-001"
-      ],
-<<<<<<< Updated upstream
-      "pnr": "532UEK",
-      "confirmedAt": "2026-09-25T08:15:23.035Z"
-    },
-    {
-      "bookingId": "b6555a7c-33e8-42d1-a544-432b8cb689dd",
-      "offerId": "flight-002",
-      "organizationId": "org-001",
-      "travelerId": "traveler-001",
-      "passengerInfo": [
-        {
-          "passengerType": "ADT",
-          "firstName": "HITESH",
-          "lastName": "HITI"
-        }
-      ],
-      "flightDetails": {
-        "origin": "LHR",
-        "destination": "JFK",
-        "departureDate": "2026-10-01",
-        "cabinClass": "ECONOMY",
-        "passengers": 1
-      },
-      "bookingStatus": "CONFIRMED",
-      "confirmationNumber": "Z3XA4N",
-      "holdExpiresAt": "2026-09-28T07:13:45.947Z",
-      "fareBreakdown": {
-        "baseFare": {
-          "amount": 380,
-          "currency": "USD"
-        },
-        "taxes": {
-          "amount": 57,
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": 25,
-          "currency": "USD"
-        },
-        "totalFare": {
-          "amount": 462,
-          "currency": "USD"
-        }
-      },
-      "cancellationPolicy": {
-        "refundable": true,
-        "cancellationDeadline": "2026-09-30T06:43:45.948Z",
-        "penaltyAmount": {
-          "amount": 50,
-          "currency": "USD"
-        }
-      },
-      "createdAt": "2026-09-28T06:43:45.948Z",
-      "modifiedAt": "2026-09-28T06:43:45.999Z",
-      "ticketNumbers": [
-        "TKT-1B6C9E29"
-      ],
-      "pnr": "MVR4ZL",
-      "confirmedAt": "2026-09-28T06:43:45.999Z"
-    },
-    {
-      "bookingId": "63f1c3ab-0479-48c3-9916-a0c934ab840b",
-      "offerId": "flight-002",
-      "organizationId": "org-001",
-      "travelerId": "traveler-001",
-      "passengerInfo": [
-        {
-          "passengerType": "ADT",
-          "firstName": "HITESH",
-          "lastName": "HITI"
-        }
-      ],
-      "flightDetails": {
-        "origin": "LHR",
-        "destination": "JFK",
-        "departureDate": "2026-10-01",
-        "cabinClass": "ECONOMY",
-        "passengers": 1
-      },
-      "bookingStatus": "CONFIRMED",
-      "confirmationNumber": "YDFBBJ",
-      "holdExpiresAt": "2026-09-28T07:37:29.947Z",
-      "fareBreakdown": {
-        "baseFare": {
-          "amount": 380,
-          "currency": "USD"
-        },
-        "taxes": {
-          "amount": 57,
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": 25,
-          "currency": "USD"
-        },
-        "totalFare": {
-          "amount": 462,
-          "currency": "USD"
-        }
-      },
-      "cancellationPolicy": {
-        "refundable": true,
-        "cancellationDeadline": "2026-09-30T07:07:29.947Z",
-        "penaltyAmount": {
-          "amount": 50,
-          "currency": "USD"
-        }
-      },
-      "createdAt": "2026-09-28T07:07:29.947Z",
-      "modifiedAt": "2026-09-28T07:07:29.999Z",
-      "ticketNumbers": [
-        "TKT-623CD926"
-      ],
-      "pnr": "JYBMN2",
-      "confirmedAt": "2026-09-28T07:07:29.999Z"
-    },
-    {
-      "bookingId": "6c8304f4-e544-4927-b516-3db4debf3476",
-      "offerId": "flight-002",
-      "organizationId": "org-001",
-      "travelerId": "traveler-001",
-      "passengerInfo": [
-        {
-          "passengerType": "ADT",
-          "firstName": "HITESH",
-          "lastName": "HITI"
-        }
-      ],
-      "flightDetails": {
-        "origin": "LHR",
-        "destination": "JFK",
-        "departureDate": "2026-10-01",
-        "cabinClass": "ECONOMY",
-        "passengers": 1
-      },
-      "bookingStatus": "CONFIRMED",
-      "confirmationNumber": "BQVAZ8",
-      "holdExpiresAt": "2026-09-28T08:04:35.933Z",
-      "fareBreakdown": {
-        "baseFare": {
-          "amount": 380,
-          "currency": "USD"
-        },
-        "taxes": {
-          "amount": 57,
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": 25,
-          "currency": "USD"
-        },
-        "totalFare": {
-          "amount": 462,
-          "currency": "USD"
-        }
-      },
-      "cancellationPolicy": {
-        "refundable": true,
-        "cancellationDeadline": "2026-09-30T07:34:35.934Z",
-        "penaltyAmount": {
-          "amount": 50,
-          "currency": "USD"
-        }
-      },
-      "createdAt": "2026-09-28T07:34:35.934Z",
-      "modifiedAt": "2026-09-28T07:34:36.398Z",
-      "ticketNumbers": [
-        "TKT-0E9A3066"
-      ],
-      "pnr": "DNY9BJ",
-      "confirmedAt": "2026-09-28T07:34:36.398Z"
-    },
-    {
-      "bookingId": "498856c8-9219-4023-b491-9555aa91dc9c",
-      "offerId": "flight-002",
-      "organizationId": "org-001",
-      "travelerId": "traveler-001",
-      "passengerInfo": [
-        {
-          "passengerType": "ADT",
-          "firstName": "HITESH",
-          "lastName": "HITI"
-        }
-      ],
-      "flightDetails": {
-        "origin": "LHR",
-        "destination": "JFK",
-        "departureDate": "2026-10-01",
-        "cabinClass": "ECONOMY",
-        "passengers": 1
-      },
-      "bookingStatus": "CONFIRMED",
-      "confirmationNumber": "ZWDLRZ",
-      "holdExpiresAt": "2026-09-28T08:06:47.958Z",
-      "fareBreakdown": {
-        "baseFare": {
-          "amount": 380,
-          "currency": "USD"
-        },
-        "taxes": {
-          "amount": 57,
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": 25,
-          "currency": "USD"
-        },
-        "totalFare": {
-          "amount": 462,
-          "currency": "USD"
-        }
-      },
-      "cancellationPolicy": {
-        "refundable": true,
-        "cancellationDeadline": "2026-09-30T07:36:47.958Z",
-        "penaltyAmount": {
-          "amount": 50,
-          "currency": "USD"
-        }
-      },
-      "createdAt": "2026-09-28T07:36:47.958Z",
-      "modifiedAt": "2026-09-28T07:36:48.522Z",
-      "ticketNumbers": [
-        "TKT-027BA753"
-      ],
-      "pnr": "JC746B",
-      "confirmedAt": "2026-09-28T07:36:48.522Z"
-    },
-    {
-      "bookingId": "c1bf9235-a741-40d9-83b8-83c64692b291",
-      "offerId": "flight-002",
-      "organizationId": "org-001",
-      "travelerId": "traveler-001",
-      "passengerInfo": [
-        {
-          "passengerType": "ADT",
-          "firstName": "BHARATHI",
-          "lastName": "VAIDYA",
-          "passportNumber": "A13764732"
-        }
-      ],
-      "flightDetails": {
-        "origin": "LHR",
-        "destination": "JFK",
-        "departureDate": "2026-10-01",
-        "cabinClass": "ECONOMY",
-        "passengers": 1
-      },
-      "bookingStatus": "CONFIRMED",
-      "confirmationNumber": "82JU6N",
-      "holdExpiresAt": "2026-09-28T08:07:03.679Z",
-      "fareBreakdown": {
-        "baseFare": {
-          "amount": 380,
-          "currency": "USD"
-        },
-        "taxes": {
-          "amount": 57,
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": 25,
-          "currency": "USD"
-        },
-        "totalFare": {
-          "amount": 462,
-          "currency": "USD"
-        }
-      },
-      "cancellationPolicy": {
-        "refundable": true,
-        "cancellationDeadline": "2026-09-30T07:37:03.679Z",
-        "penaltyAmount": {
-          "amount": 50,
-          "currency": "USD"
-        }
-      },
-      "createdAt": "2026-09-28T07:37:03.679Z",
-      "modifiedAt": "2026-09-28T07:37:03.996Z",
-      "ticketNumbers": [
-        "TKT-0CA546CD"
-      ],
-      "pnr": "G6NZTK",
-      "confirmedAt": "2026-09-28T07:37:03.996Z"
-    }
-  ],
+  "approvals": [],
   "policyEvaluations": [
     {
-      "evaluationId": "6dc7cf6e-ac96-46a4-a77b-0ca7700f5626",
-      "timestamp": "2026-09-28T07:22:01.268Z",
+      "evaluationId": "940a6f26-f47e-4f63-86c5-b1d0f9600c31",
+      "timestamp": "2026-09-30T15:46:51.947Z",
       "outcome": "ALLOW",
       "requiresApproval": false,
       "policies": [
@@ -801,315 +361,6 @@
             "amount": 380,
             "currency": "USD"
           }
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "9c4908e0-e3e5-477c-b265-37d36ae79321",
-      "timestamp": "2026-09-28T07:22:33.843Z",
-      "outcome": "REQUIRE_APPROVAL",
-      "requiresApproval": true,
-      "policies": [
-        {
-          "policyId": "pol-fare",
-          "policyName": "High-Fare Approval",
-          "outcome": "REQUIRE_APPROVAL",
-          "details": "Fare exceeds the approval threshold",
-          "threshold": {
-            "amount": 1000,
-            "currency": "USD"
-          },
-          "actualValue": {
-            "amount": 1250,
-            "currency": "USD"
-          },
-          "isBreached": true
-        }
-      ],
-      "approvalDetails": {
-        "approverIds": [
-          "manager-001"
-        ],
-        "deadline": "2026-09-29T07:22:33.843Z",
-        "reason": "Fare exceeds the manager approval threshold of USD 1000"
-      },
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "69348b1f-857f-4968-99b5-791e80f255bd",
-      "timestamp": "2026-09-28T08:30:39.025Z",
-      "outcome": "ALLOW",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-fare",
-          "policyName": "Fare Limit",
-          "outcome": "ALLOW",
-          "details": "Fare is within the approved limit",
-          "threshold": {
-            "amount": 1000,
-            "currency": "USD"
-          },
-          "actualValue": {
-            "amount": 380,
-            "currency": "USD"
-          }
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "3a7f9dc6-ee62-4017-81d8-b90b1902773c",
-      "timestamp": "2026-09-28T06:43:41.011Z",
-      "outcome": "WARN",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-advance",
-          "policyName": "Advance Booking",
-          "outcome": "WARN",
-          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
-        }
-      ],
-      "warnings": [
-        {
-          "code": "ADV_BOOKING_SHORT",
-          "message": "This booking is less than 7 days in advance",
-          "severity": "WARNING"
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "64913d06-84af-4e13-b469-15e1631d3a27",
-      "timestamp": "2026-09-28T07:07:27.652Z",
-      "outcome": "WARN",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-advance",
-          "policyName": "Advance Booking",
-          "outcome": "WARN",
-          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
-        }
-      ],
-      "warnings": [
-        {
-          "code": "ADV_BOOKING_SHORT",
-          "message": "This booking is less than 7 days in advance",
-          "severity": "WARNING"
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "c307476c-d39f-41ff-9a2a-714395f5e929",
-      "timestamp": "2026-09-28T07:34:27.095Z",
-      "outcome": "WARN",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-advance",
-          "policyName": "Advance Booking",
-          "outcome": "WARN",
-          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
-        }
-      ],
-      "warnings": [
-        {
-          "code": "ADV_BOOKING_SHORT",
-          "message": "This booking is less than 7 days in advance",
-          "severity": "WARNING"
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "2ecac80e-7d2e-4b5b-971a-24b330201c80",
-      "timestamp": "2026-09-28T07:36:46.140Z",
-      "outcome": "WARN",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-advance",
-          "policyName": "Advance Booking",
-          "outcome": "WARN",
-          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
-        }
-      ],
-      "warnings": [
-        {
-          "code": "ADV_BOOKING_SHORT",
-          "message": "This booking is less than 7 days in advance",
-          "severity": "WARNING"
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "b23380d6-c362-46b9-9e4c-0544b1ef01ea",
-      "timestamp": "2026-09-28T07:37:01.097Z",
-      "outcome": "WARN",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-advance",
-          "policyName": "Advance Booking",
-          "outcome": "WARN",
-          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
-        }
-      ],
-      "warnings": [
-        {
-          "code": "ADV_BOOKING_SHORT",
-          "message": "This booking is less than 7 days in advance",
-          "severity": "WARNING"
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "6131feab-ade0-4513-9979-21de4863c871",
-      "timestamp": "2026-09-28T11:50:56.065Z",
-      "outcome": "WARN",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-advance",
-          "policyName": "Advance Booking",
-          "outcome": "WARN",
-          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
-        }
-      ],
-      "warnings": [
-        {
-          "code": "ADV_BOOKING_SHORT",
-          "message": "This booking is less than 7 days in advance",
-          "severity": "WARNING"
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "b45c2d3a-42d7-480c-b3eb-f94cfe23ab2e",
-      "timestamp": "2026-09-28T12:00:46.729Z",
-      "outcome": "WARN",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-advance",
-          "policyName": "Advance Booking",
-          "outcome": "WARN",
-          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
-        }
-      ],
-      "warnings": [
-        {
-          "code": "ADV_BOOKING_SHORT",
-          "message": "This booking is less than 7 days in advance",
-          "severity": "WARNING"
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "a7b8716b-8656-44c7-8590-c7f0dc8b6481",
-      "timestamp": "2026-09-28T12:02:54.941Z",
-      "outcome": "WARN",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-advance",
-          "policyName": "Advance Booking",
-          "outcome": "WARN",
-          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
-        }
-      ],
-      "warnings": [
-        {
-          "code": "ADV_BOOKING_SHORT",
-          "message": "This booking is less than 7 days in advance",
-          "severity": "WARNING"
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "35d3deff-ff87-43c3-ad19-b58273b7845a",
-      "timestamp": "2026-09-28T12:03:23.840Z",
-      "outcome": "WARN",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-advance",
-          "policyName": "Advance Booking",
-          "outcome": "WARN",
-          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
-        }
-      ],
-      "warnings": [
-        {
-          "code": "ADV_BOOKING_SHORT",
-          "message": "This booking is less than 7 days in advance",
-          "severity": "WARNING"
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "c6028a81-4c8e-48ed-b83f-07034cef2bf8",
-      "timestamp": "2026-09-28T12:08:29.708Z",
-      "outcome": "WARN",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-advance",
-          "policyName": "Advance Booking",
-          "outcome": "WARN",
-          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
-        }
-      ],
-      "warnings": [
-        {
-          "code": "ADV_BOOKING_SHORT",
-          "message": "This booking is less than 7 days in advance",
-          "severity": "WARNING"
-        }
-      ],
-      "organizationId": "org-001",
-      "travelerId": "traveler-001"
-    },
-    {
-      "evaluationId": "96bb4ec9-5d77-42e9-9690-c24483c677f5",
-      "timestamp": "2026-09-28T12:09:23.684Z",
-      "outcome": "WARN",
-      "requiresApproval": false,
-      "policies": [
-        {
-          "policyId": "pol-advance",
-          "policyName": "Advance Booking",
-          "outcome": "WARN",
-          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
-        }
-      ],
-      "warnings": [
-        {
-          "code": "ADV_BOOKING_SHORT",
-          "message": "This booking is less than 7 days in advance",
-          "severity": "WARNING"
         }
       ],
       "organizationId": "org-001",
@@ -1118,148 +369,20 @@
   ],
   "events": [
     {
-      "id": "b7d847f4-e81f-4aab-9694-366e5053e02c",
+      "id": "bd6d33ac-0575-40e2-926d-5d558f4eef90",
       "action": "BOOKING_HOLD_CREATED",
-      "createdAt": "2026-09-28T07:22:03.514Z",
+      "createdAt": "2026-09-30T15:46:52.200Z",
       "payload": {
-        "bookingId": "09b70ea4-6401-49cb-9fcd-11779534b5e3",
+        "bookingId": "0c1e42c0-002d-4497-9832-0a8e82412931",
         "offerId": "flight-002"
       }
     },
     {
-      "id": "60fd8fad-8a0b-47e8-bc11-4785b8c3de77",
+      "id": "db92cf4f-7249-4fe8-aa38-0ec1d557dd7f",
       "action": "BOOKING_CONFIRMED",
-      "createdAt": "2026-09-28T07:22:03.529Z",
+      "createdAt": "2026-09-30T15:46:52.258Z",
       "payload": {
-        "bookingId": "09b70ea4-6401-49cb-9fcd-11779534b5e3"
-      }
-    },
-    {
-      "id": "e2adb483-23b7-4cae-8c55-d010a9e6ede9",
-      "action": "BOOKING_HOLD_CREATED",
-      "createdAt": "2026-09-28T07:22:37.149Z",
-      "payload": {
-        "bookingId": "c63c826d-c2eb-4d4f-92fd-7be148f2ea22",
-        "offerId": "flight-007"
-      }
-    },
-    {
-      "id": "3d233e3f-2521-4f86-ad14-71dca4aa30b4",
-      "action": "BOOKING_HOLD_CREATED",
-      "createdAt": "2026-09-28T08:30:43.787Z",
-      "payload": {
-        "bookingId": "cef64fe4-0229-488b-bd51-771c5016f128",
-        "offerId": "flight-002"
-      }
-    },
-    {
-      "id": "958ad66b-75b2-40bb-8668-51343f20d05a",
-      "action": "BOOKING_CONFIRMED",
-      "createdAt": "2026-09-28T08:30:43.812Z",
-      "payload": {
-        "bookingId": "cef64fe4-0229-488b-bd51-771c5016f128"
-      }
-    },
-    {
-      "id": "e31bce47-8434-49ca-8a2c-0f16a05bfb49",
-      "action": "BOOKING_HOLD_CREATED",
-      "createdAt": "2026-09-28T06:43:45.948Z",
-      "payload": {
-        "bookingId": "b6555a7c-33e8-42d1-a544-432b8cb689dd",
-        "offerId": "flight-002"
-      }
-    },
-    {
-      "id": "13aeb370-0a14-4381-8f1a-3a176d021047",
-      "action": "BOOKING_CONFIRMED",
-      "createdAt": "2026-09-28T06:43:45.999Z",
-      "payload": {
-        "bookingId": "b6555a7c-33e8-42d1-a544-432b8cb689dd"
-      }
-    },
-    {
-      "id": "4c12dbee-dcd2-4360-8e69-6e103806e315",
-      "action": "BOOKING_HOLD_CREATED",
-      "createdAt": "2026-09-28T07:07:29.947Z",
-      "payload": {
-        "bookingId": "63f1c3ab-0479-48c3-9916-a0c934ab840b",
-        "offerId": "flight-002"
-      }
-    },
-    {
-      "id": "71c127e8-a4fe-4687-bcd1-ca6c152ad091",
-      "action": "BOOKING_CONFIRMED",
-      "createdAt": "2026-09-28T07:07:29.999Z",
-      "payload": {
-        "bookingId": "63f1c3ab-0479-48c3-9916-a0c934ab840b"
-      }
-    },
-    {
-      "id": "25d1c3e0-043b-4902-9a53-a3af9c06444e",
-      "action": "BOOKING_HOLD_CREATED",
-      "createdAt": "2026-09-28T07:34:35.934Z",
-      "payload": {
-        "bookingId": "6c8304f4-e544-4927-b516-3db4debf3476",
-        "offerId": "flight-002"
-      }
-    },
-    {
-      "id": "4ad412fe-0525-4957-9c07-63161f3dc40b",
-      "action": "BOOKING_CONFIRMED",
-      "createdAt": "2026-09-28T07:34:36.398Z",
-      "payload": {
-        "bookingId": "6c8304f4-e544-4927-b516-3db4debf3476"
-      }
-    },
-    {
-      "id": "c477a997-1936-45f0-ad3e-326ec2089ff8",
-      "action": "BOOKING_HOLD_CREATED",
-      "createdAt": "2026-09-28T07:36:47.958Z",
-      "payload": {
-        "bookingId": "498856c8-9219-4023-b491-9555aa91dc9c",
-        "offerId": "flight-002"
-      }
-    },
-    {
-      "id": "f513e941-73ce-4846-b420-db10db366b06",
-      "action": "BOOKING_CONFIRMED",
-      "createdAt": "2026-09-28T07:36:48.522Z",
-      "payload": {
-        "bookingId": "498856c8-9219-4023-b491-9555aa91dc9c"
-      }
-    },
-    {
-      "id": "bfea890f-2a6b-4e0d-bdad-fbc3b1a31cd9",
-      "action": "BOOKING_HOLD_CREATED",
-      "createdAt": "2026-09-28T07:37:03.679Z",
-      "payload": {
-        "bookingId": "c1bf9235-a741-40d9-83b8-83c64692b291",
-        "offerId": "flight-002"
-      }
-    },
-    {
-      "id": "5879a6c6-4906-4a34-9bc8-ead15ff4932d",
-      "action": "BOOKING_CONFIRMED",
-      "createdAt": "2026-09-28T07:37:03.996Z",
-      "payload": {
-        "bookingId": "c1bf9235-a741-40d9-83b8-83c64692b291"
-      }
-    },
-    {
-      "id": "64bdabcd-f4ba-44d2-a985-c8723637b754",
-      "action": "BOOKING_HOLD_CREATED",
-      "createdAt": "2026-09-28T12:03:50.725Z",
-      "payload": {
-        "bookingId": "572f54c6-b5d0-4b48-aae5-5fa559b671b9",
-        "offerId": "flight-002"
-      }
-    },
-    {
-      "id": "d906f79a-e04f-4fdd-b775-f5750f88c9d5",
-      "action": "BOOKING_CONFIRMED",
-      "createdAt": "2026-09-28T12:03:50.760Z",
-      "payload": {
-        "bookingId": "572f54c6-b5d0-4b48-aae5-5fa559b671b9"
+        "bookingId": "0c1e42c0-002d-4497-9832-0a8e82412931"
       }
     }
   ]
