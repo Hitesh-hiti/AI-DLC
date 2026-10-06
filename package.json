@@ -1,5 +1,10 @@
 {
   "devDependencies": {
     "@vitest/coverage-v8": "^5.0.1"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/exporter-trace-otlp-proto": "^0.222.0",
+    "@opentelemetry/sdk-node": "^0.222.0"
   }
 }
