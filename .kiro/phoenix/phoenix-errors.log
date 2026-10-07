@@ -1,0 +1,13 @@
+2026-10-05T06:37:41.694Z 415 Unsupported content type: application/json
+2026-10-05T16:34:36.874Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-05T16:44:13.624Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-05T16:46:58.792Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-07T10:44:19.394Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1426:18)
+    at afterConnectMultiple (node:net:2095:7)
