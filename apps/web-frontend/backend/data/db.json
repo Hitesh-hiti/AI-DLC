@@ -1535,6 +1535,63 @@
       ],
       "pnr": "XAC44H",
       "confirmedAt": "2026-10-06T15:44:17.519Z"
+    },
+    {
+      "bookingId": "9e34c0ce-bda1-4b6c-9db1-47067c10b458",
+      "offerId": "flight-002",
+      "organizationId": "org-001",
+      "travelerId": "traveler-001",
+      "passengerInfo": [
+        {
+          "passengerType": "ADT",
+          "firstName": "JOHN",
+          "lastName": "SMITH",
+          "passportNumber": "A12345678"
+        }
+      ],
+      "flightDetails": {
+        "origin": "LHR",
+        "destination": "JFK",
+        "departureDate": "2026-10-11",
+        "cabinClass": "ECONOMY",
+        "passengers": 1
+      },
+      "bookingStatus": "CONFIRMED",
+      "confirmationNumber": "B9Z5EA",
+      "holdExpiresAt": "2026-10-09T07:05:50.514Z",
+      "fareBreakdown": {
+        "baseFare": {
+          "amount": 380,
+          "currency": "USD"
+        },
+        "taxes": {
+          "amount": 57,
+          "currency": "USD"
+        },
+        "fees": {
+          "amount": 25,
+          "currency": "USD"
+        },
+        "totalFare": {
+          "amount": 462,
+          "currency": "USD"
+        }
+      },
+      "cancellationPolicy": {
+        "refundable": true,
+        "cancellationDeadline": "2026-10-11T06:35:50.515Z",
+        "penaltyAmount": {
+          "amount": 50,
+          "currency": "USD"
+        }
+      },
+      "createdAt": "2026-10-09T06:35:50.515Z",
+      "modifiedAt": "2026-10-09T06:35:50.716Z",
+      "ticketNumbers": [
+        "TKT-ADD1092E"
+      ],
+      "pnr": "5LKKKL",
+      "confirmedAt": "2026-10-09T06:35:50.716Z"
     }
   ],
   "approvals": [],
@@ -2080,6 +2137,29 @@
       ],
       "organizationId": "org-001",
       "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "5eef343d-b037-4472-8595-766f1187e795",
+      "timestamp": "2026-10-09T06:35:49.883Z",
+      "outcome": "WARN",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-advance",
+          "policyName": "Advance Booking",
+          "outcome": "WARN",
+          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "ADV_BOOKING_SHORT",
+          "message": "This booking is less than 7 days in advance",
+          "severity": "WARNING"
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
     }
   ],
   "events": [
@@ -2455,6 +2535,23 @@
       "createdAt": "2026-10-06T15:44:17.519Z",
       "payload": {
         "bookingId": "b2102592-c388-43d7-abee-c9015ff55182"
+      }
+    },
+    {
+      "id": "4e4407c3-393c-41d2-85aa-51c6446bde56",
+      "action": "BOOKING_HOLD_CREATED",
+      "createdAt": "2026-10-09T06:35:50.516Z",
+      "payload": {
+        "bookingId": "9e34c0ce-bda1-4b6c-9db1-47067c10b458",
+        "offerId": "flight-002"
+      }
+    },
+    {
+      "id": "8dc78b02-c800-44cc-b3ac-851ca6e0258f",
+      "action": "BOOKING_CONFIRMED",
+      "createdAt": "2026-10-09T06:35:50.717Z",
+      "payload": {
+        "bookingId": "9e34c0ce-bda1-4b6c-9db1-47067c10b458"
       }
     }
   ]

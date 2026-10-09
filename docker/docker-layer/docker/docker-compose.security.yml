@@ -1,0 +1,39 @@
+services:
+  security-network-init:
+    image: alpine:3.20
+    command: ["sh", "-c", "echo security scanner network ready"]
+    networks:
+      - security-network
+
+  nuclei:
+    image: projectdiscovery/nuclei:latest
+    profiles: ["scanner"]
+    entrypoint: ["nuclei"]
+    networks:
+      - security-network
+
+  semgrep:
+    image: semgrep/semgrep:latest
+    profiles: ["scanner"]
+    entrypoint: ["semgrep"]
+    networks:
+      - security-network
+
+  trivy:
+    image: aquasec/trivy:latest
+    profiles: ["scanner"]
+    entrypoint: ["trivy"]
+    networks:
+      - security-network
+
+  trufflehog:
+    image: trufflesecurity/trufflehog:latest
+    profiles: ["scanner"]
+    entrypoint: ["trufflehog"]
+    networks:
+      - security-network
+
+networks:
+  security-network:
+    name: ${SECURITY_DOCKER_NETWORK:-security-network}
+    driver: bridge

@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "locator": "getByTestId(\"flight-list\").getByTestId(\"flight-card\").nth(0).getByRole(\"button\", {\"name\":\"Select\"})",
+  "url": "http://localhost:5173/",
+  "fingerprint": {
+    "tag": "button",
+    "testId": "btn-select-flight-flight-002",
+    "ariaLabel": "Select United Airlines UA 908 from LHR to JFK",
+    "text": "Select",
+    "classes": [
+      "btn",
+      "btn-primary",
+      "btn-md"
+    ],
+    "parentTag": "div",
+    "parentClasses": [
+      "flight-card-footer"
+    ],
+    "childCount": 0,
+    "siblingIndex": 2,
+    "attributes": {
+      "class": "btn btn-primary btn-md",
+      "aria-busy": "false",
+      "aria-label": "Select United Airlines UA 908 from LHR to JFK",
+      "data-testid": "btn-select-flight-flight-002"
+    },
+    "parentSignature": [
+      {
+        "tag": "div",
+        "text": "$462.00 TOTAL PER PERSON ▼"
+      },
+      {
+        "tag": "div",
+        "text": "✓ Available 8 seats"
+      },
+      {
+        "tag": "button",
+        "text": "Select",
+        "testId": "btn-select-flight-flight-002"
+      }
+    ]
+  },
+  "fingerprintHash": "59c83f6173b6aa7b98a6f947830521bdca6589dc42a616e29ab232615dc78a7d",
+  "updatedAt": "2026-10-02T18:16:37.518Z"
+}

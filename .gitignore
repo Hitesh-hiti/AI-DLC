@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.zip
+*/package-lock.json
+ docker/
+ package-lock.json
+testing-framework/allure-results
+apps/web-frontend/reports
+ai-dlc-security-orchestration/
+security/
+testing-framework/.healer/
+testing-framework/test-results/healer/
+.kiro/phoenix/evaluations/
+.kiro/phoenix/trace-state/
+testing-framework/package-lock.json/
+testing-framework/playwright-report/index.html
+testing-framework/test-results/results.json

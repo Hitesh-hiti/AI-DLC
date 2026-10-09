@@ -1,7 +1,7 @@
 {
   "name": "test-automation-agent",
   "description": "Handles Playwright/Selenium test automation from approved test cases.",
-  "model": "claude-sonnet-4-5",
+  "model": "claude-sonnet-4",
   "tools": [
     "read",
     "write",

@@ -1,13 +1,51 @@
 {
-  "name": "Phoenix Observability",
-  "version": "1",
-  "description": "Send Kiro IDE lifecycle events to Arize Phoenix",
-  "when": {
-    "type": "PromptSubmit"
-  },
-  "then": {
-    "type": "runCommand",
-    "command": "node .kiro/phoenix/trace-hook.js"
-  },
-  "enabled": true
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Phoenix - User Prompt",
+      "description": "Capture Kiro user prompts and routing decisions in Arize Phoenix",
+      "trigger": "UserPromptSubmit",
+      "action": {
+        "type": "command",
+        "command": "node .kiro/phoenix/trace-hook.js"
+      },
+      "timeout": 10,
+      "enabled": true
+    },
+    {
+      "name": "Phoenix - Pre Tool",
+      "description": "Capture Kiro tool invocations before execution",
+      "trigger": "PreToolUse",
+      "matcher": "*",
+      "action": {
+        "type": "command",
+        "command": "node .kiro/phoenix/trace-hook.js"
+      },
+      "timeout": 10,
+      "enabled": true
+    },
+    {
+      "name": "Phoenix - Post Tool",
+      "description": "Capture Kiro tool results after execution",
+      "trigger": "PostToolUse",
+      "matcher": "*",
+      "action": {
+        "type": "command",
+        "command": "node .kiro/phoenix/trace-hook.js"
+      },
+      "timeout": 10,
+      "enabled": true
+    },
+    {
+      "name": "Phoenix - Agent Stop",
+      "description": "Capture completion of the Kiro agent turn",
+      "trigger": "Stop",
+      "action": {
+        "type": "command",
+        "command": "node .kiro/phoenix/trace-hook.js"
+      },
+      "timeout": 10,
+      "enabled": true
+    }
+  ]
 }

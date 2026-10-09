@@ -13,6 +13,7 @@ import { ReviewBookingPage }  from '../pages/ReviewBookingPage';
 import { BookingConfirmedPage } from '../pages/BookingConfirmedPage';
 import { ApprovalPendingPage } from '../pages/ApprovalPendingPage';
 import { saveIstanbulCoverage } from '../utils/istanbulCoverage';
+import { healer } from '../utils/healer';
 
 export type TravelPlatformFixtures = {
   _istanbulCoverage: void;
@@ -24,6 +25,10 @@ export type TravelPlatformFixtures = {
 };
 
 export const test = base.extend<TravelPlatformFixtures>({
+  page: async ({ page }, use, testInfo) => {
+    const healedPage = healer.wrapPage(page, testInfo);
+    await use(healedPage);
+  },
   _istanbulCoverage: [async ({ page }, use, testInfo) => {
     await use();
     await saveIstanbulCoverage(page, `${testInfo.testId}-${testInfo.retry}`);
