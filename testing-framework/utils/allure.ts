@@ -4,7 +4,7 @@
  * Traceability: TC-001 → TC-015
  */
 
-import type { TestInfo } from '@playwright/test';
+import type { Page, TestInfo } from '@playwright/test';
 import { test as baseTest } from '@playwright/test';
 
 /**
@@ -32,10 +32,14 @@ export function attachJson(name: string, data: unknown) {
 /**
  * Attach screenshot to Allure report
  */
-export async function attachScreenshot(testInfo: TestInfo, name: string) {
-  const screenshot = await testInfo.page.screenshot();
-  testInfo.attachments.push({
-    name,
+export async function attachScreenshot(
+  page: Page,
+  testInfo: TestInfo,
+  name: string
+): Promise<void> {
+  const screenshot = await page.screenshot();
+
+  await testInfo.attach(name, {
     body: screenshot,
     contentType: 'image/png',
   });

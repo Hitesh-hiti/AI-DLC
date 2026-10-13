@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "locator": "getByTestId(\"btn-review-booking\")",
+  "url": "http://localhost:5173/",
+  "fingerprint": {
+    "tag": "button",
+    "testId": "btn-review-booking",
+    "text": "Review Booking",
+    "classes": [
+      "btn",
+      "btn-primary",
+      "btn-lg"
+    ],
+    "parentTag": "div",
+    "parentClasses": [
+      "passenger-form-actions"
+    ],
+    "childCount": 0,
+    "siblingIndex": 1,
+    "attributes": {
+      "class": "btn btn-primary btn-lg",
+      "aria-busy": "false",
+      "type": "submit",
+      "data-testid": "btn-review-booking"
+    },
+    "parentSignature": [
+      {
+        "tag": "button",
+        "text": "← Back to Results",
+        "testId": "btn-back-to-results"
+      },
+      {
+        "tag": "button",
+        "text": "Review Booking",
+        "testId": "btn-review-booking"
+      }
+    ]
+  },
+  "fingerprintHash": "f0e3c41c3ce35f3515a1c3bc04862d2237b6da00d27c1cf8ad65f0c5e31120cd",
+  "updatedAt": "2026-10-02T18:16:39.040Z"
+}

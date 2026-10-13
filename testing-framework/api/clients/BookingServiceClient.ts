@@ -19,6 +19,74 @@ export interface RequestOptions {
   headers?: Record<string, string>;
 }
 
+export interface SearchTax {
+  code: string;
+  amount: number;
+}
+
+export interface SearchFee {
+  type: string;
+  amount: number;
+}
+
+export interface SearchOffer {
+  base_fare_amount: number;
+  currency_code: string;
+  taxes: SearchTax[];
+  fees: SearchFee[];
+  total_amount: number;
+  [key: string]: unknown;
+}
+
+export interface SearchResponseBody {
+  offers: SearchOffer[];
+  [key: string]: unknown;
+}
+
+export interface BookingPassenger {
+  type: string;
+  passenger_id: string;
+  [key: string]: unknown;
+}
+
+export interface BookingResponseBody {
+  booking_id?: string;
+  status?: string;
+  hold_expires_at?: string;
+  supplier_mapping?: {
+    reference_type?: string;
+    reference_value?: string;
+    valid_from?: string;
+    [key: string]: unknown;
+  };
+  policy_decision_snapshot?: {
+    outcome?: string;
+    rule_set_version?: string;
+    matched_rules?: unknown[];
+    [key: string]: unknown;
+  };
+  passengers?: BookingPassenger[];
+  approval?: {
+    approval_id?: string;
+    status?: string;
+    expires_at?: string;
+    [key: string]: unknown;
+  };
+  events?: Array<{
+    event_type?: string;
+    event_id?: string;
+    correlation_id?: string;
+    [key: string]: unknown;
+  }>;
+  [key: string]: unknown;
+}
+
+export interface ApiResponse<T> {
+  status: number;
+  body: T;
+  headers: Record<string, string | string[] | undefined>;
+}
+
 export class BookingServiceClient {
   private request: SuperTest<Test>;
   private baseHeaders: Record<string, string>;
@@ -36,7 +104,7 @@ export class BookingServiceClient {
   async search(
     payload: Record<string, any>,
     options?: RequestOptions
-  ): Promise<any> {
+  ): Promise<ApiResponse<SearchResponseBody>> {
     const correlationId = options?.correlationId || this.generateULID();
     const headers = this.buildHeaders(correlationId, options);
 
@@ -66,7 +134,7 @@ export class BookingServiceClient {
   async createBooking(
     payload: Record<string, any>,
     options?: RequestOptions
-  ): Promise<any> {
+  ): Promise<ApiResponse<BookingResponseBody>> {
     const correlationId = options?.correlationId || this.generateULID();
     const idempotencyKey = options?.idempotencyKey || this.generateULID();
     const headers = this.buildHeaders(correlationId, options, idempotencyKey);
@@ -98,7 +166,7 @@ export class BookingServiceClient {
     bookingId: string,
     payload: Record<string, any>,
     options?: RequestOptions
-  ): Promise<any> {
+  ): Promise<ApiResponse<BookingResponseBody>> {
     const correlationId = options?.correlationId || this.generateULID();
     const idempotencyKey = options?.idempotencyKey || this.generateULID();
     const headers = this.buildHeaders(correlationId, options, idempotencyKey);
@@ -134,7 +202,7 @@ export class BookingServiceClient {
   async cancelBooking(
     bookingId: string,
     options?: RequestOptions
-  ): Promise<any> {
+  ): Promise<ApiResponse<BookingResponseBody>> {
     const correlationId = options?.correlationId || this.generateULID();
     const idempotencyKey = options?.idempotencyKey || this.generateULID();
     const headers = this.buildHeaders(correlationId, options, idempotencyKey);
@@ -162,7 +230,7 @@ export class BookingServiceClient {
   async getTrip(
     tripId: string,
     options?: RequestOptions
-  ): Promise<any> {
+  ): Promise<ApiResponse<BookingResponseBody>> {
     const correlationId = options?.correlationId || this.generateULID();
     const headers = this.buildHeaders(correlationId, options);
 
@@ -219,7 +287,7 @@ export class BookingServiceClient {
     options?: RequestOptions,
     idempotencyKey?: string
   ): Record<string, string> {
-    const headers = {
+    const headers: Record<string, string> = {
       ...this.baseHeaders,
       'X-Correlation-ID': correlationId,
       'Content-Type': 'application/json'

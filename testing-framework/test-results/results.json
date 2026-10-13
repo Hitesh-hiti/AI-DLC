@@ -2,13 +2,13 @@
   "config": {
     "argv": [
       "C:\\nvm4w\\nodejs\\node.exe",
-      "C:\\Users\\Hitesh_C\\Documents\\TravelPlatform\\testing-framework\\node_modules\\@playwright\\test\\cli.js",
+      "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\node_modules\\@playwright\\test\\cli.js",
       "test",
       "tests/e2e/E2E-HP-001_full_booking_happy_path.spec.ts",
       "--headed"
     ],
-    "configFile": "C:\\Users\\Hitesh_C\\Documents\\TravelPlatform\\testing-framework\\playwright.config.ts",
-    "rootDir": "C:/Users/Hitesh_C/Documents/TravelPlatform/testing-framework/tests",
+    "configFile": "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\playwright.config.ts",
+    "rootDir": "C:/Users/Hitesh_C/Documents/Healing/testingframework-with-healer-fixed-v2/testingframework-fixed/tests",
     "failOnFlakyTests": false,
     "forbidOnly": false,
     "fullyParallel": false,
@@ -24,7 +24,7 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/Users/Hitesh_C/Documents/TravelPlatform/testing-framework/test-results",
+        "outputDir": "C:/Users/Hitesh_C/Documents/Healing/testingframework-with-healer-fixed-v2/testingframework-fixed/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -32,7 +32,7 @@
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/Users/Hitesh_C/Documents/TravelPlatform/testing-framework/tests",
+        "testDir": "C:/Users/Hitesh_C/Documents/Healing/testingframework-with-healer-fixed-v2/testingframework-fixed/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -47,7 +47,7 @@
         null
       ],
       [
-        "C:\\Users\\Hitesh_C\\Documents\\TravelPlatform\\testing-framework\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+        "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
         {
           "detail": true,
           "outputFolder": "allure-results",
@@ -66,6 +66,62 @@
         {
           "outputFile": "test-results/results.json"
         }
+      ],
+      [
+        "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\packages\\playwright-healer\\dist\\reporter.js",
+        {
+          "healer": {
+            "replacementMap": {},
+            "proxyMap": {},
+            "config": {
+              "enabled": true,
+              "mode": "runtime",
+              "confidenceThreshold": 0.85,
+              "ambiguityMargin": 0.08,
+              "maxCandidates": 12,
+              "timeoutMs": 1500,
+              "artifactsDir": "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\test-results\\healer",
+              "baselineDir": "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\.healer\\baselines",
+              "recordBaselines": true,
+              "replaceLocator": true,
+              "updateSourceOnHeal": true,
+              "cacheEnabled": true,
+              "cacheMaxEntries": 500,
+              "cacheTtlMs": 0,
+              "healingCacheDir": "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\.healer\\cache",
+              "reportEnabled": true,
+              "reportFileName": "healing-report.html",
+              "openReport": true
+            },
+            "store": {
+              "dir": "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\.healer\\baselines"
+            },
+            "cache": {
+              "maxEntries": 500,
+              "ttlMs": 0,
+              "entries": {},
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "expirations": 0
+            },
+            "healingCache": {
+              "maxEntries": 500,
+              "ttlMs": 0,
+              "entries": {},
+              "hits": 0,
+              "misses": 0,
+              "evictions": 0,
+              "expirations": 0
+            },
+            "healingCacheStore": {
+              "dir": "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\.healer\\cache"
+            },
+            "events": [],
+            "generator": {}
+          },
+          "openReport": true
+        }
       ]
     ],
     "reportSlowTests": {
@@ -78,15 +134,7 @@
     "updateSourceMethod": "patch",
     "version": "1.63.0",
     "workers": 1,
-    "webServer": {
-      "command": "npm run dev",
-      "cwd": "../apps/web-frontend",
-      "port": 5173,
-      "reuseExistingServer": true,
-      "timeout": 60000,
-      "stdout": "ignore",
-      "stderr": "pipe"
-    }
+    "webServer": null
   },
   "suites": [
     {
@@ -128,12 +176,364 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 7284,
+                  "duration": 25131,
                   "errors": [],
-                  "stdout": [],
+                  "stdout": [
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"search-form\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"input-origin-active\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"input-destination\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"input-departure\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"input-return\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"select-cabin\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"passenger-count\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"btn-add-passenger\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"btn-remove-passenger\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"btn-search\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"btn-clear-form\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"search-results\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"flight-list\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"passenger-form\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"btn-review-booking\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"btn-back-to-results\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"pax-0-passport-Number\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"hold-panel\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"btn-confirm-booking\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByRole(\"button\", {\"name\":\"← Edit Passengers\"})\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"policy-panel-allow\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"policy-panel-warn\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"policy-panel-block\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"btn-acknowledge-warning\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"policy-warn-acknowledged\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"btn-return-to-search\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"confirmed-screen\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"confirmed-booking-ref\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"confirmed-pnr\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"void-window-expiry\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"btn-search-another\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] baseline not recorded - locator count { locator: \u001b[32m'getByTestId(\"input-origin-active\")'\u001b[39m, count: \u001b[33m0\u001b[39m }\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"cache-miss\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"input-origin-active\\\")\",\n  \"action\": \"selectOption\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": false,\n  \"baselineFound\": false,\n  \"timestamp\": \"2026-10-09T06:35:44.135Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"No proven healing mapping in cache\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] healing cache MISS {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__http://localhost:5173/__getByTestId(\"input-origin-active\")'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] exact baseline lookup {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"input-origin-active\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"input-origin-active\")'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] exact baseline FOUND {\n  locator: \u001b[32m'getByTestId(\"input-origin-active\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'63f93ac49e3bdc00bb91ed923b7691bb3b041789bd8560eabc69b8d22cc2d43d'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] baseline lookup result {\n  found: \u001b[33mtrue\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"input-origin-active\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'63f93ac49e3bdc00bb91ed923b7691bb3b041789bd8560eabc69b8d22cc2d43d'\u001b[39m,\n  testId: \u001b[32m'input-origin-active'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"healing-attempt\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"input-origin-active\\\")\",\n  \"action\": \"selectOption\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": false,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"63f93ac49e3bdc00bb91ed923b7691bb3b041789bd8560eabc69b8d22cc2d43d\",\n  \"timestamp\": \"2026-10-09T06:35:44.132Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Historical baseline loaded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] generating candidates {\n  baselineLocator: \u001b[32m'getByTestId(\"input-origin-active\")'\u001b[39m,\n  baselineTestId: \u001b[32m'input-origin-active'\u001b[39m,\n  baselineFingerprintHash: \u001b[32m'63f93ac49e3bdc00bb91ed923b7691bb3b041789bd8560eabc69b8d22cc2d43d'\u001b[39m,\n  maxCandidates: \u001b[33m12\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] historical testId live check { testId: \u001b[32m'input-origin-active'\u001b[39m, count: \u001b[33m0\u001b[39m }\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] candidates generated {\n  count: \u001b[33m3\u001b[39m,\n  candidates: [\n    {\n      expression: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m,\n      score: \u001b[33m0.9300000000000003\u001b[39m,\n      strategy: \u001b[32m'mutatedTestId'\u001b[39m,\n      reason: \u001b[32m'tag, mutatedTestId(0.85), id, parentTag, parentClasses, classes, siblingIndex, childCount, text, live testId differs from historical testId'\u001b[39m\n    },\n    {\n      expression: \u001b[32m'locator(\"#origin\")'\u001b[39m,\n      score: \u001b[33m0.9300000000000003\u001b[39m,\n      strategy: \u001b[32m'id'\u001b[39m,\n      reason: \u001b[32m'tag, mutatedTestId(0.85), id, parentTag, parentClasses, classes, siblingIndex, childCount, text'\u001b[39m\n    },\n    {\n      expression: \u001b[32m'getByTestId(\"input-destination\")'\u001b[39m,\n      score: \u001b[33m0.541578947368421\u001b[39m,\n      strategy: \u001b[32m'mutatedTestId'\u001b[39m,\n      reason: \u001b[32m'tag, mutatedTestId(0.58), parentTag, parentClasses, classes, siblingIndex, childCount, live testId differs from historical testId'\u001b[39m\n    }\n  ]\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] validating candidate {\n  expression: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m,\n  score: \u001b[33m0.9300000000000003\u001b[39m,\n  strategy: \u001b[32m'mutatedTestId'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] candidate live count { expression: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m, count: \u001b[33m1\u001b[39m }\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] candidate LIVE VALIDATED {\n  expression: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m,\n  score: \u001b[33m0.9300000000000003\u001b[39m,\n  targetKey: \u001b[32m'dom=html:nth-child(1)>body:nth-child(2)>div:nth-child(1)>div:nth-child(1)>main:nth-child(2)>div:nth-child(1)>main:nth-child(2)>section:nth-child(1)>form:nth-child(1)>div:nth-child(2)>div:nth-child(1)>select:nth-child(2)'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] validating candidate {\n  expression: \u001b[32m'locator(\"#origin\")'\u001b[39m,\n  score: \u001b[33m0.9300000000000003\u001b[39m,\n  strategy: \u001b[32m'id'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] candidate live count { expression: \u001b[32m'locator(\"#origin\")'\u001b[39m, count: \u001b[33m1\u001b[39m }\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] duplicate candidate target ignored {\n  expression: \u001b[32m'locator(\"#origin\")'\u001b[39m,\n  score: \u001b[33m0.9300000000000003\u001b[39m,\n  existing: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m,\n  targetKey: \u001b[32m'dom=html:nth-child(1)>body:nth-child(2)>div:nth-child(1)>div:nth-child(1)>main:nth-child(2)>div:nth-child(1)>main:nth-child(2)>section:nth-child(1)>form:nth-child(1)>div:nth-child(2)>div:nth-child(1)>select:nth-child(2)'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] validating candidate {\n  expression: \u001b[32m'getByTestId(\"input-destination\")'\u001b[39m,\n  score: \u001b[33m0.541578947368421\u001b[39m,\n  strategy: \u001b[32m'mutatedTestId'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] candidate rejected - below confidence {\n  expression: \u001b[32m'getByTestId(\"input-destination\")'\u001b[39m,\n  score: \u001b[33m0.541578947368421\u001b[39m,\n  threshold: \u001b[33m0.85\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] ranked candidates {\n  count: \u001b[33m1\u001b[39m,\n  ranked: [\n    {\n      expression: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m,\n      score: \u001b[33m0.9300000000000003\u001b[39m,\n      strategy: \u001b[32m'mutatedTestId'\u001b[39m\n    }\n  ]\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] best candidate {\n  expression: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m,\n  score: \u001b[33m0.9300000000000003\u001b[39m,\n  secondScore: \u001b[90mundefined\u001b[39m,\n  margin: \u001b[33m1\u001b[39m,\n  ambiguityMargin: \u001b[33m0.08\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] HEAL CANDIDATE SELECTED {\n  original: \u001b[32m'getByTestId(\"input-origin-active\")'\u001b[39m,\n  replacement: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m,\n  confidence: \u001b[33m0.9300000000000003\u001b[39m,\n  strategy: \u001b[32m'mutatedTestId'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] LOCATOR REBOUND {\n  original: \u001b[32m'getByTestId(\"input-origin-active\")'\u001b[39m,\n  replacement: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m,\n  replaceLocator: \u001b[33mtrue\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] RETRYING ACTION WITH HEALED LOCATOR {\n  action: \u001b[32m'selectOption'\u001b[39m,\n  original: \u001b[32m'getByTestId(\"input-origin-active\")'\u001b[39m,\n  replacement: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] HEALED ACTION SUCCEEDED { action: \u001b[32m'selectOption'\u001b[39m, replacement: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m }\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] healed state synchronized {\n  originalKey: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"input-origin-active\")'\u001b[39m,\n  replacementKey: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"input-origin\")'\u001b[39m,\n  replacementLocator: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'1df05289ec3032104130ece61782daf6df1b382edc10a91a91508230eff299c3'\u001b[39m,\n  index: \u001b[90mundefined\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] healing cache UPDATED {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__http://localhost:5173/__getByTestId(\"input-origin-active\")'\u001b[39m,\n  originalLocator: \u001b[32m'getByTestId(\"input-origin-active\")'\u001b[39m,\n  replacementLocator: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m,\n  confidence: \u001b[33m0.9300000000000003\u001b[39m,\n  strategy: \u001b[32m'mutatedTestId'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] SOURCE REWRITE START {\n  sourceLocation: \u001b[32m'C:\\\\Users\\\\Hitesh_C\\\\Documents\\\\Healing\\\\testingframework-with-healer-fixed-v2\\\\testingframework-fixed\\\\at new SearchPage (file:\\\\C:\\\\Users\\\\Hitesh_C\\\\Documents\\\\Healing\\\\testingframework-with-healer-fixed-v2\\\\testingframework-fixed\\\\pages\\\\SearchPage.ts'\u001b[39m,\n  normalizedFile: \u001b[32m'C:\\\\Users\\\\Hitesh_C\\\\Documents\\\\Healing\\\\testingframework-with-healer-fixed-v2\\\\testingframework-fixed\\\\pages\\\\SearchPage.ts'\u001b[39m,\n  original: \u001b[32m'getByTestId(\"input-origin-active\")'\u001b[39m,\n  replacement: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] SOURCE REWRITTEN {\n  file: \u001b[32m'C:\\\\Users\\\\Hitesh_C\\\\Documents\\\\Healing\\\\testingframework-with-healer-fixed-v2\\\\testingframework-fixed\\\\pages\\\\SearchPage.ts'\u001b[39m,\n  from: \u001b[32m'getByTestId(\"input-origin-active\")'\u001b[39m,\n  to: \u001b[32m'getByTestId(\"input-origin\")'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"healed\": true,\n  \"originalLocator\": \"getByTestId(\\\"input-origin-active\\\")\",\n  \"replacementLocator\": \"getByTestId(\\\"input-origin\\\")\",\n  \"action\": \"selectOption\",\n  \"confidence\": 0.9300000000000003,\n  \"strategy\": \"mutatedTestId\",\n  \"candidateCount\": 3,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"63f93ac49e3bdc00bb91ed923b7691bb3b041789bd8560eabc69b8d22cc2d43d\",\n  \"sourceRewritten\": true,\n  \"retrySucceeded\": true,\n  \"cacheHit\": false,\n  \"sourceFile\": \"C:\\\\Users\\\\Hitesh_C\\\\Documents\\\\Healing\\\\testingframework-with-healer-fixed-v2\\\\testingframework-fixed\\\\at new SearchPage (file:\\\\C:\\\\Users\\\\Hitesh_C\\\\Documents\\\\Healing\\\\testingframework-with-healer-fixed-v2\\\\testingframework-fixed\\\\pages\\\\SearchPage.ts\",\n  \"timestamp\": \"2026-10-09T06:35:44.132Z\",\n  \"reason\": \"Matched historical fingerprint: tag, mutatedTestId(0.85), id, parentTag, parentClasses, classes, siblingIndex, childCount, text, live testId differs from historical testId\",\n  \"type\": \"healed\",\n  \"url\": \"http://localhost:5173/\"\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"healed\": true,\n  \"originalLocator\": \"getByTestId(\\\"input-origin-active\\\")\",\n  \"replacementLocator\": \"getByTestId(\\\"input-origin\\\")\",\n  \"action\": \"selectOption\",\n  \"confidence\": 0.9300000000000003,\n  \"strategy\": \"mutatedTestId\",\n  \"candidateCount\": 3,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"63f93ac49e3bdc00bb91ed923b7691bb3b041789bd8560eabc69b8d22cc2d43d\",\n  \"sourceRewritten\": true,\n  \"retrySucceeded\": true,\n  \"cacheHit\": false,\n  \"sourceFile\": \"C:\\\\Users\\\\Hitesh_C\\\\Documents\\\\Healing\\\\testingframework-with-healer-fixed-v2\\\\testingframework-fixed\\\\at new SearchPage (file:\\\\C:\\\\Users\\\\Hitesh_C\\\\Documents\\\\Healing\\\\testingframework-with-healer-fixed-v2\\\\testingframework-fixed\\\\pages\\\\SearchPage.ts\",\n  \"timestamp\": \"2026-10-09T06:35:44.132Z\",\n  \"reason\": \"Replacement locator successfully executed the failed action\",\n  \"type\": \"healed-action-retry\",\n  \"url\": \"http://localhost:5173/\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"input-destination\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"input-destination\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'2deb934873ea5a1f24b57bac837ae99a611fbeaec40138cb376e9364671921b2'\u001b[39m,\n  testId: \u001b[32m'input-destination'\u001b[39m,\n  tag: \u001b[32m'select'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"input-destination\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"2deb934873ea5a1f24b57bac837ae99a611fbeaec40138cb376e9364671921b2\",\n  \"timestamp\": \"2026-10-09T06:35:46.164Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"input-departure\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"input-departure\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'3d4350125f513243041c784e9ae66487dd2de658b36635f9d5a4674891743de5'\u001b[39m,\n  testId: \u001b[32m'input-departure'\u001b[39m,\n  tag: \u001b[32m'input'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"input-departure\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"3d4350125f513243041c784e9ae66487dd2de658b36635f9d5a4674891743de5\",\n  \"timestamp\": \"2026-10-09T06:35:46.464Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"input-return\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"input-return\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'9ad5b465073ad2e05177f5ba2e83d628247348657838a66401d5c1e96a5795a1'\u001b[39m,\n  testId: \u001b[32m'input-return'\u001b[39m,\n  tag: \u001b[32m'input'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"input-return\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"9ad5b465073ad2e05177f5ba2e83d628247348657838a66401d5c1e96a5795a1\",\n  \"timestamp\": \"2026-10-09T06:35:46.589Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"select-cabin\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"select-cabin\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'73beb381965a0f465f36d9689eecaca18f2d0db92d0efc04866d07b10d43d0c7'\u001b[39m,\n  testId: \u001b[32m'select-cabin'\u001b[39m,\n  tag: \u001b[32m'select'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"select-cabin\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"73beb381965a0f465f36d9689eecaca18f2d0db92d0efc04866d07b10d43d0c7\",\n  \"timestamp\": \"2026-10-09T06:35:46.799Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"btn-search\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"btn-search\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'2fad915826cfdb4f66d0059f9274ba52907fc18ffa1bc102aa09999e513f246d'\u001b[39m,\n  testId: \u001b[32m'btn-search'\u001b[39m,\n  tag: \u001b[32m'button'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"btn-search\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"2fad915826cfdb4f66d0059f9274ba52907fc18ffa1bc102aa09999e513f246d\",\n  \"timestamp\": \"2026-10-09T06:35:46.986Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"search-results\").locator(\"h2.search-results-title\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"flight-list\").getByTestId(\"flight-card\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"flight-list\").getByTestId(\"flight-card\").first()\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"flight-list\").getByTestId(\"flight-card\").first().locator(\".flight-airline\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"flight-list\").getByTestId(\"flight-card\").first().locator(\".cabin-badge\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"flight-list\").getByTestId(\"flight-card\").first().locator(\".flight-price-block\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"flight-list\").getByTestId(\"flight-card\").first().locator(\".price-toggle\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"flight-list\").getByTestId(\"flight-card\").first().locator(\".price-toggle\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"flight-list\").getByTestId(\"flight-card\").first().locator(\".price-toggle\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'93526a047ab530130794d223ae4890a67caad11f00c9c9a2199670145af8270b'\u001b[39m,\n  testId: \u001b[90mundefined\u001b[39m,\n  tag: \u001b[32m'button'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"flight-list\\\").getByTestId(\\\"flight-card\\\").first().locator(\\\".price-toggle\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"93526a047ab530130794d223ae4890a67caad11f00c9c9a2199670145af8270b\",\n  \"timestamp\": \"2026-10-09T06:35:47.920Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"flight-list\").getByTestId(\"flight-card\").first().locator(\".fare-breakdown\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"flight-list\").getByTestId(\"flight-card\").first().locator(\".price-toggle\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"flight-list\").getByTestId(\"flight-card\").first().locator(\".price-toggle\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'999342a18c6bc5d4a3d7f2e7186c2bc052f9ae59b6e4d9350b00042a09e9fec1'\u001b[39m,\n  testId: \u001b[90mundefined\u001b[39m,\n  tag: \u001b[32m'button'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"flight-list\\\").getByTestId(\\\"flight-card\\\").first().locator(\\\".price-toggle\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"999342a18c6bc5d4a3d7f2e7186c2bc052f9ae59b6e4d9350b00042a09e9fec1\",\n  \"timestamp\": \"2026-10-09T06:35:48.317Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"flight-list\").getByTestId(\"flight-card\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"flight-list\").getByTestId(\"flight-card\").nth(0)\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"flight-list\").getByTestId(\"flight-card\").nth(0).getByRole(\"button\", {\"name\":\"Select\"})\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"flight-list\").getByTestId(\"flight-card\").nth(0).getByRole(\"button\", {\"name\":\"Select\"})'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"flight-list\").getByTestId(\"flight-card\").nth(0).getByRole(\"button\", {\"name\":\"Select\"})'\u001b[39m,\n  fingerprintHash: \u001b[32m'db1b9d6af6dc1df39bf17f37b1b4a5a179b8da713b3401ba6dc822da68690fcb'\u001b[39m,\n  testId: \u001b[32m'btn-select-flight-flight-002'\u001b[39m,\n  tag: \u001b[32m'button'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"flight-list\\\").getByTestId(\\\"flight-card\\\").nth(0).getByRole(\\\"button\\\", {\\\"name\\\":\\\"Select\\\"})\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"db1b9d6af6dc1df39bf17f37b1b4a5a179b8da713b3401ba6dc822da68690fcb\",\n  \"timestamp\": \"2026-10-09T06:35:48.751Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByRole(\"heading\", {\"name\":\"Passenger Details\"})\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"pax-0-first-name\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"pax-0-last-name\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"pax-0-passport-Number\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"pax-0-first-name\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"pax-0-first-name\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"pax-0-first-name\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'0b20f1cf91ad7fa141f06849183a538563eb691d8ee1910c499e670859737abd'\u001b[39m,\n  testId: \u001b[32m'pax-0-first-name'\u001b[39m,\n  tag: \u001b[32m'input'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"pax-0-first-name\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"0b20f1cf91ad7fa141f06849183a538563eb691d8ee1910c499e670859737abd\",\n  \"timestamp\": \"2026-10-09T06:35:49.165Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"pax-0-last-name\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"pax-0-last-name\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"pax-0-last-name\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'134bf2870245409a4b15806075bdc3969e3cff84365fcb9328e9fd051febeb52'\u001b[39m,\n  testId: \u001b[32m'pax-0-last-name'\u001b[39m,\n  tag: \u001b[32m'input'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"pax-0-last-name\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"134bf2870245409a4b15806075bdc3969e3cff84365fcb9328e9fd051febeb52\",\n  \"timestamp\": \"2026-10-09T06:35:49.318Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"pax-0-passport-Number\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"pax-0-passport-Number\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"pax-0-passport-Number\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'b1bbb1eea787e4cb630e3ae220aa9f95e943d524547d02094934e9b20f58dda6'\u001b[39m,\n  testId: \u001b[32m'pax-0-passport-Number'\u001b[39m,\n  tag: \u001b[32m'input'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"pax-0-passport-Number\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"b1bbb1eea787e4cb630e3ae220aa9f95e943d524547d02094934e9b20f58dda6\",\n  \"timestamp\": \"2026-10-09T06:35:49.496Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"btn-review-booking\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"btn-review-booking\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'8ba0c0c004db2bd5560c39f0107a4e978e4c342c70aa8d05aae3cb87e7bbe23b'\u001b[39m,\n  testId: \u001b[32m'btn-review-booking'\u001b[39m,\n  tag: \u001b[32m'button'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"btn-review-booking\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"8ba0c0c004db2bd5560c39f0107a4e978e4c342c70aa8d05aae3cb87e7bbe23b\",\n  \"timestamp\": \"2026-10-09T06:35:49.695Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByRole(\"heading\", {\"name\":\"Review & Confirm Flight\"})\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"hold-panel\").getByRole(\"region\", {\"name\":\"Selected flight\"})\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"hold-panel\").getByRole(\"region\", {\"name\":\"Passengers\"})\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"hold-panel\").getByRole(\"region\", {\"name\":\"Fare breakdown\"})\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"btn-confirm-booking\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"btn-confirm-booking\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'1f15fc55c633e3da905b63f9e365faf4fb62a92eb438781c34eec702a3bf0e47'\u001b[39m,\n  testId: \u001b[32m'btn-confirm-booking'\u001b[39m,\n  tag: \u001b[32m'button'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"btn-confirm-booking\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"1f15fc55c633e3da905b63f9e365faf4fb62a92eb438781c34eec702a3bf0e47\",\n  \"timestamp\": \"2026-10-09T06:35:50.373Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByRole(\"heading\", {\"name\":\"Flight Confirmed!\"})\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"confirmed-ticket-0\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByRole(\"region\", {\"name\":\"Ticket coupons\"})\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByRole(\"region\", {\"name\":\"Total fare\"})\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR locator(\".confirmed-payment\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] WRAPPED LOCATOR getByTestId(\"app-error-alert\")\n"
+                    },
+                    {
+                      "text": "[HEALER DEBUG] recording baseline {\n  key: \u001b[32m'fcb05febefa591bffcfe-a39f9f9cd8d56498236e__getByTestId(\"btn-search-another\")'\u001b[39m,\n  locator: \u001b[32m'getByTestId(\"btn-search-another\")'\u001b[39m,\n  fingerprintHash: \u001b[32m'd92ea5600e97dd6c21d98fee630cc768438bfea53dff4356fadd56641f823fba'\u001b[39m,\n  testId: \u001b[32m'btn-search-another'\u001b[39m,\n  tag: \u001b[32m'button'\u001b[39m,\n  url: \u001b[32m'http://localhost:5173/'\u001b[39m\n}\n"
+                    },
+                    {
+                      "text": "[PLAYWRIGHT HEALER] {\n  \"type\": \"baseline-recorded\",\n  \"healed\": false,\n  \"originalLocator\": \"getByTestId(\\\"btn-search-another\\\")\",\n  \"action\": \"focus\",\n  \"candidateCount\": 0,\n  \"liveDomValidated\": true,\n  \"baselineFound\": true,\n  \"fingerprintHash\": \"d92ea5600e97dd6c21d98fee630cc768438bfea53dff4356fadd56641f823fba\",\n  \"timestamp\": \"2026-10-09T06:35:51.301Z\",\n  \"url\": \"http://localhost:5173/\",\n  \"reason\": \"Successful locator baseline recorded\"\n}\n"
+                    }
+                  ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-06T15:44:10.890Z",
+                  "startTime": "2026-10-09T06:35:24.236Z",
                   "annotations": [
                     {
                       "type": "feature",
@@ -168,8 +568,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-06T15:44:09.767Z",
-    "duration": 9628.042,
+    "startTime": "2026-10-09T06:35:22.075Z",
+    "duration": 33059.715,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
