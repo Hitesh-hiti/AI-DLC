@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "kiro-slack-bridge": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        ".kiro/settings/mcp-launcher.cjs"
+      ],
+      "disabled": false,
+      "timeout": 10000
+    }
+  }
+}

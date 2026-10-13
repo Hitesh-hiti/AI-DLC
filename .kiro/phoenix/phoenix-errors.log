@@ -39,3 +39,29 @@
     at parseEvent (C:\Users\Hitesh_C\Documents\TravelPlatform\.kiro\phoenix\trace-hook.js:138:7)
     at main (C:\Users\Hitesh_C\Documents\TravelPlatform\.kiro\phoenix\trace-hook.js:1921:19)
     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+2026-10-13T18:46:07.101Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:46:07.103Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:46:25.574Z TypeError: fetch failed
+2026-10-13T18:46:26.560Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:46:26.563Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:47:15.714Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:47:15.716Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:47:32.065Z TypeError: fetch failed
+2026-10-13T18:47:33.118Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:47:33.120Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
