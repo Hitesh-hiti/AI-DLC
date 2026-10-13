@@ -37,3 +37,4 @@ testing-framework/test-results/healer/
 testing-framework/package-lock.json/
 testing-framework/playwright-report/index.html
 testing-framework/test-results/results.json
+apps/web-frontend/reports/vitest/
