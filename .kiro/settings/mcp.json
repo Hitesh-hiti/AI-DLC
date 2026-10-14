@@ -1,14 +1,24 @@
 {
   "mcpServers": {
-    "jira": {
-      "command": "uvx",
-      "args": ["mcp-atlassian"],
-      "env": {
-        "JIRA_URL": "https://igsglobal-team-awcuqr0s.atlassian.net",
-        "JIRA_USERNAME": "bharathik.vaidya@igsglobal.com",
-        "JIRA_API_TOKEN": "${JIRA_API_TOKEN}"
-      },
-      "disabled": false
+    "kiro-slack-bridge": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        ".kiro/settings/mcp-launcher.cjs"
+      ],
+      "disabled": false,
+      "timeout": 10000,
+    },
+      "jira": {
+        "command": "uvx",
+        "args": [
+          "mcp-atlassian"
+        ],
+        "env": {
+          "JIRA_URL": "https://igsglobal-team-awcuqr0s.atlassian.net",
+          "JIRA_USERNAME": "bharathik.vaidya@igsglobal.com",
+          "JIRA_API_TOKEN": "${JIRA_API_TOKEN}"
+        },
+        "disabled": false
+      }
     }
-  }
 }

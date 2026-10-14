@@ -26,7 +26,6 @@
         "./utils/*"
       ]
     },
-    "baseUrl": ".",
     "types": [
       "node",
       "@playwright/test"

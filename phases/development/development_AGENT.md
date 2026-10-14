@@ -2,7 +2,7 @@
 
 name: development
 description: Apply the development guardrails for phase 06-development when implementing approved stories, defects, or enhancements. Architecture and CI/CD governance are handled by separate guardrails.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 
 # Development Guardrails
 
