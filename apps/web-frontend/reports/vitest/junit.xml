@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="278" failures="0" errors="0" time="2.9629398">
+    <testsuite name="src/api/mocks/fixtures.test.ts" timestamp="2026-10-08T12:14:26.708Z" hostname="Bharathi-K" tests="28" failures="0" errors="0" skipped="0" time="0.0222243">
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="MOCK_AIRPORTS &gt; contains at least 3 airports" time="0.0038289">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="MOCK_AIRPORTS &gt; each airport has id, name, type AIRPORT, location" time="0.0017338">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="MOCK_FLIGHTS &gt; contains at least 3 flight offers" time="0.0003821">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="MOCK_FLIGHTS &gt; each flight has required fields" time="0.0009448">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="MOCK_FLIGHTS &gt; at least one flight is available (not sold out)" time="0.0003311">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="MOCK_FLIGHTS &gt; at least one flight is sold out" time="0.0002289">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockSearchResponse — default &gt; returns a SearchResponse with results and meta" time="0.0004922">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockSearchResponse — default &gt; uses hardcoded origin/destination when no override given" time="0.0002986">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockSearchResponse — with route override &gt; overrides origin on every result" time="0.0004014">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockSearchResponse — with route override &gt; overrides destination on every result" time="0.0004021">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockSearchResponse — with route override &gt; preserves all other flight fields (airline, price, etc.)" time="0.0005884">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockSearchResponse — with route override &gt; result count matches original MOCK_FLIGHTS" time="0.0002142">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockSearchResponse — with route override &gt; meta.totalCount reflects result length" time="0.0002368">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockFareRules &gt; returns at least 2 fare rules" time="0.000225">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockFareRules &gt; each rule has ruleType, description, terms" time="0.0005067">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockBookingHoldResponse &gt; creates a hold response with HELD status" time="0.0016306">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockBookingHoldResponse &gt; totalFare is higher than baseFare (includes taxes + fees)" time="0.000309">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockBookingHoldResponse &gt; flightSummary carries origin and destination" time="0.0003288">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockBookingHoldResponse &gt; falls back to first mock flight when offerId not found" time="0.0001881">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockPolicyResponseAllow &gt; returns outcome ALLOW and requiresApproval false" time="0.000266">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockPolicyResponseWarn &gt; returns outcome WARN with warnings array" time="0.0002725">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockPolicyResponseBlock &gt; returns outcome BLOCK with at least one breached policy" time="0.0002626">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockPolicyResponseRequireApproval &gt; returns outcome REQUIRE_APPROVAL and requiresApproval true" time="0.0003933">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockBookingDetailResponse &gt; returns a booking detail with correct bookingId" time="0.0006853">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockBookingDetailResponse &gt; has a non-zero total fare" time="0.0003097">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockBookingDetailResponse &gt; has at least one passenger" time="0.0002593">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="createMockBookingDetailResponse &gt; has flight details with origin and destination" time="0.0002123">
+        </testcase>
+        <testcase classname="src/api/mocks/fixtures.test.ts" name="booking reference and PNR &gt; uses distinct identifiers for the same booking" time="0.0012168">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/common/Alert.test.tsx" timestamp="2026-10-08T12:14:26.726Z" hostname="Bharathi-K" tests="13" failures="0" errors="0" skipped="0" time="0.258814">
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; renders a message" time="0.063719">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; renders with a title" time="0.0095919">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; has role=&quot;alert&quot; for accessibility" time="0.1193421">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; applies alert-info CSS class for variant undefined" time="0.0095799">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; applies alert-success CSS class for variant undefined" time="0.0061394">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; applies alert-warning CSS class for variant undefined" time="0.0057633">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; applies alert-error CSS class for variant undefined" time="0.0052761">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; defaults to info variant when no variant prop given" time="0.0074363">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; shows dismiss button when dismissible=true" time="0.0081469">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; does not show dismiss button by default" time="0.003727">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; hides alert when dismiss button is clicked" time="0.0104059">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; calls onDismiss callback when dismissed" time="0.0032119">
+        </testcase>
+        <testcase classname="src/components/common/Alert.test.tsx" name="Alert &gt; renders JSX as message" time="0.0018249">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/search/SearchForm.test.tsx" timestamp="2026-10-08T12:14:26.732Z" hostname="Bharathi-K" tests="27" failures="0" errors="0" skipped="0" time="1.9340359">
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — rendering &gt; renders the Search Flights heading" time="0.2591195">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — rendering &gt; renders Origin input" time="0.0275479">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — rendering &gt; renders Destination input" time="0.017104">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — rendering &gt; renders Departure date input" time="0.0158701">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — rendering &gt; renders Return date input" time="0.0153254">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — rendering &gt; renders Cabin Class dropdown" time="0.0144679">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — rendering &gt; renders all four cabin class options" time="0.0120555">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — rendering &gt; renders Passengers label" time="0.016794">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — rendering &gt; renders Search Flights submit button" time="0.036986">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — rendering &gt; renders Clear Form button" time="0.0270297">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — rendering &gt; defaults passenger count to 1" time="0.0095051">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — passenger +/- controls &gt; increments passenger count on + click" time="0.0193546">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — passenger +/- controls &gt; decrements passenger count on - click" time="0.0264439">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — passenger +/- controls &gt; - button is disabled at 1 passenger" time="0.0089261">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — passenger +/- controls &gt; + button is disabled at 9 passengers" time="0.027309">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — passenger +/- controls &gt; cannot exceed 9 passengers" time="0.0308367">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — Clear Form &gt; clears origin input on Clear Form click" time="0.1297507">
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — Clear Form &gt; resets passenger count to 1 on Clear Form click" time="0.026102">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — Clear Form &gt; resets cabin class to ECONOMY on Clear Form click" time="0.1023785">
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — validation &gt; shows origin required error on empty submit" time="0.0452826">
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — validation &gt; shows destination required error on empty submit" time="0.0337976">
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — validation &gt; does not call onSearch when form is invalid" time="0.0214663">
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — onSearch callback &gt; calls onSearch with uppercased origin and destination" time="0.2260546">
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — onSearch callback &gt; calls onSearch with the selected cabin class" time="0.2950546">
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — onSearch callback &gt; calls onSearch with correct passenger count" time="0.2461445">
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — onSearch callback &gt; calls onSearch with departureDate" time="0.2195778">
+        </testcase>
+        <testcase classname="src/components/search/SearchForm.test.tsx" name="SearchForm — onSearch callback &gt; shows loading state when isLoading=true" time="0.0173904">
+            <system-err>
+An update to SearchForm inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() =&gt; {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you&apos;re testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+            </system-err>
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/search/SearchResults.test.tsx" timestamp="2026-10-08T12:14:26.747Z" hostname="Bharathi-K" tests="19" failures="0" errors="0" skipped="0" time="0.5810786">
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — loading &gt; shows loading message when isLoading=true" time="0.056366">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — loading &gt; does not show results while loading" time="0.006873">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — empty &gt; shows no-flights message when results is empty array" time="0.0050651">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — flight card &gt; renders the airline name" time="0.0191356">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — flight card &gt; renders the flight number" time="0.0125999">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — flight card &gt; renders origin airport code" time="0.0199878">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — flight card &gt; renders destination airport code" time="0.0130112">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — flight card &gt; renders cabin class badge" time="0.0134394">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — flight card &gt; renders number of results in heading" time="0.0199403">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — flight card &gt; renders singular &quot;Flight Found&quot; for 1 result" time="0.0127154">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — flight card &gt; renders stop count for multi-stop flight" time="0.0114042">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — availability &gt; shows &quot;Available&quot; badge for available flight" time="0.0095803">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — availability &gt; shows seat count for available flight" time="0.0118648">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — availability &gt; shows &quot;Sold Out&quot; badge for sold-out flight" time="0.0120084">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — availability &gt; Select button is disabled for sold-out flight" time="0.2108765">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — availability &gt; Select button is enabled for available flight" time="0.0288576">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — Select action &gt; calls onSelectFlight with the correct flight when Select is clicked" time="0.0411437">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — Select action &gt; does not call onSelectFlight when sold-out Select is clicked" time="0.0267077">
+        </testcase>
+        <testcase classname="src/components/search/SearchResults.test.tsx" name="SearchResults — Select action &gt; calls correct flight when multiple results present" time="0.0427706">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/bookingReference.test.ts" timestamp="2026-10-08T12:14:26.750Z" hostname="Bharathi-K" tests="7" failures="0" errors="0" skipped="0" time="0.0150817">
+        <testcase classname="src/utils/bookingReference.test.ts" name="booking reference &gt; generates a six-character customer-facing record locator" time="0.0082981">
+        </testcase>
+        <testcase classname="src/utils/bookingReference.test.ts" name="booking reference &gt; does not expose the internal UUID format" time="0.0006612">
+        </testcase>
+        <testcase classname="src/utils/bookingReference.test.ts" name="booking reference &gt; is stable for the same booking in mock flows" time="0.0003875">
+        </testcase>
+        <testcase classname="src/utils/bookingReference.test.ts" name="booking reference &gt; generates different references for different booking IDs in normal cases" time="0.001129">
+        </testcase>
+        <testcase classname="src/utils/bookingReference.test.ts" name="PNR and booking reference separation &gt; generates a valid six-character PNR" time="0.0008401">
+        </testcase>
+        <testcase classname="src/utils/bookingReference.test.ts" name="PNR and booking reference separation &gt; generates a PNR different from the booking reference" time="0.0005488">
+        </testcase>
+        <testcase classname="src/utils/bookingReference.test.ts" name="PNR and booking reference separation &gt; is stable for the same booking in mock flows" time="0.0002584">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/currency.test.ts" timestamp="2026-10-08T12:14:26.751Z" hostname="Bharathi-K" tests="35" failures="0" errors="0" skipped="0" time="0.0264279">
+        <testcase classname="src/utils/currency.test.ts" name="formatMoney &gt; formats USD with $ symbol and 2 decimals" time="0.0033463">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="formatMoney &gt; formats EUR with € symbol" time="0.0004602">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="formatMoney &gt; formats GBP with £ symbol" time="0.0003774">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="formatMoney &gt; formats JPY with no decimals" time="0.0002954">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="formatMoney &gt; formats zero amount" time="0.0002534">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="formatCurrencyAmount &gt; returns 2 decimal places for USD" time="0.0003076">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="formatCurrencyAmount &gt; returns 0 decimal places for JPY" time="0.0002355">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="getCurrencySymbol &gt; returns $ for USD" time="0.0003079">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="getCurrencySymbol &gt; returns € for EUR" time="0.0002622">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="getCurrencySymbol &gt; returns £ for GBP" time="0.0003551">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="getCurrencySymbol &gt; returns code itself for unknown currency" time="0.0001541">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="convertCurrency &gt; returns same object when currencies match" time="0.0008723">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="convertCurrency &gt; converts USD to EUR" time="0.0002769">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="convertCurrency &gt; converts GBP to USD" time="0.0001622">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="convertCurrency &gt; throws for unsupported conversion" time="0.0010089">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="sumMoney &gt; sums multiple USD amounts" time="0.0003226">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="sumMoney &gt; returns zero USD for empty array" time="0.0009972">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="sumMoney &gt; throws when currencies are mixed" time="0.0006781">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="sumMoney &gt; sums single item correctly" time="0.000259">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="parseCurrencyString &gt; parses &quot;$250.00&quot; to 250" time="0.0003082">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="parseCurrencyString &gt; parses &quot;1,234.56&quot; stripping comma" time="0.0064372">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="parseCurrencyString &gt; returns 0 for non-numeric string" time="0.0009451">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="parseCurrencyString &gt; parses negative amount" time="0.0002629">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="compareMoney &gt; returns negative when a &lt; b" time="0.0003041">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="compareMoney &gt; returns 0 when equal" time="0.0001539">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="compareMoney &gt; returns positive when a &gt; b" time="0.0001216">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="compareMoney &gt; throws on currency mismatch" time="0.0002975">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="isZeroMoney &gt; returns true for zero" time="0.0002055">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="isZeroMoney &gt; returns false for positive" time="0.0001898">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="isPositiveMoney &gt; returns true for positive" time="0.0002452">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="isPositiveMoney &gt; returns false for zero" time="0.0001719">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="isPositiveMoney &gt; returns false for negative" time="0.000264">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="isNegativeMoney &gt; returns true for negative" time="0.0001849">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="isNegativeMoney &gt; returns false for positive" time="0.0001014">
+        </testcase>
+        <testcase classname="src/utils/currency.test.ts" name="isNegativeMoney &gt; returns false for zero" time="0.0001011">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/dateTime.test.ts" timestamp="2026-10-08T12:14:26.758Z" hostname="Bharathi-K" tests="30" failures="0" errors="0" skipped="0" time="0.0322648">
+        <testcase classname="src/utils/dateTime.test.ts" name="formatDate &gt; formats ISO date to MM/DD/YYYY" time="0.0126349">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="formatTime &gt; returns a time string in HH:MM format" time="0.0010936">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="parseDate &gt; parses MM/DD/YYYY to ISO date" time="0.0009928">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="parseDate &gt; throws on wrong format" time="0.0028572">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="parseDate &gt; throws on invalid date" time="0.0007608">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="getDaysBetween &gt; calculates 5 days between dates" time="0.0005039">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="getDaysBetween &gt; calculates 1 day" time="0.0003688">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="getDaysBetween &gt; calculates 0 days for same date" time="0.0002785">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="addDays &gt; adds 5 days to a date" time="0.0012707">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="addDays &gt; adds 0 days returns same date" time="0.0006361">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="addDays &gt; handles month rollover" time="0.0002605">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="isDateInPast (dateTime) &gt; returns true for a clearly past date" time="0.0002767">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="isDateInPast (dateTime) &gt; returns false for a clearly future date" time="0.0002794">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="isToday &gt; returns true for today&apos;s date" time="0.0005983">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="isToday &gt; returns false for yesterday" time="0.0005921">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="isTomorrow &gt; returns true for tomorrow" time="0.0006457">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="isTomorrow &gt; returns false for today" time="0.0003853">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="getMinCheckInDate &gt; returns today&apos;s date in YYYY-MM-DD format" time="0.0002759">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="getMinCheckOutDate &gt; returns one day after check-in" time="0.0002669">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="formatDuration &gt; formats &quot;1 night&quot; for 1" time="0.0002431">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="formatDuration &gt; formats &quot;3 nights&quot; for 3" time="0.0001611">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="formatDuration &gt; formats &quot;0 nights&quot; for 0" time="0.0004737">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="getDayOfWeekAbbrv &gt; returns a 3-letter day abbreviation" time="0.0008429">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="isValidBookingDateRange &gt; returns true when check-out is after check-in" time="0.0003438">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="isValidBookingDateRange &gt; returns false when check-out equals check-in" time="0.0001961">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="isValidBookingDateRange &gt; returns false when check-out is before check-in" time="0.0001592">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="formatRelativeTime &gt; returns &quot;Today&quot; for today" time="0.0003155">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="formatRelativeTime &gt; returns &quot;Tomorrow&quot; for tomorrow" time="0.0002156">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="formatRelativeTime &gt; returns &quot;X days from now&quot; for near future" time="0.0001861">
+        </testcase>
+        <testcase classname="src/utils/dateTime.test.ts" name="formatRelativeTime &gt; returns &quot;X days ago&quot; for the past" time="0.0001904">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/statusMapping.test.ts" timestamp="2026-10-08T12:14:26.764Z" hostname="Bharathi-K" tests="38" failures="0" errors="0" skipped="0" time="0.025396">
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusDisplay &gt; HELD → label &quot;On Hold&quot;, color info" time="0.0034474">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusDisplay &gt; CONFIRMED → label &quot;Confirmed&quot;, color success" time="0.0006328">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusDisplay &gt; CANCELLED → label &quot;Cancelled&quot;, color error" time="0.0031831">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusDisplay &gt; PENDING_ISSUE → label contains &quot;Ticketing&quot;, color warning" time="0.0023691">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusDisplay &gt; PENDING_APPROVAL → label &quot;Pending Approval&quot;, color warning" time="0.000488">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusDisplay &gt; CONFIRM_EXCEPTION → label &quot;Action Required&quot;, color error" time="0.0009696">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusDisplay &gt; EXPIRED → label &quot;Hold Expired&quot;, color error" time="0.0008823">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusDisplay &gt; all statuses return a non-empty description" time="0.0011602">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getPolicyOutcomeDisplay &gt; ALLOW → color success" time="0.0005634">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getPolicyOutcomeDisplay &gt; WARN → color warning" time="0.0003818">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getPolicyOutcomeDisplay &gt; BLOCK → color error" time="0.0001758">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getPolicyOutcomeDisplay &gt; REQUIRE_APPROVAL → color warning" time="0.0001359">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getPolicyOutcomeDisplay &gt; all outcomes return a non-empty userFriendlyMessage" time="0.0002699">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="canCancelBooking &gt; HELD can be cancelled" time="0.0002193">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="canCancelBooking &gt; CONFIRMED can be cancelled" time="0.0001295">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="canCancelBooking &gt; PENDING_ISSUE can be cancelled" time="0.0001369">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="canCancelBooking &gt; PENDING_APPROVAL can be cancelled" time="0.0001606">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="canCancelBooking &gt; CANCELLED cannot be cancelled again" time="0.0001346">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="canCancelBooking &gt; COMPLETED cannot be cancelled" time="0.0001307">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="canCancelBooking &gt; EXPIRED cannot be cancelled" time="0.0001045">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="canModifyBooking &gt; HELD can be modified" time="0.0001996">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="canModifyBooking &gt; CONFIRMED can be modified" time="0.0001544">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="canModifyBooking &gt; CANCELLED cannot be modified" time="0.000147">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="canModifyBooking &gt; EXPIRED cannot be modified" time="0.0002769">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getNextActionsForBooking &gt; HELD returns Confirm and Cancel actions" time="0.001405">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getNextActionsForBooking &gt; CONFIRMED returns Cancel action" time="0.0003081">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getNextActionsForBooking &gt; CANCELLED returns Book Again action" time="0.0002548">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getNextActionsForBooking &gt; CONFIRM_EXCEPTION returns Contact Support" time="0.0002273">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getNextActionsForBooking &gt; EXPIRED returns Search Again" time="0.0002092">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusClass &gt; HELD returns class containing status-info" time="0.0002634">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusClass &gt; CONFIRMED returns class containing status-success" time="0.0001405">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusClass &gt; CANCELLED returns class containing status-error" time="0.0001292">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusClass &gt; CONFIRM_EXCEPTION returns class containing status-error" time="0.0001523">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getBookingStatusClass &gt; all statuses return a non-empty string" time="0.000373">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getPolicyOutcomeClass &gt; ALLOW returns class containing outcome-allow" time="0.0002299">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getPolicyOutcomeClass &gt; BLOCK returns class containing outcome-block" time="0.0001604">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getPolicyOutcomeClass &gt; WARN returns class containing outcome-warn" time="0.0001373">
+        </testcase>
+        <testcase classname="src/utils/statusMapping.test.ts" name="getPolicyOutcomeClass &gt; REQUIRE_APPROVAL returns class containing outcome-approval" time="0.0003316">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/validation.test.ts" timestamp="2026-10-08T12:14:26.769Z" hostname="Bharathi-K" tests="81" failures="0" errors="0" skipped="0" time="0.0676166">
+        <testcase classname="src/utils/validation.test.ts" name="isValidEmail &gt; accepts a standard email" time="0.0032002">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidEmail &gt; accepts email with subdomain" time="0.0005215">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidEmail &gt; rejects missing @" time="0.0003299">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidEmail &gt; rejects missing domain" time="0.0002594">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidEmail &gt; rejects empty string" time="0.0004473">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidPhone &gt; accepts standard US number" time="0.0004725">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidPhone &gt; accepts 10-digit number" time="0.0004153">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidPhone &gt; rejects fewer than 10 digits" time="0.0002944">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidPhone &gt; rejects letters" time="0.0280188">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidName &gt; accepts a normal name" time="0.0006369">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidName &gt; rejects single character" time="0.0004416">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidName &gt; rejects empty string" time="0.0037802">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidName &gt; rejects name over 100 chars" time="0.000346">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidName &gt; accepts name exactly 2 chars" time="0.0007387">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidName &gt; accepts name exactly 100 chars" time="0.0002784">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidDate &gt; accepts an ISO date string" time="0.000916">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidDate &gt; accepts a full ISO datetime" time="0.0024287">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidDate &gt; rejects garbage string" time="0.0008152">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidDate &gt; rejects empty string" time="0.0002513">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isDateInPast &gt; returns true for a past date" time="0.0002804">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isDateInPast &gt; returns false for a future date" time="0.000152">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isDateInPast &gt; returns false for today" time="0.0001911">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isInRange &gt; accepts value at min boundary" time="0.000282">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isInRange &gt; accepts value at max boundary" time="0.0001499">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isInRange &gt; accepts value in middle" time="0.0001624">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isInRange &gt; rejects value below min" time="0.0001168">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isInRange &gt; rejects value above max" time="0.0001325">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidLength &gt; accepts string within range" time="0.0001985">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidLength &gt; rejects too short" time="0.000136">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidLength &gt; rejects too long" time="0.0001104">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidIATACode &gt; accepts uppercase 3-letter code" time="0.0002263">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidIATACode &gt; accepts lowercase — auto-uppercased internally" time="0.0001688">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidIATACode &gt; accepts mixed case" time="0.0001297">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidIATACode &gt; rejects 2-letter code" time="0.000121">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidIATACode &gt; rejects 4-letter code" time="0.0001034">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidIATACode &gt; rejects digits" time="0.0001173">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidIATACode &gt; rejects empty string" time="0.0001278">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isEmpty &gt; returns true for undefined" time="0.0003299">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isEmpty &gt; returns true for null" time="0.0001223">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isEmpty &gt; returns true for empty string" time="0.0001262">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isEmpty &gt; returns true for whitespace string" time="0.0001427">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isEmpty &gt; returns true for empty array" time="0.0001246">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isEmpty &gt; returns false for non-empty string" time="0.0001132">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isEmpty &gt; returns false for non-empty array" time="0.0001151">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isEmpty &gt; returns false for number 0" time="0.0001277">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="sanitizeString &gt; strips leading/trailing whitespace" time="0.0002448">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="sanitizeString &gt; removes &lt; &gt; &quot; &apos; characters" time="0.0001689">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="sanitizeString &gt; truncates to 500 chars" time="0.0012628">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="sanitizeEmail &gt; lowercases and trims" time="0.000285">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCVV &gt; accepts 3-digit CVV" time="0.0002515">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCVV &gt; accepts 4-digit CVV (Amex)" time="0.0001759">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCVV &gt; rejects 2-digit" time="0.000125">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCVV &gt; rejects letters" time="0.0001262">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCVV &gt; rejects empty" time="0.0001023">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCardNumber &gt; accepts a valid Luhn number (Visa test)" time="0.0003126">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCardNumber &gt; accepts a valid Mastercard test number" time="0.0002228">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCardNumber &gt; rejects an invalid number" time="0.0001337">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCardNumber &gt; rejects too short" time="0.0001321">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCardNumber &gt; strips spaces before validating" time="0.0001302">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCardExpiration &gt; accepts a future expiry" time="0.0002413">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCardExpiration &gt; accepts current month and year" time="0.0001218">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCardExpiration &gt; rejects past year" time="0.0001399">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCardExpiration &gt; rejects invalid month 0" time="0.0001082">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="isValidCardExpiration &gt; rejects invalid month 13" time="0.0001363">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateGuestInfo &gt; passes with valid data" time="0.0011005">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateGuestInfo &gt; fails with invalid first name" time="0.0003196">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateGuestInfo &gt; fails with invalid email" time="0.0002072">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateGuestInfo &gt; fails with invalid phone when provided" time="0.0002051">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateGuestInfo &gt; passes without optional phone" time="0.0001478">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; passes with all valid fields" time="0.0009819">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; fails when origin is missing" time="0.0003323">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; fails when destination is missing" time="0.0002344">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; fails when origin equals destination" time="0.0002694">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; fails when IATA code is invalid (numeric)" time="0.0017882">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; fails when departure date is in the past" time="0.000945">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; fails when departure date is missing" time="0.0003578">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; fails when return date is before departure" time="0.0003547">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; passes when valid return date is after departure" time="0.0002769">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; fails when passengers is 0" time="0.0002887">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; fails when passengers exceeds 9" time="0.0001965">
+        </testcase>
+        <testcase classname="src/utils/validation.test.ts" name="validateFlightSearchCriteria &gt; fails with invalid cabin class" time="0.0001926">
+        </testcase>
+    </testsuite>
+</testsuites>

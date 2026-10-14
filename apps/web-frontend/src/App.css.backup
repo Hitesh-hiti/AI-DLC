@@ -1,0 +1,1445 @@
+/* App Styles */
+
+:root {
+  --color-primary: #0066cc;
+  --color-primary-dark: #004d99;
+  --color-primary-light: #4d94ff;
+  --color-secondary: #f0f0f0;
+  --color-accent: #ff6b6b;
+  --color-accent-light: #ff8e8e;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-error: #dc3545;
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-border: #d0d0d0;
+  --color-bg-gradient-start: #e6f7ff;
+  --color-bg-gradient-end: #ffffff;
+  --color-sky-blue: #87ceeb;
+  --color-cloud-white: #ffffff;
+  --color-sun-yellow: #ffd700;
+  --color-earth-green: #2e8b57;
+  --color-ocean-blue: #1e90ff;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  --border-radius: 6px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, var(--color-bg-gradient-start) 0%, var(--color-bg-gradient-end) 100%);
+  color: var(--color-text);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Sky background elements */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* Clouds */
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.8) 0px, transparent 150px),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.7) 0px, transparent 120px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.6) 0px, transparent 100px),
+    radial-gradient(circle at 60% 90%, rgba(255, 255, 255, 0.5) 0px, transparent 80px),
+    /* Sun */
+    radial-gradient(circle at 90% 5%, var(--color-sun-yellow) 0px, rgba(255, 215, 0, 0.1) 60px),
+    /* Sky gradient */
+    radial-gradient(ellipse at 50% 0%, var(--color-sky-blue) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Airplane flying animation */
+body::after {
+  content: '✈';
+  position: fixed;
+  top: 15%;
+  right: -50px;
+  font-size: 2rem;
+  color: var(--color-primary);
+  animation: flyAcross 20s linear infinite;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes flyAcross {
+  0% {
+    transform: translateX(0) translateY(0) rotate(15deg);
+  }
+  25% {
+    transform: translateX(-25vw) translateY(20px) rotate(10deg);
+  }
+  50% {
+    transform: translateX(-50vw) translateY(-10px) rotate(5deg);
+  }
+  75% {
+    transform: translateX(-75vw) translateY(15px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(-100vw) translateY(0) rotate(-10deg);
+  }
+}
+
+/* Skip link for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Main app container */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 102, 204, 0.3);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.app-header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-md);
+}
+
+.app-header-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-sun-yellow);
+  text-shadow: 0 2px 8px rgba(255, 215, 0, 0.5);
+}
+
+.hotel-details-section {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: var(--spacing-xl) 0;
+}
+
+.hotel-details-section h2 {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+/* Decorative travel pins */
+.travel-pin {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.6;
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+.travel-pin::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background-color: var(--color-accent-light);
+  transform: translateX(-50%);
+  opacity: 0.4;
+}
+
+.travel-pin:nth-child(1) { top: 20%; left: 15%; }
+.travel-pin:nth-child(2) { top: 40%; left: 80%; }
+.travel-pin:nth-child(3) { top: 70%; left: 10%; }
+.travel-pin:nth-child(4) { top: 10%; left: 60%; }
+.travel-pin:nth-child(5) { top: 85%; left: 90%; }
+
+/* Form card enhancements */
+.form-card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 102, 204, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.form-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 102, 204, 0.2);
+}
+
+/* Button styling */
+.btn-primary {
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Search form special styling */
+.search-form {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.search-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+}
+
+/* Flight card enhancements */
+.flight-card {
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--color-primary);
+}
+
+.flight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 102, 204, 0.15);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: var(--spacing-sm);
+  }
+
+  .app-header {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+  }
+
+  .app-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .app-header p {
+    font-size: 1rem;
+  }
+
+  .app-header-icon {
+    font-size: 2.5rem;
+  }
+
+  .search-form {
+    padding: var(--spacing-lg);
+  }
+
+  body::after {
+    font-size: 1.5rem;
+    animation-duration: 15s;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-container {
+    padding: var(--spacing-sm);
+  }
+
+  .app-header {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .app-header p {
+    font-size: 0.9375rem;
+  }
+
+  .app-header-icon {
+    font-size: 2rem;
+  }
+
+  .search-form {
+    padding: var(--spacing-md);
+    border-radius: calc(var(--border-radius) / 2);
+  }
+
+  body::after {
+    font-size: 1.2rem;
+    animation-duration: 12s;
+  }
+}
+
+/* Print styles */
+@media print {
+  body::before,
+  body::after,
+  .travel-pin {
+    display: none;
+  }
+
+  .app-header {
+    background: white !important;
+    color: var(--color-text) !important;
+    box-shadow: none !important;
+  }
+
+  .app-header h1 {
+    color: var(--color-text) !important;
+  }
+
+  .app-header p {
+    color: var(--color-text-light) !important;
+  }
+
+  .app-header-icon {
+    color: var(--color-text-light) !important;
+  }
+}
+
+/* ── Navigation Bar ────────────────────────────────────────────────────────── */
+
+.app-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-md) 0;
+}
+
+.app-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+}
+
+.app-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: color 0.2s ease;
+}
+
+.app-nav-logo:hover {
+  color: var(--color-primary-dark);
+}
+
+.nav-logo-icon {
+  font-size: 1.5rem;
+}
+
+.app-nav-links {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: var(--color-primary-light);
+  color: white;
+}
+
+.app-nav-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.nav-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-primary-light);
+}
+
+.nav-btn-primary {
+  background: var(--color-primary);
+  color: white;
+  border: 1px solid var(--color-primary);
+}
+
+.nav-btn-primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────────── */
+
+.app-footer {
+  margin-top: var(--spacing-2xl);
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-xl) 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-section-text {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.footer-links a {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom-text {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+}
+
+.footer-bottom-actions {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.footer-language-btn,
+.footer-currency-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 0.875rem;
+  color: var(--color-text);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+.footer-language-btn:hover,
+.footer-currency-btn:hover {
+  background: var(--color-secondary);
+}
+
+/* ── Responsive Design ─────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .app-footer {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-nav {
+    padding: var(--spacing-sm) 0;
+  }
+
+  .app-nav-container {
+    gap: var(--spacing-md);
+  }
+
+  .app-nav-logo {
+    font-size: 1rem;
+  }
+
+  .app-nav-links {
+    display: none;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .app-footer {
+    padding: var(--spacing-md) 0;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-container {
+    padding: var(--spacing-sm);
+  }
+
+  .app-header {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+  }
+
+  .app-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .app-header p {
+    font-size: 1rem;
+  }
+
+  .app-header-icon {
+    font-size: 2.5rem;
+  }
+
+  .search-form {
+    padding: var(--spacing-lg);
+  }
+
+  .footer-section-title {
+    font-size: 0.9375rem;
+  }
+
+  .footer-section-text,
+  .footer-links a {
+    font-size: 0.8125rem;
+  }
+
+  .nav-btn,
+  .footer-language-btn,
+  .footer-currency-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.8125rem;
+  }
+}
+
+/* ── Print Styles ──────────────────────────────────────────────────────────── */
+
+@media print {
+  body::before,
+  body::after,
+  .travel-pin {
+    display: none;
+  }
+
+  .app-header {
+    background: white !important;
+    color: var(--color-text) !important;
+    box-shadow: none !important;
+  }
+
+  .app-header h1 {
+    color: var(--color-text) !important;
+  }
+
+  .app-header p {
+    color: var(--color-text-light) !important;
+  }
+
+  .app-header-icon {
+    color: var(--color-text-light) !important;
+  }
+
+  .app-nav,
+  .app-footer {
+    display: none;
+  }
+}
+
+/* =========================================================
+   TRAVELPLATFORM FINAL SINGLE-SHELL OVERRIDES
+   ========================================================= */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f8f9fb 0%, #f1f3f7 100%);
+}
+
+
+
+.enterprise-navbar {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  min-height: 72px;
+  background: #fff;
+  border-bottom: 1px solid transparent;
+  box-shadow: 0 2px 8px rgba(40, 40, 95, 0.06);
+}
+
+.enterprise-navbar-inner {
+  width: min(1200px, calc(100% - 48px));
+  min-height: 72px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+
+.enterprise-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  background: transparent;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.enterprise-brand:hover {
+  background: transparent;
+}
+
+.enterprise-brand:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.enterprise-logo-mark {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #28285f;
+  color: #fff;
+  font-size: 21px;
+  line-height: 1;
+}
+
+.enterprise-logo-image {
+  display: block;
+  width: auto;
+  height: 70px;
+  max-width: 280px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.enterprise-brand-name {
+  color: #28285f;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.enterprise-nav {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.enterprise-nav-item {
+  position: relative;
+  height: 72px;
+  padding: 0 18px;
+  border: 0;
+  background: transparent;
+  color: #55586a;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.enterprise-nav-item:hover,
+.enterprise-nav-item.active {
+  color: #28285f;
+}
+
+.enterprise-nav-item.active::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: #ec5814;
+}
+
+.enterprise-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.enterprise-signin,
+.enterprise-signup {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.enterprise-signin {
+  min-width: 76px;
+  border: 1px solid #d9dce5;
+  background: #fff;
+  color: #28285f;
+}
+
+.enterprise-signup {
+  min-width: 76px;
+  border: 1px solid #ec5814;
+  background: #ec5814;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(236, 88, 20, 0.16);
+}
+
+.enterprise-signin:hover { background: #f7f7fb; }
+.enterprise-signup:hover { background: #c8460d; border-color: #c8460d; }
+
+.coming-soon-page {
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+}
+
+.coming-soon-card {
+  width: min(620px, 100%);
+  padding: 60px 48px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e1e4ec;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(40, 40, 95, 0.10);
+}
+
+.coming-soon-icon {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e9eaf4;
+  color: #28285f;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.coming-soon-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ec5814;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.coming-soon-card h1 {
+  margin: 0;
+  color: #28285f;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.coming-soon-divider {
+  width: 42px;
+  height: 3px;
+  margin: 20px auto;
+  border-radius: 4px;
+  background: #ec5814;
+}
+
+.coming-soon-text {
+  margin: 0;
+  color: #28285f;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.coming-soon-description {
+  max-width: 430px;
+  margin: 12px auto 0;
+  color: #6a6d7b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .enterprise-navbar-inner {
+    width: calc(100% - 28px);
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  .enterprise-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    height: 44px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .enterprise-nav::-webkit-scrollbar { display: none; }
+  .enterprise-nav-item { height: 44px; padding: 0 12px; }
+  .enterprise-nav-item.active::after { left: 10px; right: 10px; }
+}
+
+@media (max-width: 560px) {
+  .enterprise-navbar-inner { width: calc(100% - 20px); }
+  .enterprise-brand-name { font-size: 15px; }
+  .enterprise-logo-mark { width: 36px; height: 36px; font-size: 18px; }
+  .enterprise-signin,
+  .enterprise-signup { min-width: auto; height: 32px; padding: 0 10px; font-size: 11px; }
+  .coming-soon-page { min-height: 440px; padding: 40px 14px; }
+  .coming-soon-card { padding: 42px 24px; }
+}
+
+/* =========================================================
+   TRAVELPLATFORM FINAL SINGLE-SHELL OVERRIDES
+   ========================================================= */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f8f9fb 0%, #f1f3f7 100%);
+}
+
+.app-content {
+  flex: 1;
+  width: 100%;
+}===================
+   ENTERPRISE NAVBAR
+   ========================================================= */
+
+.enterprise-navbar {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  min-height: 100px;
+  background: #ffffff;
+  border-bottom: 1px solid transparent;
+  box-shadow: 0 2px 8px rgba(40, 40, 95, 0.06);
+}
+
+.enterprise-navbar-inner {
+  width: min(1200px, calc(100% - 48px));
+  min-height: 100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto minmax(260px, 1fr);
+
+  align-items: center;
+  gap: 24px;
+}
+
+/* =========================================================
+   BRAND / IGS LOGO
+   ========================================================= */
+
+.enterprise-brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+
+  width: fit-content;
+  min-height: 76px;
+
+  border: none;
+  background: transparent;
+  padding: 4px 8px;
+
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.enterprise-brand:hover {
+  background: transparent;
+}
+
+.enterprise-brand:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Hide old airplane logo if it still exists anywhere */
+.enterprise-logo-mark {
+  display: none;
+}
+
+/* Actual IGS logo */
+.enterprise-logo-image {
+  display: block;
+
+  width: auto;
+  height: 92px;
+  max-width: 340px;
+
+  object-fit: contain;
+  object-position: left center;
+
+  flex: 0 0 auto;
+}
+
+/* TravelPlatform text beside logo */
+.enterprise-brand-name {
+  color: #28285f;
+
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   PRIMARY NAVIGATION
+   ========================================================= */
+
+.enterprise-nav {
+  height: 88px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+}
+
+.enterprise-nav-item {
+  position: relative;
+
+  height: 88px;
+  padding: 0 18px;
+
+  border: 0;
+  background: transparent;
+
+  color: #55586a;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.enterprise-nav-item:hover,
+.enterprise-nav-item.active {
+  color: #28285f;
+}
+
+.enterprise-nav-item.active::after {
+  content: '';
+
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+
+  height: 3px;
+
+  border-radius: 3px 3px 0 0;
+
+  background: #ec5814;
+}
+
+/* =========================================================
+   HEADER ACTIONS
+   ========================================================= */
+
+.enterprise-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.enterprise-signin,
+.enterprise-signup {
+  height: 38px;
+
+  padding: 0 14px;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.enterprise-signin {
+  min-width: 76px;
+
+  border: 1px solid #d9dce5;
+
+  background: #ffffff;
+  color: #28285f;
+}
+
+.enterprise-signup {
+  min-width: 76px;
+
+  border: 1px solid #ec5814;
+
+  background: #ec5814;
+  color: #ffffff;
+
+  box-shadow: 0 4px 10px rgba(236, 88, 20, 0.16);
+}
+
+.enterprise-signin:hover {
+  background: #f7f7fb;
+  border-color: #28285f;
+}
+
+.enterprise-signup:hover {
+  background: #c8460d;
+  border-color: #c8460d;
+}
+
+.enterprise-signin:active,
+.enterprise-signup:active {
+  transform: translateY(1px);
+}
+
+/* =========================================================
+   COMING SOON
+   ========================================================= */
+
+.coming-soon-page {
+  min-height: 520px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px 24px;
+}
+
+.coming-soon-card {
+  width: min(620px, 100%);
+
+  padding: 60px 48px;
+
+  text-align: center;
+
+  background: #ffffff;
+  border: 1px solid #e1e4ec;
+  border-radius: 16px;
+
+  box-shadow: 0 18px 45px rgba(40, 40, 95, 0.10);
+}
+
+.coming-soon-icon {
+  width: 54px;
+  height: 54px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e9eaf4;
+  color: #28285f;
+
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.coming-soon-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #ec5814;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.coming-soon-card h1 {
+  margin: 0;
+
+  color: #28285f;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.coming-soon-divider {
+  width: 42px;
+  height: 3px;
+
+  margin: 20px auto;
+
+  border-radius: 4px;
+
+  background: #ec5814;
+}
+
+.coming-soon-text {
+  margin: 0;
+
+  color: #28285f;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.coming-soon-description {
+  max-width: 430px;
+
+  margin: 12px auto 0;
+
+  color: #6a6d7b;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .enterprise-navbar {
+    min-height: 92px;
+  }
+
+  .enterprise-navbar-inner {
+    width: calc(100% - 28px);
+
+    min-height: 92px;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 12px;
+
+    padding: 6px 0;
+  }
+
+  .enterprise-brand {
+    min-height: 68px;
+  }
+
+  .enterprise-logo-image {
+    height: 72px;
+    max-width: 270px;
+  }
+
+  .enterprise-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+    height: 44px;
+
+    justify-content: flex-start;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+  .enterprise-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .enterprise-nav-item {
+    height: 44px;
+    padding: 0 12px;
+  }
+
+  .enterprise-nav-item.active::after {
+    left: 10px;
+    right: 10px;
+  }
+
+  .enterprise-header-actions {
+    align-self: center;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 560px) {
+  .enterprise-navbar-inner {
+    width: calc(100% - 20px);
+  }
+
+  .enterprise-brand {
+    gap: 9px;
+    min-height: 60px;
+  }
+
+  .enterprise-logo-image {
+    height: 58px;
+    max-width: 220px;
+  }
+
+  .enterprise-brand-name {
+    font-size: 14px;
+  }
+
+  .enterprise-signin,
+  .enterprise-signup {
+    min-width: auto;
+    height: 32px;
+
+    padding: 0 10px;
+
+    font-size: 11px;
+  }
+
+  .coming-soon-page {
+    min-height: 440px;
+    padding: 40px 14px;
+  }
+
+  .coming-soon-card {
+    padding: 42px 24px;
+  }
+}
+
+/* =========================================================
+   SEARCH RESULTS — ALIGN WITH SEARCH FLIGHT FORM
+   ========================================================= */
+
+.app-content {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  backgro width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flight-card {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+/* =========================================================
+   SEARCH RESULTS — APP CONTENT WITH TRAVEL BACKGROUND
+   ========================================================= */
+
+.app-content {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #f0f5fa;
+  background-image: 
+    url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22900%22 viewBox=%220 0 1200 900%22%3E%3Cdefs%3E%3ClinearGradient id=%22bgGrad%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 style=%22stop-color:%231e88e5;stop-opacity:0.18%22 /%3E%3Cstop offset=%2250%25%22 style=%22stop-color:%2300acc1;stop-opacity:0.15%22 /%3E%3Cstop offset=%22100%25%22 style=%22stop-color:%231565c0;stop-opacity:0.12%22 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%221200%22 height=%22900%22 fill=%22url(%23bgGrad)%22 /%3E%3Cg%3E%3Ctext x=%22100%22 y=%22150%22 font-size=%2290%22 fill=%231e88e5%22 opacity=%220.25%22%3E%E2%9C%88%3C/text%3E%3Ctext x=%22300%22 y=%22100%22 font-size=%22110%22 fill=%2300acc1%22 opacity=%220.28%22%3E%F0%9F%8C%8D%3C/text%3E%3Ctext x=%22850%22 y=%22250%22 font-size=%2280%22 fill=%221e88e5%22 opacity=%220.23%22%3E%E2%9C%88%3C/text%3E%3Ctext x=%22200%22 y=%22500%22 font-size=%22100%22 fill=%2300acc1%22 opacity=%220.22%22%3E%F0%9F%8C%8E%3C/text%3E%3Ctext x=%22950%22 y=%22600%22 font-size=%2290%22 fill=%231e88e5%22 opacity=%220.24%22%3E%F0%9F%8C%8F%3C/text%3E%3Ctext x=%22550%22 y=%22750%22 font-size=%22110%22 fill=%2300acc1%22 opacity=%220.26%22%3E%E2%9C%88%3C/text%3E%3Ccircle cx=%22450%22 cy=%22300%22 r=%2255%22 fill=%221e88e5%22 opacity=%220.2%22 /%3E%3Ccircle cx=%22800%22 cy=%22750%22 r=%2265%22 fill=%2300acc1%22 opacity=%220.19%22 /%3E%3Cpath d=%22M150 750 L210 680 L270 750 Z%22 fill=%221e88e5%22 opacity=%220.22%22 /%3E%3Cpath d=%22M900 350 L970 280 L1040 350 Z%22 fill=%2300acc1%22 opacity=%220.21%22 /%3E%3Crect x=%22350%22 y=%22550%22 width=%2290%22 height=%2290%22 fill=%221e88e5%22 rx=%2218%22 opacity=%220.23%22 /%3E%3Crect x=%22750%22 y=%22150%22 width=%2280%22 height=%2280%22 fill=%2300acc1%22 rx=%2215%22 opacity=%220.22%22 /%3E%3Cline x1=%2250%22 y1=%22600%22 x2=%22220%22 y2=%22600%22 stroke=%221e88e5%22 stroke-width=%224%22 opacity=%220.25%22 /%3E%3Cline x1=%22950%22 y1=%22400%22 x2=%221100%22 y2=%22400%22 stroke=%2200acc1%22 stroke-width=%224%22 opacity=%220.24%22 /%3E%3Cpolygon points=%22600,120 660,60 720,120 660,180%22 fill=%221e88e5%22 opacity=%220.23%22 /%3E%3Cpolygon points=%22120,350 170,300 220,350 170,400%22 fill=%2300acc1%22 opacity=%220.22%22 /%3E%3C/g%3E%3C/svg%3E');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 900px 700px;
+}
+
+.search-results-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flight-card {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+

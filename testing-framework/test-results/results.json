@@ -1,14 +1,24 @@
 {
   "config": {
     "argv": [
+<<<<<<< HEAD
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Bharathi_K\\Documents\\TravelPlatform\\testing-framework\\node_modules\\@playwright\\test\\cli.js",
+=======
       "C:\\nvm4w\\nodejs\\node.exe",
       "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\node_modules\\@playwright\\test\\cli.js",
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
       "test",
       "tests/e2e/E2E-HP-001_full_booking_happy_path.spec.ts",
       "--headed"
     ],
+<<<<<<< HEAD
+    "configFile": "C:\\Users\\Bharathi_K\\Documents\\TravelPlatform\\testing-framework\\playwright.config.ts",
+    "rootDir": "C:/Users/Bharathi_K/Documents/TravelPlatform/testing-framework/tests",
+=======
     "configFile": "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\playwright.config.ts",
     "rootDir": "C:/Users/Hitesh_C/Documents/Healing/testingframework-with-healer-fixed-v2/testingframework-fixed/tests",
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
     "failOnFlakyTests": false,
     "forbidOnly": false,
     "fullyParallel": false,
@@ -24,7 +34,11 @@
     "preserveOutput": "always",
     "projects": [
       {
+<<<<<<< HEAD
+        "outputDir": "C:/Users/Bharathi_K/Documents/TravelPlatform/testing-framework/test-results",
+=======
         "outputDir": "C:/Users/Hitesh_C/Documents/Healing/testingframework-with-healer-fixed-v2/testingframework-fixed/test-results",
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -32,7 +46,11 @@
         },
         "id": "chromium",
         "name": "chromium",
+<<<<<<< HEAD
+        "testDir": "C:/Users/Bharathi_K/Documents/TravelPlatform/testing-framework/tests",
+=======
         "testDir": "C:/Users/Hitesh_C/Documents/Healing/testingframework-with-healer-fixed-v2/testingframework-fixed/tests",
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -47,7 +65,11 @@
         null
       ],
       [
+<<<<<<< HEAD
+        "C:\\Users\\Bharathi_K\\Documents\\TravelPlatform\\testing-framework\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+=======
         "C:\\Users\\Hitesh_C\\Documents\\Healing\\testingframework-with-healer-fixed-v2\\testingframework-fixed\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
         {
           "detail": true,
           "outputFolder": "allure-results",
@@ -176,7 +198,11 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
+<<<<<<< HEAD
+                  "duration": 2918,
+=======
                   "duration": 25131,
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
                   "errors": [],
                   "stdout": [
                     {
@@ -533,7 +559,11 @@
                   ],
                   "stderr": [],
                   "retry": 0,
+<<<<<<< HEAD
+                  "startTime": "2026-10-06T15:48:04.884Z",
+=======
                   "startTime": "2026-10-09T06:35:24.236Z",
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
                   "annotations": [
                     {
                       "type": "feature",
@@ -568,8 +598,13 @@
   ],
   "errors": [],
   "stats": {
+<<<<<<< HEAD
+    "startTime": "2026-10-06T15:48:04.174Z",
+    "duration": 4374.409000000001,
+=======
     "startTime": "2026-10-09T06:35:22.075Z",
     "duration": 33059.715,
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

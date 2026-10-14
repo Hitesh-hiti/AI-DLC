@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+const fs = require("fs");
+const path = require("path");
+
+const { NodeSDK } = require("@opentelemetry/sdk-node");
+const { trace } = require("@opentelemetry/api");
+=======
 "use strict";
 
 const fs = require("fs");
@@ -11,10 +18,24 @@ const {
   SpanKind,
   SpanStatusCode,
 } = require("@opentelemetry/api");
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
 const {
   OTLPTraceExporter,
 } = require("@opentelemetry/exporter-trace-otlp-proto");
 
+<<<<<<< HEAD
+const PHOENIX_ENDPOINT =
+  process.env.PHOENIX_COLLECTOR_ENDPOINT ||
+  "http://localhost:6006/v1/traces";
+
+const PROJECT_ROOT = process.cwd();
+
+function logError(error) {
+  try {
+    fs.appendFileSync(
+      path.join(PROJECT_ROOT, ".kiro", "phoenix", "phoenix-errors.log"),
+      `${new Date().toISOString()} ${error?.stack || error}\n`
+=======
 const PROJECT_ROOT = process.cwd();
 
 const PHOENIX_DIR = path.join(
@@ -81,12 +102,15 @@ function logError(error) {
       `${new Date().toISOString()} ${
         error?.stack || error
       }\n`
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
     );
   } catch {
     // Observability must never break Kiro.
   }
 }
 
+<<<<<<< HEAD
+=======
 
 /* =========================================================
  * Endpoint normalization
@@ -114,6 +138,7 @@ function normalizeEndpoint(value) {
  * Input
  * ======================================================= */
 
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
 function readStdin() {
   return new Promise((resolve) => {
     const chunks = [];
@@ -123,20 +148,31 @@ function readStdin() {
     });
 
     process.stdin.on("end", () => {
+<<<<<<< HEAD
+      resolve(Buffer.concat(chunks).toString("utf8"));
+=======
       resolve(
         Buffer.concat(chunks).toString("utf8")
       );
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
     });
   });
 }
 
 function parseEvent(raw) {
+<<<<<<< HEAD
+  if (!raw) {
+=======
   if (!raw || !raw.trim()) {
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
     return {};
   }
 
   try {
     return JSON.parse(raw);
+<<<<<<< HEAD
+  } catch {
+=======
   } catch (error) {
     logError(
       new Error(
@@ -144,10 +180,13 @@ function parseEvent(raw) {
       )
     );
 
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
     return {};
   }
 }
 
+<<<<<<< HEAD
+=======
 
 /* =========================================================
  * Kiro event normalization
@@ -550,6 +589,7 @@ function getToolSuccess(event) {
  * Preserves the routing behavior from your existing hook.
  * ======================================================= */
 
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
 function loadAgents() {
   const file = path.join(
     PROJECT_ROOT,
@@ -559,10 +599,13 @@ function loadAgents() {
   );
 
   try {
+<<<<<<< HEAD
+=======
     if (!fs.existsSync(file)) {
       return null;
     }
 
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
     return JSON.parse(
       fs.readFileSync(file, "utf8")
     );
@@ -578,7 +621,14 @@ function findRouting(event, config) {
   }
 
   const prompt = String(
+<<<<<<< HEAD
+    event.userPrompt ||
+    event.prompt ||
+    process.env.USER_PROMPT ||
+    ""
+=======
     getPrompt(event)
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
   ).toLowerCase();
 
   if (!prompt) {
@@ -587,6 +637,18 @@ function findRouting(event, config) {
 
   const candidates = [];
 
+<<<<<<< HEAD
+  for (const [key, agent] of Object.entries(config.agents)) {
+    const keywords = Array.isArray(agent.keywords)
+      ? agent.keywords
+      : [];
+
+    const matchedKeywords = keywords.filter((keyword) =>
+      prompt.includes(String(keyword).toLowerCase())
+    );
+
+    if (matchedKeywords.length === 0) {
+=======
   for (const [key, agent] of Object.entries(
     config.agents
   )) {
@@ -612,6 +674,7 @@ function findRouting(event, config) {
     if (
       matchedKeywords.length === 0
     ) {
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
       continue;
     }
 
@@ -622,9 +685,13 @@ function findRouting(event, config) {
     });
   }
 
+<<<<<<< HEAD
+  if (candidates.length === 0) {
+=======
   if (
     candidates.length === 0
   ) {
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
     return null;
   }
 
@@ -632,6 +699,15 @@ function findRouting(event, config) {
     config.routing?.priority || [];
 
   candidates.sort((a, b) => {
+<<<<<<< HEAD
+    const aPriority = priorityOrder.indexOf(
+      a.agent.category
+    );
+
+    const bPriority = priorityOrder.indexOf(
+      b.agent.category
+    );
+=======
     const aPriority =
       priorityOrder.indexOf(
         a.agent.category
@@ -641,6 +717,7 @@ function findRouting(event, config) {
       priorityOrder.indexOf(
         b.agent.category
       );
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
 
     const aRank =
       aPriority === -1
@@ -670,6 +747,125 @@ function findRouting(event, config) {
     category: selected.agent.category,
     model: selected.agent.model,
     priority: selected.agent.priority,
+<<<<<<< HEAD
+    matchedKeywords: selected.matchedKeywords,
+  };
+}
+
+async function main() {
+  const raw = await readStdin();
+  const event = parseEvent(raw);
+
+  const hookEvent =
+    process.env.KIRO_HOOK_EVENT ||
+    event.hookEventName ||
+    event.trigger ||
+    "PromptSubmit";
+
+  const projectName =
+    process.env.PHOENIX_PROJECT_NAME ||
+    "kiro-ide-travel-platform";
+
+  const agentsConfig = loadAgents();
+
+  const routing = findRouting(
+    event,
+    agentsConfig
+  );
+
+  const exporter = new OTLPTraceExporter({
+    url: PHOENIX_ENDPOINT,
+  });
+
+  const sdk = new NodeSDK({
+    traceExporter: exporter,
+  });
+
+  try {
+    await sdk.start();
+
+    const tracer = trace.getTracer(
+      "kiro-ide-phoenix",
+      "1.0.0"
+    );
+
+    const span = tracer.startSpan(
+      `kiro.${hookEvent}`
+    );
+
+    span.setAttribute(
+      "service.name",
+      "kiro-ide"
+    );
+
+    span.setAttribute(
+      "phoenix.project.name",
+      projectName
+    );
+
+    span.setAttribute(
+      "kiro.hook_event",
+      hookEvent
+    );
+
+    span.setAttribute(
+      "kiro.project",
+      PROJECT_ROOT
+    );
+
+    if (event.session_id) {
+      span.setAttribute(
+        "kiro.session_id",
+        String(event.session_id)
+      );
+    }
+
+    const prompt =
+      event.userPrompt ||
+      event.prompt ||
+      process.env.USER_PROMPT;
+
+    if (prompt) {
+      span.setAttribute(
+        "kiro.user_prompt",
+        String(prompt)
+      );
+    }
+
+    if (routing) {
+      span.setAttribute(
+        "kiro.target_agent",
+        routing.targetAgent
+      );
+
+      span.setAttribute(
+        "kiro.agent_name",
+        routing.agentName
+      );
+
+      span.setAttribute(
+        "kiro.category",
+        routing.category
+      );
+
+      if (routing.model) {
+        span.setAttribute(
+          "kiro.model",
+          routing.model
+        );
+      }
+
+      if (routing.priority !== undefined) {
+        span.setAttribute(
+          "kiro.priority",
+          Number(routing.priority)
+        );
+      }
+
+      span.setAttribute(
+        "kiro.matched_keywords",
+        routing.matchedKeywords.join(", ")
+=======
     matchedKeywords:
       selected.matchedKeywords,
   };
@@ -1154,11 +1350,14 @@ async function handlePreToolUse(
         span,
         "kiro.tool_input",
         toolInput
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
       );
     }
 
     span.end();
 
+<<<<<<< HEAD
+=======
     const toolSpanContext =
       serializeSpanContext(span);
 
@@ -1712,10 +1911,22 @@ async function main() {
      * Kiro launches this Node process for the hook and then
      * expects it to exit. Explicit shutdown flushes OTLP.
      */
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
     await sdk.shutdown();
   } catch (error) {
     logError(error);
 
+<<<<<<< HEAD
+    try {
+      await sdk.shutdown();
+    } catch {
+      // Ignore shutdown errors.
+    }
+  }
+}
+
+main().catch(logError);
+=======
     if (sdk) {
       try {
         await sdk.shutdown();
@@ -1798,3 +2009,4 @@ main().catch((error) => {
    */
   process.exitCode = 0;
 });
+>>>>>>> 1ccdfb2ddbe7df7268e04d1ab4b3c14e663858d0
