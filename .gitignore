@@ -26,8 +26,8 @@ dist-ssr
 */package-lock.json
  docker/
  package-lock.json
-testing-framework/allure-results
-apps/web-frontend/reports
+testing-framework/allure-results/
+apps/web-frontend/reports/
 ai-dlc-security-orchestration/
 security/
 testing-framework/.healer/

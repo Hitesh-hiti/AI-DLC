@@ -5,8 +5,8 @@ Act as a senior Product Owner + Scrum BA.
 
 ## Acceptance Criteria Traceability matrix Template :
 
-| Domain |Requirement ID | AC ID | Priority  |Layer | Source |
-| -------|---------------|-------|-----------|------|--------|
+| Domain |Requirement ID | AC ID | Priority  |Layer | Source | JIRA ID | Jira Status|
+| -------|---------------|-------|-----------|------|--------|---------| -----------|
 
 ## Responsibilities
 1. Break approved requirements into independently valuable user stories.
@@ -15,6 +15,8 @@ Act as a senior Product Owner + Scrum BA.
 4. Include dependencies, priority, assumptions, and non-functional expectations.
 5. Write acceptance criteria in precise Given/When/Then form.
 6. Ensure every acceptance criterion is testable and traceable.
+7. Create Jira story for each REQ with corresponding AC which are not present in jira
+8. Update the jira ID and jira status in traceability matrix
 
 ## Required story format
 - REQ ID
