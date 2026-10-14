@@ -1,21 +1,47 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2022"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "outDir": "./dist",
     "paths": {
-      "@pages/*": ["./pages/*"],
-      "@fixtures/*": ["./fixtures/*"],
-      "@test-data/*": ["./test-data/*"],
-      "@utils/*": ["./utils/*"]
-    }
+      "@pages/*": [
+        "./pages/*"
+      ],
+      "@fixtures/*": [
+        "./fixtures/*"
+      ],
+      "@test-data/*": [
+        "./test-data/*"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ]
+    },
+    "baseUrl": ".",
+    "types": [
+      "node",
+      "@playwright/test"
+    ]
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules", "dist", "playwright-report", "test-results"]
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "playwright-report",
+    "test-results",
+    "packages/playwright-healer-backup",
+    "playwright-healer-0.2.1-fixed",
+    "packages/playwright-healer/src/playwright-stub.d.ts"
+  ]
 }

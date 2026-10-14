@@ -9,6 +9,7 @@
  */
 
 import { defineConfig, devices } from '@playwright/test';
+import { healer } from './utils/healer';
 
 export default defineConfig({
   testDir: './tests',
@@ -27,21 +28,34 @@ export default defineConfig({
 
   /* Reporter */
   reporter: [
-    ['list'],
-    ['allure-playwright', { 
-      detail: true,
-      outputFolder: 'allure-results',
-      suiteTitle: false,
-    }],
-    ['html', { outputFolder: 'playwright-report', open: 'never' }],
-    ['json', { outputFile: 'test-results/results.json' }],
-  ],
+  ['list'],
+  ['allure-playwright', {
+    detail: true,
+    outputFolder: 'allure-results',
+    suiteTitle: false,
+  }],
+  ['html', {
+    outputFolder: 'playwright-report',
+    open: 'never',
+  }],
+  ['json', {
+    outputFile: 'test-results/results.json',
+  }],
+  ['playwright-healer/reporter', {
+    healer,
+    openReport: true,
+  }],
+],
 
   /* Global timeout for each test */
   timeout: 30000,
 
   /* Shared settings for all tests */
   use: {
+     launchOptions: {
+      // Prevents Playwright from attempting to wrap the process invocation in cmd.exe
+      shell: false, 
+    },
     /* Base URL for all page.goto() calls */
     baseURL: 'http://localhost:5173',
 
@@ -73,19 +87,19 @@ export default defineConfig({
   ],
 
   /* Start the Vite dev server before tests */
-  webServer: {
-    command: process.env.E2E_COVERAGE === 'true'
-      ? (process.platform === 'win32'
-          ? 'set VITE_COVERAGE=true&& npm run dev'
-          : 'VITE_COVERAGE=true npm run dev')
-      : 'npm run dev',
-    cwd: '../apps/web-frontend',
-    port: 5173,
-    reuseExistingServer: !process.env.CI,
-    timeout: 60000,
-    stdout: 'ignore',
-    stderr: 'pipe',
-  },
+  // webServer: {
+  //   command: process.env.E2E_COVERAGE === 'true'
+  //     ? (process.platform === 'win32'
+  //         ? 'set VITE_COVERAGE=true&& npm run dev'
+  //         : 'VITE_COVERAGE=true npm run dev')
+  //     : 'npm run dev',
+  //   cwd: '../apps/web-frontend',
+  //   port: 5173,
+  //   reuseExistingServer: !process.env.CI,
+  //   timeout: 60000,
+  //   stdout: 'ignore',
+  //   stderr: 'pipe',
+  // },
 
   /* Output directory for test artifacts */
   outputDir: 'test-results',

@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "locator": "getByTestId(\"input-departure\")",
+  "url": "http://localhost:5173/",
+  "fingerprint": {
+    "tag": "input",
+    "testId": "input-departure",
+    "id": "input-rigj2at96ij",
+    "text": "",
+    "classes": [
+      "input-field"
+    ],
+    "parentTag": "div",
+    "parentClasses": [
+      "input-wrapper"
+    ],
+    "childCount": 0,
+    "siblingIndex": 1,
+    "attributes": {
+      "id": "input-rigj2at96ij",
+      "class": "input-field  ",
+      "aria-invalid": "false",
+      "min": "2026-10-02",
+      "data-testid": "input-departure",
+      "type": "date",
+      "value": ""
+    },
+    "parentSignature": [
+      {
+        "tag": "label",
+        "text": "Departure *"
+      },
+      {
+        "tag": "input",
+        "text": "",
+        "testId": "input-departure"
+      }
+    ]
+  },
+  "fingerprintHash": "c19f4f50832928c445b2c879af3808e16449493aa29767ea627e9c2b3b70a160",
+  "updatedAt": "2026-10-02T18:16:36.421Z"
+}

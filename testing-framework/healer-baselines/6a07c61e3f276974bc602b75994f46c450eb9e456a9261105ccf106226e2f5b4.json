@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "locator": "getByTestId(\"select-cabin\")",
+  "url": "http://localhost:5173/",
+  "fingerprint": {
+    "tag": "select",
+    "testId": "select-cabin",
+    "id": "cabin",
+    "text": "Economy Premium Economy Business First Class",
+    "classes": [
+      "search-form-select"
+    ],
+    "parentTag": "div",
+    "parentClasses": [
+      "search-form-field",
+      "cabin-field"
+    ],
+    "childCount": 4,
+    "siblingIndex": 1,
+    "attributes": {
+      "id": "cabin",
+      "class": "search-form-select",
+      "data-testid": "select-cabin"
+    },
+    "parentSignature": [
+      {
+        "tag": "label",
+        "text": "Cabin Class"
+      },
+      {
+        "tag": "select",
+        "text": "Economy Premium Economy Business First Class",
+        "testId": "select-cabin"
+      }
+    ]
+  },
+  "fingerprintHash": "fffcc6f22af4cd9ab0cf0a8be230467dd7d909726103adcbb85d58cdad890310",
+  "updatedAt": "2026-10-02T18:16:36.540Z"
+}

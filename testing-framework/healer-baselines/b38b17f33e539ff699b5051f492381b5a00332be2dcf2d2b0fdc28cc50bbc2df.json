@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "locator": "getByTestId(\"btn-search-another\")",
+  "url": "http://localhost:5173/",
+  "fingerprint": {
+    "tag": "button",
+    "testId": "btn-search-another",
+    "text": "Search Another Flight",
+    "classes": [
+      "btn",
+      "btn-secondary",
+      "btn-lg"
+    ],
+    "parentTag": "div",
+    "parentClasses": [
+      "confirmed-actions"
+    ],
+    "childCount": 0,
+    "siblingIndex": 0,
+    "attributes": {
+      "class": "btn btn-secondary btn-lg",
+      "aria-busy": "false",
+      "type": "button",
+      "data-testid": "btn-search-another"
+    },
+    "parentSignature": [
+      {
+        "tag": "button",
+        "text": "Search Another Flight",
+        "testId": "btn-search-another"
+      }
+    ]
+  },
+  "fingerprintHash": "5b9ae76418dda4ba4be0173160f4c0f46cecd278f6b39de177e5553a05c63ab2",
+  "updatedAt": "2026-10-02T18:16:40.061Z"
+}
