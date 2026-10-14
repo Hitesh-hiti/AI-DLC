@@ -67,7 +67,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   color: var(--text-primary);
-  background-color: #ffffff;
+  background-color: #f5f7fa;
 }
 
 /* ───────────────────────────────────────────────────────────────────────────
@@ -365,28 +365,56 @@ body {
    HERO SECTION
    ─────────────────────────────────────────────────────────────────────────── */
 
+.search-flight-screen {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .hero-section {
+  background: transparent;
+
+  color: #ffffff;
+
+  padding: 20px;
+
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: auto;
+}
+
+.hero-content {
+  max-width: 1400px;
+
+  width: min(1400px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  padding: 40px 20px;
+
   background: linear-gradient(
+    135deg,
+    rgba(64, 131, 198, 0.95) 0%,
+    rgba(0, 82, 163, 0.95) 100%
+  ),
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><pattern id="travel" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse"><g opacity="0.05"><circle cx="50" cy="50" r="30" fill="white"/><path d="M80 40 L120 60 L100 100 Z" fill="white"/><circle cx="300" cy="200" r="40" fill="white"/><path d="M150 300 L200 250 L250 300 Z" fill="white"/></g></pattern></defs><rect width="1200" height="400" fill="url(%23travel)"/></svg>') center/cover,
+  linear-gradient(
     135deg,
     #4083c6 0%,
     #0052a3 100%
   );
+  background-attachment: fixed;
 
-  color: #ffffff;
-
-  padding: 28px 20px;
-
-  text-align: center;
-}
-
-.hero-content {
-  max-width: 800px;
-
-  margin: 0 auto;
+  border-radius: var(--border-radius);
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 2rem;
 
   font-weight: 700;
 
@@ -1121,7 +1149,7 @@ body {
   }
 
   .hero-title {
-    font-size: 2.25rem;
+    font-size: 1.75rem;
   }
 
   .search-quick-links {
@@ -1143,11 +1171,16 @@ body {
   }
 
   .hero-section {
-    padding: 22px 20px;
+    padding: 16px;
+  }
+
+  .hero-content {
+    padding: 32px 20px;
+    border-radius: var(--border-radius);
   }
 
   .hero-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   .hero-subtitle {
@@ -1260,11 +1293,15 @@ body {
   }
 
   .hero-section {
-    padding: 18px 16px;
+    padding: 12px;
+  }
+
+  .hero-content {
+    padding: 24px 16px;
   }
 
   .hero-title {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
   }
 
   .hero-subtitle {
@@ -1306,7 +1343,7 @@ body {
 
 @media (min-width: 1400px) {
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 2.25rem;
   }
 }
 
@@ -1330,4 +1367,23 @@ body {
   white-space: nowrap;
 
   border-width: 0;
+}
+
+/* ── Travel background (decorative, 12% opacity) ───────
+   Applied to the .search-flight-screen wrapper. The background sits
+   behind the content and does not affect the layout. */
+.search-flight-screen {
+  position: relative;
+  isolation: isolate;
+}
+.search-flight-screen::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3Cpattern id='d' width='22' height='22' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='4' cy='4' r='2' fill='%231d4ed8'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='1600' height='1000' fill='url(%23d)' opacity='0.5'/%3E%3Cg fill='%237fb3e6'%3E%3Cellipse cx='260' cy='180' rx='260' ry='60'/%3E%3Cellipse cx='400' cy='150' rx='150' ry='70'/%3E%3Cellipse cx='1260' cy='760' rx='300' ry='70'/%3E%3Cellipse cx='1420' cy='720' rx='160' ry='80'/%3E%3Cellipse cx='820' cy='930' rx='260' ry='50'/%3E%3C/g%3E%3Cg fill='none' stroke='%231d4ed8' stroke-width='3' stroke-dasharray='6 14' stroke-linecap='round'%3E%3Cpath d='M 200 800 Q 520 300 980 420'/%3E%3Cpath d='M 1500 150 Q 1100 80 700 300'/%3E%3Cpath d='M 120 420 Q 600 620 1450 500'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
 }
