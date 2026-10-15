@@ -8,17 +8,65 @@
       "disabled": false,
       "timeout": 10000,
     },
-      "jira": {
-        "command": "uvx",
-        "args": [
-          "mcp-atlassian"
-        ],
-        "env": {
-          "JIRA_URL": "https://igsglobal-team-awcuqr0s.atlassian.net",
-          "JIRA_USERNAME": "bharathik.vaidya@igsglobal.com",
-          "JIRA_API_TOKEN": "${JIRA_API_TOKEN}"
-        },
-        "disabled": false
-      }
+    "jira": {
+      "command": "uvx",
+      "args": [
+        "mcp-atlassian"
+      ],
+      "env": {
+        "JIRA_URL": "https://igsglobal-team-awcuqr0s.atlassian.net",
+        "JIRA_USERNAME": "bharathik.vaidya@igsglobal.com",
+        "JIRA_API_TOKEN": "${JIRA_API_TOKEN}"
+      },
+      "disabled": false,
+      "disabledTools": [
+        "mcp_jira_jira_delete_issue",
+        "mcp_jira_jira_get_project_issues",
+        "mcp_jira_jira_search_fields",
+        "mcp_jira_jira_edit_comment",
+        "mcp_jira_jira_add_watcher",
+        "mcp_jira_jira_remove_watcher",
+        "mcp_jira_jira_get_issue_watchers",
+        "mcp_jira_jira_remove_issue_link",
+        "mcp_jira_jira_get_link_types",
+        "mcp_jira_jira_create_remote_issue_link",
+        "mcp_jira_jira_get_all_projects",
+        "mcp_jira_jira_get_project_versions",
+        "mcp_jira_jira_get_project_components",
+        "mcp_jira_jira_get_project_fields",
+        "mcp_jira_jira_get_field_options",
+        "mcp_jira_jira_batch_create_issues",
+        "mcp_jira_jira_batch_get_changelogs",
+        "mcp_jira_jira_move_issue",
+        "mcp_jira_jira_get_agile_boards",
+        "mcp_jira_jira_get_board_issues",
+        "mcp_jira_jira_get_sprints_from_board",
+        "mcp_jira_jira_create_sprint",
+        "mcp_jira_jira_update_sprint",
+        "mcp_jira_jira_add_issues_to_sprint",
+        "mcp_jira_jira_move_issues_to_backlog",
+        "mcp_jira_jira_add_worklog",
+        "mcp_jira_jira_get_worklog",
+        "mcp_jira_jira_get_issue_dates",
+        "mcp_jira_jira_get_issue_sla",
+        "mcp_jira_jira_download_attachments",
+        "mcp_jira_jira_get_issue_images",
+        "mcp_jira_jira_get_user_profile",
+        "mcp_jira_jira_search_assignable_users",
+        "mcp_jira_jira_get_service_desk_for_project",
+        "mcp_jira_jira_get_service_desk_queues",
+        "mcp_jira_jira_get_queue_issues",
+        "mcp_jira_jira_get_request_types",
+        "mcp_jira_jira_get_request_type_fields",
+        "mcp_jira_jira_create_customer_request",
+        "mcp_jira_jira_get_issue_proforma_forms",
+        "mcp_jira_jira_get_proforma_form_details",
+        "mcp_jira_jira_update_proforma_form_answers",
+        "mcp_jira_jira_get_issue_development_info",
+        "mcp_jira_jira_get_issues_development_info",
+        "mcp_jira_jira_get_project_epic_hierarchy",
+        "mcp_jira_jira_get_cross_project_dependencies"
+      ]
     }
+  }
 }
