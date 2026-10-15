@@ -1,7 +1,7 @@
 # TravelPlatform — UI/UX Design Document
 
 **Document Version:** 1.1  
-**Date:** 2026-09-28  
+**Date:** 2026-09-28 (Updated: 2026-10-13)  
 **Status:** READY FOR UI/UX DESIGNER + PO REVIEW  
 **Source:** `requirement_breakdown.md` v1.0, `architecture.md` v1.4, `fe_acceptance_criteria.md` v1.0  
 **Phase:** UI/UX Design (SDLC Phase 5)
@@ -59,37 +59,119 @@ The front-end implementation is complete for the following features:
 
 All wireframes assume:
 - Responsive: mobile-first with desktop enhancements
-- Header: Logo + Main nav + User avatar + Notification bell
-- Footer: Main action buttons (primary/secondary/tertiary)
+- Header: Enterprise navbar (100px height) + Logo + Main nav + Header actions
+- Content: Gradient background (#f8f9fb → #f1f3f7)
+- Footer: 4-column grid on desktop, 1 column on mobile
 - Consistent spacing: 8px baseline grid
+
+**Layout Structure:**
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ENTERPRISE NAVBAR (min-height: 100px)                                       │
+│ ├─ Logo + Brand Name (left)                                                │
+│ ├─ Primary Nav: Search Flights | My Trips | Support (center)              │
+│ └─ Header Actions: Sign In | Sign Up (right)                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ APP CONTENT (flex: 1, gradient background)                                 │
+│                                                                             │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ FOOTER (4-col grid on desktop, responsive on mobile)                       │
+│ ├─ TravelPlatform                                                          │
+│ ├─ Company Links                                                            │
+│ ├─ Support Links                                                            │
+│ └─ Legal Links                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-### 2.1 Screen: Search Form (Search Page)
+### ENTERPRISE NAVBAR SPECIFICATION (All Screens)
+
+**Height:** 100px (desktop), 92px (tablet ≤900px), 60px (mobile ≤560px)
+
+**Grid Layout:** 3-column on desktop
+- Left: `.enterprise-brand` (Logo image + text)
+- Center: `.enterprise-nav` (Primary navigation items)
+- Right: `.enterprise-header-actions` (Sign In + Sign Up buttons)
+
+**Logo Image (enterprise-logo-image):**
+- Height: 92px (desktop), 72px (tablet), 58px (mobile)
+- Max-width: 340px (desktop), 270px (tablet), 220px (mobile)
+- Contains: IGS TravelPlatform logo image
+- Object-fit: contain, left-aligned
+
+**Brand Text (enterprise-brand-name):**
+- Text: "TravelPlatform"
+- Color: #28285f
+- Font: 700 weight, 17px size
+- Letter-spacing: -0.01em
+- Positioned beside logo
+
+**Navigation Items (enterprise-nav-item):**
+- Items: "Search Flights", "My Trips", "Support"
+- Height: 88px (desktop), 44px (tablet/mobile)
+- Color: #55586a (default), #28285f (hover/active)
+- Active state: Orange underline (#ec5814) at bottom
+- Font: 600 weight, 13px size
+
+**Header Buttons (enterprise-signin / enterprise-signup):**
+- Height: 38px (desktop), 32px (mobile)
+- Padding: 0 14px (desktop), 0 10px (mobile)
+- Border-radius: 7px
+- Font: 600 weight, 12px size (desktop), 11px (mobile)
+- Sign In: White bg, #28285f text, border
+- Sign Up: #ec5814 bg, white text, box-shadow
+- Min-width: 76px
+
+---
+
+**Current Implementation Structure:**
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ [LOGO]                    Search Flights                    [🔔] [👤 Alex ] │
+│ HEADER (Enterprise Navbar - 100px height)                                   │
+│ ┌───────────────────────────────────────────────────────────────────────┐   │
+│ │ [IGS LOGO]                Search Flights  My Trips  Support   [Sign In] │   │
+│ │ TravelPlatform                            [Sign Up]              │   │
+│ └───────────────────────────────────────────────────────────────────────┘   │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │ Origin                      Destination        Departure   Return   │   │
-│  │ [LHR       ▼]               [JFK       ▼]      [01Oct26   ▼][05Oct26 ▼]│   │
-│  │ ⚠ Origin required          ⚠ Destination required                  │   │
-│  └─────────────────────────────────────────────────────────────────────┘   │
+│  APP CONTENT (with gradient background: #f8f9fb → #f1f3f7)                 │
 │                                                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │ Passengers           Cabin Class                                     │   │
-│  │ [1 Adult  ▼]         [Economy  ▼]                                   │   │
-│  │ +  -                                                                  │   │
+│  │                         SEARCH FORM CARD                             │   │
+│  │                    ┌──────────────────────────┐                      │   │
+│  │                    │ Origin    │ Destination │ Departure │ Return  │   │
+│  │                    │[Select▼]  │  [Select▼]  │[01Oct▼]  │[05Oct▼] │   │
+│  │                    │ ⚠ Required│             │          │         │   │
+│  │                    └──────────────────────────┘                      │   │
+│  │                                                                       │   │
+│  │                    ┌──────────────────────────┐                      │   │
+│  │                    │ Passengers  │ Cabin Class│                     │   │
+│  │                    │  [1 Adult▼] │[Economy▼] │                     │   │
+│  │                    │             │            │                     │   │
+│  │                    └──────────────────────────┘                      │   │
+│  │                                                                       │   │
+│  │        [✓ Search Flights]          [Clear Form]                      │   │
+│  │                                                                       │   │
 │  └─────────────────────────────────────────────────────────────────────┘   │
-│                                                                             │
-│  [✓ Search Flights]                          [Clear Form]                   │
 │                                                                             │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│ [Footer: Help · Terms · Privacy]                                            │
+│ FOOTER (4-column grid on desktop)                                           │
+│ [TravelPlatform]  [Company]  [Support]  [Legal]       [Copyright] [🌐][💵]│
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+**Actual Implementation Details:**
+- Enterprise navbar: 100px height (desktop), responsive on mobile
+- Logo image: 92px height, left-aligned with "TravelPlatform" text
+- Primary nav items: "Search Flights", "My Trips", "Support" (centered)
+- Header actions: "Sign In" + "Sign Up" buttons (right-aligned)
+- Content area: Full width with gradient background
+- Search form: Responsive grid layout with proper spacing
+- Footer: 4-column grid that collapses to 1 column on mobile
 
 **ACs Mapped:** AC-EXP-01-01, AC-EXP-01-02, AC-EXP-01-03, AC-EXP-01-04
 
@@ -97,29 +179,56 @@ All wireframes assume:
 
 ### 2.2 Screen: Search Results (Search Page)
 
+**Current Implementation Structure:**
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ [LOGO]                    Search Results                    [🔔] [👤 Alex ] │
+│ HEADER (Enterprise Navbar - 100px height)                                   │
+│ ┌───────────────────────────────────────────────────────────────────────┐   │
+│ │ [IGS LOGO]                Search Flights  My Trips  Support   [Sign In] │   │
+│ │ TravelPlatform                            [Sign Up]              │   │
+│ └───────────────────────────────────────────────────────────────────────┘   │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │ LHR → JFK   15:00 ─ 18:30   12h00m  │   Economy │  $278.10 (USD)    │   │
-│  │ United Airlines                    │  Includes taxes            │   │
-│  │  ───────────────────────────────────────────────────────────────────│   │
-│  │ LHR → JFK   16:00 ─ 19:45   12h45m  │   Economy │  $295.50 (USD)    │   │
-│  │ Delta Airlines                     │  Includes taxes            │   │
-│  └─────────────────────────────────────────────────────────────────────┘   │
+│  APP CONTENT (with gradient background)                                    │
 │                                                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │ ☐ United [Economy]  $278.10      [Select]                            │   │
-│  │ ☐ Delta [Economy]   $295.50      [Select]                            │   │
-│  │ ☐ British Airways   $310.00      [Select]                            │   │
+│  │            SEARCH RESULTS - Flight Offer List                       │   │
+│  │                                                                     │   │
+│  │  ┌─────────────────────────────────────────────────────────────┐   │   │
+│  │  │ United Airlines                      [Select]               │   │   │
+│  │  │ LHR → JFK   15:00 ─ 18:30            12h 30min              │   │   │
+│  │  │ Economy · USD 278.10 (Includes taxes & fees)               │   │   │
+│  │  └─────────────────────────────────────────────────────────────┘   │   │
+│  │                                                                     │   │
+│  │  ┌─────────────────────────────────────────────────────────────┐   │   │
+│  │  │ Delta Airlines                       [Select]               │   │   │
+│  │  │ LHR → JFK   16:00 ─ 19:45            12h 45min              │   │   │
+│  │  │ Economy · USD 295.50 (Includes taxes & fees)               │   │   │
+│  │  └─────────────────────────────────────────────────────────────┘   │   │
+│  │                                                                     │   │
+│  │  ┌─────────────────────────────────────────────────────────────┐   │   │
+│  │  │ British Airways                      [Select]               │   │   │
+│  │  │ LHR → JFK   17:30 ─ 21:00            12h 30min              │   │   │
+│  │  │ Economy · USD 310.00 (Includes taxes & fees)               │   │   │
+│  │  └─────────────────────────────────────────────────────────────┘   │   │
+│  │                                                                     │   │
 │  └─────────────────────────────────────────────────────────────────────┘   │
 │                                                                             │
-│  [✓ Continue to Booking]                          [← Back to Search]         │
+│  [← Back to Search]                  [Continue to Booking →]                │
 │                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ FOOTER                                                                      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+**Actual Implementation Details:**
+- Results displayed as a vertical list of flight cards
+- Each card shows: airline name, route, time, duration, cabin, and price
+- Price formatted as human-readable currency (USD 278.10, not 27810)
+- Select button on each card to proceed to passenger details
+- Search form remains visible above results for re-filtering
+- Full responsive layout on mobile
 
 **ACs Mapped:** AC-EXP-01-01
 
@@ -127,32 +236,55 @@ All wireframes assume:
 
 ### 2.3 Screen: Booking Hold (Passenger + Policy)
 
+**Current Implementation Structure:**
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ [LOGO]                    Book Flight                       [🔔] [👤 Alex ] │
+│ HEADER (Enterprise Navbar)                                                  │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │ Selected: United LHR → JFK   15:00 ─ 18:30   Economy   $278.10     │   │
-│  └─────────────────────────────────────────────────────────────────────┘   │
+│  APP CONTENT                                                                │
 │                                                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │ PASSENGERS                                                            │   │
-│  │ ┌─────────────────────────────────────────────────────────────────┐ │   │
-│  │ │ 1. Alex Smith        ADT   [Edit passenger]                     │ │   │
-│  │ └─────────────────────────────────────────────────────────────────┘ │   │
-│  │ [＋ Add Passenger]                                                    │   │
+│  │                    BOOKING HOLD PANEL                               │   │
+│  │                                                                     │   │
+│  │  SELECTED FLIGHT SUMMARY                                          │   │
+│  │  ┌─────────────────────────────────────────────────────────────┐   │   │
+│  │  │ United Airlines LHR → JFK                                  │   │   │
+│  │  │ 15:00 ─ 18:30   Economy   USD 278.10                       │   │   │
+│  │  └─────────────────────────────────────────────────────────────┘   │   │
+│  │                                                                     │   │
+│  │  PASSENGERS SECTION                                               │   │
+│  │  ┌─────────────────────────────────────────────────────────────┐   │   │
+│  │  │ 1. Alex Smith      [ADT]  [Edit passenger]                 │   │   │
+│  │  │ 2. Sarah Johnson   [ADT]  [Edit passenger]                 │   │   │
+│  │  │                                                              │   │   │
+│  │  │ [+ Add Passenger]                                           │   │   │
+│  │  └─────────────────────────────────────────────────────────────┘   │   │
+│  │                                                                     │   │
+│  │  POLICY DECISION                                                  │   │
+│  │  ┌─────────────────────────────────────────────────────────────┐   │   │
+│  │  │ ✓ POLICY ALLOW (1 rule matched)                             │   │   │
+│  │  │   • Business travel approved per travel policy v2.1          │   │   │
+│  │  └─────────────────────────────────────────────────────────────┘   │   │
+│  │                                                                     │   │
+│  │  [Hold Booking for 30 min]  [Cancel]  [← Back]                    │   │
+│  │                                                                     │   │
 │  └─────────────────────────────────────────────────────────────────────┘   │
 │                                                                             │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │ POLICY DECISION: ALLOW (1 rule matched)                              │   │
-│  │ • Business travel approved per travel policy v2.1                    │   │
-│  └─────────────────────────────────────────────────────────────────────┘   │
-│                                                                             │
-│  [Hold Booking for 30 min]                   [← Cancel]                     │
-│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ FOOTER                                                                      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+**Actual Implementation Details:**
+- Booking panel displays selected flight at top
+- Passenger section with edit buttons for each passenger
+- Add passenger button to add more travelers
+- Policy evaluation result displayed with icon and message
+- Action buttons: Hold Booking (primary), Cancel (secondary), Back navigation
+- Full form validation before hold submission
+- Supports ALLOW, WARN, BLOCK, and REQUIRE_APPROVAL states
 
 **ACs Mapped:** AC-EXP-02-01, AC-EXP-02-10
 

@@ -1,0 +1,67 @@
+2026-10-05T06:37:41.694Z 415 Unsupported content type: application/json
+2026-10-05T16:34:36.874Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-05T16:44:13.624Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-05T16:46:58.792Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-07T10:44:19.394Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1426:18)
+    at afterConnectMultiple (node:net:2095:7)
+2026-10-07T14:23:00.637Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-07T14:23:00.640Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-07T14:23:39.932Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-07T14:23:39.933Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-07T16:17:55.619Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-07T16:17:55.620Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-07T16:19:10.841Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-07T16:19:10.843Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-07T16:26:17.934Z Error: Unable to parse Kiro hook JSON: Bad escaped character in JSON at position 76 (line 1 column 77)
+    at parseEvent (C:\Users\Hitesh_C\Documents\TravelPlatform\.kiro\phoenix\trace-hook.js:138:7)
+    at main (C:\Users\Hitesh_C\Documents\TravelPlatform\.kiro\phoenix\trace-hook.js:1921:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+2026-10-13T18:46:07.101Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:46:07.103Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:46:25.574Z TypeError: fetch failed
+2026-10-13T18:46:26.560Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:46:26.563Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:47:15.714Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:47:15.716Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:47:32.065Z TypeError: fetch failed
+2026-10-13T18:47:33.118Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)
+2026-10-13T18:47:33.120Z AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1430:18)
+    at afterConnectMultiple (node:net:2099:7)

@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "locator": "getByTestId(\"pax-0-passport-Number\")",
+  "url": "http://localhost:5173/",
+  "fingerprint": {
+    "tag": "input",
+    "testId": "pax-0-passport-Number",
+    "id": "pax-passport-0",
+    "placeholder": "e.g. A12345678",
+    "text": "",
+    "classes": [
+      "input-field"
+    ],
+    "parentTag": "div",
+    "parentClasses": [
+      "input-wrapper"
+    ],
+    "childCount": 0,
+    "siblingIndex": 1,
+    "attributes": {
+      "id": "pax-passport-0",
+      "class": "input-field  ",
+      "aria-invalid": "false",
+      "placeholder": "e.g. A12345678",
+      "data-testid": "pax-0-passport-Number",
+      "value": ""
+    },
+    "parentSignature": [
+      {
+        "tag": "label",
+        "text": "Passport Number *"
+      },
+      {
+        "tag": "input",
+        "text": "",
+        "testId": "pax-0-passport-Number"
+      }
+    ]
+  },
+  "fingerprintHash": "ea48fbd585c5f5472d686b472dac228f77a9cbfc1bd80f02a91e2c17c122b4d4",
+  "updatedAt": "2026-10-02T18:16:38.869Z"
+}

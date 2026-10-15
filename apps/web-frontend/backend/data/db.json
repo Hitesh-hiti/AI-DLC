@@ -7,8 +7,8 @@
       "aircraft": "Boeing 777-200ER",
       "origin": "LHR",
       "destination": "JFK",
-      "departureTime": "2026-10-11T03:57:23.734Z",
-      "arrivalTime": "2026-10-11T11:27:23.734Z",
+      "departureTime": "2026-10-21T09:32:31.915Z",
+      "arrivalTime": "2026-10-21T17:02:31.915Z",
       "duration": "PT7.5H",
       "stops": 0,
       "cabinClass": "ECONOMY",
@@ -37,7 +37,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-10-04T03:57:23.736Z"
+        "lastUpdated": "2026-10-14T09:32:31.916Z"
       }
     },
     {
@@ -47,8 +47,8 @@
       "aircraft": "Boeing 787-10",
       "origin": "LHR",
       "destination": "JFK",
-      "departureTime": "2026-10-11T03:57:23.734Z",
-      "arrivalTime": "2026-10-11T11:57:23.734Z",
+      "departureTime": "2026-10-21T09:32:31.915Z",
+      "arrivalTime": "2026-10-21T17:32:31.915Z",
       "duration": "PT8H",
       "stops": 0,
       "cabinClass": "ECONOMY",
@@ -77,7 +77,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-10-04T03:57:23.736Z"
+        "lastUpdated": "2026-10-14T09:32:31.916Z"
       }
     },
     {
@@ -87,8 +87,8 @@
       "aircraft": "Airbus A330-300",
       "origin": "LHR",
       "destination": "JFK",
-      "departureTime": "2026-10-11T03:57:23.734Z",
-      "arrivalTime": "2026-10-11T11:42:23.734Z",
+      "departureTime": "2026-10-21T09:32:31.915Z",
+      "arrivalTime": "2026-10-21T17:17:31.915Z",
       "duration": "PT7.75H",
       "stops": 1,
       "cabinClass": "PREMIUM_ECONOMY",
@@ -117,7 +117,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-10-04T03:57:23.736Z"
+        "lastUpdated": "2026-10-14T09:32:31.916Z"
       }
     },
     {
@@ -127,8 +127,8 @@
       "aircraft": "Boeing 777-300ER",
       "origin": "LHR",
       "destination": "JFK",
-      "departureTime": "2026-10-12T03:57:23.734Z",
-      "arrivalTime": "2026-10-12T11:27:23.734Z",
+      "departureTime": "2026-10-22T09:32:31.915Z",
+      "arrivalTime": "2026-10-22T17:02:31.915Z",
       "duration": "PT7.5H",
       "stops": 0,
       "cabinClass": "BUSINESS",
@@ -157,7 +157,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-10-04T03:57:23.767Z"
+        "lastUpdated": "2026-10-14T09:32:31.916Z"
       }
     },
     {
@@ -167,8 +167,8 @@
       "aircraft": "Airbus A340-600",
       "origin": "LHR",
       "destination": "JFK",
-      "departureTime": "2026-10-13T03:57:23.734Z",
-      "arrivalTime": "2026-10-13T12:27:23.734Z",
+      "departureTime": "2026-10-23T09:32:31.915Z",
+      "arrivalTime": "2026-10-23T18:02:31.915Z",
       "duration": "PT8.5H",
       "stops": 2,
       "cabinClass": "ECONOMY",
@@ -197,7 +197,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-10-04T03:57:23.767Z"
+        "lastUpdated": "2026-10-14T09:32:31.916Z"
       }
     },
     {
@@ -207,8 +207,8 @@
       "aircraft": "Airbus A380",
       "origin": "DXB",
       "destination": "JFK",
-      "departureTime": "2026-10-14T03:57:23.734Z",
-      "arrivalTime": "2026-10-14T17:57:23.734Z",
+      "departureTime": "2026-10-24T09:32:31.915Z",
+      "arrivalTime": "2026-10-24T23:32:31.915Z",
       "duration": "PT14H",
       "stops": 0,
       "cabinClass": "ECONOMY",
@@ -237,7 +237,7 @@
       ],
       "metadata": {
         "gdsSupplierId": "demo-gds",
-        "lastUpdated": "2026-10-04T03:57:23.767Z"
+        "lastUpdated": "2026-10-14T09:32:31.916Z"
       }
     },
     {
@@ -247,8 +247,8 @@
       "aircraft": "Airbus A350",
       "origin": "SIN",
       "destination": "JFK",
-      "departureTime": "2026-10-16T03:57:23.734Z",
-      "arrivalTime": "2026-10-16T21:57:23.734Z",
+      "departureTime": "2026-10-26T09:32:31.915Z",
+      "arrivalTime": "2026-10-27T03:32:31.915Z",
       "duration": "PT18H",
       "stops": 0,
       "cabinClass": "PREMIUM_ECONOMY",
@@ -1535,13 +1535,70 @@
       ],
       "pnr": "XAC44H",
       "confirmedAt": "2026-10-06T15:44:17.519Z"
+    },
+    {
+      "bookingId": "9e34c0ce-bda1-4b6c-9db1-47067c10b458",
+      "offerId": "flight-002",
+      "organizationId": "org-001",
+      "travelerId": "traveler-001",
+      "passengerInfo": [
+        {
+          "passengerType": "ADT",
+          "firstName": "JOHN",
+          "lastName": "SMITH",
+          "passportNumber": "A12345678"
+        }
+      ],
+      "flightDetails": {
+        "origin": "LHR",
+        "destination": "JFK",
+        "departureDate": "2026-10-11",
+        "cabinClass": "ECONOMY",
+        "passengers": 1
+      },
+      "bookingStatus": "CONFIRMED",
+      "confirmationNumber": "B9Z5EA",
+      "holdExpiresAt": "2026-10-09T07:05:50.514Z",
+      "fareBreakdown": {
+        "baseFare": {
+          "amount": 380,
+          "currency": "USD"
+        },
+        "taxes": {
+          "amount": 57,
+          "currency": "USD"
+        },
+        "fees": {
+          "amount": 25,
+          "currency": "USD"
+        },
+        "totalFare": {
+          "amount": 462,
+          "currency": "USD"
+        }
+      },
+      "cancellationPolicy": {
+        "refundable": true,
+        "cancellationDeadline": "2026-10-11T06:35:50.515Z",
+        "penaltyAmount": {
+          "amount": 50,
+          "currency": "USD"
+        }
+      },
+      "createdAt": "2026-10-09T06:35:50.515Z",
+      "modifiedAt": "2026-10-09T06:35:50.716Z",
+      "ticketNumbers": [
+        "TKT-ADD1092E"
+      ],
+      "pnr": "5LKKKL",
+      "confirmedAt": "2026-10-09T06:35:50.716Z"
     }
   ],
   "approvals": [],
   "policyEvaluations": [
     {
-      "evaluationId": "dc92f520-64dd-4783-9124-7ba868917b7f",
-      "timestamp": "2026-10-04T05:12:39.254Z",
+      "evaluationId": "d91beeb6-a4ac-4b97-ae6c-b52f58d7e8e4",
+      "timestamp": "2026-10-14T09:32:49.521Z",
       "outcome": "ALLOW",
       "requiresApproval": false,
       "policies": [
@@ -1555,7 +1612,7 @@
             "currency": "USD"
           },
           "actualValue": {
-            "amount": 380,
+            "amount": 450,
             "currency": "USD"
           }
         }
@@ -2080,6 +2137,29 @@
       ],
       "organizationId": "org-001",
       "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "5eef343d-b037-4472-8595-766f1187e795",
+      "timestamp": "2026-10-09T06:35:49.883Z",
+      "outcome": "WARN",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-advance",
+          "policyName": "Advance Booking",
+          "outcome": "WARN",
+          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "ADV_BOOKING_SHORT",
+          "message": "This booking is less than 7 days in advance",
+          "severity": "WARNING"
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
     }
   ],
   "events": [
@@ -2455,6 +2535,23 @@
       "createdAt": "2026-10-06T15:44:17.519Z",
       "payload": {
         "bookingId": "b2102592-c388-43d7-abee-c9015ff55182"
+      }
+    },
+    {
+      "id": "4e4407c3-393c-41d2-85aa-51c6446bde56",
+      "action": "BOOKING_HOLD_CREATED",
+      "createdAt": "2026-10-09T06:35:50.516Z",
+      "payload": {
+        "bookingId": "9e34c0ce-bda1-4b6c-9db1-47067c10b458",
+        "offerId": "flight-002"
+      }
+    },
+    {
+      "id": "8dc78b02-c800-44cc-b3ac-851ca6e0258f",
+      "action": "BOOKING_CONFIRMED",
+      "createdAt": "2026-10-09T06:35:50.717Z",
+      "payload": {
+        "bookingId": "9e34c0ce-bda1-4b6c-9db1-47067c10b458"
       }
     }
   ]

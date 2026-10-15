@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "locator": "getByTestId(\"input-return\")",
+  "url": "http://localhost:5173/",
+  "fingerprint": {
+    "tag": "input",
+    "testId": "input-return",
+    "id": "input-nhod2ml48l",
+    "text": "",
+    "classes": [
+      "input-field"
+    ],
+    "parentTag": "div",
+    "parentClasses": [
+      "input-wrapper"
+    ],
+    "childCount": 0,
+    "siblingIndex": 1,
+    "attributes": {
+      "id": "input-nhod2ml48l",
+      "class": "input-field  ",
+      "aria-invalid": "false",
+      "min": "2026-10-17",
+      "data-testid": "input-return",
+      "type": "date",
+      "value": ""
+    },
+    "parentSignature": [
+      {
+        "tag": "label",
+        "text": "Return"
+      },
+      {
+        "tag": "input",
+        "text": "",
+        "testId": "input-return"
+      }
+    ]
+  },
+  "fingerprintHash": "2637e7d17505074795ca7943fca870b37831a523f40a38721eef9541daca45c1",
+  "updatedAt": "2026-10-02T18:16:36.489Z"
+}

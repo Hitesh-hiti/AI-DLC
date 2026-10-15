@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "locator": "getByTestId(\"input-origin\")",
+  "url": "http://localhost:5173/",
+  "fingerprint": {
+    "tag": "select",
+    "testId": "input-origin",
+    "id": "origin",
+    "text": "Select origin London Heathrow (LHR) New York JFK (JFK) San Francisco (SFO) Paris CDG (CDG) Los Angeles (LAX) Dubai (DXB) Singapore Changi (SIN) Mumbai (BOM) Bengaluru (BLR) Chennai (MAA)",
+    "classes": [
+      "search-form-select"
+    ],
+    "parentTag": "div",
+    "parentClasses": [
+      "search-form-field",
+      "origin-field"
+    ],
+    "childCount": 11,
+    "siblingIndex": 1,
+    "attributes": {
+      "id": "origin",
+      "class": "search-form-select ",
+      "aria-invalid": "false",
+      "data-testid": "input-origin"
+    },
+    "parentSignature": [
+      {
+        "tag": "label",
+        "text": "From*"
+      },
+      {
+        "tag": "select",
+        "text": "Select origin London Heathrow (LHR) New York JFK (JFK) San Francisco (SFO) Paris CDG (CDG) Los Angeles (LAX) Dubai (DXB)",
+        "testId": "input-origin"
+      }
+    ]
+  },
+  "fingerprintHash": "7a3f3d8a697409c7e711ed47f78f432ee1cfc15dd18d442694a0244ffcaab982",
+  "updatedAt": "2026-10-02T18:16:36.314Z"
+}

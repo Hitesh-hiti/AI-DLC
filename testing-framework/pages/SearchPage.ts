@@ -32,12 +32,12 @@ export class SearchPage {
     this.page = page;
 
     this.form              = page.getByTestId('search-form');
-    this.originInput       = page.getByTestId('input-origin');
+    this.originInput       = page.getByTestId("input-origin");
     this.destinationInput  = page.getByTestId('input-destination');
     this.departureDateInput= page.getByTestId('input-departure');
     this.returnDateInput   = page.getByTestId('input-return');
     this.cabinSelect       = page.getByTestId('select-cabin');
-    this.passengerCount    = page.getByTestId('passenger-count');
+    this.passengerCount    = page.getByTestId('passenger-count')
     this.addPassengerBtn   = page.getByTestId('btn-add-passenger');
     this.removePassengerBtn= page.getByTestId('btn-remove-passenger');
     this.searchBtn         = page.getByTestId('btn-search');

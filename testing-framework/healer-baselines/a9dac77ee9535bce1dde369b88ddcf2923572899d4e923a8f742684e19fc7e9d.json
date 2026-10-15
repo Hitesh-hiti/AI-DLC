@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "locator": "getByTestId(\"pax-0-first-name\")",
+  "url": "http://localhost:5173/",
+  "fingerprint": {
+    "tag": "input",
+    "testId": "pax-0-first-name",
+    "id": "pax-first-0",
+    "placeholder": "As on passport",
+    "text": "",
+    "classes": [
+      "input-field"
+    ],
+    "parentTag": "div",
+    "parentClasses": [
+      "input-wrapper"
+    ],
+    "childCount": 0,
+    "siblingIndex": 1,
+    "attributes": {
+      "id": "pax-first-0",
+      "class": "input-field  ",
+      "aria-invalid": "false",
+      "placeholder": "As on passport",
+      "autocomplete": "given-name",
+      "data-testid": "pax-0-first-name",
+      "value": ""
+    },
+    "parentSignature": [
+      {
+        "tag": "label",
+        "text": "First Name *"
+      },
+      {
+        "tag": "input",
+        "text": "",
+        "testId": "pax-0-first-name"
+      }
+    ]
+  },
+  "fingerprintHash": "6d1288efb518165d76ac650e17de9ed39a4d41092002108608915f9395d2cc86",
+  "updatedAt": "2026-10-02T18:16:38.679Z"
+}
