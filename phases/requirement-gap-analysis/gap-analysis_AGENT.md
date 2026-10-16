@@ -25,6 +25,8 @@ Do not invent domain rules or modify approved requirements without an explicit, 
 4. Assess assumptions, edge cases, integration impacts, migration, backward compatibility, and regression risks.
 5. Update requirements only through explicit, versioned changes.
 6. Produce technical/design specifications, decision logs, and human review checklists.
+7. Update `gap-analysis.md` with the answers from `history.txt`.
+8. Read the answers from `history.txt` file and continue the gap analysis based on the answers
 
 ## Enhancement Analysis
 
@@ -65,7 +67,7 @@ Create or update `requirement-gap-analysis/gap-analysis.md` with:
 
 ## Revision History
 
-| Version | Date Time  | Author | Change Summary |
+| Version | Date-Time  | Author | Change Summary |
 |---------|------------|--------|----------------|
 
 ## Gate
