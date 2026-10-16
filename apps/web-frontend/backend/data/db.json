@@ -2160,6 +2160,29 @@
       ],
       "organizationId": "org-001",
       "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "a023cb86-af18-4e94-b708-f519f1c6e854",
+      "timestamp": "2026-10-15T11:11:34.538Z",
+      "outcome": "WARN",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-advance",
+          "policyName": "Advance Booking",
+          "outcome": "WARN",
+          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "ADV_BOOKING_SHORT",
+          "message": "This booking is less than 7 days in advance",
+          "severity": "WARNING"
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
     }
   ],
   "events": [
