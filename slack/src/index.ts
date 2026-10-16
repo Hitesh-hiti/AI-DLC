@@ -2,21 +2,35 @@ import "dotenv/config";
 
 import crypto from "node:crypto";
 import path from "node:path";
-import { spawn } from "node:child_process";
-
+import fs from "node:fs";
 import { WebClient } from "@slack/web-api";
 
-import {
-  McpServer,
-} from "@modelcontextprotocol/sdk/server/mcp.js";
-
-import {
-  StdioServerTransport,
-} from "@modelcontextprotocol/sdk/server/stdio.js";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 
 import { z } from "zod";
 
-import fs from "node:fs";
+const DEBUG_LOG = path.resolve(
+  process.env.KIRO_PROJECT_ROOT || process.cwd(),
+  "slack",
+  "ask-slack-debug.log"
+);
+
+function debugLog(message: string, data?: unknown) {
+  const line =
+    `${new Date().toISOString()} ${message}` +
+    (data === undefined
+      ? ""
+      : ` ${JSON.stringify(data)}`) +
+    "\n";
+
+  try {
+    fs.appendFileSync(DEBUG_LOG, line, "utf8");
+  } catch (error) {
+    console.error("[Slack Debug] Failed to write log:", error);
+  }
+}
+
 
 const diagnosticLog = (
   message: string,
@@ -37,7 +51,6 @@ const diagnosticLog = (
 
 diagnosticLog("Process started");
 
-
 const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN;
 const SLACK_CHANNEL_ID = process.env.SLACK_CHANNEL_ID;
 
@@ -46,13 +59,26 @@ const POLL_INTERVAL_MS = Number(
 );
 
 const WAIT_TIMEOUT_MS = Number(
-  process.env.WAIT_TIMEOUT_MS ?? "1800000"
+  process.env.WAIT_TIMEOUT_MS ?? "86400000"
 );
 
-const KIRO_INPUT_SCRIPT =
-  process.env.KIRO_INPUT_SCRIPT ??
-  path.resolve(process.cwd(), "kiro-input.py");
+// History file path
+// HISTORY_DIR must point to a directory (not the project root).
+// Fall back to <projectRoot>/phases/requirement-gap-analysis when
+// HISTORY_DIR is absent or points to the project root itself.
+const _defaultHistoryDir = path.resolve(
+  process.env.KIRO_PROJECT_ROOT || process.cwd(),
+  "phases",
+  "requirement-gap-analysis"
+);
+const _rawHistoryDir = process.env.HISTORY_DIR;
+const _resolvedHistoryDir =
+  _rawHistoryDir &&
+  path.resolve(_rawHistoryDir) !== path.resolve(process.env.KIRO_PROJECT_ROOT || process.cwd())
+    ? _rawHistoryDir
+    : _defaultHistoryDir;
 
+const HISTORY_FILE = path.join(_resolvedHistoryDir, "history.txt");
 
 if (!SLACK_BOT_TOKEN) {
   throw new Error("SLACK_BOT_TOKEN is required.");
@@ -62,14 +88,15 @@ if (!SLACK_CHANNEL_ID) {
   throw new Error("SLACK_CHANNEL_ID is required.");
 }
 
-
 const slack = new WebClient(SLACK_BOT_TOKEN);
-
 
 interface PendingRequest {
   requestId: string;
   threadTs: string;
   question: string;
+  summary?: string;
+  gaps?: string[];
+  questions?: string[];
   createdAt: string;
 
   completed: boolean;
@@ -78,19 +105,21 @@ interface PendingRequest {
   responderName?: string;
   replyTimestamp?: string;
   answer?: string;
-}
 
+  processedReplyTimestamps?: Set<string>;
+  answers?: string[];
+}
 
 const pendingRequests =
   new Map<string, PendingRequest>();
-
 
 function createRequestId(): string {
   return crypto.randomUUID();
 }
 
-
-function slackTimestampToIndiaTime(timestamp: string): string {
+function slackTimestampToIndiaTime(
+  timestamp: string
+): string {
   const seconds = Number(timestamp);
 
   if (!Number.isFinite(seconds)) {
@@ -99,29 +128,42 @@ function slackTimestampToIndiaTime(timestamp: string): string {
 
   const date = new Date(seconds * 1000);
 
-  // Convert to IST (UTC+5:30) manually to avoid Intl locale inconsistencies
   const istOffsetMs = 5.5 * 60 * 60 * 1000;
-  const istDate = new Date(date.getTime() + istOffsetMs);
+  const istDate = new Date(
+    date.getTime() + istOffsetMs
+  );
 
   const year = istDate.getUTCFullYear();
-  const month = String(istDate.getUTCMonth() + 1).padStart(2, "0");
-  const day = String(istDate.getUTCDate()).padStart(2, "0");
-  const hours = String(istDate.getUTCHours()).padStart(2, "0");
-  const minutes = String(istDate.getUTCMinutes()).padStart(2, "0");
-  const seconds2 = String(istDate.getUTCSeconds()).padStart(2, "0");
+  const month = String(
+    istDate.getUTCMonth() + 1
+  ).padStart(2, "0");
+
+  const day = String(
+    istDate.getUTCDate()
+  ).padStart(2, "0");
+
+  const hours = String(
+    istDate.getUTCHours()
+  ).padStart(2, "0");
+
+  const minutes = String(
+    istDate.getUTCMinutes()
+  ).padStart(2, "0");
+
+  const seconds2 = String(
+    istDate.getUTCSeconds()
+  ).padStart(2, "0");
 
   return `${day}/${month}/${year} ${hours}:${minutes}:${seconds2} IST`;
 }
-
 
 async function getResponderName(
   userId: string
 ): Promise<string> {
   try {
-    const result =
-      await slack.users.info({
-        user: userId,
-      });
+    const result = await slack.users.info({
+      user: userId,
+    });
 
     const user = result.user;
 
@@ -146,151 +188,93 @@ async function getResponderName(
   }
 }
 
-
 async function getThreadReplies(
   threadTs: string
 ) {
-  const result =
-    await slack.conversations.replies({
-      channel: SLACK_CHANNEL_ID!,
-      ts: threadTs,
-      limit: 100,
-    });
+  const result = await slack.conversations.replies({
+    channel: SLACK_CHANNEL_ID!,
+    ts: threadTs,
+    limit: 100,
+  });
 
   return result.messages ?? [];
 }
 
-
 /**
- * Inject the Slack response into the currently
- * visible Kiro chat.
+ * Append the Slack response to the history file.
  *
- * kiro-input.py handles:
- *
- * Ctrl+Shift+P
- * Kiro: Focus chat input
- * paste
- * Enter
+ * Creates the parent directory if it does not exist.
+ * Existing history entries are preserved.
  */
-function injectIntoKiro(
+async function writeReplyToHistory(
   pending: PendingRequest
-): void {
+): Promise<void> {
   if (!pending.answer) {
-    return;
-  }
-
-  if (pending.processing) {
-    console.error(
-      `[Kiro] Already processing ${pending.requestId}`
+    throw new Error(
+      `No answer available for request ${pending.requestId}`
     );
-
-    return;
   }
 
-  pending.processing = true;
+  const questionsSection = pending.questions?.length
+    ? "\nQuestions Asked:\n" +
+      pending.questions
+        .map((q, i) => `  ${i + 1}. ${q}`)
+        .join("\n")
+    : "";
 
-  const payload = {
-    responderName:
-      pending.responderName ?? "Unknown",
+  const entry = [
+    "",
+    "============================================================",
+    `Request ID : ${pending.requestId}`,
+    `Responder  : ${pending.responderName ?? "Unknown"}`,
+    `Reply Time : ${pending.replyTimestamp ?? "Unknown"}`,
+    questionsSection,
+    "",
+    "PO/Owner Answer:",
+    pending.answer,
+    "============================================================",
+    "",
+  ]
+    .filter((line) => line !== "")
+    .join("\n");
 
-    replyTimestampIso:
-      pending.replyTimestamp ?? "Unknown",
+  await fs.promises.mkdir(
+    path.dirname(HISTORY_FILE),
+    { recursive: true }
+  );
 
-    answer:
-      pending.answer,
-  };
-
-  console.error(
-    `[Kiro] Injecting Slack response for ${pending.requestId}`
+  await fs.promises.appendFile(
+    HISTORY_FILE,
+    entry,
+    "utf8"
   );
 
   console.error(
-    `[Kiro] Input script: ${KIRO_INPUT_SCRIPT}`
+    `[History] Reply saved to: ${HISTORY_FILE}`
   );
 
-  const child = spawn(
-    "python",
-    [KIRO_INPUT_SCRIPT],
-    {
-      windowsHide: true,
-
-      stdio: [
-        "pipe",
-        "pipe",
-        "pipe",
-      ],
-    }
+  console.error(
+    `[History] Request ID: ${pending.requestId}`
   );
-
-  child.stdout.on(
-    "data",
-    (data: Buffer) => {
-      console.error(
-        `[Kiro-input] ${data.toString().trim()}`
-      );
-    }
-  );
-
-  child.stderr.on(
-    "data",
-    (data: Buffer) => {
-      console.error(
-        `[Kiro-input ERROR] ${data.toString().trim()}`
-      );
-    }
-  );
-
-  child.on(
-    "error",
-    (error) => {
-      console.error(
-        "[Kiro] Failed to start kiro-input.py:",
-        error
-      );
-
-      pending.processing = false;
-    }
-  );
-
-  child.on(
-    "close",
-    (code) => {
-      if (code === 0) {
-        console.error(
-          `[Kiro] Response injected successfully for ${pending.requestId}`
-        );
-      } else {
-        console.error(
-          `[Kiro] kiro-input.py exited with code ${code}`
-        );
-      }
-
-      pending.processing = false;
-    }
-  );
-
-  child.stdin.write(
-    JSON.stringify(payload) + "\n"
-  );
-
-  child.stdin.end();
 }
-
 
 /**
  * Check one pending Slack request.
  *
- * IMPORTANT:
- * This runs in the background.
- *
- * It is NEVER awaited by ask_slack.
+ * Polling happens in the background.
+ * Replies are written to history.txt instead of
+ * being injected into the Kiro chat.
  */
 async function checkPendingRequest(
   pending: PendingRequest
 ): Promise<void> {
-  if (pending.completed) {
+  if (pending.completed || pending.processing) {
     return;
   }
+
+  // Prevent overlapping polling from processing
+  // the same request simultaneously.
+  pending.processing = true;
 
   try {
     const age =
@@ -303,67 +287,50 @@ async function checkPendingRequest(
       );
 
       pending.completed = true;
-
       return;
     }
 
-    const messages =
-      await getThreadReplies(
-        pending.threadTs
-      );
+    const messages = await getThreadReplies(
+      pending.threadTs
+    );
 
-    /**
-     * First message is our original
-     * Slack question.
-     */
+    // Skip the original Slack question.
     for (const message of messages.slice(1)) {
       if (!message.ts) {
         continue;
       }
 
-      /**
-       * Ignore bot messages.
-       */
+      // Ignore bot messages.
       if (
-        ("bot_id" in message &&
-          message.bot_id) ||
+        ("bot_id" in message && message.bot_id) ||
         ("subtype" in message &&
           message.subtype === "bot_message")
       ) {
         continue;
       }
 
-      /**
-       * We need a real Slack user.
-       */
+      // Only accept replies from real Slack users.
       if (!message.user) {
         continue;
       }
 
-      const answer =
-        message.text?.trim();
+      const answer = message.text?.trim();
 
       if (!answer) {
         continue;
       }
 
-      const responderName =
-        await getResponderName(
-          message.user
-        );
+      const responderName = await getResponderName(
+        message.user
+      );
 
       const replyTimestamp =
-        slackTimestampToIndiaTime(
-          message.ts
-        );
+        slackTimestampToIndiaTime(message.ts);
 
-      pending.completed = true;
-      pending.responderName =
-        responderName;
-      pending.replyTimestamp =
-        replyTimestamp;
-      pending.answer =
-        answer;
+      // Store the reply details.
+      pending.responderName = responderName;
+      pending.replyTimestamp = replyTimestamp;
+      pending.answer = answer;
 
       console.error(
         `[Slack] Response received for ${pending.requestId}`
@@ -377,17 +344,25 @@ async function checkPendingRequest(
         `[Slack] Timestamp: ${replyTimestamp}`
       );
 
-      console.error(
-        `[Slack] Answer: ${answer}`
-      );
+      // Persist the reply before marking the request
+      // completed. If saving fails, a later poll can retry.
+      try {
+        await writeReplyToHistory(pending);
 
-      /**
-       * IMPORTANT:
-       *
-       * This is the point where we inject the
-       * response into the existing Kiro chat.
-       */
-      injectIntoKiro(pending);
+        pending.completed = true;
+
+        console.error(
+          `[Slack] Request completed: ${pending.requestId}`
+        );
+      } catch (error) {
+        console.error(
+          `[History] Failed to save reply for ${pending.requestId}:`,
+          error
+        );
+
+        // Keep the request pending so a later poll
+        // can retry saving the response.
+      }
 
       return;
     }
@@ -396,39 +371,30 @@ async function checkPendingRequest(
       `[Slack] Error checking ${pending.requestId}:`,
       error
     );
+  } finally {
+    pending.processing = false;
   }
 }
-
 
 /**
  * Background Slack polling loop.
- *
- * This keeps running even when there is no
- * active MCP tool call.
  */
 async function pollSlackReplies(): Promise<void> {
-  const requests =
-    Array.from(
-      pendingRequests.values()
-    );
+  const requests = Array.from(
+    pendingRequests.values()
+  );
 
   for (const pending of requests) {
-    if (pending.completed) {
+    if (pending.completed || pending.processing) {
       continue;
     }
 
-    await checkPendingRequest(
-      pending
-    );
+    await checkPendingRequest(pending);
   }
 }
 
-
 /**
  * Start background polling.
- *
- * IMPORTANT:
- * Do not await this.
  */
 function startBackgroundPolling(): void {
   setInterval(
@@ -443,26 +409,24 @@ function startBackgroundPolling(): void {
   );
 }
 
-
 /**
- * Send question to Slack.
+ * Send a question to Slack.
  *
- * This ONLY sends the question and registers
- * the pending request.
- *
- * It does NOT wait for the human.
+ * Sends the question and registers the request
+ * without waiting for a human response.
  */
 async function sendSlackQuestion(
-  question: string
+  question: string,
+  summary?: string,
+  gaps?: string[],
+  questions?: string[]
 ): Promise<PendingRequest> {
-  const requestId =
-    createRequestId();
+  const requestId = createRequestId();
 
-  const result =
-    await slack.chat.postMessage({
-      channel: SLACK_CHANNEL_ID!,
-      text: question,
-    });
+  const result = await slack.chat.postMessage({
+    channel: SLACK_CHANNEL_ID!,
+    text: question,
+  });
 
   if (!result.ts) {
     throw new Error(
@@ -474,101 +438,127 @@ async function sendSlackQuestion(
     requestId,
     threadTs: result.ts,
     question,
-    createdAt:
-      new Date().toISOString(),
-
+    summary,
+    gaps,
+    questions,
+    createdAt: new Date().toISOString(),
     completed: false,
     processing: false,
+    processedReplyTimestamps: new Set<string>(),
+    answers: [],
   };
 
-  pendingRequests.set(
-    requestId,
-    pending
-  );
+  pendingRequests.set(requestId, pending);
 
   return pending;
 }
 
-
-const server =
-  new McpServer({
-    name: "kiro-slack-bridge",
-    version: "1.0.0",
-  });
-
+const server = new McpServer({
+  name: "kiro-slack-bridge",
+  version: "1.0.0",
+});
 
 /**
  * ask_slack
  *
- * Sends the question to Slack and RETURNS
- * IMMEDIATELY.
+ * Sends a question to Slack and returns immediately.
  */
+
 server.tool(
   "ask_slack",
 
-  "Ask a human a question in Slack. The question is sent and a Request ID is returned immediately. Do not wait for the human. The bridge monitors Slack in the background and automatically sends the human response back into the active Kiro chat.",
+  "Escalate requirement gaps to a human in Slack. Send the analysis summary, identified gaps, and specific decisions/questions that require human input. Use this tool whenever a gap analysis identifies blockers or requires PO/Owner approval.",
 
   {
-    question: z
-      .string()
-      .min(1)
-      .describe(
-        "The exact question to send to the human."
-      ),
+    question: z.string().min(1).describe(
+      "The specific decision or question that the human must answer."
+    ),
+
+    summary: z.string().optional().describe(
+      "A concise summary of the analysis and why escalation is required."
+    ),
+
+    gaps: z.array(z.string()).optional().describe(
+      "The identified requirement gaps, including their IDs, severity, and descriptions."
+    ),
+
+    questions: z.array(z.string()).optional().describe(
+      "Explicit questions that the PO/Owner must answer."
+    ),
   },
 
-  async ({ question }) => {
+  async ({ question, summary, gaps, questions }) => {
     try {
-      const pending =
-        await sendSlackQuestion(
-          question
-        );
+      const slackMessage = [
+        "*HITL ESCALATION — REQUIREMENT GAP ANALYSIS*",
+        "",
+        summary ? `*Summary*\n${summary}` : "",
+        "",
+        "*Decision Required*",
+        question,
+        "",
+        gaps?.length
+          ? `*Identified Gaps*\n${gaps.map(
+              (gap, index) => `${index + 1}. ${gap}`
+            ).join("\n")}`
+          : "",
+        "",
+        questions?.length
+          ? `*Questions for PO/Owner*\n${questions.map(
+              (q, index) => `${index + 1}. ${q}`
+            ).join("\n")}`
+          : "",
+        "",
+        "_Please reply in this Slack thread so the response can be recorded in the requirement-analysis history._",
+      ]
+        .filter((section) => section !== "")
+        .join("\n");
+
+      const pending = await sendSlackQuestion(slackMessage, summary, gaps, questions);
+      debugLog("ask_slack invoked", {
+        question,
+        summary,
+        gaps,
+        questions,
+      });
+
+      debugLog("Slack payload being sent", {
+        payload: slackMessage,
+      });
+      // console.error("[Slack] New ask_slack invocation");
+      // console.error("[Slack] Question:", question);
+      // console.error("[Slack] Summary:", summary ?? "(none)");
+      // console.error("[Slack] Gap count:", gaps?.length ?? 0);
+      // console.error("[Slack] Questions count:", questions?.length ?? 0);
+      // console.error("[Slack] Payload preview:", slackMessage.slice(0, 1500));
 
       console.error(
-        `[Slack] Question sent. Request ID: ${pending.requestId}`
+        `[Slack] HITL escalation sent. Request ID: ${pending.requestId}`
       );
 
-      console.error(
-        `[Slack] Thread: ${pending.threadTs}`
-      );
-
-      /**
-       * CRITICAL:
-       *
-       * There is NO await here for the
-       * Slack response.
-       */
       return {
         content: [
           {
             type: "text",
-
             text: [
-              "SLACK_REQUEST_SENT",
-              "",
+              "SLACK_ESCALATION_SENT",
               `Request ID: ${pending.requestId}`,
-              "",
+              `Decision: ${question}`,
             ].join("\n"),
           },
         ],
       };
     } catch (error) {
-      console.error(
-        "[Slack] ask_slack failed:",
-        error
-      );
+      console.error("[Slack] Escalation failed:", error);
 
       return {
         isError: true,
-
         content: [
           {
             type: "text",
-
-            text:
-              error instanceof Error
-                ? error.message
-                : String(error),
+            text: error instanceof Error
+              ? error.message
+              : String(error),
           },
         ],
       };
@@ -576,16 +566,15 @@ server.tool(
   }
 );
 
-
 /**
  * get_slack_response
  *
- * This tool NEVER waits.
+ * Checks the current status without waiting.
  */
 server.tool(
   "get_slack_response",
 
-  "Check whether the human has replied to a previous Slack question. This tool never waits. If the human has not replied yet, it returns NOT_READY.",
+  "Check whether the human has replied to a previous Slack question. This tool never waits. If the reply is not ready, it returns NOT_READY. Received replies are appended to the history file.",
 
   {
     requestId: z
@@ -597,19 +586,14 @@ server.tool(
   },
 
   async ({ requestId }) => {
-    const pending =
-      pendingRequests.get(
-        requestId
-      );
+    const pending = pendingRequests.get(requestId);
 
     if (!pending) {
       return {
         isError: true,
-
         content: [
           {
             type: "text",
-
             text: [
               "UNKNOWN_REQUEST",
               "",
@@ -625,13 +609,12 @@ server.tool(
         content: [
           {
             type: "text",
-
             text: [
               "NOT_READY",
               "",
               `Request ID: ${requestId}`,
               "",
-              "The human has not replied yet.",
+              "The human has not replied yet, or the reply could not be saved.",
               "Continue your work. Do not wait.",
             ].join("\n"),
           },
@@ -643,7 +626,6 @@ server.tool(
       content: [
         {
           type: "text",
-
           text: [
             "SLACK_RESPONSE_RECEIVED",
             "",
@@ -652,6 +634,8 @@ server.tool(
             `Timestamp: ${pending.replyTimestamp ?? "Unknown"}`,
             "",
             `Answer: ${pending.answer ?? ""}`,
+            "",
+            `History file: ${HISTORY_FILE}`,
           ].join("\n"),
         },
       ],
@@ -659,26 +643,24 @@ server.tool(
   }
 );
 
-
-const transport =
-  new StdioServerTransport();
+const transport = new StdioServerTransport();
 
 diagnosticLog("Starting MCP transport connection");
+
 try {
   await server.connect(transport);
   diagnosticLog("MCP transport connected");
 } catch (error) {
-  diagnosticLog("MCP transport connection failed", error);
+  diagnosticLog(
+    "MCP transport connection failed",
+    error
+  );
+
   throw error;
 }
 
-
-/**
- * Start background polling AFTER MCP
- * connection is established.
- */
+// Start background polling after MCP connects.
 startBackgroundPolling();
-
 
 console.error(
   "[MCP] Kiro Slack Bridge started."
@@ -697,5 +679,5 @@ console.error(
 );
 
 console.error(
-  `[MCP] Kiro input script: ${KIRO_INPUT_SCRIPT}`
+  `[History] Output file: ${HISTORY_FILE}`
 );
