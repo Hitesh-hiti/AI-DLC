@@ -1,0 +1,611 @@
+## HITL ESCALATION LOG — E-Commerce Platform Gap Analysis
+## Phase: Requirement Gap Analysis
+## Date: 2026-10-16
+
+---
+
+### ESCALATION-001
+Request ID  : e33cd9d9-b417-413f-baa0-2d61537d9461
+Timestamp   : 2026-10-16
+Tool Used   : kiro-slack-bridge::ask_slack
+Status      : SLACK_ESCALATION_SENT — NO REPLY YET
+Thread Ref  : Pending (Request ID: e33cd9d9-b417-413f-baa0-2d61537d9461)
+
+Decision Required:
+  E-Commerce Platform Gap Analysis — Critical PO/Owner decisions required before Architecture phase can begin.
+  7 HIGH-severity gaps (G-001, G-002, G-006, G-007, G-010, G-014, Q-012) block the Architecture phase.
+
+Questions Sent:
+  1. [G-001] Delivery model at launch? (3PL carrier / in-house fleet / click-and-collect / hybrid)
+  2. [G-002] Inventory model? (centralized / dark-store / dropship / hybrid) + real-time reservation + partial fulfillment
+  3. [G-006] Authentication methods + user roles beyond customer and admin?
+  4. [G-007] Approved payment gateway + payment methods + multi-currency + saved cards?
+  5. [G-010] NFR targets: uptime SLA, peak concurrent users, API response times?
+  6. [G-014] Geographies + applicable regulations (GDPR, CCPA) + data residency?
+  7. [Q-012] Single-seller store vs. multi-vendor marketplace?
+
+PO/Owner Answer : NOT RECEIVED
+Gate Status     : CLOSED — Architecture phase is blocked pending PO/Owner response.
+
+---
+
+## INSTRUCTIONS FOR AGENTS
+Before starting Architecture phase:
+1. Re-read this file.
+2. Validate that ESCALATION-001 has a recorded PO/Owner answer.
+3. Validate the answer is explicit, from an authorized human, and not ambiguous.
+4. Only then set gate status to OPEN.
+
+---
+
+### ESCALATION-002 (Re-send of ESCALATION-001)
+Request ID  : 81730040-9389-48c9-94c5-1e0d7ac6325b
+Timestamp   : 2026-10-16
+Tool Used   : kiro-slack-bridge::ask_slack
+Status      : SLACK_ESCALATION_SENT — NO REPLY YET
+Thread Ref  : Pending (Request ID: 81730040-9389-48c9-94c5-1e0d7ac6325b)
+Reason      : User requested re-send of the same 7 critical gap questions to Slack.
+
+Questions Sent (same as ESCALATION-001):
+  1. [G-001] Delivery model at launch? (3PL carrier / in-house fleet / click-and-collect / hybrid)
+  2. [G-002] Inventory model? (centralized / dark-store / dropship / hybrid) + real-time reservation + partial fulfillment
+  3. [G-006] Authentication methods + user roles beyond customer and admin?
+  4. [G-007] Approved payment gateway + payment methods + multi-currency + saved cards?
+  5. [G-010] NFR targets: uptime SLA, peak concurrent users, API response times?
+  6. [G-014] Geographies + applicable regulations (GDPR, CCPA) + data residency?
+  7. [Q-012] Single-seller store vs. multi-vendor marketplace?
+
+PO/Owner Answer : NOT RECEIVED
+Gate Status     : CLOSED — Architecture phase remains blocked pending PO/Owner response.
+
+---
+
+### ESCALATION-003 (Re-send of ESCALATION-001/002)
+Request ID  : b5cc1d26-84b5-4888-8124-34541ec88288
+Timestamp   : 2026-10-16
+Tool Used   : kiro-slack-bridge::ask_slack
+Status      : SLACK_ESCALATION_SENT — NO REPLY YET
+Thread Ref  : Pending (Request ID: b5cc1d26-84b5-4888-8124-34541ec88288)
+Reason      : User requested re-send of the same 7 critical gap questions to Slack (third attempt).
+
+Questions Sent (same as ESCALATION-001 and ESCALATION-002):
+  1. [G-001] Delivery model at launch?
+  2. [G-002] Inventory model + real-time reservation + partial fulfillment?
+  3. [G-006] Authentication methods + user roles?
+  4. [G-007] Approved payment gateway + payment methods + multi-currency + saved cards?
+  5. [G-010] NFR targets: uptime SLA, peak concurrent users, API response times?
+  6. [G-014] Geographies + applicable regulations + data residency?
+  7. [Q-012] Single-seller store vs. multi-vendor marketplace?
+
+PO/Owner Answer : NOT RECEIVED
+Gate Status     : CLOSED — Architecture phase remains blocked pending PO/Owner response.
+
+---
+
+### ESCALATION-005 (Re-send #5)
+Request ID  : 7a1a875f-9c55-49e0-b348-29b191a33ab4
+Timestamp   : 2026-10-16
+Tool Used   : kiro-slack-bridge::ask_slack
+Status      : SLACK_ESCALATION_SENT — NO REPLY YET
+Reason      : User requested re-send of the same 7 critical gap questions (fifth attempt).
+
+PO/Owner Answer : NOT RECEIVED
+Gate Status     : CLOSED
+
+---
+
+### ESCALATION-006 (Re-send #6)
+Request ID  : 4fb78b5e-c20d-4672-be6e-00e9e3aa4173
+Timestamp   : 2026-10-16
+Tool Used   : kiro-slack-bridge::ask_slack
+Tool Result : SLACK_ESCALATION_SENT
+Status      : NO REPLY YET
+Reason      : User requested re-send (sixth attempt). Testing history file format — full questions now recorded verbatim.
+
+Primary Decision:
+  E-Commerce Platform Gap Analysis — Critical PO/Owner decisions required before Architecture
+  phase can begin. 7 HIGH-severity gaps are blocking the project.
+
+Gaps Escalated:
+  G-001 | HIGH | Delivery model not specified — third-party carrier, in-house fleet,
+                 click-and-collect, or hybrid? Changes architecture, APIs, and tracking model.
+  G-002 | HIGH | Inventory model not specified — centralized warehouse, dark-store/hyperlocal,
+                 or dropship? Overselling race condition is the top domain risk.
+  G-006 | HIGH | Authentication and authorization model not defined — methods, MFA,
+                 session strategy, and user roles beyond customer/admin are all undefined.
+  G-007 | HIGH | Payment gateway not approved and payment methods not defined —
+                 PCI-DSS compliance approach cannot be designed.
+  G-010 | HIGH | Non-functional requirements not quantified — uptime SLA, peak concurrent
+                 users, API response time targets, and throughput are all TBD.
+  G-014 | HIGH | Regulatory and compliance scope not defined — geographies, GDPR/CCPA
+                 applicability, and data-residency requirements are unknown.
+  Q-012 | HIGH | Single-seller vs. multi-vendor marketplace unconfirmed — multi-vendor adds
+                 seller management, payout, commission, and onboarding scope.
+
+Questions Sent to Slack (verbatim):
+  Q1. [G-001] What is the delivery model at launch?
+      Options:
+        (a) Third-party logistics carrier with tracking-number integration
+        (b) In-house delivery fleet with live GPS tracking
+        (c) Click-and-collect / store pickup
+        (d) Hybrid
+      If (a), which carriers need to be integrated?
+
+  Q2. [G-002] What is the inventory model?
+      Options:
+        (a) Centralized warehouse
+        (b) Distributed dark-store / hyperlocal
+        (c) Dropship / supplier-managed
+        (d) Hybrid
+      Is real-time SKU-level inventory reservation at checkout required?
+      Is partial order fulfillment (some items in stock, some not) a supported scenario?
+
+  Q3. [G-006] What authentication methods are required at launch?
+      (username+password / social login / OTP / magic link / MFA — which combination?)
+      What user roles exist beyond 'customer' and 'admin'?
+      (e.g., customer support, warehouse staff, finance, catalog manager)
+
+  Q4. [G-007] Which payment gateway has been approved?
+      What payment methods must be supported at launch?
+      (credit/debit card, PayPal, digital wallets, UPI, BNPL, store credit, gift cards — which?)
+      Is multi-currency required?
+      Are saved payment methods (tokenized cards) in scope?
+
+  Q5. [G-010] What are the platform's NFR targets?
+      (a) Uptime / availability SLA (e.g., 99.9%)
+      (b) Peak concurrent users the platform must support
+      (c) Target API response times for: product search / checkout / payment confirmation
+
+  Q6. [G-014] Which geographies will the platform serve at launch?
+      Which data privacy regulations apply? (GDPR for EU, CCPA for California, others?)
+      Is customer data residency in a specific region required?
+
+  Q7. [Q-012] Is this a single-seller online store or a multi-vendor marketplace?
+      Multi-vendor adds: seller onboarding, seller management portal, payout/commission
+      logic, and seller-specific inventory management.
+
+PO/Owner Answer : NOT RECEIVED
+Gate Status     : CLOSED — Architecture phase is blocked pending PO/Owner response.
+
+---
+
+### ESCALATION-007 (Re-send #7)
+Request ID  : dace6c8e-8b2b-4de6-9eb5-45a066cd85fe
+Timestamp   : 2026-10-16
+Tool Used   : kiro-slack-bridge::ask_slack
+Tool Result : SLACK_ESCALATION_SENT
+Status      : NO REPLY YET
+Reason      : User requested re-send (seventh attempt).
+
+Primary Decision:
+  E-Commerce Platform Gap Analysis — Critical PO/Owner decisions required before Architecture
+  phase can begin. 7 HIGH-severity gaps are blocking the project.
+
+Gaps Escalated:
+  G-001 | HIGH | Delivery model not specified — third-party carrier, in-house fleet,
+                 click-and-collect, or hybrid?
+  G-002 | HIGH | Inventory model not specified — centralized warehouse, dark-store/hyperlocal,
+                 or dropship?
+  G-006 | HIGH | Authentication and authorization model not defined — methods, MFA,
+                 session strategy, and user roles beyond customer/admin undefined.
+  G-007 | HIGH | Payment gateway not approved and payment methods not defined —
+                 PCI-DSS compliance cannot be designed.
+  G-010 | HIGH | Non-functional requirements not quantified — uptime SLA, peak concurrent
+                 users, API response time targets all TBD.
+  G-014 | HIGH | Regulatory and compliance scope not defined — geographies, GDPR/CCPA,
+                 data-residency unknown.
+  Q-012 | HIGH | Single-seller vs. multi-vendor marketplace unconfirmed — fundamentally
+                 changes product scope.
+
+Questions Sent to Slack (verbatim):
+  Q1. [G-001] What is the delivery model at launch?
+      Options:
+        (a) Third-party logistics carrier with tracking-number integration
+        (b) In-house delivery fleet with live GPS tracking
+        (c) Click-and-collect / store pickup
+        (d) Hybrid
+      If (a), which carriers need to be integrated?
+
+  Q2. [G-002] What is the inventory model?
+      Options:
+        (a) Centralized warehouse
+        (b) Distributed dark-store / hyperlocal
+        (c) Dropship / supplier-managed
+        (d) Hybrid
+      Is real-time SKU-level inventory reservation at checkout required?
+      Is partial order fulfillment (some items in stock, some not) a supported scenario?
+
+  Q3. [G-006] What authentication methods are required at launch?
+      (username+password / social login / OTP / magic link / MFA — which combination?)
+      What user roles exist beyond 'customer' and 'admin'?
+      (e.g., customer support, warehouse staff, finance, catalog manager)
+
+  Q4. [G-007] Which payment gateway has been approved?
+      What payment methods must be supported at launch?
+      (credit/debit card, PayPal, digital wallets, UPI, BNPL, store credit, gift cards — which?)
+      Is multi-currency required?
+      Are saved payment methods (tokenized cards) in scope?
+
+  Q5. [G-010] What are the platform's NFR targets?
+      (a) Uptime / availability SLA (e.g., 99.9%)
+      (b) Peak concurrent users the platform must support
+      (c) Target API response times for: product search / checkout / payment confirmation
+
+  Q6. [G-014] Which geographies will the platform serve at launch?
+      Which data privacy regulations apply? (GDPR for EU, CCPA for California, others?)
+      Is customer data residency in a specific region required?
+
+  Q7. [Q-012] Is this a single-seller online store or a multi-vendor marketplace?
+      Multi-vendor adds: seller onboarding, seller management portal, payout/commission
+      logic, and seller-specific inventory management.
+
+PO/Owner Answer : NOT RECEIVED
+Gate Status     : CLOSED — Architecture phase is blocked pending PO/Owner response.
+
+---
+
+### ESCALATION-008 (Second set of questions — MEDIUM severity gaps)
+Request ID  : 4ed018c9-68c3-4d82-a076-d4ca97330d5b
+Timestamp   : 2026-10-16
+Tool Used   : kiro-slack-bridge::ask_slack
+Tool Result : SLACK_ESCALATION_SENT
+Status      : NO REPLY YET
+Reason      : Second set of gap questions covering 8 MEDIUM-severity gaps not previously escalated.
+
+Primary Decision:
+  E-Commerce Platform Gap Analysis — Second set of PO/Owner decisions required.
+  Covers order lifecycle, returns/cancellation policy, discounts, search capabilities,
+  notifications, accessibility, and admin roles.
+
+Gaps Escalated:
+  G-003 | MEDIUM | Order lifecycle states not enumerated — allowed state transitions
+                   and terminal states are not defined in the requirements.
+  G-004 | MEDIUM | Cancellation rules and refund policy not defined — cancellation window,
+                   post-dispatch cancellation, partial cancellation, refund method, and SLA missing.
+  G-005 | MEDIUM | Returns policy not defined — return window, eligible conditions,
+                   self-service vs. support-initiated, return shipping responsibility,
+                   and refund vs. exchange rules are missing.
+  G-008 | MEDIUM | Discount and coupon business rules not specified — discount types,
+                   stacking rules, applicability, validity periods, and usage limits undefined.
+  G-009 | MEDIUM | Search, filtering, and sorting capabilities not specified — search technology,
+                   filterable attributes, sortable fields, faceted search, and ranking undefined.
+  G-011 | MEDIUM | Notification channels and triggers not defined — channels, trigger events,
+                   templates, and opt-in/opt-out preferences missing.
+  G-013 | MEDIUM | Accessibility standard not specified — no WCAG level or other standard
+                   referenced in the requirements.
+  G-015 | MEDIUM | Admin role capabilities and permissions not enumerated — sub-roles,
+                   per-role capabilities, bulk operations, and audit trail requirements undefined.
+
+Questions Sent to Slack (verbatim):
+  Q1. [G-003] What order states must the platform support?
+      Please confirm which of these apply:
+        PLACED, PAYMENT_PENDING, PAYMENT_CONFIRMED, PROCESSING, SHIPPED, IN_TRANSIT,
+        DELIVERED, PARTIALLY_DELIVERED, CANCELLED, RETURN_REQUESTED, RETURN_IN_TRANSIT,
+        RETURNED, REFUND_PROCESSED
+      Are there any additional states or different names required?
+
+  Q2. [G-004] What are the cancellation rules?
+      (a) What is the cancellation window (e.g., within 1 hour of placing, before dispatch
+          only, anytime before delivery)?
+      (b) Is cancellation allowed after the order has been dispatched/shipped?
+      (c) Is partial order cancellation (item-level) supported?
+      (d) What is the refund method — original payment method, store credit, or
+          customer's choice?
+      (e) What is the refund processing SLA?
+
+  Q3. [G-005] What is the returns policy?
+      (a) What is the return window (e.g., 7 days, 30 days)?
+      (b) What conditions are eligible (unopened only, damaged, any reason)?
+      (c) Can customers initiate returns self-service, or must they contact support?
+      (d) Who is responsible for return shipping cost — customer or platform?
+      (e) Is the resolution a refund, exchange, or store credit — or customer's choice?
+
+  Q4. [G-008] What discount and coupon rules apply?
+      (a) What discount types are needed (percentage off, fixed amount, buy-X-get-Y,
+          free shipping, tiered)?
+      (b) Can multiple coupons be stacked on a single order?
+      (c) Can coupons be restricted to specific products, categories, or minimum cart value?
+      (d) Are there per-user or total redemption limits on coupons?
+      (e) Is flash-sale / time-limited promotional pricing required?
+
+  Q5. [G-009] What are the product search and discovery requirements?
+      (a) Is autocomplete / type-ahead search required?
+      (b) What attributes should customers be able to filter by
+          (category, price range, brand, rating, availability, others)?
+      (c) What sort options are needed (price low-high, price high-low, newest,
+          best-selling, highest-rated)?
+      (d) Is faceted / multi-filter search required?
+      (e) Is a third-party search service (e.g., Algolia, Elasticsearch) preferred, or
+          should database full-text search suffice for MVP?
+
+  Q6. [G-011] What notification requirements apply?
+      (a) Which channels are required at launch — email, SMS, push notification, in-app,
+          or a combination?
+      (b) Which events trigger notifications (order placed, payment confirmed, order shipped,
+          out for delivery, delivered, return initiated, refund processed, payment failed)?
+      (c) Must customers be able to manage notification preferences (opt-in/opt-out per
+          channel or event type)?
+
+  Q7. [G-013] What accessibility standard must the platform meet?
+      Options:
+        (a) WCAG 2.1 Level AA (recommended baseline)
+        (b) WCAG 2.2 Level AA
+        (c) Section 508
+        (d) Other
+      If no standard is specified, WCAG 2.1 AA will be assumed.
+
+  Q8. [G-015] What admin roles and capabilities are required?
+      (a) Are there sub-roles beyond a single 'admin'
+          (e.g., catalog manager, order manager, finance/reporting, customer support,
+          warehouse staff)?
+      (b) Which capabilities does each sub-role have?
+      (c) Is the admin portal a separate application or part of the main platform?
+      (d) Are bulk operations required (bulk product upload via CSV, bulk order status update)?
+      (e) Must all admin actions be recorded in an audit trail?
+
+PO/Owner Answer : NOT RECEIVED
+Gate Status     : CLOSED — Design and Development phases are blocked pending PO/Owner response.
+
+============================================================
+Request ID: 4ed018c9-68c3-4d82-a076-d4ca97330d5b
+Question: *HITL ESCALATION — REQUIREMENT GAP ANALYSIS*
+*Summary*
+Following the first escalation (7 HIGH-severity gaps), this second set covers 8 MEDIUM-severity gaps (G-003, G-004, G-005, G-008, G-009, G-011, G-013, G-015) that must be resolved before the Design and Development phases begin. These gaps affect order management, business rules, product discovery, notifications, and the admin portal scope.
+*Decision Required*
+E-Commerce Platform Gap Analysis — Second set of PO/Owner decisions required. These cover order lifecycle, returns/cancellation policy, discounts, search capabilities, notifications, accessibility, and admin roles.
+*Identified Gaps*
+1. G-003 | MEDIUM | Order lifecycle states not enumerated — allowed state transitions and terminal states are not defined in the requirements.
+2. G-004 | MEDIUM | Cancellation rules and refund policy not defined — cancellation window, post-dispatch cancellation, partial cancellation, refund method, and SLA are all missing.
+3. G-005 | MEDIUM | Returns policy not defined — return window, eligible conditions, self-service vs. support-initiated, return shipping responsibility, and refund vs. exchange rules are missing.
+4. G-008 | MEDIUM | Discount and coupon business rules not specified — discount types, stacking rules, applicability, validity periods, usage limits, and promotional pricing rules are undefined.
+5. G-009 | MEDIUM | Search, filtering, and sorting capabilities not specified — search technology, filterable attributes, sortable fields, faceted search, and ranking algorithm are undefined.
+6. G-011 | MEDIUM | Notification channels and triggers not defined — channels (email/SMS/push/in-app), trigger events, templates, and opt-in/opt-out preferences are missing.
+7. G-013 | MEDIUM | Accessibility standard not specified — no WCAG level or other standard referenced in the requirements.
+8. G-015 | MEDIUM | Admin role capabilities and permissions not enumerated — sub-roles, per-role capabilities, bulk operations, and audit trail requirements for admin actions are undefined.
+*Questions for PO/Owner*
+1. 1. [G-003] What order states must the platform support? Please confirm which of these apply: PLACED, PAYMENT_PENDING, PAYMENT_CONFIRMED, PROCESSING, SHIPPED, IN_TRANSIT, DELIVERED, PARTIALLY_DELIVERED, CANCELLED, RETURN_REQUESTED, RETURN_IN_TRANSIT, RETURNED, REFUND_PROCESSED. Are there any additional states or different names required?
+2. 2. [G-004] What are the cancellation rules? (a) What is the cancellation window (e.g., within 1 hour of placing, before dispatch only, anytime before delivery)? (b) Is cancellation allowed after the order has been dispatched/shipped? (c) Is partial order cancellation (item-level) supported? (d) What is the refund method — original payment method, store credit, or customer choice? (e) What is the refund processing SLA?
+3. 3. [G-005] What is the returns policy? (a) What is the return window (e.g., 7 days, 30 days)? (b) What conditions are eligible (unopened only, damaged, any reason)? (c) Can customers initiate returns self-service, or must they contact support? (d) Who is responsible for return shipping cost — customer or platform? (e) Is the resolution a refund, exchange, or store credit — or customer's choice?
+4. 4. [G-008] What discount and coupon rules apply? (a) What discount types are needed (percentage off, fixed amount, buy-X-get-Y, free shipping, tiered)? (b) Can multiple coupons be stacked on a single order? (c) Can coupons be restricted to specific products, categories, or minimum cart value? (d) Are there per-user or total redemption limits on coupons? (e) Is flash-sale / time-limited promotional pricing required?
+5. 5. [G-009] What are the product search and discovery requirements? (a) Is autocomplete / type-ahead search required? (b) What attributes should customers be able to filter by (category, price range, brand, rating, availability, others)? (c) What sort options are needed (price low-high, price high-low, newest, best-selling, highest-rated)? (d) Is faceted/multi-filter search required? (e) Is a third-party search service (e.g., Algolia, Elasticsearch) preferred, or should database full-text search suffice for MVP?
+6. 6. [G-011] What notification requirements apply? (a) Which channels are required at launch — email, SMS, push notification, in-app, or a combination? (b) Which events trigger notifications (order placed, payment confirmed, order shipped, out for delivery, delivered, return initiated, refund processed, payment failed)? (c) Must customers be able to manage notification preferences (opt-in/opt-out per channel or event type)?
+7. 7. [G-013] What accessibility standard must the platform meet? Options: (a) WCAG 2.1 Level AA (recommended baseline), (b) WCAG 2.2 Level AA, (c) Section 508, (d) other. If no standard is specified, WCAG 2.1 AA will be assumed.
+8. 8. [G-015] What admin roles and capabilities are required? (a) Are there sub-roles beyond a single 'admin' (e.g., catalog manager, order manager, finance/reporting, customer support, warehouse staff)? (b) Which capabilities does each sub-role have? (c) Is the admin portal a separate application or part of the main platform? (d) Are bulk operations required (bulk product upload via CSV, bulk order status update)? (e) Must all admin actions be recorded in an audit trail?
+_Please reply in this Slack thread so the response can be recorded in the requirement-analysis history._
+Responder: Hitesh
+Timestamp: 16/10/2026 15:33:57 IST
+
+Response:
+Replay to the 2nd thread
+============================================================
+============================================================
+Request ID : 4cbb3c49-f82a-484f-921e-893ebcfb9c7d
+Timestamp  : 2026-10-16T10:12:51.684Z
+Decision   : *HITL ESCALATION — REQUIREMENT GAP ANALYSIS*
+*Summary*
+Gap analysis of the E-Commerce Platform requirements against the consumer-marketplace-mobility domain pack is complete. 15 gaps identified, 7 HIGH severity blocking the Architecture phase. Delivery model, inventory model, payment gateway, authentication, NFRs, compliance scope, and marketplace type are all undefined. Gate is CLOSED — Architecture phase cannot begin until all 7 decisions are recorded.
+*Decision Required*
+E-Commerce Platform Gap Analysis — Critical PO/Owner decisions required before Architecture phase can begin. 7 HIGH-severity gaps are blocking the project. Please review and answer the questions below.
+*Identified Gaps*
+1. G-001 | HIGH | Delivery model not specified — third-party carrier, in-house fleet, click-and-collect, or hybrid?
+2. G-002 | HIGH | Inventory model not specified — centralized warehouse, dark-store/hyperlocal, or dropship?
+3. G-006 | HIGH | Authentication and authorization model not defined — methods, MFA, session strategy, and user roles beyond customer/admin undefined.
+4. G-007 | HIGH | Payment gateway not approved and payment methods not defined — PCI-DSS compliance cannot be designed.
+5. G-010 | HIGH | Non-functional requirements not quantified — uptime SLA, peak users, response time targets all TBD.
+6. G-014 | HIGH | Regulatory and compliance scope not defined — geographies, GDPR/CCPA, data-residency unknown.
+7. Q-012 | HIGH | Single-seller vs. multi-vendor marketplace unconfirmed — fundamentally changes product scope.
+*Questions for PO/Owner*
+1. 1. [G-001] What is the delivery model at launch? Options: (a) Third-party logistics carrier with tracking-number integration, (b) In-house delivery fleet with live GPS tracking, (c) Click-and-collect / store pickup, (d) Hybrid. If (a), which carriers need to be integrated?
+2. 2. [G-002] What is the inventory model? Options: (a) Centralized warehouse, (b) Distributed dark-store / hyperlocal, (c) Dropship / supplier-managed, (d) Hybrid. Is real-time SKU-level inventory reservation at checkout required? Is partial order fulfillment (some items in stock, some not) a supported scenario?
+3. 3. [G-006] What authentication methods are required at launch? (username+password / social login / OTP / magic link / MFA — which combination?) What user roles exist beyond 'customer' and 'admin'? (e.g., customer support, warehouse staff, finance, catalog manager)
+4. 4. [G-007] Which payment gateway has been approved? What payment methods must be supported at launch? (credit/debit card, PayPal, digital wallets, UPI, BNPL, store credit, gift cards — which?) Is multi-currency required? Are saved payment methods (tokenized cards) in scope?
+5. 5. [G-010] What are the platform's NFR targets? (a) Uptime / availability SLA (e.g., 99.9%), (b) Peak concurrent users the platform must support, (c) Target API response times for product search / checkout / payment confirmation.
+6. 6. [G-014] Which geographies will the platform serve at launch? Which data privacy regulations apply? (GDPR for EU, CCPA for California, others?) Is customer data residency in a specific region required?
+7. 7. [Q-012] Is this a single-seller online store or a multi-vendor marketplace? Multi-vendor adds: seller onboarding, seller management portal, payout/commission logic, and seller-specific inventory management.
+_Please reply in this Slack thread so the response can be recorded in the requirement-analysis history._
+Summary    : Gap analysis of the E-Commerce Platform requirements against the consumer-marketplace-mobility domain pack is complete. 15 gaps identified, 7 HIGH severity blocking the Architecture phase. Delivery model, inventory model, payment gateway, authentication, NFRs, compliance scope, and marketplace type are all undefined. Gate is CLOSED — Architecture phase cannot begin until all 7 decisions are recorded.
+
+Gaps Escalated:
+  - G-001 | HIGH | Delivery model not specified — third-party carrier, in-house fleet, click-and-collect, or hybrid?
+  - G-002 | HIGH | Inventory model not specified — centralized warehouse, dark-store/hyperlocal, or dropship?
+  - G-006 | HIGH | Authentication and authorization model not defined — methods, MFA, session strategy, and user roles beyond customer/admin undefined.
+  - G-007 | HIGH | Payment gateway not approved and payment methods not defined — PCI-DSS compliance cannot be designed.
+  - G-010 | HIGH | Non-functional requirements not quantified — uptime SLA, peak users, response time targets all TBD.
+  - G-014 | HIGH | Regulatory and compliance scope not defined — geographies, GDPR/CCPA, data-residency unknown.
+  - Q-012 | HIGH | Single-seller vs. multi-vendor marketplace unconfirmed — fundamentally changes product scope.
+
+Questions Sent:
+  Q1. 1. [G-001] What is the delivery model at launch? Options: (a) Third-party logistics carrier with tracking-number integration, (b) In-house delivery fleet with live GPS tracking, (c) Click-and-collect / store pickup, (d) Hybrid. If (a), which carriers need to be integrated?
+  Q2. 2. [G-002] What is the inventory model? Options: (a) Centralized warehouse, (b) Distributed dark-store / hyperlocal, (c) Dropship / supplier-managed, (d) Hybrid. Is real-time SKU-level inventory reservation at checkout required? Is partial order fulfillment (some items in stock, some not) a supported scenario?
+  Q3. 3. [G-006] What authentication methods are required at launch? (username+password / social login / OTP / magic link / MFA — which combination?) What user roles exist beyond 'customer' and 'admin'? (e.g., customer support, warehouse staff, finance, catalog manager)
+  Q4. 4. [G-007] Which payment gateway has been approved? What payment methods must be supported at launch? (credit/debit card, PayPal, digital wallets, UPI, BNPL, store credit, gift cards — which?) Is multi-currency required? Are saved payment methods (tokenized cards) in scope?
+  Q5. 5. [G-010] What are the platform's NFR targets? (a) Uptime / availability SLA (e.g., 99.9%), (b) Peak concurrent users the platform must support, (c) Target API response times for product search / checkout / payment confirmation.
+  Q6. 6. [G-014] Which geographies will the platform serve at launch? Which data privacy regulations apply? (GDPR for EU, CCPA for California, others?) Is customer data residency in a specific region required?
+  Q7. 7. [Q-012] Is this a single-seller online store or a multi-vendor marketplace? Multi-vendor adds: seller onboarding, seller management portal, payout/commission logic, and seller-specific inventory management.
+Responder  : Hitesh
+Reply Time : 16/10/2026 15:43:24 IST
+PO/Owner Answer:
+one
+============================================================
+
+---
+
+### ESCALATION-009 (Post-fix re-send — HIGH severity gaps)
+Request ID  : 53dd8170-510a-4b55-bb43-14e19a616738
+Timestamp   : 2026-10-16
+Tool Used   : kiro-slack-bridge::ask_slack
+Tool Result : SLACK_ESCALATION_SENT
+Status      : ✅ REPLY RECEIVED — see server-written entry below
+Responder   : Hitesh
+Reply Time  : 16/10/2026 15:47:19 IST
+Note        : First send after HISTORY_DIR path bug fix and writeReplyToHistory structured-fields fix.
+
+Primary Decision:
+  E-Commerce Platform Gap Analysis — Critical PO/Owner decisions required before Architecture
+  phase can begin. 7 HIGH-severity gaps are blocking the project.
+
+Gaps Escalated:
+  G-001 | HIGH | Delivery model not specified — third-party carrier, in-house fleet,
+                 click-and-collect, or hybrid?
+  G-002 | HIGH | Inventory model not specified — centralized warehouse, dark-store/hyperlocal,
+                 or dropship?
+  G-006 | HIGH | Authentication and authorization model not defined — methods, MFA,
+                 session strategy, and user roles beyond customer/admin undefined.
+  G-007 | HIGH | Payment gateway not approved and payment methods not defined —
+                 PCI-DSS compliance cannot be designed.
+  G-010 | HIGH | Non-functional requirements not quantified — uptime SLA, peak concurrent
+                 users, API response time targets all TBD.
+  G-014 | HIGH | Regulatory and compliance scope not defined — geographies, GDPR/CCPA,
+                 data-residency unknown.
+  Q-012 | HIGH | Single-seller vs. multi-vendor marketplace unconfirmed — fundamentally
+                 changes product scope.
+
+Questions Sent to Slack (verbatim):
+  Q1. [G-001] What is the delivery model at launch?
+      Options:
+        (a) Third-party logistics carrier with tracking-number integration
+        (b) In-house delivery fleet with live GPS tracking
+        (c) Click-and-collect / store pickup
+        (d) Hybrid
+      If (a), which carriers need to be integrated?
+
+  Q2. [G-002] What is the inventory model?
+      Options:
+        (a) Centralized warehouse
+        (b) Distributed dark-store / hyperlocal
+        (c) Dropship / supplier-managed
+        (d) Hybrid
+      Is real-time SKU-level inventory reservation at checkout required?
+      Is partial order fulfillment (some items in stock, some not) a supported scenario?
+
+  Q3. [G-006] What authentication methods are required at launch?
+      (username+password / social login / OTP / magic link / MFA — which combination?)
+      What user roles exist beyond 'customer' and 'admin'?
+      (e.g., customer support, warehouse staff, finance, catalog manager)
+
+  Q4. [G-007] Which payment gateway has been approved?
+      What payment methods must be supported at launch?
+      (credit/debit card, PayPal, digital wallets, UPI, BNPL, store credit, gift cards — which?)
+      Is multi-currency required?
+      Are saved payment methods (tokenized cards) in scope?
+
+  Q5. [G-010] What are the platform's NFR targets?
+      (a) Uptime / availability SLA (e.g., 99.9%)
+      (b) Peak concurrent users the platform must support
+      (c) Target API response times for: product search / checkout / payment confirmation
+
+  Q6. [G-014] Which geographies will the platform serve at launch?
+      Which data privacy regulations apply? (GDPR for EU, CCPA for California, others?)
+      Is customer data residency in a specific region required?
+
+  Q7. [Q-012] Is this a single-seller online store or a multi-vendor marketplace?
+      Multi-vendor adds: seller onboarding, seller management portal, payout/commission
+      logic, and seller-specific inventory management.
+
+PO/Owner Answer : NOT RECEIVED
+Gate Status     : CLOSED — Architecture phase is blocked pending PO/Owner response.
+============================================================
+Request ID : 53dd8170-510a-4b55-bb43-14e19a616738
+Timestamp  : 2026-10-16T10:14:00.795Z
+Decision   : *HITL ESCALATION — REQUIREMENT GAP ANALYSIS*
+*Summary*
+Gap analysis of the E-Commerce Platform requirements against the consumer-marketplace-mobility domain pack is complete. 15 gaps identified, 7 HIGH severity blocking the Architecture phase. Delivery model, inventory model, payment gateway, authentication, NFRs, compliance scope, and marketplace type are all undefined. Gate is CLOSED — Architecture phase cannot begin until all 7 decisions are recorded.
+*Decision Required*
+E-Commerce Platform Gap Analysis — Critical PO/Owner decisions required before Architecture phase can begin. 7 HIGH-severity gaps are blocking the project. Please review and answer the questions below.
+*Identified Gaps*
+1. G-001 | HIGH | Delivery model not specified — third-party carrier, in-house fleet, click-and-collect, or hybrid?
+2. G-002 | HIGH | Inventory model not specified — centralized warehouse, dark-store/hyperlocal, or dropship?
+3. G-006 | HIGH | Authentication and authorization model not defined — methods, MFA, session strategy, and user roles beyond customer/admin undefined.
+4. G-007 | HIGH | Payment gateway not approved and payment methods not defined — PCI-DSS compliance cannot be designed.
+5. G-010 | HIGH | Non-functional requirements not quantified — uptime SLA, peak users, response time targets all TBD.
+6. G-014 | HIGH | Regulatory and compliance scope not defined — geographies, GDPR/CCPA, data-residency unknown.
+7. Q-012 | HIGH | Single-seller vs. multi-vendor marketplace unconfirmed — fundamentally changes product scope.
+*Questions for PO/Owner*
+1. 1. [G-001] What is the delivery model at launch? Options: (a) Third-party logistics carrier with tracking-number integration, (b) In-house delivery fleet with live GPS tracking, (c) Click-and-collect / store pickup, (d) Hybrid. If (a), which carriers need to be integrated?
+2. 2. [G-002] What is the inventory model? Options: (a) Centralized warehouse, (b) Distributed dark-store / hyperlocal, (c) Dropship / supplier-managed, (d) Hybrid. Is real-time SKU-level inventory reservation at checkout required? Is partial order fulfillment (some items in stock, some not) a supported scenario?
+3. 3. [G-006] What authentication methods are required at launch? (username+password / social login / OTP / magic link / MFA — which combination?) What user roles exist beyond 'customer' and 'admin'? (e.g., customer support, warehouse staff, finance, catalog manager)
+4. 4. [G-007] Which payment gateway has been approved? What payment methods must be supported at launch? (credit/debit card, PayPal, digital wallets, UPI, BNPL, store credit, gift cards — which?) Is multi-currency required? Are saved payment methods (tokenized cards) in scope?
+5. 5. [G-010] What are the platform's NFR targets? (a) Uptime / availability SLA (e.g., 99.9%), (b) Peak concurrent users the platform must support, (c) Target API response times for product search / checkout / payment confirmation.
+6. 6. [G-014] Which geographies will the platform serve at launch? Which data privacy regulations apply? (GDPR for EU, CCPA for California, others?) Is customer data residency in a specific region required?
+7. 7. [Q-012] Is this a single-seller online store or a multi-vendor marketplace? Multi-vendor adds: seller onboarding, seller management portal, payout/commission logic, and seller-specific inventory management.
+_Please reply in this Slack thread so the response can be recorded in the requirement-analysis history._
+Summary    : Gap analysis of the E-Commerce Platform requirements against the consumer-marketplace-mobility domain pack is complete. 15 gaps identified, 7 HIGH severity blocking the Architecture phase. Delivery model, inventory model, payment gateway, authentication, NFRs, compliance scope, and marketplace type are all undefined. Gate is CLOSED — Architecture phase cannot begin until all 7 decisions are recorded.
+
+Gaps Escalated:
+  - G-001 | HIGH | Delivery model not specified — third-party carrier, in-house fleet, click-and-collect, or hybrid?
+  - G-002 | HIGH | Inventory model not specified — centralized warehouse, dark-store/hyperlocal, or dropship?
+  - G-006 | HIGH | Authentication and authorization model not defined — methods, MFA, session strategy, and user roles beyond customer/admin undefined.
+  - G-007 | HIGH | Payment gateway not approved and payment methods not defined — PCI-DSS compliance cannot be designed.
+  - G-010 | HIGH | Non-functional requirements not quantified — uptime SLA, peak users, response time targets all TBD.
+  - G-014 | HIGH | Regulatory and compliance scope not defined — geographies, GDPR/CCPA, data-residency unknown.
+  - Q-012 | HIGH | Single-seller vs. multi-vendor marketplace unconfirmed — fundamentally changes product scope.
+
+Questions Sent:
+  Q1. 1. [G-001] What is the delivery model at launch? Options: (a) Third-party logistics carrier with tracking-number integration, (b) In-house delivery fleet with live GPS tracking, (c) Click-and-collect / store pickup, (d) Hybrid. If (a), which carriers need to be integrated?
+  Q2. 2. [G-002] What is the inventory model? Options: (a) Centralized warehouse, (b) Distributed dark-store / hyperlocal, (c) Dropship / supplier-managed, (d) Hybrid. Is real-time SKU-level inventory reservation at checkout required? Is partial order fulfillment (some items in stock, some not) a supported scenario?
+  Q3. 3. [G-006] What authentication methods are required at launch? (username+password / social login / OTP / magic link / MFA — which combination?) What user roles exist beyond 'customer' and 'admin'? (e.g., customer support, warehouse staff, finance, catalog manager)
+  Q4. 4. [G-007] Which payment gateway has been approved? What payment methods must be supported at launch? (credit/debit card, PayPal, digital wallets, UPI, BNPL, store credit, gift cards — which?) Is multi-currency required? Are saved payment methods (tokenized cards) in scope?
+  Q5. 5. [G-010] What are the platform's NFR targets? (a) Uptime / availability SLA (e.g., 99.9%), (b) Peak concurrent users the platform must support, (c) Target API response times for product search / checkout / payment confirmation.
+  Q6. 6. [G-014] Which geographies will the platform serve at launch? Which data privacy regulations apply? (GDPR for EU, CCPA for California, others?) Is customer data residency in a specific region required?
+  Q7. 7. [Q-012] Is this a single-seller online store or a multi-vendor marketplace? Multi-vendor adds: seller onboarding, seller management portal, payout/commission logic, and seller-specific inventory management.
+Responder  : Hitesh
+Reply Time : 16/10/2026 15:47:19 IST
+PO/Owner Answer:
+good we are getting in one thread and question in history and slack message are same
+============================================================
+============================================================
+Request ID : 24ce2ae8-6d53-4dc3-b2f6-98b30db5ace0
+Responder  : Hitesh
+Reply Time : 16/10/2026 16:01:15 IST
+
+PO/Owner Answer:
+checking the response and questions
+============================================================
+
+---
+
+### ESCALATION-010 (Format test — 2 gaps only)
+Request ID  : 03859499-9b72-4232-b52a-a9522cf4bd0f
+Timestamp   : 2026-10-16
+Tool Used   : kiro-slack-bridge::ask_slack
+Tool Result : SLACK_ESCALATION_SENT
+Status      : NO REPLY YET
+Note        : Test send after reply-entry fix — questions now included in server-written reply entry.
+
+Gaps Escalated:
+  G-001 | HIGH | Delivery model not specified — third-party carrier, in-house fleet,
+                 click-and-collect, or hybrid?
+  G-002 | HIGH | Inventory model not specified — centralized warehouse, dark-store/hyperlocal,
+                 or dropship?
+
+Questions Sent to Slack (verbatim):
+  Q1. [G-001] What is the delivery model at launch?
+      Options:
+        (a) Third-party logistics carrier with tracking-number integration
+        (b) In-house delivery fleet with live GPS tracking
+        (c) Click-and-collect / store pickup
+        (d) Hybrid
+      If (a), which carriers need to be integrated?
+
+  Q2. [G-002] What is the inventory model?
+      Options:
+        (a) Centralized warehouse
+        (b) Distributed dark-store / hyperlocal
+        (c) Dropship / supplier-managed
+        (d) Hybrid
+      Is real-time SKU-level inventory reservation at checkout required?
+      Is partial order fulfillment (some items in stock, some not) a supported scenario?
+
+PO/Owner Answer : NOT RECEIVED
+Gate Status     : CLOSED
+============================================================
+Request ID : 03859499-9b72-4232-b52a-a9522cf4bd0f
+Responder  : Hitesh
+Reply Time : 16/10/2026 17:01:15 IST
+
+Questions Asked:
+  1. 1. [G-001] What is the delivery model at launch? Options: (a) Third-party logistics carrier with tracking-number integration, (b) In-house delivery fleet with live GPS tracking, (c) Click-and-collect / store pickup, (d) Hybrid. If (a), which carriers need to be integrated?
+  2. 2. [G-002] What is the inventory model? Options: (a) Centralized warehouse, (b) Distributed dark-store / hyperlocal, (c) Dropship / supplier-managed, (d) Hybrid. Is real-time SKU-level inventory reservation at checkout required? Is partial order fulfillment (some items in stock, some not) a supported scenario?
+PO/Owner Answer:
+Verify slack integration
+============================================================

@@ -25,6 +25,7 @@ Do not invent domain rules or modify approved requirements without an explicit, 
 4. Assess assumptions, edge cases, integration impacts, migration, backward compatibility, and regression risks.
 5. Update requirements only through explicit, versioned changes.
 6. Produce technical/design specifications, decision logs, and human review checklists.
+7. Before proceeding to the next set of questions, verify the 
 
 ## Enhancement Analysis
 
