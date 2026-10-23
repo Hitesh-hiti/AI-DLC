@@ -643,7 +643,70 @@ Unclear regulatory interpretation
 
 ---
 
-# 20. Abstention
+# 20. Slack Question Routing and User Input
+
+When the agent requires human clarification, confirmation, or approval, it MUST follow this workflow.
+
+```text
+Identify Question
+      |
+      v
+Check HITL History File
+      |
+      +-- Answer Exists --> Validate and Reuse Answer
+      |
+      +-- No Answer --> Invoke Slack Messaging Tool
+                              |
+                              v
+                       Verify Execution
+                              |
+                              v
+                       Await Human Response
+                              |
+                              v
+                       Record Answer in History
+                              |
+                              v
+                       Re-check History and Validate
+```
+
+### Mandatory Rules
+
+1. **Check History First:** Reuse an existing answer only if it is valid and applicable to the current request.
+
+2. **Execute Slack:** If no answer exists, invoke the configured Slack messaging tool to send the complete question, context, reason, and required decision to the configured channel. Merely displaying a message in chat does not constitute Slack execution.
+
+3. **Verify Execution:** Record the actual tool result and Slack message/thread reference when available. Never claim success if the tool call fails or is unavailable.
+
+4. **Record Responses:** Capture the answer, source, author, timestamp, and Slack reference when available. Re-read the history file and validate the answer before using it as user input.
+
+5. **Mandatory Progression Gate:** Before starting the next step or phase, verify that every required question has a valid answer and all mandatory approvals are recorded in the history file. If anything is missing, STOP.
+
+6. **Handle Failures:** If Slack sending or response capture is unavailable, record the failure, request the approved fallback, and keep the workflow blocked.
+
+7. **Preserve HITL Controls:** Ambiguous or conflicting answers require clarification. Slack responses do not override mandatory approvals, authorization, or policy restrictions.
+
+**Non-negotiable:** The agent must actually invoke Slack, verify execution, record responses, and enforce the progression gate. Never simulate an integration or proceed based on an unrecorded answer.
+
+
+---
+
+
+
+## Operational Requirement: Invoke Slack, Do Not Only Describe Escalation
+
+For the gap-analysis workflow, Slack escalation is an executable requirement, not a suggested next step.
+
+- If a PO/Owner decision is required and no valid answer exists in HITL history, the agent **must call the MCP tool `ask_slack` in the same workflow turn**.
+- Include the primary decision in `question`, evidence/context and business impact in `summary`, relevant gap IDs in `gaps`, and each explicit question in `questions`.
+- Do not end the response with only “schedule a HITL review,” “ask the PO,” or a list of questions in chat. Those statements do not send a Slack message.
+- Inspect the tool result. `SLACK_RESPONSE_RECEIVED` means a reply was captured and must be validated. `SLACK_ESCALATION_SENT_NO_REPLY` means the message was posted but no reply arrived before timeout; the dependent workflow remains blocked. Tool errors mean escalation failed.
+- After a response, re-read the configured HITL history file and validate that the answer addresses the decision, comes from an appropriate human, and is not ambiguous or conflicting. Record/retain the request ID and Slack thread reference for audit.
+- Never infer PO approval from silence, a successful message post, or an AI recommendation.
+
+The Slack MCP bridge must be registered in the agent runtime. The environment must define `SLACK_BOT_TOKEN` and `SLACK_CHANNEL_ID`; the bot must be a member of the target channel and have the necessary chat, conversation-history, and user-profile scopes. `HITL_HISTORY_FILE`, `POLL_INTERVAL_MS`, `WAIT_TIMEOUT_MS`, and `MCP_LOG_FILE` may be set to override defaults.
+
+# 21. Abstention
 
 The agent must be able to explicitly abstain.
 
@@ -664,7 +727,7 @@ The agent should prefer abstention over an unsupported high-impact decision.
 
 ---
 
-# 21. Auditability
+# 22. Auditability
 
 Every consequential guardrail decision should be auditable.
 
@@ -694,7 +757,7 @@ Sensitive information should be handled according to applicable privacy and secu
 
 ---
 
-# 22. Feedback Loop
+# 23. Feedback Loop
 
 Human decisions should improve future guardrail performance.
 
@@ -724,7 +787,7 @@ The feedback loop must not automatically promote an AI capability without approp
 
 ---
 
-# 23. Capability Revalidation
+# 24. Capability Revalidation
 
 Agent capabilities should be periodically evaluated.
 
@@ -752,7 +815,7 @@ Capability changes should be based on measurable evaluation results rather than 
 
 ---
 
-# 24. Confidence Calibration
+# 25. Confidence Calibration
 
 Confidence must be compared with actual outcomes.
 
@@ -780,7 +843,7 @@ Thresholds should be adjusted based on measured performance.
 
 ---
 
-# 25. Risk-Adjusted Autonomy
+# 26. Risk-Adjusted Autonomy
 
 Autonomy should decrease as risk increases.
 
@@ -804,7 +867,7 @@ Confidence alone must never determine autonomy.
 
 ---
 
-# 26. Generic Decision Matrix
+# 27. Generic Decision Matrix
 
 | Expertise | Risk   | Confidence | Evidence          | Decision                  |
 | --------- | ------ | ---------: | ----------------- | ------------------------- |
@@ -824,7 +887,7 @@ Mandatory policy requirements always override the matrix.
 
 ---
 
-# 27. Generic Agent Algorithm
+# 28. Generic Agent Algorithm
 
 ```python
 def evaluate_request(request):
@@ -893,7 +956,7 @@ def evaluate_request(request):
 
 ---
 
-# 28. Execution Rule
+# 29. Execution Rule
 
 The agent must follow this sequence:
 
@@ -923,7 +986,7 @@ Guardrails must be evaluated **before** consequential execution.
 
 ---
 
-# 29. Generic Examples
+# 30. Generic Examples
 
 ## Example 1 — Low-Risk Analysis
 
@@ -1021,7 +1084,7 @@ The agent must not compensate for missing evidence by relying on its confidence 
 
 ---
 
-# 30. Core Guardrail Rules
+# 31. Core Guardrail Rules
 
 The agent must always follow these principles:
 
@@ -1042,7 +1105,7 @@ The agent must always follow these principles:
 
 ---
 
-# 31. Final Policy
+# 32. Final Policy
 
 The agent may operate autonomously only when:
 
