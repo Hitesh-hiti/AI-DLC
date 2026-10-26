@@ -608,4 +608,10 @@ Questions Asked:
   2. 2. [G-002] What is the inventory model? Options: (a) Centralized warehouse, (b) Distributed dark-store / hyperlocal, (c) Dropship / supplier-managed, (d) Hybrid. Is real-time SKU-level inventory reservation at checkout required? Is partial order fulfillment (some items in stock, some not) a supported scenario?
 PO/Owner Answer:
 Verify slack integration
+========================================================================================================================
+Request ID : f013d5f6-6f82-44de-b424-d43bf02a4504
+Responder  : Bharathi Vaidya
+Reply Time : 23/10/2026 12:54:34 IST
+PO/Owner Answer:
+No
 ============================================================

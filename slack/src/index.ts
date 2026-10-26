@@ -44,7 +44,7 @@ const diagnosticLog = (
         : String(error);
 
   fs.appendFileSync(
-    "C:\\Users\\Hitesh_C\\Documents\\TravelPlatform\\slack\\mcp-startup.log",
+    "C:\\Users\\Bharathi_K\\Documents\\TravelPlatform\\slack\\mcp-startup.log",
     `${new Date().toISOString()} ${message} ${detail}\n`
   );
 };

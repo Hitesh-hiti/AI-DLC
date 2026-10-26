@@ -783,46 +783,46 @@ All items below require a human decision before the related acceptance criteria 
 
 ## 9. REQUIREMENT → ACCEPTANCE CRITERIA TRACEABILITY MATRIX
 
-| Req ID | Requirement Title | AC IDs | Layer | Source |
-|--------|-------------------|--------|-------|--------|
-| REQ-EXP-01 | Travel Search | AC-EXP-01-01 to 08 | FE+BE | RequirementDocument §discovery; gap Q2, Q6 |
-| REQ-EXP-02 | Create Booking (Hold) | AC-EXP-02-01 to 10 | FE+BE | RequirementDocument §booking; gap Q1, Q2, Q7, Q9, Q10 |
-| REQ-EXP-03 | Confirm Booking (TICKETING_QUEUE) | AC-EXP-03-01 to 09 | FE+BE | gap Q1, Q3, Q7, Q8, ADR-009 |
-| REQ-EXP-04 | Cancel Booking | AC-EXP-04-01 to 08 | FE+BE | RequirementDocument §cancellations; gap Q3, Q7 |
-| REQ-EXP-05 | Trip Management | AC-EXP-05-01 to 05 | FE+BE | RequirementDocument §trip management; gap Q9 |
-| REQ-EXP-06 | Booking Hold Expiry | AC-EXP-06-01 to 04 | FE+BE | gap Q7; RequirementDocument §disruption |
-| REQ-EXP-07 | Approval Workflow | AC-EXP-07-01 to 05 | FE+BE | gap Q5, Q14 |
-| REQ-EXP-08 | Notification Delivery | AC-EXP-08-01 to 05 (fully specified — HITL-REQ-01 resolved) | BE | gap Q15; RequirementDocument §communications |
-| REQ-CNT-01 | Sabre GDS Adapter | AC-CNT-01-01 to 09 (AC-CNT-01-09 added — HITL-REQ-03 resolved) | BE | gap Q2, Q6, Q11, ADR-008, ADR-009 |
-| REQ-CNT-02 | GDS Response Normalisation | AC-CNT-02-01 to 05 | BE | RequirementDocument §normalize; gap Q13 |
-| REQ-CNT-03 | Outbound Idempotency | AC-CNT-03-01 to 05 | BE | gap Q9, ADR-011 |
-| REQ-CNT-04 | Webhook Ingestion | AC-CNT-04-01 to 06 | BE | gap Q12 |
-| REQ-CNT-05 | Supplier Reconciliation | AC-CNT-05-01 to 05 | BE | gap row M2; RequirementDocument §recoverability |
-| REQ-POL-01 | Synchronous Policy Evaluation | AC-POL-01-01 to 06 | FE+BE | RequirementDocument §policies; gap Q5, Q10, ADR-004 |
-| REQ-POL-02 | Policy Rule Schema & Versioning | AC-POL-02-01 to 05 | BE | gap Q5, ADR-004 |
-| REQ-POL-03 | Policy Override | AC-POL-03-01 to 06 | FE+BE | gap Q5, Q10, C1, ADR-014 |
-| REQ-POL-04 | BLOCK Rule Behaviour | AC-POL-04-01 to 03 | FE+BE | gap Q10, ADR-004, GUARDRAIL-P2 |
-| REQ-PAY-01 | Financial Event (21 Dimensions) | AC-PAY-01-01 to 07 (AC-PAY-01-07 added — HITL-REQ-02 resolved) | BE | RequirementDocument §Travel Context; gap Q16, C5 |
-| REQ-PAY-02 | Cost Allocation | AC-PAY-02-01 to 06 | BE | gap Q8, C2, C3, ADR-003 |
-| REQ-PAY-03 | Refund Request | AC-PAY-03-01 to 07 | FE+BE | RequirementDocument §refunds; gap Q3, Q7, S1 |
-| REQ-PAY-04 | Refund Confirmation | AC-PAY-04-01 to 05 | BE | gap Q3, Q7, S1 |
-| REQ-PAY-05 | Void (Same-Day Window) | AC-PAY-05-01 to 04 | BE | gap Q3; RequirementDocument §cancellations |
-| REQ-PAY-06 | Form of Payment Tracking | AC-PAY-06-01 to 03 | BE | gap S3 |
-| REQ-SVC-01 | CONFIRM_EXCEPTION Handling | AC-SVC-01-01 to 04 | FE+BE | gap B6, ADR-012 |
-| REQ-SVC-02 | Refund Submission to Supplier | AC-SVC-02-01 to 03 | BE | RequirementDocument §refunds; gap Q3, Q7 |
-| REQ-SVC-03 | Illegal State Transition Rejection | AC-SVC-03-01 to 04 | BE | gap M1; RequirementDocument §transaction integrity |
-| REQ-DAT-01 | Transaction Spine Entities | AC-DAT-01-01 to 05 | BE | gap Q4, Q9, ADR-001, ADR-010 |
-| REQ-DAT-02 | Append-Only Immutable Tables | AC-DAT-02-01 to 03 | BE | gap ADR-002, GUARDRAIL-D1 |
-| REQ-DAT-03 | PII Pointer Model & GDPR Erasure | AC-DAT-03-01 to 04 | BE | gap Q4, GUARDRAIL-D3 |
-| REQ-DAT-04 | Transactional Outbox & Event Delivery | AC-DAT-04-01 to 06 | BE | gap M4, ADR-013 |
-| REQ-DAT-05 | Multi-Tenant Data Isolation | AC-DAT-05-01 to 03 | BE | RequirementDocument §enterprise; gap Q9, GUARDRAIL-D2 |
-| REQ-XCT-01 | Correlation ID Propagation | AC-XCT-01-01 to 04 | BE | gap Q9, GUARDRAIL-A2 |
-| REQ-XCT-02 | Authentication & Role-Based Access | AC-XCT-02-01 to 05 | BE | gap C6, GUARDRAIL-S2, S5, S6 |
-| REQ-XCT-03 | Idempotency on Mutating Endpoints | AC-XCT-03-01 to 03 | BE | gap Q9, GUARDRAIL-A1, ADR-011 |
-| REQ-XCT-04 | Structured Logging & Observability | AC-XCT-04-01 to 04 | BE | RequirementDocument §observability; gap GUARDRAIL-O1, S3 |
-| REQ-XCT-05 | Error Response Format | AC-XCT-05-01 to 03 | FE+BE | gap §15.1 |
-| REQ-XCT-06 | No Raw PAN Storage | AC-XCT-06-01 to 03 | BE | gap Q3, ADR-005, GUARDRAIL-S1 |
-| REQ-XCT-07 | PAN Storage | AC-XCT-06-01 to 03 | BE | gap Q3, ADR-005, GUARDRAIL-S1 |
+| Req ID | Requirement Title | AC IDs | Layer | Source | JIRA ID | Jira Status |
+|--------|-------------------|--------|-------|--------|---------|-------------|
+| REQ-EXP-01 | Travel Search | AC-EXP-01-01 to 08 | FE+BE | RequirementDocument §discovery; gap Q2, Q6 | KAN-42 | In Progress |
+| REQ-EXP-02 | Create Booking (Hold) | AC-EXP-02-01 to 10 | FE+BE | RequirementDocument §booking; gap Q1, Q2, Q7, Q9, Q10 | KAN-43 | In Progress |
+| REQ-EXP-03 | Confirm Booking (TICKETING_QUEUE) | AC-EXP-03-01 to 09 | FE+BE | gap Q1, Q3, Q7, Q8, ADR-009 | KAN-44 | In Progress |
+| REQ-EXP-04 | Cancel Booking | AC-EXP-04-01 to 08 | FE+BE | RequirementDocument §cancellations; gap Q3, Q7 | KAN-45 | In Progress |
+| REQ-EXP-05 | Trip Management | AC-EXP-05-01 to 05 | FE+BE | RequirementDocument §trip management; gap Q9 | KAN-46 | To Do |
+| REQ-EXP-06 | Booking Hold Expiry | AC-EXP-06-01 to 04 | FE+BE | gap Q7; RequirementDocument §disruption | KAN-47 | In Progress |
+| REQ-EXP-07 | Approval Workflow | AC-EXP-07-01 to 05 | FE+BE | gap Q5, Q14 | KAN-48 | In Progress |
+| REQ-EXP-08 | Notification Delivery | AC-EXP-08-01 to 05 (fully specified — HITL-REQ-01 resolved) | BE | gap Q15; RequirementDocument §communications | KAN-49 | To Do |
+| REQ-CNT-01 | Sabre GDS Adapter | AC-CNT-01-01 to 09 (AC-CNT-01-09 added — HITL-REQ-03 resolved) | BE | gap Q2, Q6, Q11, ADR-008, ADR-009 | KAN-50 | To Do |
+| REQ-CNT-02 | GDS Response Normalisation | AC-CNT-02-01 to 05 | BE | RequirementDocument §normalize; gap Q13 | KAN-51 | To Do |
+| REQ-CNT-03 | Outbound Idempotency | AC-CNT-03-01 to 05 | BE | gap Q9, ADR-011 | KAN-52 | To Do |
+| REQ-CNT-04 | Webhook Ingestion | AC-CNT-04-01 to 06 | BE | gap Q12 | KAN-53 | To Do |
+| REQ-CNT-05 | Supplier Reconciliation | AC-CNT-05-01 to 05 | BE | gap row M2; RequirementDocument §recoverability | KAN-54 | To Do |
+| REQ-POL-01 | Synchronous Policy Evaluation | AC-POL-01-01 to 06 | FE+BE | RequirementDocument §policies; gap Q5, Q10, ADR-004 | KAN-55 | To Do |
+| REQ-POL-02 | Policy Rule Schema & Versioning | AC-POL-02-01 to 05 | BE | gap Q5, ADR-004 | KAN-56 | To Do |
+| REQ-POL-03 | Policy Override | AC-POL-03-01 to 06 | FE+BE | gap Q5, Q10, C1, ADR-014 | KAN-57 | To Do |
+| REQ-POL-04 | BLOCK Rule Behaviour | AC-POL-04-01 to 03 | FE+BE | gap Q10, ADR-004, GUARDRAIL-P2 | KAN-58 | To Do |
+| REQ-PAY-01 | Financial Event (21 Dimensions) | AC-PAY-01-01 to 07 (AC-PAY-01-07 added — HITL-REQ-02 resolved) | BE | RequirementDocument §Travel Context; gap Q16, C5 | KAN-59 | To Do |
+| REQ-PAY-02 | Cost Allocation | AC-PAY-02-01 to 06 | BE | gap Q8, C2, C3, ADR-003 | KAN-60 | To Do |
+| REQ-PAY-03 | Refund Request | AC-PAY-03-01 to 07 | FE+BE | RequirementDocument §refunds; gap Q3, Q7, S1 | KAN-61 | To Do |
+| REQ-PAY-04 | Refund Confirmation | AC-PAY-04-01 to 05 | BE | gap Q3, Q7, S1 | KAN-62 | To Do |
+| REQ-PAY-05 | Void (Same-Day Window) | AC-PAY-05-01 to 04 | BE | gap Q3; RequirementDocument §cancellations | KAN-63 | To Do |
+| REQ-PAY-06 | Form of Payment Tracking | AC-PAY-06-01 to 03 | BE | gap S3 | KAN-64 | To Do |
+| REQ-SVC-01 | CONFIRM_EXCEPTION Handling | AC-SVC-01-01 to 04 | FE+BE | gap B6, ADR-012 | KAN-65 | To Do |
+| REQ-SVC-02 | Refund Submission to Supplier | AC-SVC-02-01 to 03 | BE | RequirementDocument §refunds; gap Q3, Q7 | KAN-66 | To Do |
+| REQ-SVC-03 | Illegal State Transition Rejection | AC-SVC-03-01 to 04 | BE | gap M1; RequirementDocument §transaction integrity | KAN-67 | To Do |
+| REQ-DAT-01 | Transaction Spine Entities | AC-DAT-01-01 to 05 | BE | gap Q4, Q9, ADR-001, ADR-010 | KAN-68 | To Do |
+| REQ-DAT-02 | Append-Only Immutable Tables | AC-DAT-02-01 to 03 | BE | gap ADR-002, GUARDRAIL-D1 | KAN-69 | To Do |
+| REQ-DAT-03 | PII Pointer Model & GDPR Erasure | AC-DAT-03-01 to 04 | BE | gap Q4, GUARDRAIL-D3 | KAN-70 | To Do |
+| REQ-DAT-04 | Transactional Outbox & Event Delivery | AC-DAT-04-01 to 06 | BE | gap M4, ADR-013 | KAN-71 | To Do |
+| REQ-DAT-05 | Multi-Tenant Data Isolation | AC-DAT-05-01 to 03 | BE | RequirementDocument §enterprise; gap Q9, GUARDRAIL-D2 | KAN-72 | To Do |
+| REQ-XCT-01 | Correlation ID Propagation | AC-XCT-01-01 to 04 | BE | gap Q9, GUARDRAIL-A2 | KAN-73 | To Do |
+| REQ-XCT-02 | Authentication & Role-Based Access | AC-XCT-02-01 to 05 | BE | gap C6, GUARDRAIL-S2, S5, S6 | KAN-74 | To Do |
+| REQ-XCT-03 | Idempotency on Mutating Endpoints | AC-XCT-03-01 to 03 | BE | gap Q9, GUARDRAIL-A1, ADR-011 | KAN-75 | To Do |
+| REQ-XCT-04 | Structured Logging & Observability | AC-XCT-04-01 to 04 | BE | RequirementDocument §observability; gap GUARDRAIL-O1, S3 | KAN-76 | To Do |
+| REQ-XCT-05 | Error Response Format | AC-XCT-05-01 to 03 | FE+BE | gap §15.1 | KAN-77 | To Do |
+| REQ-XCT-06 | No Raw PAN Storage | AC-XCT-06-01 to 03 | BE | gap Q3, ADR-005, GUARDRAIL-S1 | KAN-78 | To Do |
+| REQ-XCT-07 | PAN Storage | AC-XCT-06-01 to 03 | BE | gap Q3, ADR-005, GUARDRAIL-S1 | TBD | Deferred |
 
 ---
 
@@ -847,199 +847,199 @@ All items below require a human decision before the related acceptance criteria 
 **Status: APPROVED — READY FOR DEVELOPMENT**
 ### AC_breakdown_AGENT Format Traceability Matrix
 
-| Domain | Requirement ID | AC ID | Priority | Layer | Source |
-|--------|----------------|-------|----------|-------|--------|
-| Experience | REQ-EXP-01 | AC-EXP-01-01 | P1 | FE+BE | Requirement Document |
-| Experience | REQ-EXP-01 | AC-EXP-01-02 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-01 | AC-EXP-01-03 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-01 | AC-EXP-01-04 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-01 | AC-EXP-01-05 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-01 | AC-EXP-01-06 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-01 | AC-EXP-01-07 | P0 | BE | Requirement Document |
-| Experience | REQ-EXP-01 | AC-EXP-01-08 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-02 | AC-EXP-02-01 | P1 | FE+BE | Requirement Document |
-| Experience | REQ-EXP-02 | AC-EXP-02-02 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-02 | AC-EXP-02-03 | P0 | BE | Requirement Document |
-| Experience | REQ-EXP-02 | AC-EXP-02-04 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-02 | AC-EXP-02-05 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-02 | AC-EXP-02-06 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-02 | AC-EXP-02-07 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-02 | AC-EXP-02-08 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-02 | AC-EXP-02-09 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-02 | AC-EXP-02-10 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-03 | AC-EXP-03-01 | P1 | FE+BE | Requirement Document |
-| Experience | REQ-EXP-03 | AC-EXP-03-02 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-03 | AC-EXP-03-03 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-03 | AC-EXP-03-04 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-03 | AC-EXP-03-05 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-03 | AC-EXP-03-06 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-03 | AC-EXP-03-07 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-03 | AC-EXP-03-08 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-03 | AC-EXP-03-09 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-04 | AC-EXP-04-01 | P1 | FE+BE | Requirement Document |
-| Experience | REQ-EXP-04 | AC-EXP-04-02 | P1 | FE+BE | Requirement Document |
-| Experience | REQ-EXP-04 | AC-EXP-04-03 | P1 | FE+BE | Requirement Document |
-| Experience | REQ-EXP-04 | AC-EXP-04-04 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-04 | AC-EXP-04-05 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-04 | AC-EXP-04-06 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-04 | AC-EXP-04-07 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-04 | AC-EXP-04-08 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-05 | AC-EXP-05-01 | P1 | FE+BE | Requirement Document |
-| Experience | REQ-EXP-05 | AC-EXP-05-02 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-05 | AC-EXP-05-03 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-05 | AC-EXP-05-04 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-05 | AC-EXP-05-05 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-06 | AC-EXP-06-01 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-06 | AC-EXP-06-02 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-06 | AC-EXP-06-03 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-06 | AC-EXP-06-04 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-07 | AC-EXP-07-01 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-07 | AC-EXP-07-02 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-07 | AC-EXP-07-03 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-07 | AC-EXP-07-04 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-07 | AC-EXP-07-05 | P2 | FE | Requirement Document |
-| Experience | REQ-EXP-08 | AC-EXP-08-01 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-08 | AC-EXP-08-02 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-08 | AC-EXP-08-03 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-08 | AC-EXP-08-04 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-08 | AC-EXP-08-05 | P1 | BE | Requirement Document |
-| Experience | REQ-EXP-08 | AC-EXP-08-06 | P0 | BE | Requirement Document |
-| Content | REQ-CNT-01 | AC-CNT-01-01 | P0 | BE | Requirement Document |
-| Content | REQ-CNT-01 | AC-CNT-01-02 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-01 | AC-CNT-01-03 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-01 | AC-CNT-01-04 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-01 | AC-CNT-01-05 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-01 | AC-CNT-01-06 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-01 | AC-CNT-01-07 | P0 | BE | Requirement Document |
-| Content | REQ-CNT-01 | AC-CNT-01-08 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-01 | AC-CNT-01-09 | P2 | BE | Requirement Document |
-| Content | REQ-CNT-02 | AC-CNT-02-01 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-02 | AC-CNT-02-02 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-02 | AC-CNT-02-03 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-02 | AC-CNT-02-04 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-02 | AC-CNT-02-05 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-03 | AC-CNT-03-01 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-03 | AC-CNT-03-02 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-03 | AC-CNT-03-03 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-03 | AC-CNT-03-04 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-03 | AC-CNT-03-05 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-04 | AC-CNT-04-01 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-04 | AC-CNT-04-02 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-04 | AC-CNT-04-03 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-04 | AC-CNT-04-04 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-04 | AC-CNT-04-05 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-04 | AC-CNT-04-06 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-05 | AC-CNT-05-01 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-05 | AC-CNT-05-02 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-05 | AC-CNT-05-03 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-05 | AC-CNT-05-04 | P1 | BE | Requirement Document |
-| Content | REQ-CNT-05 | AC-CNT-05-05 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-01 | AC-POL-01-01 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-01 | AC-POL-01-02 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-01 | AC-POL-01-03 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-01 | AC-POL-01-04 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-01 | AC-POL-01-05 | P2 | FE | Requirement Document |
-| Policy | REQ-POL-01 | AC-POL-01-06 | P2 | FE | Requirement Document |
-| Policy | REQ-POL-02 | AC-POL-02-01 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-02 | AC-POL-02-02 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-02 | AC-POL-02-03 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-02 | AC-POL-02-04 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-02 | AC-POL-02-05 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-03 | AC-POL-03-01 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-03 | AC-POL-03-02 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-03 | AC-POL-03-03 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-03 | AC-POL-03-04 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-03 | AC-POL-03-05 | P2 | FE | Requirement Document |
-| Policy | REQ-POL-03 | AC-POL-03-06 | P1 | BE | Requirement Document |
-| Policy | REQ-POL-04 | AC-POL-04-01 | P0 | BE | Requirement Document |
-| Policy | REQ-POL-04 | AC-POL-04-02 | P0 | BE | Requirement Document |
-| Policy | REQ-POL-04 | AC-POL-04-03 | P2 | FE | Requirement Document |
-| Payment & Expense | REQ-PAY-01 | AC-PAY-01-01 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-01 | AC-PAY-01-02 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-01 | AC-PAY-01-03 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-01 | AC-PAY-01-04 | P0 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-01 | AC-PAY-01-05 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-01 | AC-PAY-01-06 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-01 | AC-PAY-01-07 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-02 | AC-PAY-02-01 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-02 | AC-PAY-02-02 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-02 | AC-PAY-02-03 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-02 | AC-PAY-02-04 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-02 | AC-PAY-02-05 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-02 | AC-PAY-02-06 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-03 | AC-PAY-03-01 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-03 | AC-PAY-03-02 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-03 | AC-PAY-03-03 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-03 | AC-PAY-03-04 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-03 | AC-PAY-03-05 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-03 | AC-PAY-03-06 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-03 | AC-PAY-03-07 | P2 | FE | Requirement Document |
-| Payment & Expense | REQ-PAY-04 | AC-PAY-04-01 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-04 | AC-PAY-04-02 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-04 | AC-PAY-04-03 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-04 | AC-PAY-04-04 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-04 | AC-PAY-04-05 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-05 | AC-PAY-05-01 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-05 | AC-PAY-05-02 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-05 | AC-PAY-05-03 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-05 | AC-PAY-05-04 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-06 | AC-PAY-06-01 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-06 | AC-PAY-06-02 | P1 | BE | Requirement Document |
-| Payment & Expense | REQ-PAY-06 | AC-PAY-06-03 | P1 | BE | Requirement Document |
-| Servicing | REQ-SVC-01 | AC-SVC-01-01 | P0 | BE | Requirement Document |
-| Servicing | REQ-SVC-01 | AC-SVC-01-02 | P1 | BE | Requirement Document |
-| Servicing | REQ-SVC-01 | AC-SVC-01-03 | P0 | BE | Requirement Document |
-| Servicing | REQ-SVC-01 | AC-SVC-01-04 | P2 | FE | Requirement Document |
-| Servicing | REQ-SVC-02 | AC-SVC-02-01 | P1 | BE | Requirement Document |
-| Servicing | REQ-SVC-02 | AC-SVC-02-02 | P1 | BE | Requirement Document |
-| Servicing | REQ-SVC-02 | AC-SVC-02-03 | P1 | BE | Requirement Document |
-| Servicing | REQ-SVC-03 | AC-SVC-03-01 | P1 | BE | Requirement Document |
-| Servicing | REQ-SVC-03 | AC-SVC-03-02 | P1 | BE | Requirement Document |
-| Servicing | REQ-SVC-03 | AC-SVC-03-03 | P1 | BE | Requirement Document |
-| Servicing | REQ-SVC-03 | AC-SVC-03-04 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-01 | AC-DAT-01-01 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-01 | AC-DAT-01-02 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-01 | AC-DAT-01-03 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-01 | AC-DAT-01-04 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-01 | AC-DAT-01-05 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-02 | AC-DAT-02-01 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-02 | AC-DAT-02-02 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-02 | AC-DAT-02-03 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-03 | AC-DAT-03-01 | P0 | BE | Requirement Document |
-| Data | REQ-DAT-03 | AC-DAT-03-02 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-03 | AC-DAT-03-03 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-03 | AC-DAT-03-04 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-04 | AC-DAT-04-01 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-04 | AC-DAT-04-02 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-04 | AC-DAT-04-03 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-04 | AC-DAT-04-04 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-04 | AC-DAT-04-05 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-04 | AC-DAT-04-06 | P1 | BE | Requirement Document |
-| Data | REQ-DAT-05 | AC-DAT-05-01 | P0 | BE | Requirement Document |
-| Data | REQ-DAT-05 | AC-DAT-05-02 | P0 | BE | Requirement Document |
-| Data | REQ-DAT-05 | AC-DAT-05-03 | P0 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-01 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-02 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-03 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-04 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-01 | P0 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-02 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-03 | P0 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-04 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-05 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-01 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-02 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-03 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-01 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-02 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-03 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-04 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-01 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-02 | P1 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-03 | P2 | FE | Requirement Document |
-| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-01 | P0 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-02 | P0 | BE | Requirement Document |
-| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-03 | P1 | BE | Requirement Document |
+| Domain | Requirement ID | AC ID | Priority | Layer | Source | JIRA ID | Jira Status |
+|--------|----------------|-------|----------|-------|--------|---------|-------------|
+| Experience | REQ-EXP-01 | AC-EXP-01-01 | P1 | FE+BE | Requirement Document | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-02 | P2 | FE | Requirement Document | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-03 | P2 | FE | Requirement Document | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-04 | P2 | FE | Requirement Document | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-05 | P1 | BE | Requirement Document | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-06 | P1 | BE | Requirement Document | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-07 | P0 | BE | Requirement Document | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-08 | P1 | BE | Requirement Document | KAN-42 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-01 | P1 | FE+BE | Requirement Document | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-02 | P1 | BE | Requirement Document | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-03 | P0 | BE | Requirement Document | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-04 | P1 | BE | Requirement Document | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-05 | P2 | FE | Requirement Document | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-06 | P1 | BE | Requirement Document | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-07 | P1 | BE | Requirement Document | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-08 | P1 | BE | Requirement Document | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-09 | P1 | BE | Requirement Document | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-10 | P2 | FE | Requirement Document | KAN-43 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-01 | P1 | FE+BE | Requirement Document | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-02 | P1 | BE | Requirement Document | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-03 | P1 | BE | Requirement Document | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-04 | P1 | BE | Requirement Document | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-05 | P1 | BE | Requirement Document | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-06 | P1 | BE | Requirement Document | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-07 | P2 | FE | Requirement Document | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-08 | P2 | FE | Requirement Document | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-09 | P1 | BE | Requirement Document | KAN-44 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-01 | P1 | FE+BE | Requirement Document | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-02 | P1 | FE+BE | Requirement Document | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-03 | P1 | FE+BE | Requirement Document | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-04 | P1 | BE | Requirement Document | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-05 | P2 | FE | Requirement Document | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-06 | P1 | BE | Requirement Document | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-07 | P1 | BE | Requirement Document | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-08 | P1 | BE | Requirement Document | KAN-45 | In Progress |
+| Experience | REQ-EXP-05 | AC-EXP-05-01 | P1 | FE+BE | Requirement Document | KAN-46 | To Do |
+| Experience | REQ-EXP-05 | AC-EXP-05-02 | P1 | BE | Requirement Document | KAN-46 | To Do |
+| Experience | REQ-EXP-05 | AC-EXP-05-03 | P1 | BE | Requirement Document | KAN-46 | To Do |
+| Experience | REQ-EXP-05 | AC-EXP-05-04 | P2 | FE | Requirement Document | KAN-46 | To Do |
+| Experience | REQ-EXP-05 | AC-EXP-05-05 | P2 | FE | Requirement Document | KAN-46 | To Do |
+| Experience | REQ-EXP-06 | AC-EXP-06-01 | P1 | BE | Requirement Document | KAN-47 | In Progress |
+| Experience | REQ-EXP-06 | AC-EXP-06-02 | P1 | BE | Requirement Document | KAN-47 | In Progress |
+| Experience | REQ-EXP-06 | AC-EXP-06-03 | P2 | FE | Requirement Document | KAN-47 | In Progress |
+| Experience | REQ-EXP-06 | AC-EXP-06-04 | P1 | BE | Requirement Document | KAN-47 | In Progress |
+| Experience | REQ-EXP-07 | AC-EXP-07-01 | P1 | BE | Requirement Document | KAN-48 | In Progress |
+| Experience | REQ-EXP-07 | AC-EXP-07-02 | P1 | BE | Requirement Document | KAN-48 | In Progress |
+| Experience | REQ-EXP-07 | AC-EXP-07-03 | P1 | BE | Requirement Document | KAN-48 | In Progress |
+| Experience | REQ-EXP-07 | AC-EXP-07-04 | P1 | BE | Requirement Document | KAN-48 | In Progress |
+| Experience | REQ-EXP-07 | AC-EXP-07-05 | P2 | FE | Requirement Document | KAN-48 | In Progress |
+| Experience | REQ-EXP-08 | AC-EXP-08-01 | P1 | BE | Requirement Document | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-02 | P1 | BE | Requirement Document | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-03 | P1 | BE | Requirement Document | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-04 | P1 | BE | Requirement Document | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-05 | P1 | BE | Requirement Document | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-06 | P0 | BE | Requirement Document | KAN-49 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-01 | P0 | BE | Requirement Document | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-02 | P1 | BE | Requirement Document | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-03 | P1 | BE | Requirement Document | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-04 | P1 | BE | Requirement Document | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-05 | P1 | BE | Requirement Document | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-06 | P1 | BE | Requirement Document | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-07 | P0 | BE | Requirement Document | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-08 | P1 | BE | Requirement Document | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-09 | P2 | BE | Requirement Document | KAN-50 | To Do |
+| Content | REQ-CNT-02 | AC-CNT-02-01 | P1 | BE | Requirement Document | KAN-51 | To Do |
+| Content | REQ-CNT-02 | AC-CNT-02-02 | P1 | BE | Requirement Document | KAN-51 | To Do |
+| Content | REQ-CNT-02 | AC-CNT-02-03 | P1 | BE | Requirement Document | KAN-51 | To Do |
+| Content | REQ-CNT-02 | AC-CNT-02-04 | P1 | BE | Requirement Document | KAN-51 | To Do |
+| Content | REQ-CNT-02 | AC-CNT-02-05 | P1 | BE | Requirement Document | KAN-51 | To Do |
+| Content | REQ-CNT-03 | AC-CNT-03-01 | P1 | BE | Requirement Document | KAN-52 | To Do |
+| Content | REQ-CNT-03 | AC-CNT-03-02 | P1 | BE | Requirement Document | KAN-52 | To Do |
+| Content | REQ-CNT-03 | AC-CNT-03-03 | P1 | BE | Requirement Document | KAN-52 | To Do |
+| Content | REQ-CNT-03 | AC-CNT-03-04 | P1 | BE | Requirement Document | KAN-52 | To Do |
+| Content | REQ-CNT-03 | AC-CNT-03-05 | P1 | BE | Requirement Document | KAN-52 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-01 | P1 | BE | Requirement Document | KAN-53 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-02 | P1 | BE | Requirement Document | KAN-53 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-03 | P1 | BE | Requirement Document | KAN-53 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-04 | P1 | BE | Requirement Document | KAN-53 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-05 | P1 | BE | Requirement Document | KAN-53 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-06 | P1 | BE | Requirement Document | KAN-53 | To Do |
+| Content | REQ-CNT-05 | AC-CNT-05-01 | P1 | BE | Requirement Document | KAN-54 | To Do |
+| Content | REQ-CNT-05 | AC-CNT-05-02 | P1 | BE | Requirement Document | KAN-54 | To Do |
+| Content | REQ-CNT-05 | AC-CNT-05-03 | P1 | BE | Requirement Document | KAN-54 | To Do |
+| Content | REQ-CNT-05 | AC-CNT-05-04 | P1 | BE | Requirement Document | KAN-54 | To Do |
+| Content | REQ-CNT-05 | AC-CNT-05-05 | P1 | BE | Requirement Document | KAN-54 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-01 | P1 | BE | Requirement Document | KAN-55 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-02 | P1 | BE | Requirement Document | KAN-55 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-03 | P1 | BE | Requirement Document | KAN-55 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-04 | P1 | BE | Requirement Document | KAN-55 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-05 | P2 | FE | Requirement Document | KAN-55 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-06 | P2 | FE | Requirement Document | KAN-55 | To Do |
+| Policy | REQ-POL-02 | AC-POL-02-01 | P1 | BE | Requirement Document | KAN-56 | To Do |
+| Policy | REQ-POL-02 | AC-POL-02-02 | P1 | BE | Requirement Document | KAN-56 | To Do |
+| Policy | REQ-POL-02 | AC-POL-02-03 | P1 | BE | Requirement Document | KAN-56 | To Do |
+| Policy | REQ-POL-02 | AC-POL-02-04 | P1 | BE | Requirement Document | KAN-56 | To Do |
+| Policy | REQ-POL-02 | AC-POL-02-05 | P1 | BE | Requirement Document | KAN-56 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-01 | P1 | BE | Requirement Document | KAN-57 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-02 | P1 | BE | Requirement Document | KAN-57 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-03 | P1 | BE | Requirement Document | KAN-57 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-04 | P1 | BE | Requirement Document | KAN-57 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-05 | P2 | FE | Requirement Document | KAN-57 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-06 | P1 | BE | Requirement Document | KAN-57 | To Do |
+| Policy | REQ-POL-04 | AC-POL-04-01 | P0 | BE | Requirement Document | KAN-58 | To Do |
+| Policy | REQ-POL-04 | AC-POL-04-02 | P0 | BE | Requirement Document | KAN-58 | To Do |
+| Policy | REQ-POL-04 | AC-POL-04-03 | P2 | FE | Requirement Document | KAN-58 | To Do |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-01 | P1 | BE | Requirement Document | KAN-59 | To Do |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-02 | P1 | BE | Requirement Document | KAN-59 | To Do |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-03 | P1 | BE | Requirement Document | KAN-59 | To Do |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-04 | P0 | BE | Requirement Document | KAN-59 | To Do |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-05 | P1 | BE | Requirement Document | KAN-59 | To Do |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-06 | P1 | BE | Requirement Document | KAN-59 | To Do |
+| Payment & Expense | REQ-PAY-01 | AC-PAY-01-07 | P1 | BE | Requirement Document | KAN-59 | To Do |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-01 | P1 | BE | Requirement Document | KAN-60 | To Do |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-02 | P1 | BE | Requirement Document | KAN-60 | To Do |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-03 | P1 | BE | Requirement Document | KAN-60 | To Do |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-04 | P1 | BE | Requirement Document | KAN-60 | To Do |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-05 | P1 | BE | Requirement Document | KAN-60 | To Do |
+| Payment & Expense | REQ-PAY-02 | AC-PAY-02-06 | P1 | BE | Requirement Document | KAN-60 | To Do |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-01 | P1 | BE | Requirement Document | KAN-61 | To Do |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-02 | P1 | BE | Requirement Document | KAN-61 | To Do |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-03 | P1 | BE | Requirement Document | KAN-61 | To Do |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-04 | P1 | BE | Requirement Document | KAN-61 | To Do |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-05 | P1 | BE | Requirement Document | KAN-61 | To Do |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-06 | P1 | BE | Requirement Document | KAN-61 | To Do |
+| Payment & Expense | REQ-PAY-03 | AC-PAY-03-07 | P2 | FE | Requirement Document | KAN-61 | To Do |
+| Payment & Expense | REQ-PAY-04 | AC-PAY-04-01 | P1 | BE | Requirement Document | KAN-62 | To Do |
+| Payment & Expense | REQ-PAY-04 | AC-PAY-04-02 | P1 | BE | Requirement Document | KAN-62 | To Do |
+| Payment & Expense | REQ-PAY-04 | AC-PAY-04-03 | P1 | BE | Requirement Document | KAN-62 | To Do |
+| Payment & Expense | REQ-PAY-04 | AC-PAY-04-04 | P1 | BE | Requirement Document | KAN-62 | To Do |
+| Payment & Expense | REQ-PAY-04 | AC-PAY-04-05 | P1 | BE | Requirement Document | KAN-62 | To Do |
+| Payment & Expense | REQ-PAY-05 | AC-PAY-05-01 | P1 | BE | Requirement Document | KAN-63 | To Do |
+| Payment & Expense | REQ-PAY-05 | AC-PAY-05-02 | P1 | BE | Requirement Document | KAN-63 | To Do |
+| Payment & Expense | REQ-PAY-05 | AC-PAY-05-03 | P1 | BE | Requirement Document | KAN-63 | To Do |
+| Payment & Expense | REQ-PAY-05 | AC-PAY-05-04 | P1 | BE | Requirement Document | KAN-63 | To Do |
+| Payment & Expense | REQ-PAY-06 | AC-PAY-06-01 | P1 | BE | Requirement Document | KAN-64 | To Do |
+| Payment & Expense | REQ-PAY-06 | AC-PAY-06-02 | P1 | BE | Requirement Document | KAN-64 | To Do |
+| Payment & Expense | REQ-PAY-06 | AC-PAY-06-03 | P1 | BE | Requirement Document | KAN-64 | To Do |
+| Servicing | REQ-SVC-01 | AC-SVC-01-01 | P0 | BE | Requirement Document | KAN-65 | To Do |
+| Servicing | REQ-SVC-01 | AC-SVC-01-02 | P1 | BE | Requirement Document | KAN-65 | To Do |
+| Servicing | REQ-SVC-01 | AC-SVC-01-03 | P0 | BE | Requirement Document | KAN-65 | To Do |
+| Servicing | REQ-SVC-01 | AC-SVC-01-04 | P2 | FE | Requirement Document | KAN-65 | To Do |
+| Servicing | REQ-SVC-02 | AC-SVC-02-01 | P1 | BE | Requirement Document | KAN-66 | To Do |
+| Servicing | REQ-SVC-02 | AC-SVC-02-02 | P1 | BE | Requirement Document | KAN-66 | To Do |
+| Servicing | REQ-SVC-02 | AC-SVC-02-03 | P1 | BE | Requirement Document | KAN-66 | To Do |
+| Servicing | REQ-SVC-03 | AC-SVC-03-01 | P1 | BE | Requirement Document | KAN-67 | To Do |
+| Servicing | REQ-SVC-03 | AC-SVC-03-02 | P1 | BE | Requirement Document | KAN-67 | To Do |
+| Servicing | REQ-SVC-03 | AC-SVC-03-03 | P1 | BE | Requirement Document | KAN-67 | To Do |
+| Servicing | REQ-SVC-03 | AC-SVC-03-04 | P1 | BE | Requirement Document | KAN-67 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-01 | P1 | BE | Requirement Document | KAN-68 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-02 | P1 | BE | Requirement Document | KAN-68 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-03 | P1 | BE | Requirement Document | KAN-68 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-04 | P1 | BE | Requirement Document | KAN-68 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-05 | P1 | BE | Requirement Document | KAN-68 | To Do |
+| Data | REQ-DAT-02 | AC-DAT-02-01 | P1 | BE | Requirement Document | KAN-69 | To Do |
+| Data | REQ-DAT-02 | AC-DAT-02-02 | P1 | BE | Requirement Document | KAN-69 | To Do |
+| Data | REQ-DAT-02 | AC-DAT-02-03 | P1 | BE | Requirement Document | KAN-69 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-01 | P0 | BE | Requirement Document | KAN-70 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-02 | P1 | BE | Requirement Document | KAN-70 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-03 | P1 | BE | Requirement Document | KAN-70 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-04 | P1 | BE | Requirement Document | KAN-70 | To Do |
+| Data | REQ-DAT-04 | AC-DAT-04-01 | P1 | BE | Requirement Document | KAN-71 | To Do |
+| Data | REQ-DAT-04 | AC-DAT-04-02 | P1 | BE | Requirement Document | KAN-71 | To Do |
+| Data | REQ-DAT-04 | AC-DAT-04-03 | P1 | BE | Requirement Document | KAN-71 | To Do |
+| Data | REQ-DAT-04 | AC-DAT-04-04 | P1 | BE | Requirement Document | KAN-71 | To Do |
+| Data | REQ-DAT-04 | AC-DAT-04-05 | P1 | BE | Requirement Document | KAN-71 | To Do |
+| Data | REQ-DAT-04 | AC-DAT-04-06 | P1 | BE | Requirement Document | KAN-71 | To Do |
+| Data | REQ-DAT-05 | AC-DAT-05-01 | P0 | BE | Requirement Document | KAN-72 | To Do |
+| Data | REQ-DAT-05 | AC-DAT-05-02 | P0 | BE | Requirement Document | KAN-72 | To Do |
+| Data | REQ-DAT-05 | AC-DAT-05-03 | P0 | BE | Requirement Document | KAN-72 | To Do |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-01 | P1 | BE | Requirement Document | KAN-73 | To Do |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-02 | P1 | BE | Requirement Document | KAN-73 | To Do |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-03 | P1 | BE | Requirement Document | KAN-73 | To Do |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-04 | P1 | BE | Requirement Document | KAN-73 | To Do |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-01 | P0 | BE | Requirement Document | KAN-74 | To Do |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-02 | P1 | BE | Requirement Document | KAN-74 | To Do |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-03 | P0 | BE | Requirement Document | KAN-74 | To Do |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-04 | P1 | BE | Requirement Document | KAN-74 | To Do |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-05 | P1 | BE | Requirement Document | KAN-74 | To Do |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-01 | P1 | BE | Requirement Document | KAN-75 | To Do |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-02 | P1 | BE | Requirement Document | KAN-75 | To Do |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-03 | P1 | BE | Requirement Document | KAN-75 | To Do |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-01 | P1 | BE | Requirement Document | KAN-76 | To Do |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-02 | P1 | BE | Requirement Document | KAN-76 | To Do |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-03 | P1 | BE | Requirement Document | KAN-76 | To Do |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-04 | P1 | BE | Requirement Document | KAN-76 | To Do |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-01 | P1 | BE | Requirement Document | KAN-77 | To Do |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-02 | P1 | BE | Requirement Document | KAN-77 | To Do |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-03 | P2 | FE | Requirement Document | KAN-77 | To Do |
+| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-01 | P0 | BE | Requirement Document | KAN-78 | To Do |
+| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-02 | P0 | BE | Requirement Document | KAN-78 | To Do |
+| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-03 | P1 | BE | Requirement Document | KAN-78 | To Do |
 
 **Total Requirements: 37**  
 **Total Acceptance Criteria: 170**  
