@@ -10,7 +10,7 @@
         "command": "node .kiro/phoenix/trace-hook.cjs"
       },
       "timeout": 10,
-      "enabled": true
+      "enabled": false
     },
     {
       "name": "Phoenix - Pre Tool",
@@ -22,7 +22,7 @@
         "command": "node .kiro/phoenix/trace-hook.cjs"
       },
       "timeout": 10,
-      "enabled": true
+      "enabled": false
     },
     {
       "name": "Phoenix - Post Tool",
@@ -34,7 +34,7 @@
         "command": "node .kiro/phoenix/trace-hook.cjs"
       },
       "timeout": 10,
-      "enabled": true
+      "enabled": false
     },
     {
       "name": "Phoenix - Agent Stop",
@@ -45,7 +45,7 @@
         "command": "node .kiro/phoenix/trace-hook.cjs"
       },
       "timeout": 10,
-      "enabled": true
+      "enabled": false
     }
   ]
 }

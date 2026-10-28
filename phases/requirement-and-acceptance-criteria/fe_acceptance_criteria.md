@@ -190,36 +190,36 @@ Front-end notification templates for booking confirmation, approval request, hol
 
 | Domain | Requirement ID | AC ID | Priority | Layer | Source | JIRA ID | Jira Status |
 |--------|----------------|-------|----------|-------|--------|---------|-------------|
-| Experience | REQ-EXP-01 | AC-EXP-01-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q2, Q6 | KAN-5 | To Do |
-| Experience | REQ-EXP-01 | AC-EXP-01-02 | P1 | FE | RequirementDocument.md | KAN-5 | To Do |
-| Experience | REQ-EXP-01 | AC-EXP-01-03 | P1 | FE | RequirementDocument.md | KAN-5 | To Do |
-| Experience | REQ-EXP-01 | AC-EXP-01-04 | P1 | FE | RequirementDocument.md | KAN-5 | To Do |
-| Experience | REQ-EXP-02 | AC-EXP-02-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q1, Q2, Q7 | KAN-6 | To Do |
-| Experience | REQ-EXP-02 | AC-EXP-02-05 | P0 | FE | RequirementDocument.md | KAN-6 | To Do |
-| Experience | REQ-EXP-02 | AC-EXP-02-10 | P0 | FE | RequirementDocument.md | KAN-6 | To Do |
-| Experience | REQ-EXP-03 | AC-EXP-03-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q1, Q3 | KAN-7 | To Do |
-| Experience | REQ-EXP-03 | AC-EXP-03-07 | P1 | FE | RequirementDocument.md | KAN-7 | To Do |
-| Experience | REQ-EXP-03 | AC-EXP-03-08 | P0 | FE | RequirementDocument.md | KAN-7 | To Do |
-| Experience | REQ-EXP-04 | AC-EXP-04-01 | P0 | FE+BE | RequirementDocument.md | KAN-8 | To Do |
-| Experience | REQ-EXP-04 | AC-EXP-04-02 | P0 | FE+BE | RequirementDocument.md | KAN-8 | To Do |
-| Experience | REQ-EXP-04 | AC-EXP-04-03 | P0 | FE+BE | RequirementDocument.md | KAN-8 | To Do |
-| Experience | REQ-EXP-04 | AC-EXP-04-05 | P0 | FE | RequirementDocument.md | KAN-8 | To Do |
-| Experience | REQ-EXP-05 | AC-EXP-05-01 | P0 | FE+BE | RequirementDocument.md | KAN-9 | To Do |
-| Experience | REQ-EXP-05 | AC-EXP-05-04 | P1 | FE | RequirementDocument.md | KAN-9 | To Do |
-| Experience | REQ-EXP-05 | AC-EXP-05-05 | P1 | FE | RequirementDocument.md | KAN-9 | To Do |
-| Experience | REQ-EXP-06 | AC-EXP-06-03 | P1 | FE | RequirementDocument.md | KAN-10 | To Do |
-| Experience | REQ-EXP-07 | AC-EXP-07-05 | P1 | FE | RequirementDocument.md | KAN-11 | To Do |
-| Experience | REQ-EXP-08 | AC-EXP-08-01 | P1 | FE trigger | RequirementDocument.md | TBD | Pending |
-| Experience | REQ-EXP-08 | AC-EXP-08-02 | P1 | FE trigger | RequirementDocument.md | TBD | Pending |
-| Experience | REQ-EXP-08 | AC-EXP-08-03 | P1 | FE trigger | RequirementDocument.md | TBD | Pending |
-| Experience | REQ-EXP-08 | AC-EXP-08-04 | P1 | FE trigger | RequirementDocument.md | TBD | Pending |
-| Policy | REQ-POL-01 | AC-POL-01-05 | P0 | FE | RequirementDocument.md | TBD | Pending |
-| Policy | REQ-POL-01 | AC-POL-01-06 | P0 | FE | RequirementDocument.md | TBD | Pending |
-| Policy | REQ-POL-03 | AC-POL-03-05 | P1 | FE | RequirementDocument.md | TBD | Pending |
-| Policy | REQ-POL-04 | AC-POL-04-03 | P0 | FE | RequirementDocument.md | TBD | Pending |
-| Payment | REQ-PAY-03 | AC-PAY-03-07 | P0 | FE | RequirementDocument.md | TBD | Pending |
-| Servicing | REQ-SVC-01 | AC-SVC-01-04 | P1 | FE | RequirementDocument.md | TBD | Pending |
-| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-03 | P1 | FE | RequirementDocument.md | TBD | Pending |
+| Experience | REQ-EXP-01 | AC-EXP-01-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q2, Q6 | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-02 | P1 | FE | RequirementDocument.md | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-03 | P1 | FE | RequirementDocument.md | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-04 | P1 | FE | RequirementDocument.md | KAN-42 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q1, Q2, Q7 | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-05 | P0 | FE | RequirementDocument.md | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-10 | P0 | FE | RequirementDocument.md | KAN-43 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q1, Q3 | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-07 | P1 | FE | RequirementDocument.md | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-08 | P0 | FE | RequirementDocument.md | KAN-44 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-01 | P0 | FE+BE | RequirementDocument.md | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-02 | P0 | FE+BE | RequirementDocument.md | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-03 | P0 | FE+BE | RequirementDocument.md | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-05 | P0 | FE | RequirementDocument.md | KAN-45 | In Progress |
+| Experience | REQ-EXP-05 | AC-EXP-05-01 | P0 | FE+BE | RequirementDocument.md | KAN-46 | To Do |
+| Experience | REQ-EXP-05 | AC-EXP-05-04 | P1 | FE | RequirementDocument.md | KAN-46 | To Do |
+| Experience | REQ-EXP-05 | AC-EXP-05-05 | P1 | FE | RequirementDocument.md | KAN-46 | To Do |
+| Experience | REQ-EXP-06 | AC-EXP-06-03 | P1 | FE | RequirementDocument.md | KAN-47 | In Progress |
+| Experience | REQ-EXP-07 | AC-EXP-07-05 | P1 | FE | RequirementDocument.md | KAN-48 | In Progress |
+| Experience | REQ-EXP-08 | AC-EXP-08-01 | P1 | FE trigger | RequirementDocument.md | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-02 | P1 | FE trigger | RequirementDocument.md | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-03 | P1 | FE trigger | RequirementDocument.md | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-04 | P1 | FE trigger | RequirementDocument.md | KAN-49 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-05 | P0 | FE | RequirementDocument.md | KAN-55 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-06 | P0 | FE | RequirementDocument.md | KAN-55 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-05 | P1 | FE | RequirementDocument.md | KAN-57 | To Do |
+| Policy | REQ-POL-04 | AC-POL-04-03 | P0 | FE | RequirementDocument.md | KAN-58 | To Do |
+| Payment | REQ-PAY-03 | AC-PAY-03-07 | P0 | FE | RequirementDocument.md | KAN-61 | To Do |
+| Servicing | REQ-SVC-01 | AC-SVC-01-04 | P1 | FE | RequirementDocument.md | KAN-65 | To Do |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-03 | P1 | FE | RequirementDocument.md | KAN-77 | To Do | 
 
 ### Legacy Traceability Matrix (for reference)
 

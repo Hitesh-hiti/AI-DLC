@@ -744,207 +744,207 @@
 
 | Domain | Requirement ID | AC ID | Priority | Layer | Source | JIRA ID | Jira Status |
 |--------|----------------|-------|----------|-------|--------|---------|-------------|
-| Experience | REQ-EXP-01 | AC-EXP-01-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q2, Q6 | KAN-5 | To Do |
-| Experience | REQ-EXP-01 | AC-EXP-01-05 | P0 | BE | RequirementDocument.md | KAN-5 | To Do |
-| Experience | REQ-EXP-01 | AC-EXP-01-06 | P1 | BE | RequirementDocument.md | KAN-5 | To Do |
-| Experience | REQ-EXP-01 | AC-EXP-01-07 | P1 | BE | RequirementDocument.md | KAN-5 | To Do |
-| Experience | REQ-EXP-01 | AC-EXP-01-08 | P1 | BE | RequirementDocument.md | KAN-5 | To Do |
-| Experience | REQ-EXP-02 | AC-EXP-02-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q1, Q2, Q7 | KAN-6 | To Do |
-| Experience | REQ-EXP-02 | AC-EXP-02-02 | P0 | BE | RequirementDocument.md | KAN-6 | To Do |
-| Experience | REQ-EXP-02 | AC-EXP-02-03 | P0 | BE | RequirementDocument.md | KAN-6 | To Do |
-| Experience | REQ-EXP-02 | AC-EXP-02-04 | P0 | BE | RequirementDocument.md | KAN-6 | To Do |
-| Experience | REQ-EXP-02 | AC-EXP-02-06 | P1 | BE | RequirementDocument.md | KAN-6 | To Do |
-| Experience | REQ-EXP-02 | AC-EXP-02-07 | P1 | BE | RequirementDocument.md | KAN-6 | To Do |
-| Experience | REQ-EXP-02 | AC-EXP-02-08 | P1 | BE | RequirementDocument.md | KAN-6 | To Do |
-| Experience | REQ-EXP-02 | AC-EXP-02-09 | P1 | BE | RequirementDocument.md | KAN-6 | To Do |
-| Experience | REQ-EXP-03 | AC-EXP-03-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q1, Q3 | KAN-7 | To Do |
-| Experience | REQ-EXP-03 | AC-EXP-03-02 | P0 | BE | RequirementDocument.md | KAN-7 | To Do |
-| Experience | REQ-EXP-03 | AC-EXP-03-03 | P0 | BE | RequirementDocument.md | KAN-7 | To Do |
-| Experience | REQ-EXP-03 | AC-EXP-03-04 | P1 | BE | RequirementDocument.md | KAN-7 | To Do |
-| Experience | REQ-EXP-03 | AC-EXP-03-05 | P1 | BE | RequirementDocument.md | KAN-7 | To Do |
-| Experience | REQ-EXP-03 | AC-EXP-03-06 | P1 | BE | RequirementDocument.md | KAN-7 | To Do |
-| Experience | REQ-EXP-03 | AC-EXP-03-09 | P1 | BE | RequirementDocument.md | KAN-7 | To Do |
-| Experience | REQ-EXP-04 | AC-EXP-04-01 | P0 | FE+BE | RequirementDocument.md | KAN-8 | To Do |
-| Experience | REQ-EXP-04 | AC-EXP-04-02 | P0 | FE+BE | RequirementDocument.md | KAN-8 | To Do |
-| Experience | REQ-EXP-04 | AC-EXP-04-03 | P0 | FE+BE | RequirementDocument.md | KAN-8 | To Do |
-| Experience | REQ-EXP-04 | AC-EXP-04-04 | P0 | BE | RequirementDocument.md | KAN-8 | To Do |
-| Experience | REQ-EXP-04 | AC-EXP-04-06 | P1 | BE | RequirementDocument.md | KAN-8 | To Do |
-| Experience | REQ-EXP-04 | AC-EXP-04-07 | P1 | BE | RequirementDocument.md | KAN-8 | To Do |
-| Experience | REQ-EXP-04 | AC-EXP-04-08 | P1 | BE | RequirementDocument.md | KAN-8 | To Do |
-| Experience | REQ-EXP-05 | AC-EXP-05-01 | P0 | FE+BE | RequirementDocument.md | KAN-9 | To Do |
-| Experience | REQ-EXP-05 | AC-EXP-05-02 | P1 | BE | RequirementDocument.md | KAN-9 | To Do |
-| Experience | REQ-EXP-05 | AC-EXP-05-03 | P1 | BE | RequirementDocument.md | KAN-9 | To Do |
-| Experience | REQ-EXP-06 | AC-EXP-06-01 | P1 | BE | RequirementDocument.md | KAN-10 | To Do |
-| Experience | REQ-EXP-06 | AC-EXP-06-02 | P1 | BE | RequirementDocument.md | KAN-10 | To Do |
-| Experience | REQ-EXP-06 | AC-EXP-06-04 | P1 | BE | RequirementDocument.md | KAN-10 | To Do |
-| Experience | REQ-EXP-07 | AC-EXP-07-01 | P1 | BE | RequirementDocument.md | KAN-11 | To Do |
-| Experience | REQ-EXP-07 | AC-EXP-07-02 | P1 | BE | RequirementDocument.md | KAN-11 | To Do |
-| Experience | REQ-EXP-07 | AC-EXP-07-03 | P1 | BE | RequirementDocument.md | KAN-11 | To Do |
-| Experience | REQ-EXP-07 | AC-EXP-07-04 | P1 | BE | RequirementDocument.md | KAN-11 | To Do |
-| Experience | REQ-EXP-08 | AC-EXP-08-01 | P1 | BE | RequirementDocument.md | KAN-12 | To Do |
-| Experience | REQ-EXP-08 | AC-EXP-08-02 | P1 | BE | RequirementDocument.md | KAN-12 | To Do |
-| Experience | REQ-EXP-08 | AC-EXP-08-03 | P1 | BE | RequirementDocument.md | KAN-12 | To Do |
-| Experience | REQ-EXP-08 | AC-EXP-08-04 | P1 | BE | RequirementDocument.md | KAN-12 | To Do |
-| Experience | REQ-EXP-08 | AC-EXP-08-05 | P1 | BE | RequirementDocument.md | KAN-12 | To Do |
-| Content | REQ-CNT-01 | AC-CNT-01-01 | P0 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-13 | To Do |
-| Content | REQ-CNT-01 | AC-CNT-01-02 | P0 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-13 | To Do |
-| Content | REQ-CNT-01 | AC-CNT-01-03 | P0 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-13 | To Do |
-| Content | REQ-CNT-01 | AC-CNT-01-04 | P0 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-13 | To Do |
-| Content | REQ-CNT-01 | AC-CNT-01-05 | P1 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-13 | To Do |
-| Content | REQ-CNT-01 | AC-CNT-01-06 | P1 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-13 | To Do |
-| Content | REQ-CNT-01 | AC-CNT-01-07 | P1 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-13 | To Do |
-| Content | REQ-CNT-01 | AC-CNT-01-08 | P1 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-13 | To Do |
-| Content | REQ-CNT-02 | AC-CNT-02-01 | P0 | BE | gap-analysis.md Q13 | KAN-14 | To Do |
-| Content | REQ-CNT-02 | AC-CNT-02-02 | P0 | BE | gap-analysis.md Q13 | KAN-14 | To Do |
-| Content | REQ-CNT-02 | AC-CNT-02-03 | P0 | BE | gap-analysis.md Q13 | KAN-14 | To Do |
-| Content | REQ-CNT-02 | AC-CNT-02-04 | P0 | BE | gap-analysis.md Q13 | KAN-14 | To Do |
-| Content | REQ-CNT-02 | AC-CNT-02-05 | P0 | BE | gap-analysis.md Q13 | KAN-14 | To Do |
-| Content | REQ-CNT-03 | AC-CNT-03-01 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-15 | To Do |
-| Content | REQ-CNT-03 | AC-CNT-03-02 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-15 | To Do |
-| Content | REQ-CNT-03 | AC-CNT-03-03 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-15 | To Do |
-| Content | REQ-CNT-03 | AC-CNT-03-04 | P1 | BE | gap-analysis.md Q9, ADR-011 | KAN-15 | To Do |
-| Content | REQ-CNT-03 | AC-CNT-03-05 | P1 | BE | gap-analysis.md Q9, ADR-011 | KAN-15 | To Do |
-| Content | REQ-CNT-04 | AC-CNT-04-01 | P0 | BE | gap-analysis.md Q12 | KAN-16 | To Do |
-| Content | REQ-CNT-04 | AC-CNT-04-02 | P0 | BE | gap-analysis.md Q12 | KAN-16 | To Do |
-| Content | REQ-CNT-04 | AC-CNT-04-03 | P0 | BE | gap-analysis.md Q12 | KAN-16 | To Do |
-| Content | REQ-CNT-04 | AC-CNT-04-04 | P1 | BE | gap-analysis.md Q12 | KAN-16 | To Do |
-| Content | REQ-CNT-04 | AC-CNT-04-05 | P1 | BE | gap-analysis.md Q12 | KAN-16 | To Do |
-| Content | REQ-CNT-04 | AC-CNT-04-06 | P1 | BE | gap-analysis.md Q12 | KAN-16 | To Do |
-| Content | REQ-CNT-05 | AC-CNT-05-01 | P1 | BE | gap-analysis.md Q9, Q12 | KAN-17 | To Do |
-| Content | REQ-CNT-05 | AC-CNT-05-02 | P0 | BE | gap-analysis.md Q9, Q12 | KAN-17 | To Do |
-| Content | REQ-CNT-05 | AC-CNT-05-03 | P1 | BE | gap-analysis.md Q9, Q12 | KAN-17 | To Do |
-| Content | REQ-CNT-05 | AC-CNT-05-04 | P1 | BE | gap-analysis.md Q9, Q12 | KAN-17 | To Do |
-| Content | REQ-CNT-05 | AC-CNT-05-05 | P1 | BE | gap-analysis.md Q9, Q12 | KAN-17 | To Do |
-| Policy | REQ-POL-01 | AC-POL-01-01 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-18 | To Do |
-| Policy | REQ-POL-01 | AC-POL-01-02 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-18 | To Do |
-| Policy | REQ-POL-01 | AC-POL-01-03 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-18 | To Do |
-| Policy | REQ-POL-01 | AC-POL-01-04 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-18 | To Do |
-| Policy | REQ-POL-02 | AC-POL-02-01 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-19 | To Do |
-| Policy | REQ-POL-02 | AC-POL-02-02 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-19 | To Do |
-| Policy | REQ-POL-02 | AC-POL-02-03 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-19 | To Do |
-| Policy | REQ-POL-02 | AC-POL-02-04 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-19 | To Do |
-| Policy | REQ-POL-02 | AC-POL-02-05 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-19 | To Do |
-| Policy | REQ-POL-03 | AC-POL-03-01 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-20 | To Do |
-| Policy | REQ-POL-03 | AC-POL-03-02 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-20 | To Do |
-| Policy | REQ-POL-03 | AC-POL-03-03 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-20 | To Do |
-| Policy | REQ-POL-03 | AC-POL-03-04 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-20 | To Do |
-| Policy | REQ-POL-03 | AC-POL-03-06 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-20 | To Do |
-| Policy | REQ-POL-04 | AC-POL-04-01 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-21 | To Do |
-| Policy | REQ-POL-04 | AC-POL-04-02 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-21 | To Do |
-| Payment | REQ-PAY-01 | AC-PAY-01-01 | P0 | BE | gap-analysis.md Q8 | KAN-22 | To Do |
-| Payment | REQ-PAY-01 | AC-PAY-01-02 | P0 | BE | gap-analysis.md Q8 | KAN-22 | To Do |
-| Payment | REQ-PAY-01 | AC-PAY-01-03 | P0 | BE | gap-analysis.md Q8 | KAN-22 | To Do |
-| Payment | REQ-PAY-01 | AC-PAY-01-04 | P0 | BE | gap-analysis.md Q8 | KAN-22 | To Do |
-| Payment | REQ-PAY-01 | AC-PAY-01-05 | P0 | BE | gap-analysis.md Q8 | KAN-22 | To Do |
-| Payment | REQ-PAY-01 | AC-PAY-01-06 | P0 | BE | gap-analysis.md Q8 | KAN-22 | To Do |
-| Payment | REQ-PAY-02 | AC-PAY-02-01 | P0 | BE | gap-analysis.md Q8 | KAN-23 | To Do |
-| Payment | REQ-PAY-02 | AC-PAY-02-02 | P0 | BE | gap-analysis.md Q8 | KAN-23 | To Do |
-| Payment | REQ-PAY-02 | AC-PAY-02-03 | P0 | BE | gap-analysis.md Q8 | KAN-23 | To Do |
-| Payment | REQ-PAY-02 | AC-PAY-02-04 | P1 | BE | gap-analysis.md Q8 | KAN-23 | To Do |
-| Payment | REQ-PAY-02 | AC-PAY-02-05 | P1 | BE | gap-analysis.md Q8 | KAN-23 | To Do |
-| Payment | REQ-PAY-03 | AC-PAY-03-01 | P0 | FE+BE | gap-analysis.md Q3, Q7 | KAN-24 | To Do |
-| Payment | REQ-PAY-03 | AC-PAY-03-02 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-24 | To Do |
-| Payment | REQ-PAY-03 | AC-PAY-03-03 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-24 | To Do |
-| Payment | REQ-PAY-03 | AC-PAY-03-04 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-24 | To Do |
-| Payment | REQ-PAY-03 | AC-PAY-03-05 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-24 | To Do |
-| Payment | REQ-PAY-03 | AC-PAY-03-06 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-24 | To Do |
-| Payment | REQ-PAY-03 | AC-PAY-03-08 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-24 | To Do |
-| Payment | REQ-PAY-03 | AC-PAY-03-09 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-24 | To Do |
-| Payment | REQ-PAY-03 | AC-PAY-03-10 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-24 | To Do |
-| Payment | REQ-PAY-04 | AC-PAY-04-01 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-25 | To Do |
-| Payment | REQ-PAY-04 | AC-PAY-04-02 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-25 | To Do |
-| Payment | REQ-PAY-04 | AC-PAY-04-03 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-25 | To Do |
-| Payment | REQ-PAY-04 | AC-PAY-04-04 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-25 | To Do |
-| Payment | REQ-PAY-04 | AC-PAY-04-05 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-25 | To Do |
-| Payment | REQ-PAY-04 | AC-PAY-04-06 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-25 | To Do |
-| Payment | REQ-PAY-04 | AC-PAY-04-07 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-25 | To Do |
-| Payment | REQ-PAY-04 | AC-PAY-04-08 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-25 | To Do |
-| Payment | REQ-PAY-05 | AC-PAY-05-01 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-26 | To Do |
-| Payment | REQ-PAY-05 | AC-PAY-05-02 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-26 | To Do |
-| Payment | REQ-PAY-05 | AC-PAY-05-03 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-26 | To Do |
-| Payment | REQ-PAY-05 | AC-PAY-05-04 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-26 | To Do |
-| Payment | REQ-PAY-05 | AC-PAY-05-05 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-26 | To Do |
-| Payment | REQ-PAY-05 | AC-PAY-05-06 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-26 | To Do |
-| Payment | REQ-PAY-06 | AC-PAY-06-01 | P1 | BE | gap-analysis.md Q8 | KAN-27 | To Do |
-| Payment | REQ-PAY-06 | AC-PAY-06-02 | P1 | BE | gap-analysis.md Q8 | KAN-27 | To Do |
-| Payment | REQ-PAY-06 | AC-PAY-06-03 | P1 | BE | gap-analysis.md Q8 | KAN-27 | To Do |
-| Payment | REQ-PAY-06 | AC-PAY-06-04 | P1 | BE | gap-analysis.md Q8 | KAN-27 | To Do |
-| Servicing | REQ-SVC-01 | AC-SVC-01-01 | P1 | BE | gap-analysis.md Q10 | KAN-28 | To Do |
-| Servicing | REQ-SVC-01 | AC-SVC-01-02 | P1 | BE | gap-analysis.md Q10 | KAN-28 | To Do |
-| Servicing | REQ-SVC-01 | AC-SVC-01-03 | P1 | BE | gap-analysis.md Q10 | KAN-28 | To Do |
-| Servicing | REQ-SVC-01 | AC-SVC-01-04 | P1 | BE | gap-analysis.md Q10 | KAN-28 | To Do |
-| Servicing | REQ-SVC-01 | AC-SVC-01-05 | P1 | BE | gap-analysis.md Q10 | KAN-28 | To Do |
-| Servicing | REQ-SVC-01 | AC-SVC-01-06 | P1 | BE | gap-analysis.md Q10 | KAN-28 | To Do |
-| Servicing | REQ-SVC-02 | AC-SVC-02-01 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-29 | To Do |
-| Servicing | REQ-SVC-02 | AC-SVC-02-02 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-29 | To Do |
-| Servicing | REQ-SVC-02 | AC-SVC-02-03 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-29 | To Do |
-| Servicing | REQ-SVC-02 | AC-SVC-02-04 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-29 | To Do |
-| Servicing | REQ-SVC-02 | AC-SVC-02-05 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-29 | To Do |
-| Servicing | REQ-SVC-02 | AC-SVC-02-06 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-29 | To Do |
-| Servicing | REQ-SVC-03 | AC-SVC-03-01 | P1 | BE | gap-analysis.md Q1, Q7 | KAN-30 | To Do |
-| Servicing | REQ-SVC-03 | AC-SVC-03-02 | P1 | BE | gap-analysis.md Q1, Q7 | KAN-30 | To Do |
-| Servicing | REQ-SVC-03 | AC-SVC-03-03 | P1 | BE | gap-analysis.md Q1, Q7 | KAN-30 | To Do |
-| Servicing | REQ-SVC-03 | AC-SVC-03-04 | P1 | BE | gap-analysis.md Q1, Q7 | KAN-30 | To Do |
-| Servicing | REQ-SVC-03 | AC-SVC-03-05 | P1 | BE | gap-analysis.md Q1, Q7 | KAN-30 | To Do |
-| Data | REQ-DAT-01 | AC-DAT-01-01 | P0 | BE | gap-analysis.md Q9 | KAN-31 | To Do |
-| Data | REQ-DAT-01 | AC-DAT-01-02 | P0 | BE | gap-analysis.md Q9 | KAN-31 | To Do |
-| Data | REQ-DAT-01 | AC-DAT-01-03 | P0 | BE | gap-analysis.md Q9 | KAN-31 | To Do |
-| Data | REQ-DAT-01 | AC-DAT-01-04 | P0 | BE | gap-analysis.md Q9 | KAN-31 | To Do |
-| Data | REQ-DAT-01 | AC-DAT-01-05 | P1 | BE | gap-analysis.md Q9 | KAN-31 | To Do |
-| Data | REQ-DAT-01 | AC-DAT-01-06 | P1 | BE | gap-analysis.md Q9 | KAN-31 | To Do |
-| Data | REQ-DAT-01 | AC-DAT-01-07 | P1 | BE | gap-analysis.md Q9 | KAN-31 | To Do |
-| Data | REQ-DAT-01 | AC-DAT-01-08 | P1 | BE | gap-analysis.md Q9 | KAN-31 | To Do |
-| Data | REQ-DAT-02 | AC-DAT-02-01 | P0 | BE | gap-analysis.md Q9 | KAN-32 | To Do |
-| Data | REQ-DAT-02 | AC-DAT-02-02 | P0 | BE | gap-analysis.md Q9 | KAN-32 | To Do |
-| Data | REQ-DAT-02 | AC-DAT-02-03 | P0 | BE | gap-analysis.md Q9 | KAN-32 | To Do |
-| Data | REQ-DAT-02 | AC-DAT-02-04 | P1 | BE | gap-analysis.md Q9 | KAN-32 | To Do |
-| Data | REQ-DAT-02 | AC-DAT-02-05 | P1 | BE | gap-analysis.md Q9 | KAN-32 | To Do |
-| Data | REQ-DAT-03 | AC-DAT-03-01 | P0 | BE | gap-analysis.md Q9, Q14 | KAN-33 | To Do |
-| Data | REQ-DAT-03 | AC-DAT-03-02 | P0 | BE | gap-analysis.md Q9, Q14 | KAN-33 | To Do |
-| Data | REQ-DAT-03 | AC-DAT-03-03 | P0 | BE | gap-analysis.md Q9, Q14 | KAN-33 | To Do |
-| Data | REQ-DAT-03 | AC-DAT-03-04 | P1 | BE | gap-analysis.md Q9, Q14 | KAN-33 | To Do |
-| Data | REQ-DAT-03 | AC-DAT-03-05 | P1 | BE | gap-analysis.md Q9, Q14 | KAN-33 | To Do |
-| Data | REQ-DAT-03 | AC-DAT-03-06 | P1 | BE | gap-analysis.md Q9, Q14 | KAN-33 | To Do |
-| Data | REQ-DAT-03 | AC-DAT-03-07 | P1 | BE | gap-analysis.md Q9, Q14 | KAN-33 | To Do |
-| Data | REQ-DAT-03 | AC-DAT-03-08 | P1 | BE | gap-analysis.md Q9, Q14 | KAN-33 | To Do |
-| Data | REQ-DAT-04 | AC-DAT-04-01 | P0 | BE | gap-analysis.md Q9 | KAN-34 | To Do |
-| Data | REQ-DAT-04 | AC-DAT-04-02 | P0 | BE | gap-analysis.md Q9 | KAN-34 | To Do |
-| Data | REQ-DAT-04 | AC-DAT-04-03 | P0 | BE | gap-analysis.md Q9 | KAN-34 | To Do |
-| Data | REQ-DAT-04 | AC-DAT-04-04 | P1 | BE | gap-analysis.md Q9 | KAN-34 | To Do |
-| Data | REQ-DAT-04 | AC-DAT-04-05 | P1 | BE | gap-analysis.md Q9 | KAN-34 | To Do |
-| Data | REQ-DAT-05 | AC-DAT-05-01 | P0 | BE | gap-analysis.md Q1 | KAN-35 | To Do |
-| Data | REQ-DAT-05 | AC-DAT-05-02 | P0 | BE | gap-analysis.md Q1 | KAN-35 | To Do |
-| Data | REQ-DAT-05 | AC-DAT-05-03 | P0 | BE | gap-analysis.md Q1 | KAN-35 | To Do |
-| Data | REQ-DAT-05 | AC-DAT-05-04 | P1 | BE | gap-analysis.md Q1 | KAN-35 | To Do |
-| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-01 | P0 | BE | gap-analysis.md Q16 | KAN-36 | To Do |
-| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-02 | P0 | BE | gap-analysis.md Q16 | KAN-36 | To Do |
-| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-03 | P0 | BE | gap-analysis.md Q16 | KAN-36 | To Do |
-| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-04 | P1 | BE | gap-analysis.md Q16 | KAN-36 | To Do |
-| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-05 | P1 | BE | gap-analysis.md Q16 | KAN-36 | To Do |
-| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-01 | P0 | BE | gap-analysis.md Q14 | KAN-37 | To Do |
-| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-02 | P0 | BE | gap-analysis.md Q14 | KAN-37 | To Do |
-| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-03 | P0 | BE | gap-analysis.md Q14 | KAN-37 | To Do |
-| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-04 | P1 | BE | gap-analysis.md Q14 | KAN-37 | To Do |
-| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-05 | P1 | BE | gap-analysis.md Q14 | KAN-37 | To Do |
-| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-01 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-38 | To Do |
-| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-02 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-38 | To Do |
-| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-03 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-38 | To Do |
-| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-04 | P1 | BE | gap-analysis.md Q9, ADR-011 | KAN-38 | To Do |
-| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-05 | P1 | BE | gap-analysis.md Q9, ADR-011 | KAN-38 | To Do |
-| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-06 | P1 | BE | gap-analysis.md Q9, ADR-011 | KAN-38 | To Do |
-| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-01 | P1 | BE | gap-analysis.md Q16 | KAN-39 | To Do |
-| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-02 | P1 | BE | gap-analysis.md Q16 | KAN-39 | To Do |
-| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-03 | P1 | BE | gap-analysis.md Q16 | KAN-39 | To Do |
-| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-04 | P1 | BE | gap-analysis.md Q16 | KAN-39 | To Do |
-| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-05 | P1 | BE | gap-analysis.md Q16 | KAN-39 | To Do |
-| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-01 | P1 | BE | gap-analysis.md Q17 | KAN-40 | To Do |
-| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-02 | P1 | BE | gap-analysis.md Q17 | KAN-40 | To Do |
-| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-03 | P1 | BE | gap-analysis.md Q17 | KAN-40 | To Do |
-| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-04 | P1 | BE | gap-analysis.md Q17 | KAN-40 | To Do |
-| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-05 | P1 | BE | gap-analysis.md Q17 | KAN-40 | To Do |
-| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-01 | P0 | BE | gap-analysis.md Q8 | KAN-41 | To Do |
-| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-02 | P0 | BE | gap-analysis.md Q8 | KAN-41 | To Do |
-| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-03 | P0 | BE | gap-analysis.md Q8 | KAN-41 | To Do |
+| Experience | REQ-EXP-01 | AC-EXP-01-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q2, Q6 | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-05 | P0 | BE | RequirementDocument.md | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-06 | P1 | BE | RequirementDocument.md | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-07 | P1 | BE | RequirementDocument.md | KAN-42 | In Progress |
+| Experience | REQ-EXP-01 | AC-EXP-01-08 | P1 | BE | RequirementDocument.md | KAN-42 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q1, Q2, Q7 | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-02 | P0 | BE | RequirementDocument.md | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-03 | P0 | BE | RequirementDocument.md | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-04 | P0 | BE | RequirementDocument.md | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-06 | P1 | BE | RequirementDocument.md | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-07 | P1 | BE | RequirementDocument.md | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-08 | P1 | BE | RequirementDocument.md | KAN-43 | In Progress |
+| Experience | REQ-EXP-02 | AC-EXP-02-09 | P1 | BE | RequirementDocument.md | KAN-43 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-01 | P0 | FE+BE | RequirementDocument.md; gap-analysis.md Q1, Q3 | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-02 | P0 | BE | RequirementDocument.md | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-03 | P0 | BE | RequirementDocument.md | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-04 | P1 | BE | RequirementDocument.md | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-05 | P1 | BE | RequirementDocument.md | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-06 | P1 | BE | RequirementDocument.md | KAN-44 | In Progress |
+| Experience | REQ-EXP-03 | AC-EXP-03-09 | P1 | BE | RequirementDocument.md | KAN-44 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-01 | P0 | FE+BE | RequirementDocument.md | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-02 | P0 | FE+BE | RequirementDocument.md | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-03 | P0 | FE+BE | RequirementDocument.md | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-04 | P0 | BE | RequirementDocument.md | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-06 | P1 | BE | RequirementDocument.md | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-07 | P1 | BE | RequirementDocument.md | KAN-45 | In Progress |
+| Experience | REQ-EXP-04 | AC-EXP-04-08 | P1 | BE | RequirementDocument.md | KAN-45 | In Progress |
+| Experience | REQ-EXP-05 | AC-EXP-05-01 | P0 | FE+BE | RequirementDocument.md | KAN-46 | To Do |
+| Experience | REQ-EXP-05 | AC-EXP-05-02 | P1 | BE | RequirementDocument.md | KAN-46 | To Do |
+| Experience | REQ-EXP-05 | AC-EXP-05-03 | P1 | BE | RequirementDocument.md | KAN-46 | To Do |
+| Experience | REQ-EXP-06 | AC-EXP-06-01 | P1 | BE | RequirementDocument.md | KAN-47 | In Progress |
+| Experience | REQ-EXP-06 | AC-EXP-06-02 | P1 | BE | RequirementDocument.md | KAN-47 | In Progress |
+| Experience | REQ-EXP-06 | AC-EXP-06-04 | P1 | BE | RequirementDocument.md | KAN-47 | In Progress |
+| Experience | REQ-EXP-07 | AC-EXP-07-01 | P1 | BE | RequirementDocument.md | KAN-48 | In Progress |
+| Experience | REQ-EXP-07 | AC-EXP-07-02 | P1 | BE | RequirementDocument.md | KAN-48 | In Progress |
+| Experience | REQ-EXP-07 | AC-EXP-07-03 | P1 | BE | RequirementDocument.md | KAN-48 | In Progress |
+| Experience | REQ-EXP-07 | AC-EXP-07-04 | P1 | BE | RequirementDocument.md | KAN-48 | In Progress |
+| Experience | REQ-EXP-08 | AC-EXP-08-01 | P1 | BE | RequirementDocument.md | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-02 | P1 | BE | RequirementDocument.md | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-03 | P1 | BE | RequirementDocument.md | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-04 | P1 | BE | RequirementDocument.md | KAN-49 | To Do |
+| Experience | REQ-EXP-08 | AC-EXP-08-05 | P1 | BE | RequirementDocument.md | KAN-49 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-01 | P0 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-02 | P0 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-03 | P0 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-04 | P0 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-05 | P1 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-06 | P1 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-07 | P1 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-50 | To Do |
+| Content | REQ-CNT-01 | AC-CNT-01-08 | P1 | BE | gap-analysis.md Q2, Q6, Q11; ADR-008 | KAN-50 | To Do |
+| Content | REQ-CNT-02 | AC-CNT-02-01 | P0 | BE | gap-analysis.md Q13 | KAN-51 | To Do |
+| Content | REQ-CNT-02 | AC-CNT-02-02 | P0 | BE | gap-analysis.md Q13 | KAN-51 | To Do |
+| Content | REQ-CNT-02 | AC-CNT-02-03 | P0 | BE | gap-analysis.md Q13 | KAN-51 | To Do |
+| Content | REQ-CNT-02 | AC-CNT-02-04 | P0 | BE | gap-analysis.md Q13 | KAN-51 | To Do |
+| Content | REQ-CNT-02 | AC-CNT-02-05 | P0 | BE | gap-analysis.md Q13 | KAN-51 | To Do |
+| Content | REQ-CNT-03 | AC-CNT-03-01 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-52 | To Do |
+| Content | REQ-CNT-03 | AC-CNT-03-02 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-52 | To Do |
+| Content | REQ-CNT-03 | AC-CNT-03-03 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-52 | To Do |
+| Content | REQ-CNT-03 | AC-CNT-03-04 | P1 | BE | gap-analysis.md Q9, ADR-011 | KAN-52 | To Do |
+| Content | REQ-CNT-03 | AC-CNT-03-05 | P1 | BE | gap-analysis.md Q9, ADR-011 | KAN-52 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-01 | P0 | BE | gap-analysis.md Q12 | KAN-53 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-02 | P0 | BE | gap-analysis.md Q12 | KAN-53 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-03 | P0 | BE | gap-analysis.md Q12 | KAN-53 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-04 | P1 | BE | gap-analysis.md Q12 | KAN-53 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-05 | P1 | BE | gap-analysis.md Q12 | KAN-53 | To Do |
+| Content | REQ-CNT-04 | AC-CNT-04-06 | P1 | BE | gap-analysis.md Q12 | KAN-53 | To Do |
+| Content | REQ-CNT-05 | AC-CNT-05-01 | P1 | BE | gap-analysis.md Q9, Q12 | KAN-54 | To Do |
+| Content | REQ-CNT-05 | AC-CNT-05-02 | P0 | BE | gap-analysis.md Q9, Q12 | KAN-54 | To Do |
+| Content | REQ-CNT-05 | AC-CNT-05-03 | P1 | BE | gap-analysis.md Q9, Q12 | KAN-54 | To Do |
+| Content | REQ-CNT-05 | AC-CNT-05-04 | P1 | BE | gap-analysis.md Q9, Q12 | KAN-54 | To Do |
+| Content | REQ-CNT-05 | AC-CNT-05-05 | P1 | BE | gap-analysis.md Q9, Q12 | KAN-54 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-01 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-55 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-02 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-55 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-03 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-55 | To Do |
+| Policy | REQ-POL-01 | AC-POL-01-04 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-55 | To Do |
+| Policy | REQ-POL-02 | AC-POL-02-01 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-56 | To Do |
+| Policy | REQ-POL-02 | AC-POL-02-02 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-56 | To Do |
+| Policy | REQ-POL-02 | AC-POL-02-03 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-56 | To Do |
+| Policy | REQ-POL-02 | AC-POL-02-04 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-56 | To Do |
+| Policy | REQ-POL-02 | AC-POL-02-05 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-56 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-01 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-57 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-02 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-57 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-03 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-57 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-04 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-57 | To Do |
+| Policy | REQ-POL-03 | AC-POL-03-06 | P1 | BE | gap-analysis.md Q5, Q14 | KAN-57 | To Do |
+| Policy | REQ-POL-04 | AC-POL-04-01 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-58 | To Do |
+| Policy | REQ-POL-04 | AC-POL-04-02 | P0 | BE | gap-analysis.md Q5, Q14 | KAN-58 | To Do |
+| Payment | REQ-PAY-01 | AC-PAY-01-01 | P0 | BE | gap-analysis.md Q8 | KAN-59 | To Do |
+| Payment | REQ-PAY-01 | AC-PAY-01-02 | P0 | BE | gap-analysis.md Q8 | KAN-59 | To Do |
+| Payment | REQ-PAY-01 | AC-PAY-01-03 | P0 | BE | gap-analysis.md Q8 | KAN-59 | To Do |
+| Payment | REQ-PAY-01 | AC-PAY-01-04 | P0 | BE | gap-analysis.md Q8 | KAN-59 | To Do |
+| Payment | REQ-PAY-01 | AC-PAY-01-05 | P0 | BE | gap-analysis.md Q8 | KAN-59 | To Do |
+| Payment | REQ-PAY-01 | AC-PAY-01-06 | P0 | BE | gap-analysis.md Q8 | KAN-59 | To Do |
+| Payment | REQ-PAY-02 | AC-PAY-02-01 | P0 | BE | gap-analysis.md Q8 | KAN-60 | To Do |
+| Payment | REQ-PAY-02 | AC-PAY-02-02 | P0 | BE | gap-analysis.md Q8 | KAN-60 | To Do |
+| Payment | REQ-PAY-02 | AC-PAY-02-03 | P0 | BE | gap-analysis.md Q8 | KAN-60 | To Do |
+| Payment | REQ-PAY-02 | AC-PAY-02-04 | P1 | BE | gap-analysis.md Q8 | KAN-60 | To Do |
+| Payment | REQ-PAY-02 | AC-PAY-02-05 | P1 | BE | gap-analysis.md Q8 | KAN-60 | To Do |
+| Payment | REQ-PAY-03 | AC-PAY-03-01 | P0 | FE+BE | gap-analysis.md Q3, Q7 | KAN-61 | To Do |
+| Payment | REQ-PAY-03 | AC-PAY-03-02 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-61 | To Do |
+| Payment | REQ-PAY-03 | AC-PAY-03-03 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-61 | To Do |
+| Payment | REQ-PAY-03 | AC-PAY-03-04 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-61 | To Do |
+| Payment | REQ-PAY-03 | AC-PAY-03-05 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-61 | To Do |
+| Payment | REQ-PAY-03 | AC-PAY-03-06 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-61 | To Do |
+| Payment | REQ-PAY-03 | AC-PAY-03-08 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-61 | To Do |
+| Payment | REQ-PAY-03 | AC-PAY-03-09 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-61 | To Do |
+| Payment | REQ-PAY-03 | AC-PAY-03-10 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-61 | To Do |
+| Payment | REQ-PAY-04 | AC-PAY-04-01 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-62 | To Do |
+| Payment | REQ-PAY-04 | AC-PAY-04-02 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-62 | To Do |
+| Payment | REQ-PAY-04 | AC-PAY-04-03 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-62 | To Do |
+| Payment | REQ-PAY-04 | AC-PAY-04-04 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-62 | To Do |
+| Payment | REQ-PAY-04 | AC-PAY-04-05 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-62 | To Do |
+| Payment | REQ-PAY-04 | AC-PAY-04-06 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-62 | To Do |
+| Payment | REQ-PAY-04 | AC-PAY-04-07 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-62 | To Do |
+| Payment | REQ-PAY-04 | AC-PAY-04-08 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-62 | To Do |
+| Payment | REQ-PAY-05 | AC-PAY-05-01 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-63 | To Do |
+| Payment | REQ-PAY-05 | AC-PAY-05-02 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-63 | To Do |
+| Payment | REQ-PAY-05 | AC-PAY-05-03 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-63 | To Do |
+| Payment | REQ-PAY-05 | AC-PAY-05-04 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-63 | To Do |
+| Payment | REQ-PAY-05 | AC-PAY-05-05 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-63 | To Do |
+| Payment | REQ-PAY-05 | AC-PAY-05-06 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-63 | To Do |
+| Payment | REQ-PAY-06 | AC-PAY-06-01 | P1 | BE | gap-analysis.md Q8 | KAN-64 | To Do |
+| Payment | REQ-PAY-06 | AC-PAY-06-02 | P1 | BE | gap-analysis.md Q8 | KAN-64 | To Do |
+| Payment | REQ-PAY-06 | AC-PAY-06-03 | P1 | BE | gap-analysis.md Q8 | KAN-64 | To Do |
+| Payment | REQ-PAY-06 | AC-PAY-06-04 | P1 | BE | gap-analysis.md Q8 | KAN-64 | To Do |
+| Servicing | REQ-SVC-01 | AC-SVC-01-01 | P1 | BE | gap-analysis.md Q10 | KAN-65 | To Do |
+| Servicing | REQ-SVC-01 | AC-SVC-01-02 | P1 | BE | gap-analysis.md Q10 | KAN-65 | To Do |
+| Servicing | REQ-SVC-01 | AC-SVC-01-03 | P1 | BE | gap-analysis.md Q10 | KAN-65 | To Do |
+| Servicing | REQ-SVC-01 | AC-SVC-01-04 | P1 | BE | gap-analysis.md Q10 | KAN-65 | To Do |
+| Servicing | REQ-SVC-01 | AC-SVC-01-05 | P1 | BE | gap-analysis.md Q10 | KAN-65 | To Do |
+| Servicing | REQ-SVC-01 | AC-SVC-01-06 | P1 | BE | gap-analysis.md Q10 | KAN-65 | To Do |
+| Servicing | REQ-SVC-02 | AC-SVC-02-01 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-66 | To Do |
+| Servicing | REQ-SVC-02 | AC-SVC-02-02 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-66 | To Do |
+| Servicing | REQ-SVC-02 | AC-SVC-02-03 | P0 | BE | gap-analysis.md Q3, Q7 | KAN-66 | To Do |
+| Servicing | REQ-SVC-02 | AC-SVC-02-04 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-66 | To Do |
+| Servicing | REQ-SVC-02 | AC-SVC-02-05 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-66 | To Do |
+| Servicing | REQ-SVC-02 | AC-SVC-02-06 | P1 | BE | gap-analysis.md Q3, Q7 | KAN-66 | To Do |
+| Servicing | REQ-SVC-03 | AC-SVC-03-01 | P1 | BE | gap-analysis.md Q1, Q7 | KAN-67 | To Do |
+| Servicing | REQ-SVC-03 | AC-SVC-03-02 | P1 | BE | gap-analysis.md Q1, Q7 | KAN-67 | To Do |
+| Servicing | REQ-SVC-03 | AC-SVC-03-03 | P1 | BE | gap-analysis.md Q1, Q7 | KAN-67 | To Do |
+| Servicing | REQ-SVC-03 | AC-SVC-03-04 | P1 | BE | gap-analysis.md Q1, Q7 | KAN-67 | To Do |
+| Servicing | REQ-SVC-03 | AC-SVC-03-05 | P1 | BE | gap-analysis.md Q1, Q7 | KAN-67 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-01 | P0 | BE | gap-analysis.md Q9 | KAN-68 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-02 | P0 | BE | gap-analysis.md Q9 | KAN-68 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-03 | P0 | BE | gap-analysis.md Q9 | KAN-68 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-04 | P0 | BE | gap-analysis.md Q9 | KAN-68 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-05 | P1 | BE | gap-analysis.md Q9 | KAN-68 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-06 | P1 | BE | gap-analysis.md Q9 | KAN-68 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-07 | P1 | BE | gap-analysis.md Q9 | KAN-68 | To Do |
+| Data | REQ-DAT-01 | AC-DAT-01-08 | P1 | BE | gap-analysis.md Q9 | KAN-68 | To Do |
+| Data | REQ-DAT-02 | AC-DAT-02-01 | P0 | BE | gap-analysis.md Q9 | KAN-69 | To Do |
+| Data | REQ-DAT-02 | AC-DAT-02-02 | P0 | BE | gap-analysis.md Q9 | KAN-69 | To Do |
+| Data | REQ-DAT-02 | AC-DAT-02-03 | P0 | BE | gap-analysis.md Q9 | KAN-69 | To Do |
+| Data | REQ-DAT-02 | AC-DAT-02-04 | P1 | BE | gap-analysis.md Q9 | KAN-69 | To Do |
+| Data | REQ-DAT-02 | AC-DAT-02-05 | P1 | BE | gap-analysis.md Q9 | KAN-69 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-01 | P0 | BE | gap-analysis.md Q9, Q14 | KAN-70 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-02 | P0 | BE | gap-analysis.md Q9, Q14 | KAN-70 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-03 | P0 | BE | gap-analysis.md Q9, Q14 | KAN-70 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-04 | P1 | BE | gap-analysis.md Q9, Q14 | KAN-70 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-05 | P1 | BE | gap-analysis.md Q9, Q14 | KAN-70 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-06 | P1 | BE | gap-analysis.md Q9, Q14 | KAN-70 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-07 | P1 | BE | gap-analysis.md Q9, Q14 | KAN-70 | To Do |
+| Data | REQ-DAT-03 | AC-DAT-03-08 | P1 | BE | gap-analysis.md Q9, Q14 | KAN-70 | To Do |
+| Data | REQ-DAT-04 | AC-DAT-04-01 | P0 | BE | gap-analysis.md Q9 | KAN-71 | To Do |
+| Data | REQ-DAT-04 | AC-DAT-04-02 | P0 | BE | gap-analysis.md Q9 | KAN-71 | To Do |
+| Data | REQ-DAT-04 | AC-DAT-04-03 | P0 | BE | gap-analysis.md Q9 | KAN-71 | To Do |
+| Data | REQ-DAT-04 | AC-DAT-04-04 | P1 | BE | gap-analysis.md Q9 | KAN-71 | To Do |
+| Data | REQ-DAT-04 | AC-DAT-04-05 | P1 | BE | gap-analysis.md Q9 | KAN-71 | To Do |
+| Data | REQ-DAT-05 | AC-DAT-05-01 | P0 | BE | gap-analysis.md Q1 | KAN-72 | To Do |
+| Data | REQ-DAT-05 | AC-DAT-05-02 | P0 | BE | gap-analysis.md Q1 | KAN-72 | To Do |
+| Data | REQ-DAT-05 | AC-DAT-05-03 | P0 | BE | gap-analysis.md Q1 | KAN-72 | To Do |
+| Data | REQ-DAT-05 | AC-DAT-05-04 | P1 | BE | gap-analysis.md Q1 | KAN-72 | To Do |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-01 | P0 | BE | gap-analysis.md Q16 | KAN-73 | To Do |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-02 | P0 | BE | gap-analysis.md Q16 | KAN-73 | To Do |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-03 | P0 | BE | gap-analysis.md Q16 | KAN-73 | To Do |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-04 | P1 | BE | gap-analysis.md Q16 | KAN-73 | To Do |
+| Cross-Cutting | REQ-XCT-01 | AC-XCT-01-05 | P1 | BE | gap-analysis.md Q16 | KAN-73 | To Do |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-01 | P0 | BE | gap-analysis.md Q14 | KAN-74 | To Do |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-02 | P0 | BE | gap-analysis.md Q14 | KAN-74 | To Do |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-03 | P0 | BE | gap-analysis.md Q14 | KAN-74 | To Do |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-04 | P1 | BE | gap-analysis.md Q14 | KAN-74 | To Do |
+| Cross-Cutting | REQ-XCT-02 | AC-XCT-02-05 | P1 | BE | gap-analysis.md Q14 | KAN-74 | To Do |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-01 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-75 | To Do |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-02 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-75 | To Do |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-03 | P0 | BE | gap-analysis.md Q9, ADR-011 | KAN-75 | To Do |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-04 | P1 | BE | gap-analysis.md Q9, ADR-011 | KAN-75 | To Do |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-05 | P1 | BE | gap-analysis.md Q9, ADR-011 | KAN-75 | To Do |
+| Cross-Cutting | REQ-XCT-03 | AC-XCT-03-06 | P1 | BE | gap-analysis.md Q9, ADR-011 | KAN-75 | To Do |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-01 | P1 | BE | gap-analysis.md Q16 | KAN-76 | To Do |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-02 | P1 | BE | gap-analysis.md Q16 | KAN-76 | To Do |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-03 | P1 | BE | gap-analysis.md Q16 | KAN-76 | To Do |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-04 | P1 | BE | gap-analysis.md Q16 | KAN-76 | To Do |
+| Cross-Cutting | REQ-XCT-04 | AC-XCT-04-05 | P1 | BE | gap-analysis.md Q16 | KAN-76 | To Do |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-01 | P1 | BE | gap-analysis.md Q17 | KAN-77 | To Do |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-02 | P1 | BE | gap-analysis.md Q17 | KAN-77 | To Do |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-03 | P1 | BE | gap-analysis.md Q17 | KAN-77 | To Do |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-04 | P1 | BE | gap-analysis.md Q17 | KAN-77 | To Do |
+| Cross-Cutting | REQ-XCT-05 | AC-XCT-05-05 | P1 | BE | gap-analysis.md Q17 | KAN-77 | To Do |
+| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-01 | P0 | BE | gap-analysis.md Q8 | KAN-78 | To Do |
+| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-02 | P0 | BE | gap-analysis.md Q8 | KAN-78 | To Do |
+| Cross-Cutting | REQ-XCT-06 | AC-XCT-06-03 | P0 | BE | gap-analysis.md Q8 | KAN-78 | To Do | 
 
 ---
 

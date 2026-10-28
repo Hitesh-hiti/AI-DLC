@@ -1592,6 +1592,63 @@
       ],
       "pnr": "5LKKKL",
       "confirmedAt": "2026-10-09T06:35:50.716Z"
+    },
+    {
+      "bookingId": "97df1ba9-08cd-4cf0-8ec1-e9b9ed11ea1f",
+      "offerId": "flight-002",
+      "organizationId": "org-001",
+      "travelerId": "traveler-001",
+      "passengerInfo": [
+        {
+          "passengerType": "ADT",
+          "firstName": "BHARATHI",
+          "lastName": "VAIDYA",
+          "passportNumber": "A13764732"
+        }
+      ],
+      "flightDetails": {
+        "origin": "LHR",
+        "destination": "JFK",
+        "departureDate": "2026-10-21",
+        "cabinClass": "ECONOMY",
+        "passengers": 1
+      },
+      "bookingStatus": "CONFIRMED",
+      "confirmationNumber": "38B2DS",
+      "holdExpiresAt": "2026-10-23T09:46:55.958Z",
+      "fareBreakdown": {
+        "baseFare": {
+          "amount": 380,
+          "currency": "USD"
+        },
+        "taxes": {
+          "amount": 57,
+          "currency": "USD"
+        },
+        "fees": {
+          "amount": 25,
+          "currency": "USD"
+        },
+        "totalFare": {
+          "amount": 462,
+          "currency": "USD"
+        }
+      },
+      "cancellationPolicy": {
+        "refundable": true,
+        "cancellationDeadline": "2026-10-25T09:16:55.958Z",
+        "penaltyAmount": {
+          "amount": 50,
+          "currency": "USD"
+        }
+      },
+      "createdAt": "2026-10-23T09:16:55.958Z",
+      "modifiedAt": "2026-10-23T09:16:56.042Z",
+      "ticketNumbers": [
+        "TKT-F241688A"
+      ],
+      "pnr": "Y684Z5",
+      "confirmedAt": "2026-10-23T09:16:56.042Z"
     }
   ],
   "approvals": [],
@@ -2183,6 +2240,29 @@
       ],
       "organizationId": "org-001",
       "travelerId": "traveler-001"
+    },
+    {
+      "evaluationId": "b0520188-f792-4785-a5ab-9d2949d4a141",
+      "timestamp": "2026-10-23T09:16:33.639Z",
+      "outcome": "WARN",
+      "requiresApproval": false,
+      "policies": [
+        {
+          "policyId": "pol-advance",
+          "policyName": "Advance Booking",
+          "outcome": "WARN",
+          "details": "Booking made less than 7 days before departure (recommended: 14+ days)"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "ADV_BOOKING_SHORT",
+          "message": "This booking is less than 7 days in advance",
+          "severity": "WARNING"
+        }
+      ],
+      "organizationId": "org-001",
+      "travelerId": "traveler-001"
     }
   ],
   "events": [
@@ -2575,6 +2655,23 @@
       "createdAt": "2026-10-09T06:35:50.717Z",
       "payload": {
         "bookingId": "9e34c0ce-bda1-4b6c-9db1-47067c10b458"
+      }
+    },
+    {
+      "id": "36ce7cb8-27db-4f75-a312-003945b23b01",
+      "action": "BOOKING_HOLD_CREATED",
+      "createdAt": "2026-10-23T09:16:55.958Z",
+      "payload": {
+        "bookingId": "97df1ba9-08cd-4cf0-8ec1-e9b9ed11ea1f",
+        "offerId": "flight-002"
+      }
+    },
+    {
+      "id": "2c237635-39b9-4b2a-9732-d1439d4217bc",
+      "action": "BOOKING_CONFIRMED",
+      "createdAt": "2026-10-23T09:16:56.042Z",
+      "payload": {
+        "bookingId": "97df1ba9-08cd-4cf0-8ec1-e9b9ed11ea1f"
       }
     }
   ]
