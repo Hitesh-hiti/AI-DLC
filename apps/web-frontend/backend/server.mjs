@@ -5,7 +5,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const PORT = Number(process.env.PORT || 8080);
+const PORT = Number(process.env.PORT || 8081);
 const HOST = process.env.HOST || '0.0.0.0';
 const DB_FILE = resolve(__dirname, 'data/db.json');
 const API_PREFIX = '/api';
