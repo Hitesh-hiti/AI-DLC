@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 apps/web-frontend/reports
+
+Security
