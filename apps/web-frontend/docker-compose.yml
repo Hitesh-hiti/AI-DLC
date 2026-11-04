@@ -1,0 +1,39 @@
+services:
+  backend:
+    image: travelplatform-backend:v1.0
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: travelplatform-backend
+    restart: unless-stopped
+    expose:
+      - "8080"
+    environment:
+      NODE_ENV: production
+      PORT: 8080
+      HOST: 0.0.0.0
+    volumes:
+      - backend-data:/app/data
+    networks:
+      - application-network
+
+  frontend:
+    image: travelplatform-frontend:v1.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: travelplatform-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - application-network
+
+networks:
+  application-network:
+    driver: bridge
+
+volumes:
+  backend-data:
