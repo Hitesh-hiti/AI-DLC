@@ -42,8 +42,8 @@ jobs:
       - name: Build and Push Frontend
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./apps/web-frontend
+          file: ./apps/web-frontend/Dockerfile
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/travelplatform-frontend:latest
