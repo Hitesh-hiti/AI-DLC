@@ -39,4 +39,3 @@ testing-framework/playwright-report/index.html
 testing-framework/test-results/results.json
 apps/web-frontend/reports/vitest/
 package-lock.json 
-
