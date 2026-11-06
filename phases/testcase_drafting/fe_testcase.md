@@ -2911,7 +2911,7 @@ export default defineConfig({
     },
     {
       command: 'npm run backend:dev', // Wiremock mock server
-      port: 8080,
+      port: 8081,
       reuseExistingServer: !process.env.CI,
     },
   ],

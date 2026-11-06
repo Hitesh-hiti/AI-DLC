@@ -1,9 +1,7 @@
+
 services:
   backend:
-    image: travelplatform-backend:v1.0
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: hitesh9/travelplatform-backend:latest
     container_name: travelplatform-backend
     restart: unless-stopped
     expose:
@@ -18,10 +16,7 @@ services:
       - application-network
 
   frontend:
-    image: travelplatform-frontend:v1.0
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: hitesh9/travelplatform-frontend:latest
     container_name: travelplatform-frontend
     restart: unless-stopped
     ports:
