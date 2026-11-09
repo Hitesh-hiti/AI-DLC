@@ -48,4 +48,3 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/travelplatform-frontend:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/travelplatform-frontend:${{ github.sha }}
-
