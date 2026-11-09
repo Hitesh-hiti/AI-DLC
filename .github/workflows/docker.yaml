@@ -36,7 +36,7 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/travelplatform-backend:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/travelplatform-backend:${{ github.sha }}
+#            ${{ secrets.DOCKERHUB_USERNAME }}/travelplatform-backend:${{ github.sha }}
 
       # 5. Build and push Frontend image
       - name: Build and Push Frontend
@@ -47,5 +47,4 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/travelplatform-frontend:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/travelplatform-frontend:${{ github.sha }}
-
+#            ${{ secrets.DOCKERHUB_USERNAME }}/travelplatform-frontend:${{ github.sha }}
