@@ -177,7 +177,15 @@ All wireframes assume:
 
 ---
 
-### 2.2 Screen: Search Results (Search Page)
+### 2.2 Screen: Search Results (Search Page) — Tabbed Comparison View
+
+**Implementation Status:** ✅ IMPLEMENTED (Alt #1 — Tabbed Comparison View)
+
+**Tabbed Comparison View Design:**
+- **Sorting Tabs:** By Price | By Departure | By Duration | By Airline (Always visible at top)
+- **Card Layout:** Airline + cabin (header) | Route + times (body) | Always-visible fares + availability + select button (footer)
+- **Fare Breakdown:** Expandable toggle (Base Fare, Taxes, Fees, Total)
+- **Accessibility:** ARIA tabs with role="tablist", role="tab", role="tabpanel"
 
 **Current Implementation Structure:**
 
@@ -193,24 +201,53 @@ All wireframes assume:
 │  APP CONTENT (with gradient background)                                    │
 │                                                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │            SEARCH RESULTS - Flight Offer List                       │   │
+│  │            SEARCH RESULTS — Tabbed Comparison View                  │   │
+│  │                                                                     │   │
+│  │  [💰 By Price | ⏰ By Departure | ✈️ By Duration | ✓ By Airline]  │   │
 │  │                                                                     │   │
 │  │  ┌─────────────────────────────────────────────────────────────┐   │   │
-│  │  │ United Airlines                      [Select]               │   │   │
-│  │  │ LHR → JFK   15:00 ─ 18:30            12h 30min              │   │   │
-│  │  │ Economy · USD 278.10 (Includes taxes & fees)               │   │   │
+│  │  │ United Airlines                   Economy                   │   │   │
+│  │  │ [Flight UA123]                    [🔽 Cabin]               │   │   │
+│  │  │                                                              │   │   │
+│  │  │ 15:00 ─────────────────┐ 12h 30min ──────────────── 18:30  │   │   │
+│  │  │ LHR        (non-stop)        JFK                           │   │   │
+│  │  │ Oct 1                                            Oct 1      │   │   │
+│  │  │ Aircraft: Boeing 777                                        │   │   │
+│  │  │                                                              │   │   │
+│  │  │ USD 278.10 ▼                ✓ Available (5 seats)  [Select] │   │   │
+│  │  │ total per person                                            │   │   │
+│  │  │                                                              │   │   │
+│  │  │ [Base Fare: $235  Taxes: $35  Fees: $25  Total: $278.10]  │   │   │
 │  │  └─────────────────────────────────────────────────────────────┘   │   │
 │  │                                                                     │   │
 │  │  ┌─────────────────────────────────────────────────────────────┐   │   │
-│  │  │ Delta Airlines                       [Select]               │   │   │
-│  │  │ LHR → JFK   16:00 ─ 19:45            12h 45min              │   │   │
-│  │  │ Economy · USD 295.50 (Includes taxes & fees)               │   │   │
+│  │  │ Delta Airlines                    Economy                   │   │   │
+│  │  │ [Flight DL456]                    [🔽 Cabin]               │   │   │
+│  │  │                                                              │   │   │
+│  │  │ 16:00 ─────────────────┐ 12h 45min ──────────────── 19:45  │   │   │
+│  │  │ LHR        (non-stop)        JFK                           │   │   │
+│  │  │ Oct 1                                            Oct 1      │   │   │
+│  │  │ Aircraft: Airbus A350                                       │   │   │
+│  │  │                                                              │   │   │
+│  │  │ USD 295.50 ▼                ✓ Available (12 seats) [Select] │   │   │
+│  │  │ total per person                                            │   │   │
+│  │  │                                                              │   │   │
+│  │  │ [Base Fare: $250  Taxes: $37.50  Fees: $25  Total: $312.50]│   │   │
 │  │  └─────────────────────────────────────────────────────────────┘   │   │
 │  │                                                                     │   │
 │  │  ┌─────────────────────────────────────────────────────────────┐   │   │
-│  │  │ British Airways                      [Select]               │   │   │
-│  │  │ LHR → JFK   17:30 ─ 21:00            12h 30min              │   │   │
-│  │  │ Economy · USD 310.00 (Includes taxes & fees)               │   │   │
+│  │  │ British Airways                   Economy                   │   │   │
+│  │  │ [Flight BA789]                    [🔽 Cabin]               │   │   │
+│  │  │                                                              │   │   │
+│  │  │ 17:30 ─────────────────┐ 12h 30min ──────────────── 21:00  │   │   │
+│  │  │ LHR        (non-stop)        JFK                           │   │   │
+│  │  │ Oct 1                                            Oct 2      │   │   │
+│  │  │ Aircraft: Airbus A380                                       │   │   │
+│  │  │                                                              │   │   │
+│  │  │ USD 310.00 ▼                ✓ Available (8 seats)  [Select] │   │   │
+│  │  │ total per person                                            │   │   │
+│  │  │                                                              │   │   │
+│  │  │ [Base Fare: $265  Taxes: $39.75  Fees: $25  Total: $329.75]│   │   │
 │  │  └─────────────────────────────────────────────────────────────┘   │   │
 │  │                                                                     │   │
 │  └─────────────────────────────────────────────────────────────────────┘   │
@@ -222,15 +259,18 @@ All wireframes assume:
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Actual Implementation Details:**
-- Results displayed as a vertical list of flight cards
-- Each card shows: airline name, route, time, duration, cabin, and price
-- Price formatted as human-readable currency (USD 278.10, not 27810)
-- Select button on each card to proceed to passenger details
-- Search form remains visible above results for re-filtering
-- Full responsive layout on mobile
+**Tabbed Comparison View Features (Alt #1):**
+- **Tab Navigation:** Four sort options (By Price, By Departure, By Duration, By Airline)
+- **Tab Styling:** Active tab underline, hover effects, keyboard accessible (role="tablist", role="tab")
+- **Always-Visible Fares:** Price is displayed on all cards without requiring expansion
+- **Expandable Breakdown:** Click price to reveal Base Fare + Taxes + Fees detail
+- **Cabin Selector:** Inline badge showing cabin class, can click to change (future enhancement)
+- **Route Visualization:** Departure time → duration line → arrival time, with date labels
+- **Responsive:** Tabs scroll horizontally on mobile; cards stack vertically
+- **High Contrast:** Route section has subtle background (#fafbfc) for visual hierarchy
+- **Accessibility:** Full ARIA support for tabs, expandable controls, live regions
 
-**ACs Mapped:** AC-EXP-01-01
+**ACs Mapped:** AC-EXP-01-01, AC-EXP-01-02, AC-EXP-01-03
 
 ---
 

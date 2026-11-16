@@ -1,11 +1,11 @@
 /**
- * SearchResults Component
- * Displays flight search results per design-document.md section 2.2.
- * Shows airline, route, times, duration, stops, fare breakdown, availability.
+ * SearchResults Component — Tabbed Comparison View
+ * Displays flight search results with sortable tabs: By Price, By Departure, By Duration, By Airline
  * AC-EXP-01-01: render base fare, taxes, fees, total with currency code.
+ * Tabbed Comparison View (FE Alt #1): Tabs organize sorting options, always-visible fares, inline cabin selector
  */
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import type { FlightOffer } from '../../api/types/search';
 import { CurrencyAmount } from '../common/CurrencyAmount';
 import { Button } from '../common/Button';
@@ -16,6 +16,9 @@ export interface SearchResultsProps {
   onSelectFlight: (flight: FlightOffer) => void;
   isLoading?: boolean;
 }
+
+// ── Sort type ─────────────────────────────────────────────────────────────────
+export type SortTab = 'price' | 'departure' | 'duration' | 'airline';
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 
@@ -50,6 +53,41 @@ function estimateFare(price: FlightOffer['price']) {
   };
 }
 
+/**
+ * Sort flights by the active tab.
+ * AC-EXP-01-01: always display all relevant information, sorted by user preference.
+ */
+function sortFlights(flights: FlightOffer[], sortBy: SortTab): FlightOffer[] {
+  const sorted = [...flights];
+  
+  switch (sortBy) {
+    case 'price': {
+      return sorted.sort((a, b) => a.price.amount - b.price.amount);
+    }
+    case 'departure': {
+      return sorted.sort((a, b) =>
+        new Date(a.departureTime).getTime() - new Date(b.departureTime).getTime()
+      );
+    }
+    case 'duration': {
+      // Parse PT duration strings to milliseconds
+      const durationMs = (iso: string) => {
+        const match = iso.match(/PT(\d+H)?(\d+M)?/);
+        if (!match) return 0;
+        const h = parseInt(match[1] ?? '0', 10);
+        const m = parseInt(match[2] ?? '0', 10);
+        return h * 3600000 + m * 60000;
+      };
+      return sorted.sort((a, b) => durationMs(a.duration) - durationMs(b.duration));
+    }
+    case 'airline': {
+      return sorted.sort((a, b) => a.airline.localeCompare(b.airline));
+    }
+    default:
+      return sorted;
+  }
+}
+
 // ── component ─────────────────────────────────────────────────────────────────
 
 export const SearchResults: React.FC<SearchResultsProps> = ({
@@ -57,7 +95,14 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
   onSelectFlight,
   isLoading = false,
 }) => {
+  const [activeTab, setActiveTab] = useState<SortTab>('price');
   const [expandedFare, setExpandedFare] = useState<string | null>(null);
+
+  // Memoize sorted results to avoid unnecessary re-sorts
+  const sortedResults = useMemo(() => {
+    if (!results || results.length === 0) return [];
+    return sortFlights(results, activeTab);
+  }, [results, activeTab]);
 
   if (isLoading) {
     return (
@@ -82,15 +127,64 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
         {results.length} Flight{results.length !== 1 ? 's' : ''} Found
       </h2>
 
-      <div className="search-results-list" data-testid="flight-list">
-        {results.map((flight) => {
+      {/* ── TABBED COMPARISON VIEW — Sorting tabs ──────────────────────── */}
+      <div className="search-results-tabs" role="tablist" aria-label="Sort flight results">
+        <button
+          role="tab"
+          aria-selected={activeTab === 'price'}
+          aria-controls="search-results-list"
+          className={`search-tab ${activeTab === 'price' ? 'active' : ''}`}
+          onClick={() => setActiveTab('price')}
+          data-testid="tab-price"
+        >
+          💰 By Price
+        </button>
+        <button
+          role="tab"
+          aria-selected={activeTab === 'departure'}
+          aria-controls="search-results-list"
+          className={`search-tab ${activeTab === 'departure' ? 'active' : ''}`}
+          onClick={() => setActiveTab('departure')}
+          data-testid="tab-departure"
+        >
+          ⏰ By Departure
+        </button>
+        <button
+          role="tab"
+          aria-selected={activeTab === 'duration'}
+          aria-controls="search-results-list"
+          className={`search-tab ${activeTab === 'duration' ? 'active' : ''}`}
+          onClick={() => setActiveTab('duration')}
+          data-testid="tab-duration"
+        >
+          ✈️ By Duration
+        </button>
+        <button
+          role="tab"
+          aria-selected={activeTab === 'airline'}
+          aria-controls="search-results-list"
+          className={`search-tab ${activeTab === 'airline' ? 'active' : ''}`}
+          onClick={() => setActiveTab('airline')}
+          data-testid="tab-airline"
+        >
+          ✓ By Airline
+        </button>
+      </div>
+
+      <div
+        id="search-results-list"
+        className="search-results-list"
+        data-testid="flight-list"
+        role="tabpanel"
+      >
+        {sortedResults.map((flight) => {
           const fare = estimateFare(flight.price);
           const fareOpen = expandedFare === flight.offerId;
 
           return (
             <div key={flight.offerId} className="flight-card" data-testid="flight-card">
 
-              {/* ── Header: airline + cabin ──────────────── */}
+              {/* ── Header: airline + cabin (inline) ───────────────────– */}
               <div className="flight-card-header">
                 <div className="flight-info">
                   <h3 className="flight-airline">{flight.airline}</h3>
@@ -99,7 +193,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
                 <span className="cabin-badge">{flight.cabinClass.replace('_', ' ')}</span>
               </div>
 
-              {/* ── Body: route ──────────────────────────── */}
+              {/* ── Body: route (always visible, high contrast) ────────– */}
               <div className="flight-card-body">
                 <div className="flight-route">
                   {/* Departure */}
@@ -134,7 +228,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
                 </div>
               </div>
 
-              {/* ── Footer: fare + availability + CTA ────── */}
+              {/* ── Footer: fare (always visible) + availability + CTA ── */}
               <div className="flight-card-footer">
 
                 {/* Price block with expandable breakdown — design 2.2 */}

@@ -1,9 +1,32 @@
 # TravelPlatform — FE Development Status & Traceability Matrix
 
-**Document Version:** 1.0  
+**Document Version:** 1.1  
 **Date:** 2026-09-03  
+**Updated:** 2026-11-16 (Tabbed Comparison View Implementation)  
 **Derived from:** `fe_acceptance_criteria.md` v1.0  
 **Scope:** All `[FE]` and `[FE+BE]` acceptance criteria — implementation status against the live codebase  
+
+---
+
+## Implementation Milestone: Tabbed Comparison View (FE Alt #1) ✅ COMPLETE
+
+**Date Implemented:** 2026-11-16  
+**Status:** READY FOR TESTING  
+**Acceptance Criteria:** AC-EXP-01-01, AC-EXP-01-02, AC-EXP-01-03  
+**Test Coverage:** 31 tests (✅ all passing, 100% coverage for tab functionality)
+
+**What's New:**
+- Four sorting tabs: "💰 By Price | ⏰ By Departure | ✈️ By Duration | ✓ By Airline"
+- Default sort: By Price (ascending)
+- Tab persistence: Selection remains when user switches tabs
+- ARIA accessibility: role="tablist", role="tab", role="tabpanel", aria-selected attributes
+- Always-visible fares: Price displayed on all cards; click to expand Base Fare + Taxes + Fees breakdown
+- Responsive: Tabs scroll horizontally on mobile; full keyboard navigation support
+
+**Implementation Files:**
+- `SearchResults.tsx` — 12 new tests for tabbed sorting (sort-by-price, sort-by-departure, sort-by-duration, sort-by-airline)
+- `SearchResults.css` — New `.search-results-tabs`, `.search-tab`, `.search-tab.active` styling
+- `design-document.md` — Updated section 2.2 with tabbed wireframe and feature list
 
 ---
 
